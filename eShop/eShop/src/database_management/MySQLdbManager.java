@@ -16,8 +16,9 @@ public class MySQLdbManager {
 	private String mySqlDatabaseName = null;
 	private String mySqlUsername = null;
 	private String mySqlPassword = null;
+	private boolean useUTF8Encoding = true;
 	private Connection dbConnection = null;
-	
+		
 	private String lastError = null;
 	
 	public MySQLdbManager() {
@@ -116,6 +117,16 @@ public class MySQLdbManager {
 		return this.mySqlPassword;
 	}
 	
+	public void setUtf8EncodingOn(boolean on) {
+		
+		this.useUTF8Encoding = on;
+	}
+	
+	public boolean isUtf8EncodingUsed() {
+		
+		return this.useUTF8Encoding;
+	}
+	
 	public boolean isConnected() {
 		
 		boolean result = true;
@@ -154,12 +165,14 @@ public class MySQLdbManager {
 			catch (SQLException ex) {
 				lastError = ex.getMessage();
 			}
-		}			
+		}	
 		
 		try {
+			
 			Class.forName(JDBCDRIVER).newInstance();
 			dbConnection = DriverManager.getConnection("jdbc:mysql://" + mySqlServerAddress + ":" + mySqlServerPort + "/" + mySqlDatabaseName + 
-					"?user=" + mySqlUsername + (mySqlPassword != null ? "&password=" + mySqlPassword : "") + "&useUnicode=TRUE&characterEncoding=UTF-8");
+					"?user=" + mySqlUsername + (mySqlPassword != null ? "&password=" + mySqlPassword : "") + 
+					(useUTF8Encoding == true ? "&useUnicode=TRUE&characterEncoding=UTF-8" : ""));
 		}
 		catch (Exception ex) {
 			

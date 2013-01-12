@@ -2,8 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="D:/Drugi/Docs/PU/3 kurs/2 trimestur/Kursov Proekt 2/eShop/mysql_connector/mysql-connector-java-5.1.22-bin.jar"/>
 	<classpathentry kind="lib" path="forms-1.2.0.jar" sourcepath="forms-1.2.0-src.zip"/>
 	<classpathentry kind="lib" path="swing-layout.jar" sourcepath="swing-layout-src.zip"/>
+	<classpathentry kind="lib" path="mysql_connector/mysql-connector-java-5.1.22-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

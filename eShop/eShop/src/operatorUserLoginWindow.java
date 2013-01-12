@@ -40,6 +40,8 @@ public class operatorUserLoginWindow extends JFrame {
 	public static int loggedUserId = -1;
 	public static String loggedUserNames = "";
 	
+	private final JLabel newPasswordAgainLabel = new JLabel();
+	private final JPasswordField newPasswordPasswordAgainField = new JPasswordField();
 	/**
 	 * Launch the application
 	 * @param args
@@ -62,7 +64,7 @@ public class operatorUserLoginWindow extends JFrame {
 	 */
 	public operatorUserLoginWindow() {
 		super();
-		setBounds(100, 100, 518, 221);
+		setBounds(100, 100, 518, 242);
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		try {
 			jbInit();
@@ -105,7 +107,7 @@ public class operatorUserLoginWindow extends JFrame {
 		getContentPane().add(groupCreateNewUserPanel);
 		groupCreateNewUserPanel.setLayout(null);
 		groupCreateNewUserPanel.setBorder(new TitledBorder(null, "Нов оператор:", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
-		groupCreateNewUserPanel.setBounds(263, 10, 243, 178);
+		groupCreateNewUserPanel.setBounds(259, 10, 243, 194);
 		
 		groupCreateNewUserPanel.add(newUsernameLabel);
 		newUsernameLabel.setText("Нов потребител:");
@@ -117,31 +119,44 @@ public class operatorUserLoginWindow extends JFrame {
 		
 		groupCreateNewUserPanel.add(newUserFirstNameLabel);
 		newUserFirstNameLabel.setText("Име:");
-		newUserFirstNameLabel.setBounds(10, 76, 95, 16);
+		newUserFirstNameLabel.setBounds(10, 98, 95, 16);
 		
 		groupCreateNewUserPanel.add(newUserLastNameLabel);
 		newUserLastNameLabel.setText("Фамилия:");
-		newUserLastNameLabel.setBounds(10, 98, 95, 16);
+		newUserLastNameLabel.setBounds(10, 120, 95, 16);
 		
 		groupCreateNewUserPanel.add(createNewOperatorButton);
+		createNewOperatorButton.addActionListener(new CreateNewOperatorButtonActionListener());
 		createNewOperatorButton.setText("Създай");
-		createNewOperatorButton.setBounds(127, 142, 106, 26);
+		createNewOperatorButton.setBounds(127, 158, 106, 26);
 		
 		groupCreateNewUserPanel.add(newUsernameTextField);
 		newUsernameTextField.setBounds(111, 30, 122, 20);
 		
 		groupCreateNewUserPanel.add(newFirstNameTextField);
-		newFirstNameTextField.setBounds(111, 74, 122, 20);
+		newFirstNameTextField.setBounds(111, 96, 122, 20);
 		
 		groupCreateNewUserPanel.add(newPasswordPasswordField);
 		newPasswordPasswordField.setBounds(111, 52, 122, 20);
 		
 		groupCreateNewUserPanel.add(newLastNameTextField);
-		newLastNameTextField.setBounds(111, 96, 122, 20);
+		newLastNameTextField.setBounds(111, 118, 122, 20);
+		
+		groupCreateNewUserPanel.add(newPasswordAgainLabel);
+		newPasswordAgainLabel.setText("Парола отново:");
+		newPasswordAgainLabel.setBounds(10, 76, 95, 16);
+		
+		groupCreateNewUserPanel.add(newPasswordPasswordAgainField);
+		newPasswordPasswordAgainField.setBounds(111, 75, 122, 20);
 	}
 	private class LoginButtonActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			loginButton_actionPerformed(e);
+		}
+	}
+	private class CreateNewOperatorButtonActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			createNewOperatorButton_actionPerformed(e);
 		}
 	}
 	
@@ -153,7 +168,7 @@ public class operatorUserLoginWindow extends JFrame {
 				
 				String password = "";
 				
-				char [] pass = loginPasswordPasswordField.getPassword();
+				char[] pass = loginPasswordPasswordField.getPassword();
 				for (int i = 0; i < pass.length; i++) {
 					
 					password += pass[i];
@@ -195,13 +210,119 @@ public class operatorUserLoginWindow extends JFrame {
 				}
 			}
 			else {
+				
+				JOptionPane.showMessageDialog(this, "Няма връзка с MySQL сървъра!", "Проблем с връзката", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
 		}
 		else {
+			
+			JOptionPane.showMessageDialog(this, "Няма връзка с MySQL сървъра!", "Проблем с връзката", JOptionPane.ERROR_MESSAGE);
 			return;
-		}
+		}		
+	}
+	
+	protected void createNewOperatorButton_actionPerformed(ActionEvent e) {
 		
+		if (databaseConnectWindow.dbPortal != null) {
+			
+			if (databaseConnectWindow.dbPortal.isConnected()) {
+				
+				char[] pass = newPasswordPasswordField.getPassword();
+				String password = "";
+				String encryptedPassword = "";
+				for (int i = 0; i < pass.length; i++) {
+					
+					password += pass[i];
+				}
+				
+				char[] pass2 = newPasswordPasswordAgainField.getPassword();
+				
+				if (pass.length == pass2.length) {
+				
+						for (int i = 0; i < pass.length; i++) {
+							
+							if (pass[i] != pass2[i]) {
+								
+								JOptionPane.showMessageDialog(this, "Паролите не съвпадат!", "Грешка", JOptionPane.ERROR_MESSAGE);
+								return;
+							}
+						}
+				}
+				else {
+				
+					JOptionPane.showMessageDialog(this, "Паролите не съвпадат!", "Грешка", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+								
+				if ((newUsernameTextField.getText().length() > 3) && (password.length() > 3) && 
+						(newFirstNameTextField.getText().length() > 3) && (newLastNameTextField.getText().length() > 3)) {
+					
+					try {
+						
+						encryptedPassword = Md5hashcalc.calculateMD5hash(password);
+					}
+					catch (Exception ex) {
+						
+						JOptionPane.showMessageDialog(this, "Фатална грешка при криптирането!", "Фатална грешка", JOptionPane.ERROR_MESSAGE);
+						System.exit(-1);
+					}
+					
+					//FIXME prone to sql injection
+					ResultSet rs = databaseConnectWindow.dbPortal.executeQuery("SELECT COUNT(*) FROM operators WHERE operator_username='" +
+							newUsernameTextField.getText() + "'");
+					
+					int usersCount = 0;
+					try {
+						
+						usersCount = rs.getInt(1);
+					}
+					catch (Exception ex) {						
+					}					
+					
+					if ((databaseConnectWindow.dbPortal.getLastError() == null) && (usersCount == 0)) {						
+						
+						//no such existing username so now we create it
+						//FIXME prone to sql injection
+						if (databaseConnectWindow.dbPortal.executeNonQuery("INSERT INTO operators(operator_username, operator_password, " +
+								"operator_first_name, operator_last_name) VALUES('" + newUsernameTextField.getText() + "', '" +
+								encryptedPassword + "', '" + newFirstNameTextField.getText() + "', '" + newLastNameTextField.getText() + "')") != 1) {
+							
+							JOptionPane.showMessageDialog(this, "Грешка при създаване на нов потребител!", "Грешка", JOptionPane.ERROR_MESSAGE);
+						}
+						else { //everything ok so login now
+							
+							loginUsernameTextField.setText(newUsernameTextField.getText());
+							loginPasswordPasswordField.setText(password);
+							loginButton_actionPerformed(null);
+						}						
+					}
+					else {
+						
+						if (databaseConnectWindow.dbPortal.getLastError() != null) {
+							
+							JOptionPane.showMessageDialog(this, "Няма връзка с MySQL сървъра!", "Проблем с връзката", JOptionPane.ERROR_MESSAGE);							
+						}
+						else {
+							
+							JOptionPane.showMessageDialog(this, "Избраното от Вас потребителско име вече съществува.", "Дублиращо се потребителско име", JOptionPane.ERROR_MESSAGE);							
+						}
+					}					
+				}
+				else {
+					
+					JOptionPane.showMessageDialog(this, "Необходимо е да въведете по-подробни данни!", "Неподробни данни", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			else {
+				
+				JOptionPane.showMessageDialog(this, "Няма връзка с MySQL сървъра!", "Проблем с връзката", JOptionPane.ERROR_MESSAGE);
+			}
+		}
+		else {
+			
+			JOptionPane.showMessageDialog(this, "Няма връзка с MySQL сървъра!", "Проблем с връзката", JOptionPane.ERROR_MESSAGE);
+		}		
 	}
 
 }

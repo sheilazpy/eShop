@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -47,7 +48,12 @@ public class mainWindow extends JFrame {
 	private final JPanel mainWindowStatusPanel = new JPanel();
 	private final JPanel panel = new JPanel();
 	private final JLabel mainWindowStatusPanelLoggedUserLabel = new JLabel();
+	private final JButton mainWindowStatusPanelLoggedUserLogin = new JButton();
 	private final JButton mainWindowStatusPanelLoggedUserSettings = new JButton();
+
+	private final JLabel mainWindowStatusPanelSeparatorLabel = new JLabel();
+	private final JLabel mainWindowStatusPanelSeparatorLabel2 = new JLabel();
+	private final JButton mainWindowStatusPanelLoggedUserLogout = new JButton();
 	/**
 	 * Launch the application
 	 * @param args
@@ -121,6 +127,10 @@ public class mainWindow extends JFrame {
 			new ColumnSpec[] {
 				ColumnSpec.decode("149dlu"),
 				ColumnSpec.decode("72px"),
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
 				FormFactory.DEFAULT_COLSPEC},
 			new RowSpec[] {
 				FormFactory.RELATED_GAP_ROWSPEC,
@@ -132,9 +142,24 @@ public class mainWindow extends JFrame {
 		mainWindowStatusPanelLoggedUserLabel.setText("Потребител:");
 		mainWindowStatusPanel.add(mainWindowStatusPanelLoggedUserLabel, new CellConstraints("1, 1, 1, 2, fill, fill"));
 		
-		mainWindowStatusPanel.add(mainWindowStatusPanelLoggedUserSettings, new CellConstraints(2, 1, 1, 2));
+		mainWindowStatusPanel.add(mainWindowStatusPanelLoggedUserLogin, new CellConstraints(2, 1, 1, 2));
+		mainWindowStatusPanelLoggedUserLogin.addActionListener(new MainWindowStatusPanelLoggedUserLoginActionListener());
+		mainWindowStatusPanelLoggedUserLogin.setText("Вход");
+		
+		mainWindowStatusPanel.add(mainWindowStatusPanelLoggedUserSettings, new CellConstraints(4, 1, 1, 2, CellConstraints.CENTER, CellConstraints.DEFAULT));
 		mainWindowStatusPanelLoggedUserSettings.addActionListener(new MainWindowStatusPanelLoggedUserSettingsActionListener());
-		mainWindowStatusPanelLoggedUserSettings.setText("Вход");
+		mainWindowStatusPanelLoggedUserSettings.setMargin(new Insets(2, 14, 2, 14));
+		mainWindowStatusPanelLoggedUserSettings.setText("Настройки");
+		
+		mainWindowStatusPanel.add(mainWindowStatusPanelSeparatorLabel, new CellConstraints(3, 1, 1, 2));
+		mainWindowStatusPanelSeparatorLabel.setText("   ");
+		
+		mainWindowStatusPanel.add(mainWindowStatusPanelSeparatorLabel2, new CellConstraints(5, 1, 1, 2));
+		mainWindowStatusPanelSeparatorLabel2.setText("   ");
+		
+		mainWindowStatusPanel.add(mainWindowStatusPanelLoggedUserLogout, new CellConstraints(6, 1, 1, 2));
+		mainWindowStatusPanelLoggedUserLogout.addActionListener(new MainWindowStatusPanelLoggedUserLogoutActionListener());
+		mainWindowStatusPanelLoggedUserLogout.setText("Изход");
 		mainWindowStatusPanelSetEnabled(false);
 	}
 	
@@ -170,9 +195,19 @@ public class mainWindow extends JFrame {
 			fileDisconnectFromDb_actionPerformed(e);
 		}
 	}
+	private class MainWindowStatusPanelLoggedUserLoginActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			mainWindowStatusPanelLoggedUserLogin_actionPerformed(e);
+		}
+	}
 	private class MainWindowStatusPanelLoggedUserSettingsActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			mainWindowStatusPanelLoggedUserSettings_actionPerformed(e);
+		}
+	}
+	private class MainWindowStatusPanelLoggedUserLogoutActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			mainWindowStatusPanelLoggedUserLogout_actionPerformed(e);
 		}
 	}
 
@@ -247,7 +282,7 @@ public class mainWindow extends JFrame {
 	
 	////////////////////////////////////////////////////////////////////////
 	
-	protected void mainWindowStatusPanelLoggedUserSettings_actionPerformed(ActionEvent e) {
+	protected void mainWindowStatusPanelLoggedUserLogin_actionPerformed(ActionEvent e) {
 		
 		operatorUserLoginWindow oul = new operatorUserLoginWindow();
 		oul.setVisible(true);
@@ -268,7 +303,18 @@ public class mainWindow extends JFrame {
 			}
 		}
 	};
-	
+		
 	////////////////////////////////////////////////////////////////////////
+	
+	protected void mainWindowStatusPanelLoggedUserSettings_actionPerformed(ActionEvent e) {
+		//TODO...
+	}
+	
+	protected void mainWindowStatusPanelLoggedUserLogout_actionPerformed(ActionEvent e) {
+		
+		this.Operations.setEnabled(false);
+		this.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
+		operatorUserLoginWindow.loggedUserId = -1;
+	}
 	
 }

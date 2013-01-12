@@ -1450,3 +1450,1676 @@ java.lang.NullPointerException: Cannot set a null prefix table
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+!SESSION 2013-01-12 19:21:05.035 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.5.0_12
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=bg_BG
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.ui.workbench 2 0 2013-01-12 19:24:39.224
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 19:24:39.225
+!MESSAGE Conflict for 'AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action6':
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action6,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForEmail),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@10699ea),sourcePriority=16384)
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action6,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForEmail),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@10699ea),sourcePriority=16384)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 19:24:39.225
+!MESSAGE Conflict for 'AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action2':
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action2,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForBlogger),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@10699ea),sourcePriority=16384)
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action2,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForBlogger),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@10699ea),sourcePriority=16384)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 19:24:39.225
+!MESSAGE Conflict for 'AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action4':
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action4,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForWiki),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@10699ea),sourcePriority=16384)
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action4,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForWiki),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@10699ea),sourcePriority=16384)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 19:24:39.225
+!MESSAGE Conflict for 'AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action5':
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action5,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScript),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@10699ea),sourcePriority=16384)
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action5,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScript),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@10699ea),sourcePriority=16384)
+
+!ENTRY com.swtdesigner 4 4 2013-01-12 22:21:20.839
+!MESSAGE Designer [6.9.0.200902272028]: com.swtdesigner.properties.PropertyException: com.swtdesigner.properties.PropertyException: com.swtdesigner.properties.PropertyException: java.lang.IndexOutOfBoundsException: The grid height 2 must be less than or equal to 1.
+<component: mainWindowStatusPanel class: JPanel>
+<component: null class: Container>
+<component: mainWindowPointer class: unknownType>
+
+Product: Swing Designer JBuilder Pro OEM
+Version: 6.9.0.200902272028
+Expected: Eclipse 3.4
+Actual: Eclipse 3.4.0.v20080512
+Actual Eclipse Build Name: 
+Actual Eclipse Build ID: M20080709-0800
+IDE Actual Name: JBuilder 2008 R2
+IDE Actual Version: 1.3.0.v20090320_1225-j21629
+IDE Actual NL: bg_BG
+Physical Address: 00-26-C7-56-B3-59, HardwareAddress[00-24-21-F5-3E-53], HardwareAddress[10001187F4DA9002421F53E53]
+Code Gen: JBuilder 2006 Style
+Events: Inner Class[3], Create Stubs
+Platform Product: JBuilder 2008 R2
+Platform Version: 1.3.0.v20090320_1225-j21629
+OS Name: Windows Vista
+OS Architecture: x86
+OS Version: 6.1
+
+!STACK 0
+org.apache.commons.lang.exception.NestableError: com.swtdesigner.properties.PropertyException: com.swtdesigner.properties.PropertyException: com.swtdesigner.properties.PropertyException: java.lang.IndexOutOfBoundsException: The grid height 2 must be less than or equal to 1.
+<component: mainWindowStatusPanel class: JPanel>
+<component: null class: Container>
+<component: mainWindowPointer class: unknownType>
+	at com.swtdesigner.model.swing.properties.custom.DesignTimeHelper.execute(DesignTimeHelper.java:56)
+	at com.swtdesigner.model.JavaInfo.notifyPropertyChanged(JavaInfo.java:5614)
+	at com.swtdesigner.model.JavaInfo.notifyPropertyChanged(JavaInfo.java:5595)
+	at com.swtdesigner.model.JavaInfo.unlockNotify(JavaInfo.java:5566)
+	at com.swtdesigner.model.JavaInfo.endEdit(JavaInfo.java:772)
+	at com.swtdesigner.model.swing.jgoodies.layout.FormLayoutInfo$DimensionsPropertyEditor.setDimensions(FormLayoutInfo.java:2147)
+	at com.swtdesigner.model.swing.jgoodies.layout.FormLayoutInfo$DimensionsPropertyEditor.editDimensions(FormLayoutInfo.java:2062)
+	at com.swtdesigner.model.swing.jgoodies.layout.FormLayoutInfo.editDimensions(FormLayoutInfo.java:639)
+	at com.swtdesigner.model.swing.jgoodies.layout.FormLayoutInfo.editRows(FormLayoutInfo.java:634)
+	at com.swtdesigner.model.swing.jgoodies.layout.FormLayoutInfo$2.run(FormLayoutInfo.java:626)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:583)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:500)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3823)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3422)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+Caused by: com.swtdesigner.properties.PropertyException: com.swtdesigner.properties.PropertyException: com.swtdesigner.properties.PropertyException: java.lang.IndexOutOfBoundsException: The grid height 2 must be less than or equal to 1.
+<component: mainWindowStatusPanel class: JPanel>
+<component: null class: Container>
+<component: mainWindowPointer class: unknownType>
+	at com.swtdesigner.model.swing.component.ComponentBeanInfo.prepareControl(ComponentBeanInfo.java:698)
+	at com.swtdesigner.model.swing.component.ComponentBeanInfo.createGUIComponent(ComponentBeanInfo.java:602)
+	at com.swtdesigner.model.JavaInfo$18.execute(JavaInfo.java:5619)
+	at com.swtdesigner.model.swing.properties.custom.DesignTimeHelper.execute(DesignTimeHelper.java:54)
+	... 37 more
+Caused by: com.swtdesigner.properties.PropertyException: com.swtdesigner.properties.PropertyException: java.lang.IndexOutOfBoundsException: The grid height 2 must be less than or equal to 1.
+<component: mainWindowStatusPanel class: JPanel>
+<component: null class: Container>
+	at com.swtdesigner.model.swing.component.ComponentBeanInfo.prepareControl(ComponentBeanInfo.java:698)
+	at com.swtdesigner.model.swing.component.ContainerBeanInfo.createControl(ContainerBeanInfo.java:697)
+	at com.swtdesigner.model.swing.component.ThisContainerBeanInfo.createControl(ThisContainerBeanInfo.java:365)
+	at com.swtdesigner.model.swing.component.ComponentBeanInfo.prepareControl(ComponentBeanInfo.java:616)
+	... 40 more
+Caused by: com.swtdesigner.properties.PropertyException: java.lang.IndexOutOfBoundsException: The grid height 2 must be less than or equal to 1.
+<component: mainWindowStatusPanel class: JPanel>
+	at com.swtdesigner.model.swing.component.ComponentBeanInfo.prepareControl(ComponentBeanInfo.java:698)
+	at com.swtdesigner.model.swing.component.ContainerBeanInfo.createControl(ContainerBeanInfo.java:697)
+	at com.swtdesigner.model.swing.component.ComponentBeanInfo.prepareControl(ComponentBeanInfo.java:616)
+	... 43 more
+Caused by: java.lang.IndexOutOfBoundsException: The grid height 2 must be less than or equal to 1.
+	at com.jgoodies.forms.layout.CellConstraints.ensureValidGridBounds(CellConstraints.java:967)
+	at com.jgoodies.forms.layout.FormLayout.setConstraints(FormLayout.java:822)
+	at com.jgoodies.forms.layout.FormLayout.addLayoutComponent(FormLayout.java:1101)
+	at java.awt.Container.addImpl(Container.java:1058)
+	at java.awt.Container.add(Container.java:899)
+	at com.swtdesigner.model.swing.layouts.managers.LayoutManagerInfo.addComponent(LayoutManagerInfo.java:277)
+	at com.swtdesigner.model.swing.layouts.managers.LayoutManagerInfo.addComponent(LayoutManagerInfo.java:274)
+	at com.swtdesigner.model.swing.component.ContainerBeanInfo.createControl(ContainerBeanInfo.java:738)
+	at com.swtdesigner.model.swing.component.ComponentBeanInfo.prepareControl(ComponentBeanInfo.java:616)
+	... 45 more
+
+!ENTRY com.swtdesigner 4 4 2013-01-12 22:21:23.155
+!MESSAGE Designer [6.9.0.200902272028]: java.lang.NullPointerException
+
+Product: Swing Designer JBuilder Pro OEM
+Version: 6.9.0.200902272028
+Expected: Eclipse 3.4
+Actual: Eclipse 3.4.0.v20080512
+Actual Eclipse Build Name: 
+Actual Eclipse Build ID: M20080709-0800
+IDE Actual Name: JBuilder 2008 R2
+IDE Actual Version: 1.3.0.v20090320_1225-j21629
+IDE Actual NL: bg_BG
+Physical Address: 00-26-C7-56-B3-59, HardwareAddress[00-24-21-F5-3E-53], HardwareAddress[10001187F4DA9002421F53E53]
+Code Gen: JBuilder 2006 Style
+Events: Inner Class[3], Create Stubs
+Platform Product: JBuilder 2008 R2
+Platform Version: 1.3.0.v20090320_1225-j21629
+OS Name: Windows Vista
+OS Architecture: x86
+OS Version: 6.1
+
+!STACK 0
+java.lang.NullPointerException
+	at com.swtdesigner.gef.policy.swing.layout.form.FormLayoutEditUtils.getCellRectangle(FormLayoutEditUtils.java:54)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormLayoutEditUtils.getCellRectangle(FormLayoutEditUtils.java:40)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormSelectionEditPolicy.getCellRectangle(FormSelectionEditPolicy.java:488)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormSelectionEditPolicy.getCellRectangle(FormSelectionEditPolicy.java:482)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormSelectionEditPolicy.access$200(FormSelectionEditPolicy.java:38)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormSelectionEditPolicy$4.relocate(FormSelectionEditPolicy.java:437)
+	at org.eclipse.gef.handles.AbstractHandle.validate(AbstractHandle.java:202)
+	at org.eclipse.draw2d.Figure.validate(Figure.java:1595)
+	at org.eclipse.draw2d.Figure.validate(Figure.java:1595)
+	at org.eclipse.draw2d.FreeformLayeredPane.validate(FreeformLayeredPane.java:122)
+	at org.eclipse.draw2d.FreeformViewport$FreeformViewportLayout.calculatePreferredSize(FreeformViewport.java:28)
+	at org.eclipse.draw2d.AbstractLayout.getPreferredSize(AbstractLayout.java:87)
+	at org.eclipse.draw2d.AbstractHintLayout.getPreferredSize(AbstractHintLayout.java:86)
+	at org.eclipse.draw2d.Figure.getPreferredSize(Figure.java:637)
+	at org.eclipse.draw2d.ScrollPaneSolver.solve(ScrollPaneSolver.java:73)
+	at org.eclipse.draw2d.FigureCanvas.layoutViewport(FigureCanvas.java:228)
+	at org.eclipse.draw2d.FigureCanvas.access$200(FigureCanvas.java:29)
+	at org.eclipse.draw2d.FigureCanvas$3.notifyValidating(FigureCanvas.java:191)
+	at org.eclipse.draw2d.UpdateManager.fireValidating(UpdateManager.java:93)
+	at org.eclipse.draw2d.DeferredUpdateManager.validateFigures(DeferredUpdateManager.java:226)
+	at org.eclipse.draw2d.DeferredUpdateManager.performUpdate(DeferredUpdateManager.java:132)
+	at org.eclipse.draw2d.DeferredUpdateManager$UpdateRequest.run(DeferredUpdateManager.java:57)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:133)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3800)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3425)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+
+!ENTRY com.swtdesigner 4 4 2013-01-12 22:21:23.166
+!MESSAGE Designer [6.9.0.200902272028]: java.lang.NullPointerException
+
+Product: Swing Designer JBuilder Pro OEM
+Version: 6.9.0.200902272028
+Expected: Eclipse 3.4
+Actual: Eclipse 3.4.0.v20080512
+Actual Eclipse Build Name: 
+Actual Eclipse Build ID: M20080709-0800
+IDE Actual Name: JBuilder 2008 R2
+IDE Actual Version: 1.3.0.v20090320_1225-j21629
+IDE Actual NL: bg_BG
+Physical Address: 00-26-C7-56-B3-59, HardwareAddress[00-24-21-F5-3E-53], HardwareAddress[10001187F4DA9002421F53E53]
+Code Gen: JBuilder 2006 Style
+Events: Inner Class[3], Create Stubs
+Platform Product: JBuilder 2008 R2
+Platform Version: 1.3.0.v20090320_1225-j21629
+OS Name: Windows Vista
+OS Architecture: x86
+OS Version: 6.1
+
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.draw2d.Figure.translateToParent(Figure.java:1561)
+	at org.eclipse.draw2d.Figure.translateToAbsolute(Figure.java:1551)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormSelectionEditPolicy$4.relocate(FormSelectionEditPolicy.java:438)
+	at org.eclipse.gef.handles.AbstractHandle.validate(AbstractHandle.java:202)
+	at org.eclipse.draw2d.Figure.validate(Figure.java:1595)
+	at org.eclipse.draw2d.Figure.validate(Figure.java:1595)
+	at org.eclipse.draw2d.FreeformLayeredPane.validate(FreeformLayeredPane.java:122)
+	at org.eclipse.draw2d.FreeformViewport$FreeformViewportLayout.calculatePreferredSize(FreeformViewport.java:28)
+	at org.eclipse.draw2d.AbstractLayout.getPreferredSize(AbstractLayout.java:87)
+	at org.eclipse.draw2d.AbstractHintLayout.getPreferredSize(AbstractHintLayout.java:86)
+	at org.eclipse.draw2d.Figure.getPreferredSize(Figure.java:637)
+	at org.eclipse.draw2d.ScrollPaneSolver.solve(ScrollPaneSolver.java:73)
+	at org.eclipse.draw2d.FigureCanvas.layoutViewport(FigureCanvas.java:228)
+	at org.eclipse.draw2d.FigureCanvas.access$200(FigureCanvas.java:29)
+	at org.eclipse.draw2d.FigureCanvas$3.notifyValidating(FigureCanvas.java:191)
+	at org.eclipse.draw2d.UpdateManager.fireValidating(UpdateManager.java:93)
+	at org.eclipse.draw2d.DeferredUpdateManager.validateFigures(DeferredUpdateManager.java:226)
+	at org.eclipse.draw2d.DeferredUpdateManager.performUpdate(DeferredUpdateManager.java:132)
+	at org.eclipse.draw2d.DeferredUpdateManager$UpdateRequest.run(DeferredUpdateManager.java:57)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:133)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3800)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3425)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+
+!ENTRY com.swtdesigner 4 4 2013-01-12 22:21:23.178
+!MESSAGE Designer [6.9.0.200902272028]: java.lang.NullPointerException
+
+Product: Swing Designer JBuilder Pro OEM
+Version: 6.9.0.200902272028
+Expected: Eclipse 3.4
+Actual: Eclipse 3.4.0.v20080512
+Actual Eclipse Build Name: 
+Actual Eclipse Build ID: M20080709-0800
+IDE Actual Name: JBuilder 2008 R2
+IDE Actual Version: 1.3.0.v20090320_1225-j21629
+IDE Actual NL: bg_BG
+Physical Address: 00-26-C7-56-B3-59, HardwareAddress[00-24-21-F5-3E-53], HardwareAddress[10001187F4DA9002421F53E53]
+Code Gen: JBuilder 2006 Style
+Events: Inner Class[3], Create Stubs
+Platform Product: JBuilder 2008 R2
+Platform Version: 1.3.0.v20090320_1225-j21629
+OS Name: Windows Vista
+OS Architecture: x86
+OS Version: 6.1
+
+!STACK 0
+java.lang.NullPointerException
+	at com.swtdesigner.gef.policy.swing.layout.form.FormLayoutEditUtils.getCellRectangle(FormLayoutEditUtils.java:54)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormLayoutEditUtils.getCellRectangle(FormLayoutEditUtils.java:40)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormSelectionEditPolicy.getCellRectangle(FormSelectionEditPolicy.java:488)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormSelectionEditPolicy.getCellRectangle(FormSelectionEditPolicy.java:482)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormSelectionEditPolicy.access$200(FormSelectionEditPolicy.java:38)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormSelectionEditPolicy$3.getReferenceBox(FormSelectionEditPolicy.java:356)
+	at org.eclipse.draw2d.RelativeLocator.relocate(RelativeLocator.java:112)
+	at org.eclipse.gef.handles.AbstractHandle.validate(AbstractHandle.java:202)
+	at org.eclipse.draw2d.Figure.validate(Figure.java:1595)
+	at org.eclipse.draw2d.Figure.validate(Figure.java:1595)
+	at org.eclipse.draw2d.FreeformLayeredPane.validate(FreeformLayeredPane.java:122)
+	at org.eclipse.draw2d.FreeformViewport$FreeformViewportLayout.calculatePreferredSize(FreeformViewport.java:28)
+	at org.eclipse.draw2d.AbstractLayout.getPreferredSize(AbstractLayout.java:87)
+	at org.eclipse.draw2d.AbstractHintLayout.getPreferredSize(AbstractHintLayout.java:86)
+	at org.eclipse.draw2d.Figure.getPreferredSize(Figure.java:637)
+	at org.eclipse.draw2d.ScrollPaneSolver.solve(ScrollPaneSolver.java:73)
+	at org.eclipse.draw2d.FigureCanvas.layoutViewport(FigureCanvas.java:228)
+	at org.eclipse.draw2d.FigureCanvas.access$200(FigureCanvas.java:29)
+	at org.eclipse.draw2d.FigureCanvas$3.notifyValidating(FigureCanvas.java:191)
+	at org.eclipse.draw2d.UpdateManager.fireValidating(UpdateManager.java:93)
+	at org.eclipse.draw2d.DeferredUpdateManager.validateFigures(DeferredUpdateManager.java:226)
+	at org.eclipse.draw2d.DeferredUpdateManager.performUpdate(DeferredUpdateManager.java:132)
+	at org.eclipse.draw2d.DeferredUpdateManager$UpdateRequest.run(DeferredUpdateManager.java:57)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:133)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3800)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3425)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+
+!ENTRY org.eclipse.ui 4 0 2013-01-12 22:21:23.220
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NullPointerException)
+	at org.eclipse.swt.SWT.error(SWT.java:3777)
+	at org.eclipse.swt.SWT.error(SWT.java:3695)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:136)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3800)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3425)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+Caused by: java.lang.NullPointerException
+	at org.eclipse.draw2d.RelativeLocator.relocate(RelativeLocator.java:112)
+	at org.eclipse.gef.handles.AbstractHandle.validate(AbstractHandle.java:202)
+	at org.eclipse.draw2d.Figure.validate(Figure.java:1595)
+	at org.eclipse.draw2d.Figure.validate(Figure.java:1595)
+	at org.eclipse.draw2d.FreeformLayeredPane.validate(FreeformLayeredPane.java:122)
+	at org.eclipse.draw2d.FreeformViewport$FreeformViewportLayout.calculatePreferredSize(FreeformViewport.java:28)
+	at org.eclipse.draw2d.AbstractLayout.getPreferredSize(AbstractLayout.java:87)
+	at org.eclipse.draw2d.AbstractHintLayout.getPreferredSize(AbstractHintLayout.java:86)
+	at org.eclipse.draw2d.Figure.getPreferredSize(Figure.java:637)
+	at org.eclipse.draw2d.ScrollPaneSolver.solve(ScrollPaneSolver.java:73)
+	at org.eclipse.draw2d.FigureCanvas.layoutViewport(FigureCanvas.java:228)
+	at org.eclipse.draw2d.FigureCanvas.access$200(FigureCanvas.java:29)
+	at org.eclipse.draw2d.FigureCanvas$3.notifyValidating(FigureCanvas.java:191)
+	at org.eclipse.draw2d.UpdateManager.fireValidating(UpdateManager.java:93)
+	at org.eclipse.draw2d.DeferredUpdateManager.validateFigures(DeferredUpdateManager.java:226)
+	at org.eclipse.draw2d.DeferredUpdateManager.performUpdate(DeferredUpdateManager.java:132)
+	at org.eclipse.draw2d.DeferredUpdateManager$UpdateRequest.run(DeferredUpdateManager.java:57)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:133)
+	... 22 more
+
+!ENTRY com.swtdesigner 4 4 2013-01-12 22:21:25.187
+!MESSAGE Designer [6.9.0.200902272028]: java.lang.NullPointerException
+
+Product: Swing Designer JBuilder Pro OEM
+Version: 6.9.0.200902272028
+Expected: Eclipse 3.4
+Actual: Eclipse 3.4.0.v20080512
+Actual Eclipse Build Name: 
+Actual Eclipse Build ID: M20080709-0800
+IDE Actual Name: JBuilder 2008 R2
+IDE Actual Version: 1.3.0.v20090320_1225-j21629
+IDE Actual NL: bg_BG
+Physical Address: 00-26-C7-56-B3-59, HardwareAddress[00-24-21-F5-3E-53], HardwareAddress[10001187F4DA9002421F53E53]
+Code Gen: JBuilder 2006 Style
+Events: Inner Class[3], Create Stubs
+Platform Product: JBuilder 2008 R2
+Platform Version: 1.3.0.v20090320_1225-j21629
+OS Name: Windows Vista
+OS Architecture: x86
+OS Version: 6.1
+
+!STACK 0
+java.lang.NullPointerException
+	at com.swtdesigner.gef.policy.swing.layout.form.header.edit.FormColumnHeaderEditPart.refreshVisuals(FormColumnHeaderEditPart.java:138)
+	at org.eclipse.gef.editparts.AbstractEditPart.refresh(AbstractEditPart.java:693)
+	at org.eclipse.gef.editparts.AbstractGraphicalEditPart.refresh(AbstractGraphicalEditPart.java:534)
+	at org.eclipse.gef.editparts.AbstractEditPart.addNotify(AbstractEditPart.java:221)
+	at org.eclipse.gef.editparts.AbstractGraphicalEditPart.addNotify(AbstractGraphicalEditPart.java:196)
+	at org.eclipse.gef.editparts.AbstractEditPart.addChild(AbstractEditPart.java:184)
+	at org.eclipse.gef.editparts.AbstractEditPart.refreshChildren(AbstractEditPart.java:742)
+	at org.eclipse.gef.editparts.AbstractEditPart.refresh(AbstractEditPart.java:694)
+	at org.eclipse.gef.editparts.AbstractGraphicalEditPart.refresh(AbstractGraphicalEditPart.java:534)
+	at com.swtdesigner.gef.header.edit.container.HeadersEditPart$1.selectionChanged(HeadersEditPart.java:40)
+	at org.eclipse.gef.ui.parts.AbstractEditPartViewer.fireSelectionChanged(AbstractEditPartViewer.java:186)
+	at com.swtdesigner.gef.DesignerEditor$DesignerGraphicalViewer.fireSelectionChanged(DesignerEditor.java:475)
+	at org.eclipse.gef.ui.parts.AbstractEditPartViewer.appendSelection(AbstractEditPartViewer.java:115)
+	at com.swtdesigner.gef.DesignerEditor$DesignerGraphicalViewer.appendSelection(DesignerEditor.java:470)
+	at org.eclipse.gef.ui.parts.AbstractEditPartViewer.select(AbstractEditPartViewer.java:466)
+	at com.swtdesigner.gef.DesignerEditor$DesignerGraphicalViewer.select(DesignerEditor.java:444)
+	at org.eclipse.gef.tools.SelectEditPartTracker.performSelection(SelectEditPartTracker.java:211)
+	at org.eclipse.gef.tools.SelectEditPartTracker.performConditionalSelection(SelectEditPartTracker.java:157)
+	at org.eclipse.gef.tools.SelectEditPartTracker.handleButtonDown(SelectEditPartTracker.java:88)
+	at org.eclipse.gef.tools.AbstractTool.mouseDown(AbstractTool.java:927)
+	at org.eclipse.gef.tools.SelectionTool.mouseDown(SelectionTool.java:450)
+	at org.eclipse.gef.EditDomain.mouseDown(EditDomain.java:189)
+	at com.swtdesigner.gef.domain.DesignerEditDomain.mouseDown(DesignerEditDomain.java:240)
+	at org.eclipse.gef.ui.parts.DomainEventDispatcher.dispatchMousePressed(DomainEventDispatcher.java:314)
+	at org.eclipse.draw2d.LightweightSystem$EventHandler.mouseDown(LightweightSystem.java:486)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:179)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3823)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3422)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+
+!ENTRY com.swtdesigner 4 4 2013-01-12 22:21:25.199
+!MESSAGE Designer [6.9.0.200902272028]: java.lang.NullPointerException
+
+Product: Swing Designer JBuilder Pro OEM
+Version: 6.9.0.200902272028
+Expected: Eclipse 3.4
+Actual: Eclipse 3.4.0.v20080512
+Actual Eclipse Build Name: 
+Actual Eclipse Build ID: M20080709-0800
+IDE Actual Name: JBuilder 2008 R2
+IDE Actual Version: 1.3.0.v20090320_1225-j21629
+IDE Actual NL: bg_BG
+Physical Address: 00-26-C7-56-B3-59, HardwareAddress[00-24-21-F5-3E-53], HardwareAddress[10001187F4DA9002421F53E53]
+Code Gen: JBuilder 2006 Style
+Events: Inner Class[3], Create Stubs
+Platform Product: JBuilder 2008 R2
+Platform Version: 1.3.0.v20090320_1225-j21629
+OS Name: Windows Vista
+OS Architecture: x86
+OS Version: 6.1
+
+!STACK 0
+java.lang.NullPointerException
+	at com.swtdesigner.gef.policy.swing.layout.form.header.edit.FormRowHeaderEditPart.refreshVisuals(FormRowHeaderEditPart.java:136)
+	at org.eclipse.gef.editparts.AbstractEditPart.refresh(AbstractEditPart.java:693)
+	at org.eclipse.gef.editparts.AbstractGraphicalEditPart.refresh(AbstractGraphicalEditPart.java:534)
+	at org.eclipse.gef.editparts.AbstractEditPart.addNotify(AbstractEditPart.java:221)
+	at org.eclipse.gef.editparts.AbstractGraphicalEditPart.addNotify(AbstractGraphicalEditPart.java:196)
+	at org.eclipse.gef.editparts.AbstractEditPart.addChild(AbstractEditPart.java:184)
+	at org.eclipse.gef.editparts.AbstractEditPart.refreshChildren(AbstractEditPart.java:742)
+	at org.eclipse.gef.editparts.AbstractEditPart.refresh(AbstractEditPart.java:694)
+	at org.eclipse.gef.editparts.AbstractGraphicalEditPart.refresh(AbstractGraphicalEditPart.java:534)
+	at com.swtdesigner.gef.header.edit.container.HeadersEditPart$1.selectionChanged(HeadersEditPart.java:40)
+	at org.eclipse.gef.ui.parts.AbstractEditPartViewer.fireSelectionChanged(AbstractEditPartViewer.java:186)
+	at com.swtdesigner.gef.DesignerEditor$DesignerGraphicalViewer.fireSelectionChanged(DesignerEditor.java:475)
+	at org.eclipse.gef.ui.parts.AbstractEditPartViewer.appendSelection(AbstractEditPartViewer.java:115)
+	at com.swtdesigner.gef.DesignerEditor$DesignerGraphicalViewer.appendSelection(DesignerEditor.java:470)
+	at org.eclipse.gef.ui.parts.AbstractEditPartViewer.select(AbstractEditPartViewer.java:466)
+	at com.swtdesigner.gef.DesignerEditor$DesignerGraphicalViewer.select(DesignerEditor.java:444)
+	at org.eclipse.gef.tools.SelectEditPartTracker.performSelection(SelectEditPartTracker.java:211)
+	at org.eclipse.gef.tools.SelectEditPartTracker.performConditionalSelection(SelectEditPartTracker.java:157)
+	at org.eclipse.gef.tools.SelectEditPartTracker.handleButtonDown(SelectEditPartTracker.java:88)
+	at org.eclipse.gef.tools.AbstractTool.mouseDown(AbstractTool.java:927)
+	at org.eclipse.gef.tools.SelectionTool.mouseDown(SelectionTool.java:450)
+	at org.eclipse.gef.EditDomain.mouseDown(EditDomain.java:189)
+	at com.swtdesigner.gef.domain.DesignerEditDomain.mouseDown(DesignerEditDomain.java:240)
+	at org.eclipse.gef.ui.parts.DomainEventDispatcher.dispatchMousePressed(DomainEventDispatcher.java:314)
+	at org.eclipse.draw2d.LightweightSystem$EventHandler.mouseDown(LightweightSystem.java:486)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:179)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3823)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3422)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+
+!ENTRY org.eclipse.ui 4 0 2013-01-12 22:21:28.036
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.apache.commons.lang.exception.NestableError: com.swtdesigner.properties.PropertyException: com.swtdesigner.properties.PropertyException: com.swtdesigner.properties.PropertyException: java.lang.IndexOutOfBoundsException: The grid height 2 must be less than or equal to 1.
+<component: mainWindowStatusPanel class: JPanel>
+<component: null class: Container>
+<component: mainWindowPointer class: unknownType>
+	at com.swtdesigner.model.swing.properties.custom.DesignTimeHelper.execute(DesignTimeHelper.java:56)
+	at com.swtdesigner.model.JavaInfo.notifyPropertyChanged(JavaInfo.java:5614)
+	at com.swtdesigner.model.JavaInfo.notifyPropertyChanged(JavaInfo.java:5595)
+	at com.swtdesigner.model.JavaInfo.unlockNotify(JavaInfo.java:5566)
+	at com.swtdesigner.model.JavaInfo.endEdit(JavaInfo.java:772)
+	at com.swtdesigner.model.util.model.ThisJavaInfoUtils.getStatementInForcedMethod(ThisJavaInfoUtils.java:512)
+	at com.swtdesigner.model.util.model.ThisJavaInfoUtils.getStatementInForcedMethod(ThisJavaInfoUtils.java:392)
+	at com.swtdesigner.model.util.model.ThisJavaInfoUtils.getStatement(ThisJavaInfoUtils.java:228)
+	at com.swtdesigner.model.swing.component.ThisContainerBeanInfo.getStatement(ThisContainerBeanInfo.java:225)
+	at com.swtdesigner.model.swing.JavaBeanInfo.getStatement(JavaBeanInfo.java:1410)
+	at com.swtdesigner.model.swing.component.ComponentBeanInfo.getStatement(ComponentBeanInfo.java:375)
+	at com.swtdesigner.model.JavaInfo.getSourceStartPosition(JavaInfo.java:6556)
+	at com.swtdesigner.gef.DesignerEditor.updateSelectionActions(DesignerEditor.java:1859)
+	at com.swtdesigner.gef.DesignerEditor.access$600(DesignerEditor.java:179)
+	at com.swtdesigner.gef.DesignerEditor$9.selectionChanged(DesignerEditor.java:852)
+	at org.eclipse.gef.ui.parts.AbstractEditPartViewer.fireSelectionChanged(AbstractEditPartViewer.java:186)
+	at com.swtdesigner.gef.DesignerEditor$DesignerGraphicalViewer.fireSelectionChanged(DesignerEditor.java:475)
+	at org.eclipse.gef.ui.parts.AbstractEditPartViewer.appendSelection(AbstractEditPartViewer.java:115)
+	at com.swtdesigner.gef.DesignerEditor$DesignerGraphicalViewer.appendSelection(DesignerEditor.java:470)
+	at org.eclipse.gef.ui.parts.AbstractEditPartViewer.select(AbstractEditPartViewer.java:466)
+	at com.swtdesigner.gef.DesignerEditor$DesignerGraphicalViewer.select(DesignerEditor.java:444)
+	at org.eclipse.gef.tools.SelectEditPartTracker.performSelection(SelectEditPartTracker.java:211)
+	at org.eclipse.gef.tools.SelectEditPartTracker.performConditionalSelection(SelectEditPartTracker.java:157)
+	at org.eclipse.gef.tools.SelectEditPartTracker.handleButtonDown(SelectEditPartTracker.java:88)
+	at org.eclipse.gef.tools.AbstractTool.mouseDown(AbstractTool.java:927)
+	at org.eclipse.gef.tools.SelectionTool.mouseDown(SelectionTool.java:450)
+	at org.eclipse.gef.EditDomain.mouseDown(EditDomain.java:189)
+	at com.swtdesigner.gef.domain.DesignerEditDomain.mouseDown(DesignerEditDomain.java:240)
+	at org.eclipse.gef.ui.parts.DomainEventDispatcher.dispatchMousePressed(DomainEventDispatcher.java:314)
+	at org.eclipse.draw2d.LightweightSystem$EventHandler.mouseDown(LightweightSystem.java:486)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:179)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3823)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3422)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+Caused by: com.swtdesigner.properties.PropertyException: com.swtdesigner.properties.PropertyException: com.swtdesigner.properties.PropertyException: java.lang.IndexOutOfBoundsException: The grid height 2 must be less than or equal to 1.
+<component: mainWindowStatusPanel class: JPanel>
+<component: null class: Container>
+<component: mainWindowPointer class: unknownType>
+	at com.swtdesigner.model.swing.component.ComponentBeanInfo.prepareControl(ComponentBeanInfo.java:698)
+	at com.swtdesigner.model.swing.component.ComponentBeanInfo.createGUIComponent(ComponentBeanInfo.java:602)
+	at com.swtdesigner.model.JavaInfo$18.execute(JavaInfo.java:5619)
+	at com.swtdesigner.model.swing.properties.custom.DesignTimeHelper.execute(DesignTimeHelper.java:54)
+	... 54 more
+Caused by: com.swtdesigner.properties.PropertyException: com.swtdesigner.properties.PropertyException: java.lang.IndexOutOfBoundsException: The grid height 2 must be less than or equal to 1.
+<component: mainWindowStatusPanel class: JPanel>
+<component: null class: Container>
+	at com.swtdesigner.model.swing.component.ComponentBeanInfo.prepareControl(ComponentBeanInfo.java:698)
+	at com.swtdesigner.model.swing.component.ContainerBeanInfo.createControl(ContainerBeanInfo.java:697)
+	at com.swtdesigner.model.swing.component.ThisContainerBeanInfo.createControl(ThisContainerBeanInfo.java:365)
+	at com.swtdesigner.model.swing.component.ComponentBeanInfo.prepareControl(ComponentBeanInfo.java:616)
+	... 57 more
+Caused by: com.swtdesigner.properties.PropertyException: java.lang.IndexOutOfBoundsException: The grid height 2 must be less than or equal to 1.
+<component: mainWindowStatusPanel class: JPanel>
+	at com.swtdesigner.model.swing.component.ComponentBeanInfo.prepareControl(ComponentBeanInfo.java:698)
+	at com.swtdesigner.model.swing.component.ContainerBeanInfo.createControl(ContainerBeanInfo.java:697)
+	at com.swtdesigner.model.swing.component.ComponentBeanInfo.prepareControl(ComponentBeanInfo.java:616)
+	... 60 more
+Caused by: java.lang.IndexOutOfBoundsException: The grid height 2 must be less than or equal to 1.
+	at com.jgoodies.forms.layout.CellConstraints.ensureValidGridBounds(CellConstraints.java:967)
+	at com.jgoodies.forms.layout.FormLayout.setConstraints(FormLayout.java:822)
+	at com.jgoodies.forms.layout.FormLayout.addLayoutComponent(FormLayout.java:1101)
+	at java.awt.Container.addImpl(Container.java:1058)
+	at java.awt.Container.add(Container.java:899)
+	at com.swtdesigner.model.swing.layouts.managers.LayoutManagerInfo.addComponent(LayoutManagerInfo.java:277)
+	at com.swtdesigner.model.swing.layouts.managers.LayoutManagerInfo.addComponent(LayoutManagerInfo.java:274)
+	at com.swtdesigner.model.swing.component.ContainerBeanInfo.createControl(ContainerBeanInfo.java:738)
+	at com.swtdesigner.model.swing.component.ComponentBeanInfo.prepareControl(ComponentBeanInfo.java:616)
+	... 62 more
+
+!ENTRY com.swtdesigner 4 4 2013-01-12 22:21:40.875
+!MESSAGE Designer [6.9.0.200902272028]: java.lang.NullPointerException
+
+Product: Swing Designer JBuilder Pro OEM
+Version: 6.9.0.200902272028
+Expected: Eclipse 3.4
+Actual: Eclipse 3.4.0.v20080512
+Actual Eclipse Build Name: 
+Actual Eclipse Build ID: M20080709-0800
+IDE Actual Name: JBuilder 2008 R2
+IDE Actual Version: 1.3.0.v20090320_1225-j21629
+IDE Actual NL: bg_BG
+Physical Address: 00-26-C7-56-B3-59, HardwareAddress[00-24-21-F5-3E-53], HardwareAddress[10001187F4DA9002421F53E53]
+Code Gen: JBuilder 2006 Style
+Events: Inner Class[3], Create Stubs
+Platform Product: JBuilder 2008 R2
+Platform Version: 1.3.0.v20090320_1225-j21629
+OS Name: Windows Vista
+OS Architecture: x86
+OS Version: 6.1
+
+!STACK 0
+java.lang.NullPointerException
+	at com.swtdesigner.gef.policy.swing.layout.form.FormLayoutEditUtils.getCellRectangle(FormLayoutEditUtils.java:54)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormLayoutEditUtils.getCellRectangle(FormLayoutEditUtils.java:40)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormSelectionEditPolicy.getCellRectangle(FormSelectionEditPolicy.java:488)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormSelectionEditPolicy.getCellRectangle(FormSelectionEditPolicy.java:482)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormSelectionEditPolicy.access$200(FormSelectionEditPolicy.java:38)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormSelectionEditPolicy$4.relocate(FormSelectionEditPolicy.java:437)
+	at org.eclipse.gef.handles.AbstractHandle.validate(AbstractHandle.java:202)
+	at org.eclipse.draw2d.Figure.validate(Figure.java:1595)
+	at org.eclipse.draw2d.Figure.validate(Figure.java:1595)
+	at org.eclipse.draw2d.FreeformLayeredPane.validate(FreeformLayeredPane.java:122)
+	at org.eclipse.draw2d.Figure.validate(Figure.java:1595)
+	at org.eclipse.draw2d.Viewport.validate(Viewport.java:351)
+	at org.eclipse.draw2d.Figure.validate(Figure.java:1595)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormLayoutEditPolicy.getHostFigureFeedbackBounds(FormLayoutEditPolicy.java:726)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormLayoutEditPolicy.paintHeaders(FormLayoutEditPolicy.java:790)
+	at com.swtdesigner.gef.header.edit.container.HeadersEditPart$2.paintFigure(HeadersEditPart.java:75)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:937)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1007)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1007)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1007)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1007)
+	at org.eclipse.draw2d.ScalableFreeformLayeredPane.paintClientArea(ScalableFreeformLayeredPane.java:53)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1007)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1002)
+	at org.eclipse.draw2d.Viewport.paintClientArea(Viewport.java:154)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1007)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.DeferredUpdateManager.repairDamage(DeferredUpdateManager.java:194)
+	at org.eclipse.draw2d.DeferredUpdateManager.performUpdate(DeferredUpdateManager.java:134)
+	at org.eclipse.draw2d.DeferredUpdateManager.performUpdate(DeferredUpdateManager.java:118)
+	at org.eclipse.draw2d.LightweightSystem.paint(LightweightSystem.java:206)
+	at org.eclipse.draw2d.LightweightSystem$4.handleEvent(LightweightSystem.java:110)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1012)
+	at org.eclipse.swt.widgets.Composite.WM_PAINT(Composite.java:1424)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3842)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4541)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2371)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3420)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:825)
+	at org.eclipse.jface.window.Window.open(Window.java:801)
+	at org.eclipse.ui.internal.EditorManager.saveAll(EditorManager.java:1161)
+	at org.eclipse.ui.internal.Workbench$17.run(Workbench.java:988)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.ui.internal.Workbench.saveAllEditors(Workbench.java:936)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:854)
+	at org.eclipse.ui.internal.Workbench.access$15(Workbench.java:838)
+	at org.eclipse.ui.internal.Workbench$23.run(Workbench.java:1082)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1080)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1052)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:719)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:698)
+	at org.eclipse.ui.internal.WorkbenchWindow$3.run(WorkbenchWindow.java:814)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:812)
+	at org.eclipse.jface.window.Window.handleShellCloseEvent(Window.java:741)
+	at org.eclipse.jface.window.Window$3.shellClosed(Window.java:687)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:92)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1012)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:307)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1643)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3789)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2366)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:477)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3877)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2366)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:477)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3877)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2371)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3420)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+
+!ENTRY com.swtdesigner 4 4 2013-01-12 22:21:40.911
+!MESSAGE Designer [6.9.0.200902272028]: java.lang.NullPointerException
+
+Product: Swing Designer JBuilder Pro OEM
+Version: 6.9.0.200902272028
+Expected: Eclipse 3.4
+Actual: Eclipse 3.4.0.v20080512
+Actual Eclipse Build Name: 
+Actual Eclipse Build ID: M20080709-0800
+IDE Actual Name: JBuilder 2008 R2
+IDE Actual Version: 1.3.0.v20090320_1225-j21629
+IDE Actual NL: bg_BG
+Physical Address: 00-26-C7-56-B3-59, HardwareAddress[00-24-21-F5-3E-53], HardwareAddress[10001187F4DA9002421F53E53]
+Code Gen: JBuilder 2006 Style
+Events: Inner Class[3], Create Stubs
+Platform Product: JBuilder 2008 R2
+Platform Version: 1.3.0.v20090320_1225-j21629
+OS Name: Windows Vista
+OS Architecture: x86
+OS Version: 6.1
+
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.draw2d.Figure.translateToParent(Figure.java:1561)
+	at org.eclipse.draw2d.Figure.translateToAbsolute(Figure.java:1551)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormSelectionEditPolicy$4.relocate(FormSelectionEditPolicy.java:438)
+	at org.eclipse.gef.handles.AbstractHandle.validate(AbstractHandle.java:202)
+	at org.eclipse.draw2d.Figure.validate(Figure.java:1595)
+	at org.eclipse.draw2d.Figure.validate(Figure.java:1595)
+	at org.eclipse.draw2d.FreeformLayeredPane.validate(FreeformLayeredPane.java:122)
+	at org.eclipse.draw2d.Figure.validate(Figure.java:1595)
+	at org.eclipse.draw2d.Viewport.validate(Viewport.java:351)
+	at org.eclipse.draw2d.Figure.validate(Figure.java:1595)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormLayoutEditPolicy.getHostFigureFeedbackBounds(FormLayoutEditPolicy.java:726)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormLayoutEditPolicy.paintHeaders(FormLayoutEditPolicy.java:790)
+	at com.swtdesigner.gef.header.edit.container.HeadersEditPart$2.paintFigure(HeadersEditPart.java:75)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:937)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1007)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1007)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1007)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1007)
+	at org.eclipse.draw2d.ScalableFreeformLayeredPane.paintClientArea(ScalableFreeformLayeredPane.java:53)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1007)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1002)
+	at org.eclipse.draw2d.Viewport.paintClientArea(Viewport.java:154)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1007)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.DeferredUpdateManager.repairDamage(DeferredUpdateManager.java:194)
+	at org.eclipse.draw2d.DeferredUpdateManager.performUpdate(DeferredUpdateManager.java:134)
+	at org.eclipse.draw2d.DeferredUpdateManager.performUpdate(DeferredUpdateManager.java:118)
+	at org.eclipse.draw2d.LightweightSystem.paint(LightweightSystem.java:206)
+	at org.eclipse.draw2d.LightweightSystem$4.handleEvent(LightweightSystem.java:110)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1012)
+	at org.eclipse.swt.widgets.Composite.WM_PAINT(Composite.java:1424)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3842)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4541)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2371)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3420)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:825)
+	at org.eclipse.jface.window.Window.open(Window.java:801)
+	at org.eclipse.ui.internal.EditorManager.saveAll(EditorManager.java:1161)
+	at org.eclipse.ui.internal.Workbench$17.run(Workbench.java:988)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.ui.internal.Workbench.saveAllEditors(Workbench.java:936)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:854)
+	at org.eclipse.ui.internal.Workbench.access$15(Workbench.java:838)
+	at org.eclipse.ui.internal.Workbench$23.run(Workbench.java:1082)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1080)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1052)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:719)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:698)
+	at org.eclipse.ui.internal.WorkbenchWindow$3.run(WorkbenchWindow.java:814)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:812)
+	at org.eclipse.jface.window.Window.handleShellCloseEvent(Window.java:741)
+	at org.eclipse.jface.window.Window$3.shellClosed(Window.java:687)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:92)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1012)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:307)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1643)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3789)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2366)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:477)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3877)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2366)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:477)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3877)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2371)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3420)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+
+!ENTRY com.swtdesigner 4 4 2013-01-12 22:21:40.948
+!MESSAGE Designer [6.9.0.200902272028]: java.lang.NullPointerException
+
+Product: Swing Designer JBuilder Pro OEM
+Version: 6.9.0.200902272028
+Expected: Eclipse 3.4
+Actual: Eclipse 3.4.0.v20080512
+Actual Eclipse Build Name: 
+Actual Eclipse Build ID: M20080709-0800
+IDE Actual Name: JBuilder 2008 R2
+IDE Actual Version: 1.3.0.v20090320_1225-j21629
+IDE Actual NL: bg_BG
+Physical Address: 00-26-C7-56-B3-59, HardwareAddress[00-24-21-F5-3E-53], HardwareAddress[10001187F4DA9002421F53E53]
+Code Gen: JBuilder 2006 Style
+Events: Inner Class[3], Create Stubs
+Platform Product: JBuilder 2008 R2
+Platform Version: 1.3.0.v20090320_1225-j21629
+OS Name: Windows Vista
+OS Architecture: x86
+OS Version: 6.1
+
+!STACK 0
+java.lang.NullPointerException
+	at com.swtdesigner.gef.policy.swing.layout.form.FormLayoutEditUtils.getCellRectangle(FormLayoutEditUtils.java:54)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormLayoutEditUtils.getCellRectangle(FormLayoutEditUtils.java:40)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormSelectionEditPolicy.getCellRectangle(FormSelectionEditPolicy.java:488)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormSelectionEditPolicy.getCellRectangle(FormSelectionEditPolicy.java:482)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormSelectionEditPolicy.access$200(FormSelectionEditPolicy.java:38)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormSelectionEditPolicy$3.getReferenceBox(FormSelectionEditPolicy.java:356)
+	at org.eclipse.draw2d.RelativeLocator.relocate(RelativeLocator.java:112)
+	at org.eclipse.gef.handles.AbstractHandle.validate(AbstractHandle.java:202)
+	at org.eclipse.draw2d.Figure.validate(Figure.java:1595)
+	at org.eclipse.draw2d.Figure.validate(Figure.java:1595)
+	at org.eclipse.draw2d.FreeformLayeredPane.validate(FreeformLayeredPane.java:122)
+	at org.eclipse.draw2d.Figure.validate(Figure.java:1595)
+	at org.eclipse.draw2d.Viewport.validate(Viewport.java:351)
+	at org.eclipse.draw2d.Figure.validate(Figure.java:1595)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormLayoutEditPolicy.getHostFigureFeedbackBounds(FormLayoutEditPolicy.java:726)
+	at com.swtdesigner.gef.policy.swing.layout.form.FormLayoutEditPolicy.paintHeaders(FormLayoutEditPolicy.java:790)
+	at com.swtdesigner.gef.header.edit.container.HeadersEditPart$2.paintFigure(HeadersEditPart.java:75)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:937)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1007)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1007)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1007)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1007)
+	at org.eclipse.draw2d.ScalableFreeformLayeredPane.paintClientArea(ScalableFreeformLayeredPane.java:53)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1007)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1002)
+	at org.eclipse.draw2d.Viewport.paintClientArea(Viewport.java:154)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:975)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1007)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:939)
+	at org.eclipse.draw2d.DeferredUpdateManager.repairDamage(DeferredUpdateManager.java:194)
+	at org.eclipse.draw2d.DeferredUpdateManager.performUpdate(DeferredUpdateManager.java:134)
+	at org.eclipse.draw2d.DeferredUpdateManager.performUpdate(DeferredUpdateManager.java:118)
+	at org.eclipse.draw2d.LightweightSystem.paint(LightweightSystem.java:206)
+	at org.eclipse.draw2d.LightweightSystem$4.handleEvent(LightweightSystem.java:110)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1012)
+	at org.eclipse.swt.widgets.Composite.WM_PAINT(Composite.java:1424)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3842)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4541)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2371)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3420)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:825)
+	at org.eclipse.jface.window.Window.open(Window.java:801)
+	at org.eclipse.ui.internal.EditorManager.saveAll(EditorManager.java:1161)
+	at org.eclipse.ui.internal.Workbench$17.run(Workbench.java:988)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.ui.internal.Workbench.saveAllEditors(Workbench.java:936)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:854)
+	at org.eclipse.ui.internal.Workbench.access$15(Workbench.java:838)
+	at org.eclipse.ui.internal.Workbench$23.run(Workbench.java:1082)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1080)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1052)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:719)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:698)
+	at org.eclipse.ui.internal.WorkbenchWindow$3.run(WorkbenchWindow.java:814)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:812)
+	at org.eclipse.jface.window.Window.handleShellCloseEvent(Window.java:741)
+	at org.eclipse.jface.window.Window$3.shellClosed(Window.java:687)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:92)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1012)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:307)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1643)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3789)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2366)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:477)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3877)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2366)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:477)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3877)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2371)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3420)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+
+!ENTRY org.eclipse.ui.workbench 4 0 2013-01-12 22:21:44.157
+!MESSAGE Cannot set a null prefix table
+!STACK 0
+java.lang.NullPointerException: Cannot set a null prefix table
+	at org.eclipse.jface.bindings.CachedBindingSet.setPrefixTable(CachedBindingSet.java:346)
+	at org.eclipse.jface.bindings.BindingManager.recomputeBindings(BindingManager.java:1765)
+	at org.eclipse.jface.bindings.BindingManager.contextManagerChanged(BindingManager.java:689)
+	at org.eclipse.core.commands.contexts.ContextManager.fireContextManagerChanged(ContextManager.java:152)
+	at org.eclipse.core.commands.contexts.ContextManager.removeActiveContext(ContextManager.java:232)
+	at org.eclipse.ui.internal.contexts.ContextAuthority.updateContext(ContextAuthority.java:767)
+	at org.eclipse.ui.internal.contexts.ContextAuthority.deactivateContext(ContextAuthority.java:362)
+	at org.eclipse.ui.internal.contexts.ContextService.deactivateContext(ContextService.java:140)
+	at org.eclipse.ui.internal.contexts.ContextService.deactivateContexts(ContextService.java:154)
+	at org.eclipse.ui.internal.contexts.SlaveContextService.dispose(SlaveContextService.java:240)
+	at org.eclipse.ui.internal.services.ServiceLocator.dispose(ServiceLocator.java:142)
+	at org.eclipse.ui.internal.WorkbenchWindow.hardClose(WorkbenchWindow.java:1627)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:722)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:698)
+	at org.eclipse.ui.internal.WorkbenchWindow$3.run(WorkbenchWindow.java:814)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:812)
+	at org.eclipse.jface.window.WindowManager.close(WindowManager.java:109)
+	at org.eclipse.ui.internal.Workbench$16.run(Workbench.java:912)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:909)
+	at org.eclipse.ui.internal.Workbench.access$15(Workbench.java:838)
+	at org.eclipse.ui.internal.Workbench$23.run(Workbench.java:1082)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1080)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1052)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:719)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:698)
+	at org.eclipse.ui.internal.WorkbenchWindow$3.run(WorkbenchWindow.java:814)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:812)
+	at org.eclipse.jface.window.Window.handleShellCloseEvent(Window.java:741)
+	at org.eclipse.jface.window.Window$3.shellClosed(Window.java:687)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:92)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1012)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:307)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1643)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3789)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2366)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:477)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3877)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2366)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:477)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3877)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2371)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3420)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+!SESSION 2013-01-12 22:21:52.984 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.5.0_12
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=bg_BG
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.ui.workbench 2 0 2013-01-12 22:24:15.854
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 22:24:15.854
+!MESSAGE Conflict for 'AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action6':
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action6,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForEmail),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@180e7a4),sourcePriority=16384)
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action6,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForEmail),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@180e7a4),sourcePriority=16384)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 22:24:15.854
+!MESSAGE Conflict for 'AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action2':
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action2,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForBlogger),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@180e7a4),sourcePriority=16384)
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action2,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForBlogger),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@180e7a4),sourcePriority=16384)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 22:24:15.854
+!MESSAGE Conflict for 'AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action4':
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action4,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForWiki),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@180e7a4),sourcePriority=16384)
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action4,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForWiki),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@180e7a4),sourcePriority=16384)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 22:24:15.854
+!MESSAGE Conflict for 'AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action5':
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action5,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScript),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@180e7a4),sourcePriority=16384)
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action5,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScript),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@180e7a4),sourcePriority=16384)
+
+!ENTRY org.eclipse.ui.ide 2 0 2013-01-12 22:34:17.406
+!MESSAGE Must specify a URI scheme:
+!STACK 1
+org.eclipse.core.runtime.CoreException: Must specify a URI scheme:
+	at org.eclipse.core.internal.filesystem.Policy.error(Policy.java:55)
+	at org.eclipse.core.internal.filesystem.Policy.error(Policy.java:50)
+	at org.eclipse.core.internal.filesystem.InternalFileSystemCore.getStore(InternalFileSystemCore.java:106)
+	at org.eclipse.core.filesystem.EFS.getStore(EFS.java:350)
+	at org.eclipse.ui.internal.ide.dialogs.IDEResourceInfoUtils.getFileStore(IDEResourceInfoUtils.java:204)
+	at org.eclipse.ui.internal.ide.dialogs.IDEResourceInfoUtils.getFileInfo(IDEResourceInfoUtils.java:177)
+	at org.eclipse.ui.internal.ide.LinkedResourceDecorator.decorate(LinkedResourceDecorator.java:94)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:263)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:72)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:356)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:338)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:374)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:334)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.filesystem 4 566 2013-01-12 22:34:17.408
+!MESSAGE Must specify a URI scheme:
+
+!ENTRY org.eclipse.ui.ide 2 0 2013-01-12 22:35:42.048
+!MESSAGE Must specify a URI scheme:
+!STACK 1
+org.eclipse.core.runtime.CoreException: Must specify a URI scheme:
+	at org.eclipse.core.internal.filesystem.Policy.error(Policy.java:55)
+	at org.eclipse.core.internal.filesystem.Policy.error(Policy.java:50)
+	at org.eclipse.core.internal.filesystem.InternalFileSystemCore.getStore(InternalFileSystemCore.java:106)
+	at org.eclipse.core.filesystem.EFS.getStore(EFS.java:350)
+	at org.eclipse.ui.internal.ide.dialogs.IDEResourceInfoUtils.getFileStore(IDEResourceInfoUtils.java:204)
+	at org.eclipse.ui.internal.ide.dialogs.IDEResourceInfoUtils.getFileInfo(IDEResourceInfoUtils.java:177)
+	at org.eclipse.ui.internal.ide.LinkedResourceDecorator.decorate(LinkedResourceDecorator.java:94)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:263)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:72)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:356)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:338)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:374)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:334)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.filesystem 4 566 2013-01-12 22:35:42.048
+!MESSAGE Must specify a URI scheme:
+
+!ENTRY org.eclipse.jface 2 0 2013-01-12 22:35:48.224
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2013-01-12 22:35:48.224
+!MESSAGE A conflict occurred for ALT+CTRL+U:
+Binding(ALT+CTRL+U,
+	ParameterizedCommand(Command(AUTOGEN:::org.vssplugin.menu.actionSet/org.vssplugin.menu.action.undocheckout,Undo Check Out,
+		,
+		Category(org.eclipse.core.commands.categories.autogenerated,Uncategorized,Commands that were either auto-generated or have no category,true),
+		ActionDelegateHandlerProxy(null,org.vssplugin.ui.menuactions.MenuUndoCheckOutAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+U,
+	ParameterizedCommand(Command(AUTOGEN:::org.vssplugin.menu.actionSet/org.vssplugin.menu.action.undocheckout,Undo Check Out,
+		,
+		Category(org.eclipse.core.commands.categories.autogenerated,Uncategorized,Commands that were either auto-generated or have no category,true),
+		ActionDelegateHandlerProxy(null,org.vssplugin.ui.menuactions.MenuUndoCheckOutAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.jface 2 0 2013-01-12 22:35:48.231
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2013-01-12 22:35:48.231
+!MESSAGE A conflict occurred for ALT+CTRL+I:
+Binding(ALT+CTRL+I,
+	ParameterizedCommand(Command(AUTOGEN:::org.vssplugin.menu.actionSet/org.vssplugin.menu.action.checkin,Check In,
+		,
+		Category(org.eclipse.core.commands.categories.autogenerated,Uncategorized,Commands that were either auto-generated or have no category,true),
+		ActionDelegateHandlerProxy(null,org.vssplugin.ui.menuactions.MenuCheckInAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+I,
+	ParameterizedCommand(Command(AUTOGEN:::org.vssplugin.menu.actionSet/org.vssplugin.menu.action.checkin,Check In,
+		,
+		Category(org.eclipse.core.commands.categories.autogenerated,Uncategorized,Commands that were either auto-generated or have no category,true),
+		ActionDelegateHandlerProxy(null,org.vssplugin.ui.menuactions.MenuCheckInAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.jface 2 0 2013-01-12 22:35:48.237
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2013-01-12 22:35:48.237
+!MESSAGE A conflict occurred for ALT+CTRL+O:
+Binding(ALT+CTRL+O,
+	ParameterizedCommand(Command(AUTOGEN:::org.vssplugin.menu.actionSet/org.vssplugin.menu.action.checkout,Check Out,
+		,
+		Category(org.eclipse.core.commands.categories.autogenerated,Uncategorized,Commands that were either auto-generated or have no category,true),
+		ActionDelegateHandlerProxy(null,org.vssplugin.ui.menuactions.MenuCheckOutAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+O,
+	ParameterizedCommand(Command(AUTOGEN:::org.vssplugin.menu.actionSet/org.vssplugin.menu.action.checkout,Check Out,
+		,
+		Category(org.eclipse.core.commands.categories.autogenerated,Uncategorized,Commands that were either auto-generated or have no category,true),
+		ActionDelegateHandlerProxy(null,org.vssplugin.ui.menuactions.MenuCheckOutAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.jface 2 0 2013-01-12 22:35:48.243
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2013-01-12 22:35:48.243
+!MESSAGE A conflict occurred for ALT+CTRL+R:
+Binding(ALT+CTRL+R,
+	ParameterizedCommand(Command(AUTOGEN:::org.vssplugin.menu.actionSet/org.vssplugin.menu.action.refresh,Refresh,
+		,
+		Category(org.eclipse.core.commands.categories.autogenerated,Uncategorized,Commands that were either auto-generated or have no category,true),
+		ActionDelegateHandlerProxy(null,org.vssplugin.ui.menuactions.MenuRefreshAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+R,
+	ParameterizedCommand(Command(AUTOGEN:::org.vssplugin.menu.actionSet/org.vssplugin.menu.action.refresh,Refresh,
+		,
+		Category(org.eclipse.core.commands.categories.autogenerated,Uncategorized,Commands that were either auto-generated or have no category,true),
+		ActionDelegateHandlerProxy(null,org.vssplugin.ui.menuactions.MenuRefreshAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.jface 2 0 2013-01-12 22:35:48.250
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2013-01-12 22:35:48.250
+!MESSAGE A conflict occurred for ALT+CTRL+A:
+Binding(ALT+CTRL+A,
+	ParameterizedCommand(Command(AUTOGEN:::org.vssplugin.menu.actionSet/org.vssplugin.menu.action.add,Add,
+		,
+		Category(org.eclipse.core.commands.categories.autogenerated,Uncategorized,Commands that were either auto-generated or have no category,true),
+		ActionDelegateHandlerProxy(null,org.vssplugin.ui.menuactions.MenuAddAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+A,
+	ParameterizedCommand(Command(AUTOGEN:::org.vssplugin.menu.actionSet/org.vssplugin.menu.action.add,Add,
+		,
+		Category(org.eclipse.core.commands.categories.autogenerated,Uncategorized,Commands that were either auto-generated or have no category,true),
+		ActionDelegateHandlerProxy(null,org.vssplugin.ui.menuactions.MenuAddAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.ui 4 4 2013-01-12 22:35:48.532
+!MESSAGE Referenced part does not exist yet: org.eclipse.ui.views.TaskList.
+
+!ENTRY org.eclipse.ui 4 4 2013-01-12 22:35:48.534
+!MESSAGE Referenced part does not exist yet: org.eclipse.ui.views.TaskList.
+
+!ENTRY org.eclipse.ui 4 0 2013-01-12 22:35:52.126
+!MESSAGE An unexpected exception was thrown.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.ui.model.WorkbenchLabelProvider.dispose(WorkbenchLabelProvider.java:118)
+	at org.eclipse.jface.viewers.ContentViewer.handleDispose(ContentViewer.java:154)
+	at org.eclipse.jface.viewers.StructuredViewer.handleDispose(StructuredViewer.java:2202)
+	at org.eclipse.jface.viewers.ContentViewer$2.widgetDisposed(ContentViewer.java:191)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:117)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1008)
+	at org.eclipse.swt.widgets.Widget.release(Widget.java:804)
+	at org.eclipse.swt.widgets.Composite.releaseChildren(Composite.java:755)
+	at org.eclipse.swt.widgets.Widget.release(Widget.java:807)
+	at org.eclipse.swt.widgets.Composite.releaseChildren(Composite.java:755)
+	at org.eclipse.swt.widgets.Widget.release(Widget.java:807)
+	at org.eclipse.swt.widgets.Widget.dispose(Widget.java:441)
+	at org.eclipse.ui.internal.PartPane.dispose(PartPane.java:179)
+	at org.eclipse.ui.internal.ViewPane.dispose(ViewPane.java:192)
+	at org.eclipse.ui.internal.WorkbenchPartReference.dispose(WorkbenchPartReference.java:678)
+	at org.eclipse.ui.internal.WorkbenchPage.disposePart(WorkbenchPage.java:1682)
+	at org.eclipse.ui.internal.WorkbenchPage.partRemoved(WorkbenchPage.java:1674)
+	at org.eclipse.ui.internal.ViewFactory.releaseView(ViewFactory.java:256)
+	at org.eclipse.ui.internal.Perspective.dispose(Perspective.java:281)
+	at org.eclipse.ui.internal.WorkbenchPage.dispose(WorkbenchPage.java:1753)
+	at org.eclipse.ui.internal.WorkbenchWindow.closeAllPages(WorkbenchWindow.java:849)
+	at org.eclipse.ui.internal.WorkbenchWindow.hardClose(WorkbenchWindow.java:1585)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:722)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:698)
+	at org.eclipse.ui.internal.WorkbenchWindow$3.run(WorkbenchWindow.java:814)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:812)
+	at org.eclipse.jface.window.Window.handleShellCloseEvent(Window.java:741)
+	at org.eclipse.jface.window.Window$3.shellClosed(Window.java:687)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:92)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1012)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:307)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1643)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3789)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2366)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:477)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3877)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2366)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:477)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3877)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2371)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3420)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+
+!ENTRY org.eclipse.ui.workbench 4 0 2013-01-12 22:35:52.131
+!MESSAGE An unexpected exception was thrown.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.ui.model.WorkbenchLabelProvider.dispose(WorkbenchLabelProvider.java:118)
+	at org.vssplugin.ui.view.CheckOutView.dispose(CheckOutView.java:435)
+	at org.eclipse.ui.internal.WorkbenchPartReference.doDisposePart(WorkbenchPartReference.java:730)
+	at org.eclipse.ui.internal.ViewReference.doDisposePart(ViewReference.java:105)
+	at org.eclipse.ui.internal.WorkbenchPartReference.dispose(WorkbenchPartReference.java:681)
+	at org.eclipse.ui.internal.WorkbenchPage.disposePart(WorkbenchPage.java:1682)
+	at org.eclipse.ui.internal.WorkbenchPage.partRemoved(WorkbenchPage.java:1674)
+	at org.eclipse.ui.internal.ViewFactory.releaseView(ViewFactory.java:256)
+	at org.eclipse.ui.internal.Perspective.dispose(Perspective.java:281)
+	at org.eclipse.ui.internal.WorkbenchPage.dispose(WorkbenchPage.java:1753)
+	at org.eclipse.ui.internal.WorkbenchWindow.closeAllPages(WorkbenchWindow.java:849)
+	at org.eclipse.ui.internal.WorkbenchWindow.hardClose(WorkbenchWindow.java:1585)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:722)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:698)
+	at org.eclipse.ui.internal.WorkbenchWindow$3.run(WorkbenchWindow.java:814)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:812)
+	at org.eclipse.jface.window.Window.handleShellCloseEvent(Window.java:741)
+	at org.eclipse.jface.window.Window$3.shellClosed(Window.java:687)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:92)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1012)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:307)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1643)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3789)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2366)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:477)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3877)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2366)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:477)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3877)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2371)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3420)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+
+!ENTRY org.eclipse.ui.workbench 4 0 2013-01-12 22:36:28.116
+!MESSAGE Cannot set a null prefix table
+!STACK 0
+java.lang.NullPointerException: Cannot set a null prefix table
+	at org.eclipse.jface.bindings.CachedBindingSet.setPrefixTable(CachedBindingSet.java:346)
+	at org.eclipse.jface.bindings.BindingManager.recomputeBindings(BindingManager.java:1765)
+	at org.eclipse.jface.bindings.BindingManager.contextManagerChanged(BindingManager.java:689)
+	at org.eclipse.core.commands.contexts.ContextManager.fireContextManagerChanged(ContextManager.java:152)
+	at org.eclipse.core.commands.contexts.ContextManager.removeActiveContext(ContextManager.java:232)
+	at org.eclipse.ui.internal.contexts.ContextAuthority.updateContext(ContextAuthority.java:767)
+	at org.eclipse.ui.internal.contexts.ContextAuthority.deactivateContext(ContextAuthority.java:362)
+	at org.eclipse.ui.internal.contexts.ContextService.deactivateContext(ContextService.java:140)
+	at org.eclipse.ui.internal.contexts.ContextService.deactivateContexts(ContextService.java:154)
+	at org.eclipse.ui.internal.contexts.SlaveContextService.dispose(SlaveContextService.java:240)
+	at org.eclipse.ui.internal.services.ServiceLocator.dispose(ServiceLocator.java:142)
+	at org.eclipse.ui.internal.WorkbenchWindow.hardClose(WorkbenchWindow.java:1627)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:722)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:698)
+	at org.eclipse.ui.internal.WorkbenchWindow$3.run(WorkbenchWindow.java:814)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:812)
+	at org.eclipse.jface.window.WindowManager.close(WindowManager.java:109)
+	at org.eclipse.ui.internal.Workbench$16.run(Workbench.java:912)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:909)
+	at org.eclipse.ui.internal.Workbench.access$15(Workbench.java:838)
+	at org.eclipse.ui.internal.Workbench$23.run(Workbench.java:1082)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1080)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1052)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:719)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:698)
+	at org.eclipse.ui.internal.WorkbenchWindow$3.run(WorkbenchWindow.java:814)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:812)
+	at org.eclipse.jface.window.Window.handleShellCloseEvent(Window.java:741)
+	at org.eclipse.jface.window.Window$3.shellClosed(Window.java:687)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:92)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1012)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:307)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1643)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3789)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2366)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:477)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3877)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2366)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:477)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3877)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2371)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3420)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+!SESSION 2013-01-12 22:36:37.265 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.5.0_12
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=bg_BG
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.ui.workbench 2 0 2013-01-12 22:38:45.893
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 22:38:45.893
+!MESSAGE Conflict for 'AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action6':
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action6,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForEmail),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@62fb35),sourcePriority=16384)
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action6,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForEmail),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@62fb35),sourcePriority=16384)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 22:38:45.893
+!MESSAGE Conflict for 'AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action2':
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action2,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForBlogger),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@62fb35),sourcePriority=16384)
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action2,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForBlogger),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@62fb35),sourcePriority=16384)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 22:38:45.893
+!MESSAGE Conflict for 'AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action4':
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action4,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForWiki),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@62fb35),sourcePriority=16384)
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action4,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForWiki),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@62fb35),sourcePriority=16384)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 22:38:45.893
+!MESSAGE Conflict for 'AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action5':
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action5,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScript),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@62fb35),sourcePriority=16384)
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action5,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScript),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@62fb35),sourcePriority=16384)

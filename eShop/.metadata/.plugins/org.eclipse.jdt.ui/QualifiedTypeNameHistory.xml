@@ -15,9 +15,9 @@
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="database_management.MySQLdbManager"/>
 <fullyQualifiedTypeName name="operatorUserLogin"/>
-<fullyQualifiedTypeName name="databaseConnectWindow"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-<fullyQualifiedTypeName name="md5_calculator.Md5hashcalc"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="operatorUserLoginWindow"/>
+<fullyQualifiedTypeName name="databaseConnectWindow"/>
+<fullyQualifiedTypeName name="md5_calculator.Md5hashcalc"/>
 </qualifiedTypeNameHistroy>
