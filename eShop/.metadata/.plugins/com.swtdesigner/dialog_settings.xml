@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="com.swtdesigner.gef.tools.common.RenameBeansDialog">
+		<item key="width" value="525"/>
+		<item key="height" value="281"/>
+		<item key="y" value="260"/>
+		<item key="x" value="424"/>
+	</section>
+</section>

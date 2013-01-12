@@ -1,0 +1,150 @@
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.JOptionPane;
+
+import database_management.MySQLdbManager;
+
+public class databaseConnectWindow extends JFrame {
+
+	private final JLabel label = new JLabel();
+	private final JLabel label_1 = new JLabel();
+	private final JLabel label_2 = new JLabel();
+	private final JLabel label_3 = new JLabel();
+	private final JLabel label_4 = new JLabel();
+	private final JButton connectToDatabaseButton = new JButton();
+	private final JTextField mysqlServerAddressTextField = new JTextField();
+	private final JTextField mysqlPortTextField = new JTextField();
+	private final JTextField mysqlDatabaseNameTextField = new JTextField();
+	private final JTextField mysqlUsernameTextField = new JTextField();
+	private final JPasswordField mysqlPasswordPasswordField = new JPasswordField();
+	public static MySQLdbManager dbPortal = null;
+	
+	/**
+	 * Launch the application
+	 * @param args
+	 */
+	public static void main(String args[]) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					databaseConnectWindow frame = new databaseConnectWindow();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame
+	 */
+	public databaseConnectWindow() {
+		super();
+		setBounds(100, 100, 384, 203);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		try {
+			jbInit();
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		//
+	}
+	private void jbInit() throws Exception {
+		getContentPane().setLayout(null);
+		setAlwaysOnTop(true);
+		setResizable(false);
+		setTitle("Свързване с базата данни");
+		setName("databaseConnectWindowFrame");
+		
+		getContentPane().add(label);
+		label.setText("Адрес на MySQL сървъра:");
+		label.setBounds(10, 10, 165, 16);
+		
+		getContentPane().add(label_1);
+		label_1.setText("Име на базата данни:");
+		label_1.setBounds(10, 54, 165, 16);
+		
+		getContentPane().add(label_2);
+		label_2.setText("Порт:");
+		label_2.setBounds(10, 32, 156, 16);
+		
+		getContentPane().add(label_3);
+		label_3.setText("Потребителско име:");
+		label_3.setBounds(10, 76, 165, 16);
+		
+		getContentPane().add(label_4);
+		label_4.setText("Парола:");
+		label_4.setBounds(10, 98, 156, 16);
+		
+		getContentPane().add(connectToDatabaseButton);
+		connectToDatabaseButton.addActionListener(new ConnectToDatabaseButtonActionListener());
+		connectToDatabaseButton.setText("Свържи се!");
+		connectToDatabaseButton.setBounds(132, 135, 106, 26);
+		
+		getContentPane().add(mysqlServerAddressTextField);
+		mysqlServerAddressTextField.setText("127.0.0.1");
+		mysqlServerAddressTextField.setBounds(181, 8, 185, 20);
+		
+		getContentPane().add(mysqlPortTextField);
+		mysqlPortTextField.setText("3306");
+		mysqlPortTextField.setBounds(181, 30, 91, 20);
+		
+		getContentPane().add(mysqlDatabaseNameTextField);
+		mysqlDatabaseNameTextField.setText("shop");
+		mysqlDatabaseNameTextField.setBounds(181, 52, 181, 20);
+		
+		getContentPane().add(mysqlUsernameTextField);
+		mysqlUsernameTextField.setText("root");
+		mysqlUsernameTextField.setBounds(181, 76, 180, 18);
+		
+		getContentPane().add(mysqlPasswordPasswordField);
+		mysqlPasswordPasswordField.setBounds(181, 96, 181, 20);
+	}
+	private class ConnectToDatabaseButtonActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			connectToDatabaseButton_actionPerformed(e);
+		}
+	}
+	protected void connectToDatabaseButton_actionPerformed(ActionEvent e) {
+		
+		String password = "";
+		
+		char [] pass = mysqlPasswordPasswordField.getPassword();
+		for (int i = 0; i < pass.length; i++) {
+			
+			password += pass[i];
+		}
+		
+		dbPortal = new MySQLdbManager(mysqlServerAddressTextField.getText(),
+				mysqlDatabaseNameTextField.getText(), Integer.parseInt(mysqlPortTextField.getText()),
+				mysqlUsernameTextField.getText(), password);
+		
+		
+		
+		/*if (dbPortal.connect() == false) { //now check for database name that is not existing
+			
+			dbPortal.setMySqlActiveDatabase("");
+			dbPortal.disconnect(); //just in case
+			
+			if (dbPortal.connect() == false) { //connection settings problem or not running MySQL server
+				dbPortal.finallize();
+				JOptionPane.showMessageDialog(this, "Грешка при свързването! Проверете настройките и дали MySQL сървът е стартиран!", 
+						"Проблем с връзката!", JOptionPane.INFORMATION_MESSAGE);
+			}
+			else { //will have to create new database
+//				JOptionPane.showMessageDialog(this, 
+			}
+			
+		}//*/		
+		
+	}
+
+}
