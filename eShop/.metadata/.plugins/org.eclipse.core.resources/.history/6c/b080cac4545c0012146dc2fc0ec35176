@@ -169,7 +169,6 @@ public class mainWindow extends JFrame {
 			databaseConnectWindow.dbPortal.finallize();
 			this.Operations.setEnabled(false);
 			this.FileDisconnectFromDb.setEnabled(false);
-			this.FileConnectToDb.setEnabled(true);
 		}
 	}
 	

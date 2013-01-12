@@ -23,7 +23,6 @@ public class mainWindow extends JFrame {
 	private final JMenuItem FileExit = new JMenuItem();
 	private static mainWindow mainWindowPointer;
 	
-	private final JMenuItem FileDisconnectFromDb = new JMenuItem();
 	/**
 	 * Launch the application
 	 * @param args
@@ -70,11 +69,6 @@ public class mainWindow extends JFrame {
 		File.add(FileConnectToDb);
 		FileConnectToDb.addActionListener(new FileConnectToDbActionListener());
 		FileConnectToDb.setText("Свържи се с БД");
-		
-		File.add(FileDisconnectFromDb);
-		FileDisconnectFromDb.addActionListener(new FileDisconnectFromDbActionListener());
-		FileDisconnectFromDb.setText("Затвори връзката с БД");
-		FileDisconnectFromDb.setEnabled(false);
 
 		File.addSeparator();
 		
@@ -106,11 +100,6 @@ public class mainWindow extends JFrame {
 	private class FileConnectToDbActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			fileConnectToDb_actionPerformed(e);
-		}
-	}
-	private class FileDisconnectFromDbActionListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			fileDisconnectFromDb_actionPerformed(e);
 		}
 	}
 
@@ -151,10 +140,7 @@ public class mainWindow extends JFrame {
         	if (databaseConnectWindow.dbPortal != null) {
     			
     			if (databaseConnectWindow.dbPortal.isConnected()) {
-    				
     				mainWindowPointer.Operations.setEnabled(true);
-    				mainWindowPointer.FileConnectToDb.setEnabled(false);
-    				mainWindowPointer.FileDisconnectFromDb.setEnabled(true);
     			}
     			else {
     				mainWindowPointer.Operations.setEnabled(false);
@@ -162,15 +148,5 @@ public class mainWindow extends JFrame {
     		}            
         }
     };
-	protected void fileDisconnectFromDb_actionPerformed(ActionEvent e) {
-		
-		if (databaseConnectWindow.dbPortal != null) {
-			
-			databaseConnectWindow.dbPortal.finallize();
-			this.Operations.setEnabled(false);
-			this.FileDisconnectFromDb.setEnabled(false);
-			this.FileConnectToDb.setEnabled(true);
-		}
-	}
 	
 }

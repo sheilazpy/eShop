@@ -74,7 +74,6 @@ public class mainWindow extends JFrame {
 		File.add(FileDisconnectFromDb);
 		FileDisconnectFromDb.addActionListener(new FileDisconnectFromDbActionListener());
 		FileDisconnectFromDb.setText("Затвори връзката с БД");
-		FileDisconnectFromDb.setEnabled(false);
 
 		File.addSeparator();
 		
@@ -151,10 +150,7 @@ public class mainWindow extends JFrame {
         	if (databaseConnectWindow.dbPortal != null) {
     			
     			if (databaseConnectWindow.dbPortal.isConnected()) {
-    				
     				mainWindowPointer.Operations.setEnabled(true);
-    				mainWindowPointer.FileConnectToDb.setEnabled(false);
-    				mainWindowPointer.FileDisconnectFromDb.setEnabled(true);
     			}
     			else {
     				mainWindowPointer.Operations.setEnabled(false);
@@ -168,8 +164,6 @@ public class mainWindow extends JFrame {
 			
 			databaseConnectWindow.dbPortal.finallize();
 			this.Operations.setEnabled(false);
-			this.FileDisconnectFromDb.setEnabled(false);
-			this.FileConnectToDb.setEnabled(true);
 		}
 	}
 	

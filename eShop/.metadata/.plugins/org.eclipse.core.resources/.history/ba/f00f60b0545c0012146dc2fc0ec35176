@@ -153,7 +153,6 @@ public class mainWindow extends JFrame {
     			if (databaseConnectWindow.dbPortal.isConnected()) {
     				
     				mainWindowPointer.Operations.setEnabled(true);
-    				mainWindowPointer.FileConnectToDb.setEnabled(false);
     				mainWindowPointer.FileDisconnectFromDb.setEnabled(true);
     			}
     			else {
@@ -169,7 +168,6 @@ public class mainWindow extends JFrame {
 			databaseConnectWindow.dbPortal.finallize();
 			this.Operations.setEnabled(false);
 			this.FileDisconnectFromDb.setEnabled(false);
-			this.FileConnectToDb.setEnabled(true);
 		}
 	}
 	
