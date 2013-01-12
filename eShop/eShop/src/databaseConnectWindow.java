@@ -1,7 +1,6 @@
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
@@ -13,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import database_management.MySQLdbManager;
+import md5_calculator.Md5hashcalc;
 
 public class databaseConnectWindow extends JFrame {
 
@@ -179,7 +179,7 @@ public class databaseConnectWindow extends JFrame {
 			return false;
 		}
 		
-		if (dbPortal.executeNonQuery("CREATE DATABASE " + mysqlDatabaseNameTextField.getText()) != 1) {
+		if (dbPortal.executeNonQuery("CREATE DATABASE " + mysqlDatabaseNameTextField.getText() + " COLLATE utf8_general_ci") != 1) {
 			
 			dbPortal.executeNonQuery("DROP DATABASE " + mysqlDatabaseNameTextField.getText());
 			dbPortal.disconnect();
@@ -209,7 +209,7 @@ public class databaseConnectWindow extends JFrame {
 		}
 		
 		dbPortal.executeNonQuery("CREATE TABLE operators (operator_id int NOT NULL AUTO_INCREMENT primary key," + 
-				"operator_username nvarchar(20) NOT NULL, operator_password nvarchar(20) NOT NULL," + 
+				"operator_username nvarchar(20) NOT NULL, operator_password nvarchar(64) NOT NULL," + 
 				"operator_first_name nvarchar(20) NOT NULL, operator_last_name nvarchar(20) NOT NULL)");
 		
 		dbPortal.executeNonQuery("CREATE TABLE orders (order_id int NOT NULL AUTO_INCREMENT primary key," + 
@@ -225,6 +225,25 @@ public class databaseConnectWindow extends JFrame {
 				"CONSTRAINT FK_ORDERS FOREIGN KEY (order_detail_order_id) REFERENCES orders(order_id) ON DELETE CASCADE ON UPDATE CASCADE," +
 				"CONSTRAINT FK_PRODUCTS FOREIGN KEY (order_detail_product_id) REFERENCES products(product_id) ON DELETE CASCADE ON UPDATE CASCADE)");
 		
+		try {
+			if (dbPortal.executeNonQuery("INSERT INTO operators (operator_username, operator_password, operator_first_name, operator_last_name)" + 
+					" VALUES ('operator1', '" + Md5hashcalc.calculateMD5hash("operator1")  + "', 'Оператор1', 'служебен акаунт')") != 1) {
+				
+				dbPortal.executeNonQuery("DROP DATABASE " + mysqlDatabaseNameTextField.getText());
+				dbPortal.disconnect();
+				dbPortal.finallize();
+				
+				JOptionPane.showMessageDialog(this, "Грешка при добавяне на запис в базата данни!\nПроверете правата на потребителя и връзката.", "Грешка при добавяне на данни в БД", JOptionPane.ERROR_MESSAGE);
+				
+				return false;
+			}
+		}
+		catch (Exception ex) {
+			JOptionPane.showMessageDialog(this, "Не може да се зареди криптиращ алгоритъм MD5!", "Фатална Грешка", 
+					JOptionPane.ERROR_MESSAGE);
+			System.exit(-1);
+		}
+		
 		return true;
-	}
+	}	
 }

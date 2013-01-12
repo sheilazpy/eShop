@@ -8,8 +8,14 @@
 <fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
 <fullyQualifiedTypeName name="javax.swing.Timer"/>
 <fullyQualifiedTypeName name="java.awt.AWTEvent"/>
-<fullyQualifiedTypeName name="database_management.MySQLdbManager"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="java.awt.Event"/>
+<fullyQualifiedTypeName name="java.awt.Component"/>
+<fullyQualifiedTypeName name="javax.crypto.Cipher"/>
+<fullyQualifiedTypeName name="java.security.MessageDigest"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="database_management.MySQLdbManager"/>
+<fullyQualifiedTypeName name="md5_calculator.Md5hashcalc"/>
 <fullyQualifiedTypeName name="databaseConnectWindow"/>
+<fullyQualifiedTypeName name="operatorUserLogin"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,107 @@
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.WindowConstants;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+
+import database_management.MySQLdbManager;
+import md5_calculator.Md5hashcalc;
+
+public class operatorUserLogin extends JFrame {
+
+	private final JPanel groupLoginPanel = new JPanel();
+	private final JPanel groupCreateNewUserPanel = new JPanel();
+	
+	public static int loggedUserId = -1;
+	
+	private final JLabel loginUsernameLabel = new JLabel();
+	private final JLabel loginPasswordLabel = new JLabel();
+	private final JButton loginButton = new JButton();
+	private final JTextField loginUsernameTextField = new JTextField();
+	private final JPasswordField loginPasswordPasswordField = new JPasswordField();
+	/**
+	 * Launch the application
+	 * @param args
+	 */
+	public static void main(String args[]) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					operatorUserLoginWindow frame = new operatorUserLoginWindow();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame
+	 */
+	public operatorUserLogin() {
+		super();
+		setBounds(100, 100, 518, 256);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		try {
+			jbInit();
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		//
+	}
+	private void jbInit() throws Exception {
+		getContentPane().setLayout(null);
+		setTitle("Вход на оператор");
+		setName("operatorLoginWindow");
+		setResizable(false);
+		setAlwaysOnTop(true);
+		
+		getContentPane().add(groupLoginPanel);
+		groupLoginPanel.setLayout(null);
+		groupLoginPanel.setBorder(new TitledBorder(null, "Вход:", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+		groupLoginPanel.setBounds(10, 10, 243, 133);
+		
+		groupLoginPanel.add(loginUsernameLabel);
+		loginUsernameLabel.setText("Потребител:");
+		loginUsernameLabel.setBounds(10, 31, 80, 16);
+		
+		groupLoginPanel.add(loginPasswordLabel);
+		loginPasswordLabel.setText("Парола:");
+		loginPasswordLabel.setBounds(10, 53, 80, 16);
+		
+		groupLoginPanel.add(loginButton);
+		loginButton.addActionListener(new LoginButtonActionListener());
+		loginButton.setText("Вход");
+		loginButton.setBounds(127, 93, 106, 26);
+		
+		groupLoginPanel.add(loginUsernameTextField);
+		loginUsernameTextField.setBounds(96, 29, 137, 20);
+		
+		groupLoginPanel.add(loginPasswordPasswordField);
+		loginPasswordPasswordField.setBounds(96, 51, 137, 20);
+		
+		getContentPane().add(groupCreateNewUserPanel);
+		groupCreateNewUserPanel.setLayout(null);
+		groupCreateNewUserPanel.setBorder(new TitledBorder(null, "Нов оператор:", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+		groupCreateNewUserPanel.setBounds(263, 10, 243, 213);
+	}
+	private class LoginButtonActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			loginButton_actionPerformed(e);
+		}
+	}
+	protected void loginButton_actionPerformed(ActionEvent e) {
+		
+		
+	}
+
+}

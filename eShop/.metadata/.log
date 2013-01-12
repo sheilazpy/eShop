@@ -677,119 +677,49 @@ java.lang.NullPointerException: Cannot set a null prefix table
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
-!SESSION 2013-01-12 02:46:11.883 -----------------------------------------------
+!SESSION 2013-01-12 03:31:01.480 -----------------------------------------------
 eclipse.buildId=unknown
 java.version=1.5.0_12
 java.vendor=Sun Microsystems Inc.
 BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=bg_BG
 Command-line arguments:  -os win32 -ws win32 -arch x86
 
-!ENTRY com.swtdesigner 4 4 2013-01-12 02:48:42.117
-!MESSAGE Designer [6.9.0.200902272028]: java.lang.ArrayIndexOutOfBoundsException
-
-Product: Swing Designer JBuilder Pro OEM
-Version: 6.9.0.200902272028
-Expected: Eclipse 3.4
-Actual: Eclipse 3.4.0.v20080512
-Actual Eclipse Build Name: 
-Actual Eclipse Build ID: M20080709-0800
-IDE Actual Name: JBuilder 2008 R2
-IDE Actual Version: 1.3.0.v20090320_1225-j21629
-IDE Actual NL: bg_BG
-Physical Address: 100011295DFB100269E8E0574, HardwareAddress[70-1A-04-50-AE-96], HardwareAddress[00-26-9E-8E-05-74]
-Code Gen: JBuilder 2006 Style
-Events: Inner Class[3], Create Stubs
-Platform Product: JBuilder 2008 R2
-Platform Version: 1.3.0.v20090320_1225-j21629
-OS Name: Windows Vista
-OS Architecture: x86
-OS Version: 6.1
-
-!STACK 0
-java.lang.ArrayIndexOutOfBoundsException
-	at org.eclipse.jdt.internal.ui.javaeditor.DocumentAdapter.getChar(DocumentAdapter.java:355)
-	at com.swtdesigner.gef.DesignerEditor.ensureConsistentEndOfLineMarkers(DesignerEditor.java:1162)
-	at com.swtdesigner.gef.DesignerEditor$18.execute(DesignerEditor.java:1126)
-	at com.swtdesigner.model.swing.properties.custom.DesignTimeHelper.execute(DesignTimeHelper.java:54)
-	at com.swtdesigner.gef.DesignerEditor.handleActivate(DesignerEditor.java:1123)
-	at com.swtdesigner.gef.DesignerEditor.handleActivate(DesignerEditor.java:1114)
-	at com.swtdesigner.editors.MultiPageEditor.showDesignEditor(MultiPageEditor.java:397)
-	at com.swtdesigner.editors.MultiPageEditor.switchSourceDesign(MultiPageEditor.java:455)
-	at com.swtdesigner.editors.MultiPageEditor.createPartControl(MultiPageEditor.java:212)
-	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:661)
-	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:428)
-	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:594)
-	at org.eclipse.ui.internal.EditorAreaHelper.setVisibleEditor(EditorAreaHelper.java:263)
-	at org.eclipse.ui.internal.EditorManager.setVisibleEditor(EditorManager.java:1410)
-	at org.eclipse.ui.internal.EditorManager$5.runWithException(EditorManager.java:944)
-	at org.eclipse.ui.internal.StartupThreading$StartupRunnable.run(StartupThreading.java:31)
-	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:133)
-	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3800)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3425)
-	at org.eclipse.ui.application.WorkbenchAdvisor.openWindows(WorkbenchAdvisor.java:803)
-	at org.eclipse.ui.internal.Workbench$27.runWithException(Workbench.java:1361)
-	at org.eclipse.ui.internal.StartupThreading$StartupRunnable.run(StartupThreading.java:31)
-	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:133)
-	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3800)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3425)
-	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2293)
-	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
-	at java.lang.reflect.Method.invoke(Method.java:585)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
-
-!ENTRY org.eclipse.ui.workbench 2 0 2013-01-12 02:49:35.054
+!ENTRY org.eclipse.ui.workbench 2 0 2013-01-12 03:33:17.480
 !MESSAGE A handler conflict occurred.  This may disable some commands.
-!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 02:49:35.054
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 03:33:17.480
 !MESSAGE Conflict for 'AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action6':
 HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action6,
 	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForEmail),
-	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1e7d12b),sourcePriority=16384)
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@62fb35),sourcePriority=16384)
 HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action6,
 	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForEmail),
-	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1e7d12b),sourcePriority=16384)
-!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 02:49:35.054
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@62fb35),sourcePriority=16384)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 03:33:17.480
 !MESSAGE Conflict for 'AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action2':
 HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action2,
 	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForBlogger),
-	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1e7d12b),sourcePriority=16384)
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@62fb35),sourcePriority=16384)
 HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action2,
 	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForBlogger),
-	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1e7d12b),sourcePriority=16384)
-!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 02:49:35.054
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@62fb35),sourcePriority=16384)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 03:33:17.480
 !MESSAGE Conflict for 'AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action4':
 HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action4,
 	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForWiki),
-	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1e7d12b),sourcePriority=16384)
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@62fb35),sourcePriority=16384)
 HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action4,
 	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForWiki),
-	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1e7d12b),sourcePriority=16384)
-!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 02:49:35.055
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@62fb35),sourcePriority=16384)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 03:33:17.480
 !MESSAGE Conflict for 'AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action5':
 HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action5,
 	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScript),
-	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1e7d12b),sourcePriority=16384)
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@62fb35),sourcePriority=16384)
 HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action5,
 	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScript),
-	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1e7d12b),sourcePriority=16384)
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@62fb35),sourcePriority=16384)
 
-!ENTRY com.swtdesigner 4 4 2013-01-12 02:50:22.080
+!ENTRY com.swtdesigner 4 4 2013-01-12 03:33:22.995
 !MESSAGE Designer [6.9.0.200902272028]: java.lang.ArrayIndexOutOfBoundsException
 
 Product: Swing Designer JBuilder Pro OEM
@@ -801,7 +731,7 @@ Actual Eclipse Build ID: M20080709-0800
 IDE Actual Name: JBuilder 2008 R2
 IDE Actual Version: 1.3.0.v20090320_1225-j21629
 IDE Actual NL: bg_BG
-Physical Address: 100011295DFB100269E8E0574, HardwareAddress[70-1A-04-50-AE-96], HardwareAddress[00-26-9E-8E-05-74]
+Physical Address: 00-26-C7-56-B3-59, HardwareAddress[00-24-21-F5-3E-53], HardwareAddress[10001187F4DA9002421F53E53]
 Code Gen: JBuilder 2006 Style
 Events: Inner Class[3], Create Stubs
 Platform Product: JBuilder 2008 R2
@@ -872,57 +802,454 @@ java.lang.ArrayIndexOutOfBoundsException
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
 
-!ENTRY org.eclipse.core.resources 4 568 2013-01-12 02:54:45.884
-!MESSAGE Could not write metadata for '/.tags'.
+!ENTRY org.eclipse.ui.workbench 4 0 2013-01-12 03:33:58.427
+!MESSAGE Cannot set a null prefix table
 !STACK 0
-java.io.FileNotFoundException: C:\Users\User\Documents\GitHub\eShop\eShop\.metadata\.plugins\org.eclipse.core.resources\.projects\.tags\.markers.snap (The system cannot find the path specified)
-	at java.io.FileOutputStream.openAppend(Native Method)
-	at java.io.FileOutputStream.<init>(FileOutputStream.java:177)
-	at java.io.FileOutputStream.<init>(FileOutputStream.java:102)
-	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:43)
-	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:39)
-	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1485)
-	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1565)
-	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1021)
-	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:44)
+java.lang.NullPointerException: Cannot set a null prefix table
+	at org.eclipse.jface.bindings.CachedBindingSet.setPrefixTable(CachedBindingSet.java:346)
+	at org.eclipse.jface.bindings.BindingManager.recomputeBindings(BindingManager.java:1765)
+	at org.eclipse.jface.bindings.BindingManager.contextManagerChanged(BindingManager.java:689)
+	at org.eclipse.core.commands.contexts.ContextManager.fireContextManagerChanged(ContextManager.java:152)
+	at org.eclipse.core.commands.contexts.ContextManager.removeActiveContext(ContextManager.java:232)
+	at org.eclipse.ui.internal.contexts.ContextAuthority.updateContext(ContextAuthority.java:767)
+	at org.eclipse.ui.internal.contexts.ContextAuthority.deactivateContext(ContextAuthority.java:362)
+	at org.eclipse.ui.internal.contexts.ContextService.deactivateContext(ContextService.java:140)
+	at org.eclipse.ui.internal.contexts.ContextService.deactivateContexts(ContextService.java:154)
+	at org.eclipse.ui.internal.contexts.SlaveContextService.dispose(SlaveContextService.java:240)
+	at org.eclipse.ui.internal.services.ServiceLocator.dispose(ServiceLocator.java:142)
+	at org.eclipse.ui.internal.WorkbenchWindow.hardClose(WorkbenchWindow.java:1627)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:722)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:698)
+	at org.eclipse.ui.internal.WorkbenchWindow$3.run(WorkbenchWindow.java:814)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:812)
+	at org.eclipse.jface.window.WindowManager.close(WindowManager.java:109)
+	at org.eclipse.ui.internal.Workbench$16.run(Workbench.java:912)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:909)
+	at org.eclipse.ui.internal.Workbench.access$15(Workbench.java:838)
+	at org.eclipse.ui.internal.Workbench$23.run(Workbench.java:1082)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1080)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1052)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:719)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:698)
+	at org.eclipse.ui.internal.WorkbenchWindow$3.run(WorkbenchWindow.java:814)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:812)
+	at org.eclipse.jface.window.Window.handleShellCloseEvent(Window.java:741)
+	at org.eclipse.jface.window.Window$3.shellClosed(Window.java:687)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:92)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1012)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:307)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1643)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3789)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2366)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:477)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3877)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2366)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:477)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3877)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2371)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3420)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+!SESSION 2013-01-12 11:38:49.788 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.5.0_12
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=bg_BG
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.ui.workbench 2 0 2013-01-12 11:42:22.220
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 11:42:22.220
+!MESSAGE Conflict for 'AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action6':
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action6,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForEmail),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1a847df),sourcePriority=16384)
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action6,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForEmail),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1a847df),sourcePriority=16384)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 11:42:22.220
+!MESSAGE Conflict for 'AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action2':
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action2,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForBlogger),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1a847df),sourcePriority=16384)
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action2,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForBlogger),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1a847df),sourcePriority=16384)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 11:42:22.220
+!MESSAGE Conflict for 'AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action4':
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action4,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForWiki),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1a847df),sourcePriority=16384)
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action4,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScriptForWiki),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1a847df),sourcePriority=16384)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2013-01-12 11:42:22.220
+!MESSAGE Conflict for 'AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action5':
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action5,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScript),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1a847df),sourcePriority=16384)
+HandlerActivation(commandId=AUTOGEN:::org.eclipse.eclipsemonkey.emFileContextMenu/org.eclipse.eclipsemonkey.action5,
+	handler=ActionDelegateHandlerProxy(null,org.eclipse.eclipsemonkey.actions.PublishScript),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1a847df),sourcePriority=16384)
+
+!ENTRY org.eclipse.wst.server.core 4 0 2013-01-12 11:49:48.692
+!MESSAGE Error calling delegate ModuleFactory[org.jboss.ide.eclipse.as.core.PackageModuleFactory]
+!STACK 0
+java.lang.NullPointerException
+	at org.jboss.ide.eclipse.archives.webtools.modules.PackageModuleFactory.getModules(PackageModuleFactory.java:174)
+	at org.eclipse.wst.server.core.internal.ModuleFactory.getModules(ModuleFactory.java:131)
+	at org.eclipse.wst.server.core.ServerUtil.getModules(ServerUtil.java:96)
+	at org.eclipse.wst.server.core.internal.ResourceManager.publishHandleProjectChange(ResourceManager.java:965)
+	at org.eclipse.wst.server.core.internal.ResourceManager$ServerResourceChangeListener$1.visit(ResourceManager.java:122)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:68)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:79)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:48)
+	at org.eclipse.wst.server.core.internal.ResourceManager$ServerResourceChangeListener.resourceChanged(ResourceManager.java:116)
+	at org.eclipse.core.internal.events.NotificationManager$2.run(NotificationManager.java:288)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:282)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:148)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:297)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:519)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:94)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildProjects(LaunchConfigurationDelegate.java:391)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildForLaunch(LaunchConfigurationDelegate.java:117)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:732)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:614)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:880)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1083)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
 
-!ENTRY org.eclipse.core.resources 4 568 2013-01-12 03:09:07.233
-!MESSAGE Could not write metadata for '/.tags'.
+!ENTRY com.swtdesigner 4 4 2013-01-12 14:51:18.733
+!MESSAGE Designer [6.9.0.200902272028]: operatorUserLogin.java [in <default> [in src [in eShop]]] does not exist
+
+Product: Swing Designer JBuilder Pro OEM
+Version: 6.9.0.200902272028
+Expected: Eclipse 3.4
+Actual: Eclipse 3.4.0.v20080512
+Actual Eclipse Build Name: 
+Actual Eclipse Build ID: M20080709-0800
+IDE Actual Name: JBuilder 2008 R2
+IDE Actual Version: 1.3.0.v20090320_1225-j21629
+IDE Actual NL: bg_BG
+Physical Address: 00-26-C7-56-B3-59, HardwareAddress[00-24-21-F5-3E-53], HardwareAddress[10001187F4DA9002421F53E53]
+Code Gen: JBuilder 2006 Style
+Events: Inner Class[3], Create Stubs
+Platform Product: JBuilder 2008 R2
+Platform Version: 1.3.0.v20090320_1225-j21629
+OS Name: Windows Vista
+OS Architecture: x86
+OS Version: 6.1
+
+!STACK 1
+Java Model Exception: Java Model Status [operatorUserLogin.java [in <default> [in src [in eShop]]] does not exist]
+	at org.eclipse.jdt.internal.core.JavaElement.newJavaModelException(JavaElement.java:501)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:245)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:514)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:251)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:237)
+	at org.eclipse.jdt.internal.core.Openable.getBuffer(Openable.java:283)
+	at com.swtdesigner.model.util.ast.ASTEditor.startEdit(ASTEditor.java:540)
+	at com.swtdesigner.model.JavaInfo.startEdit(JavaInfo.java:677)
+	at com.swtdesigner.gef.command.swing.layout.absolute.AbsoluteAddControlCommand.execute(AbsoluteAddControlCommand.java:22)
+	at org.eclipse.gef.commands.CommandStack.execute(CommandStack.java:78)
+	at com.swtdesigner.gef.domain.DesignerEditDomain$1.execute(DesignerEditDomain.java:54)
+	at org.eclipse.gef.tools.AbstractTool.executeCurrentCommand(AbstractTool.java:416)
+	at org.eclipse.gef.tools.CreationTool.performCreation(CreationTool.java:198)
+	at org.eclipse.gef.tools.CreationTool.handleButtonUp(CreationTool.java:122)
+	at org.eclipse.gef.tools.AbstractTool.mouseUp(AbstractTool.java:1006)
+	at org.eclipse.gef.EditDomain.mouseUp(EditDomain.java:229)
+	at com.swtdesigner.gef.domain.DesignerEditDomain.mouseUp(DesignerEditDomain.java:262)
+	at org.eclipse.gef.ui.parts.DomainEventDispatcher.dispatchMouseReleased(DomainEventDispatcher.java:346)
+	at org.eclipse.draw2d.LightweightSystem$EventHandler.mouseUp(LightweightSystem.java:511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:207)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3823)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3422)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2013-01-12 14:51:18.734
+!MESSAGE operatorUserLogin.java [in <default> [in src [in eShop]]] does not exist
+
+!ENTRY org.eclipse.ui 4 0 2013-01-12 14:51:18.754
+!MESSAGE Unhandled event loop exception
 !STACK 0
-java.io.FileNotFoundException: C:\Users\User\Documents\GitHub\eShop\eShop\.metadata\.plugins\org.eclipse.core.resources\.projects\.tags\.markers.snap (The system cannot find the path specified)
-	at java.io.FileOutputStream.openAppend(Native Method)
-	at java.io.FileOutputStream.<init>(FileOutputStream.java:177)
-	at java.io.FileOutputStream.<init>(FileOutputStream.java:102)
-	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:43)
-	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:39)
-	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1485)
-	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1565)
-	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1021)
-	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:44)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+java.lang.IllegalStateException: cannot edit
+	at com.swtdesigner.model.util.ast.ASTEditor.checkState(ASTEditor.java:3568)
+	at com.swtdesigner.model.util.ast.ASTEditor.endEdit(ASTEditor.java:618)
+	at com.swtdesigner.model.util.ast.ASTEditor.endEdit(ASTEditor.java:602)
+	at com.swtdesigner.model.util.ast.ASTEditor.endEdit(ASTEditor.java:588)
+	at com.swtdesigner.model.JavaInfo.endEdit(JavaInfo.java:770)
+	at com.swtdesigner.gef.command.swing.layout.absolute.AbsoluteAddControlCommand.execute(AbsoluteAddControlCommand.java:37)
+	at org.eclipse.gef.commands.CommandStack.execute(CommandStack.java:78)
+	at com.swtdesigner.gef.domain.DesignerEditDomain$1.execute(DesignerEditDomain.java:54)
+	at org.eclipse.gef.tools.AbstractTool.executeCurrentCommand(AbstractTool.java:416)
+	at org.eclipse.gef.tools.CreationTool.performCreation(CreationTool.java:198)
+	at org.eclipse.gef.tools.CreationTool.handleButtonUp(CreationTool.java:122)
+	at org.eclipse.gef.tools.AbstractTool.mouseUp(AbstractTool.java:1006)
+	at org.eclipse.gef.EditDomain.mouseUp(EditDomain.java:229)
+	at com.swtdesigner.gef.domain.DesignerEditDomain.mouseUp(DesignerEditDomain.java:262)
+	at org.eclipse.gef.ui.parts.DomainEventDispatcher.dispatchMouseReleased(DomainEventDispatcher.java:346)
+	at org.eclipse.draw2d.LightweightSystem$EventHandler.mouseUp(LightweightSystem.java:511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:207)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3823)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3422)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
 
-!ENTRY org.eclipse.ui.ide 4 4 2013-01-12 03:10:57.768
-!MESSAGE Problems saving workspace
+!ENTRY com.swtdesigner 4 4 2013-01-12 14:51:28.702
+!MESSAGE Designer [6.9.0.200902272028]: operatorUserLogin.java [in <default> [in src [in eShop]]] does not exist
 
-!ENTRY org.eclipse.ui.ide 4 1 2013-01-12 03:10:57.771
-!MESSAGE Problems occurred while trying to save the state of the workbench.
-!SUBENTRY 1 org.eclipse.core.resources 4 568 2013-01-12 03:10:57.771
-!MESSAGE Could not write metadata for '/.tags'.
+Product: Swing Designer JBuilder Pro OEM
+Version: 6.9.0.200902272028
+Expected: Eclipse 3.4
+Actual: Eclipse 3.4.0.v20080512
+Actual Eclipse Build Name: 
+Actual Eclipse Build ID: M20080709-0800
+IDE Actual Name: JBuilder 2008 R2
+IDE Actual Version: 1.3.0.v20090320_1225-j21629
+IDE Actual NL: bg_BG
+Physical Address: 00-26-C7-56-B3-59, HardwareAddress[00-24-21-F5-3E-53], HardwareAddress[10001187F4DA9002421F53E53]
+Code Gen: JBuilder 2006 Style
+Events: Inner Class[3], Create Stubs
+Platform Product: JBuilder 2008 R2
+Platform Version: 1.3.0.v20090320_1225-j21629
+OS Name: Windows Vista
+OS Architecture: x86
+OS Version: 6.1
+
+!STACK 1
+Java Model Exception: Java Model Status [operatorUserLogin.java [in <default> [in src [in eShop]]] does not exist]
+	at org.eclipse.jdt.internal.core.JavaElement.newJavaModelException(JavaElement.java:501)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:245)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:514)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:251)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:237)
+	at org.eclipse.jdt.internal.core.Openable.getBuffer(Openable.java:283)
+	at com.swtdesigner.model.util.ast.ASTEditor.getReadOnlyShadowBuffer(ASTEditor.java:1079)
+	at com.swtdesigner.model.util.ast.ASTEditor.getStartOfLine(ASTEditor.java:1059)
+	at com.swtdesigner.model.util.ast.ASTEditor.getEndOfLineComment(ASTEditor.java:767)
+	at com.swtdesigner.model.swing.bean.nonvisual.NonVisualBeanUtils.getCommentProperties(NonVisualBeanUtils.java:24)
+	at com.swtdesigner.model.swing.JavaBeanInfo.getNonVisualLocation(JavaBeanInfo.java:566)
+	at com.swtdesigner.model.swing.JavaBeanInfo.isVisualBean(JavaBeanInfo.java:555)
+	at com.swtdesigner.model.swing.JavaBeanInfo.getStatement(JavaBeanInfo.java:1415)
+	at com.swtdesigner.model.swing.component.ComponentBeanInfo.getStatement(ComponentBeanInfo.java:375)
+	at com.swtdesigner.model.JavaInfo.getSourceStartPosition(JavaInfo.java:6556)
+	at com.swtdesigner.gef.DesignerEditor.updateSelectionActions(DesignerEditor.java:1859)
+	at com.swtdesigner.gef.DesignerEditor.access$600(DesignerEditor.java:179)
+	at com.swtdesigner.gef.DesignerEditor$9.selectionChanged(DesignerEditor.java:852)
+	at org.eclipse.gef.ui.parts.AbstractEditPartViewer.fireSelectionChanged(AbstractEditPartViewer.java:186)
+	at com.swtdesigner.gef.DesignerEditor$DesignerGraphicalViewer.fireSelectionChanged(DesignerEditor.java:475)
+	at org.eclipse.gef.ui.parts.AbstractEditPartViewer.appendSelection(AbstractEditPartViewer.java:115)
+	at com.swtdesigner.gef.DesignerEditor$DesignerGraphicalViewer.appendSelection(DesignerEditor.java:470)
+	at org.eclipse.gef.ui.parts.AbstractEditPartViewer.select(AbstractEditPartViewer.java:466)
+	at com.swtdesigner.gef.DesignerEditor$DesignerGraphicalViewer.select(DesignerEditor.java:444)
+	at org.eclipse.gef.tools.SelectEditPartTracker.performSelection(SelectEditPartTracker.java:211)
+	at org.eclipse.gef.tools.SelectEditPartTracker.performConditionalSelection(SelectEditPartTracker.java:157)
+	at org.eclipse.gef.tools.SelectEditPartTracker.handleButtonDown(SelectEditPartTracker.java:88)
+	at org.eclipse.gef.tools.AbstractTool.mouseDown(AbstractTool.java:927)
+	at org.eclipse.gef.tools.SelectionTool.mouseDown(SelectionTool.java:450)
+	at org.eclipse.gef.EditDomain.mouseDown(EditDomain.java:189)
+	at com.swtdesigner.gef.domain.DesignerEditDomain.mouseDown(DesignerEditDomain.java:240)
+	at org.eclipse.gef.ui.parts.DomainEventDispatcher.dispatchMousePressed(DomainEventDispatcher.java:314)
+	at org.eclipse.draw2d.LightweightSystem$EventHandler.mouseDown(LightweightSystem.java:486)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:179)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3823)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3422)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2013-01-12 14:51:28.702
+!MESSAGE operatorUserLogin.java [in <default> [in src [in eShop]]] does not exist
+
+!ENTRY org.eclipse.ui.workbench 4 0 2013-01-12 15:01:25.853
+!MESSAGE Cannot set a null prefix table
 !STACK 0
-java.io.FileNotFoundException: C:\Users\User\Documents\GitHub\eShop\eShop\.metadata\.plugins\org.eclipse.core.resources\.projects\.tags\.markers (The system cannot find the path specified)
-	at java.io.FileOutputStream.open(Native Method)
-	at java.io.FileOutputStream.<init>(FileOutputStream.java:179)
-	at java.io.FileOutputStream.<init>(FileOutputStream.java:131)
-	at org.eclipse.core.internal.localstore.SafeFileOutputStream.<init>(SafeFileOutputStream.java:46)
-	at org.eclipse.core.internal.resources.SaveManager.visitAndSave(SaveManager.java:1374)
-	at org.eclipse.core.internal.resources.SaveManager.visitAndSave(SaveManager.java:1456)
-	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1001)
-	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:1827)
-	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor$3.run(IDEWorkbenchAdvisor.java:391)
-	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+java.lang.NullPointerException: Cannot set a null prefix table
+	at org.eclipse.jface.bindings.CachedBindingSet.setPrefixTable(CachedBindingSet.java:346)
+	at org.eclipse.jface.bindings.BindingManager.recomputeBindings(BindingManager.java:1765)
+	at org.eclipse.jface.bindings.BindingManager.contextManagerChanged(BindingManager.java:689)
+	at org.eclipse.core.commands.contexts.ContextManager.fireContextManagerChanged(ContextManager.java:152)
+	at org.eclipse.core.commands.contexts.ContextManager.removeActiveContext(ContextManager.java:232)
+	at org.eclipse.ui.internal.contexts.ContextAuthority.updateContext(ContextAuthority.java:767)
+	at org.eclipse.ui.internal.contexts.ContextAuthority.deactivateContext(ContextAuthority.java:362)
+	at org.eclipse.ui.internal.contexts.ContextService.deactivateContext(ContextService.java:140)
+	at org.eclipse.ui.internal.contexts.ContextService.deactivateContexts(ContextService.java:154)
+	at org.eclipse.ui.internal.contexts.SlaveContextService.dispose(SlaveContextService.java:240)
+	at org.eclipse.ui.internal.services.ServiceLocator.dispose(ServiceLocator.java:142)
+	at org.eclipse.ui.internal.WorkbenchWindow.hardClose(WorkbenchWindow.java:1627)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:722)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:698)
+	at org.eclipse.ui.internal.WorkbenchWindow$3.run(WorkbenchWindow.java:814)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:812)
+	at org.eclipse.jface.window.WindowManager.close(WindowManager.java:109)
+	at org.eclipse.ui.internal.Workbench$16.run(Workbench.java:912)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:909)
+	at org.eclipse.ui.internal.Workbench.access$15(Workbench.java:838)
+	at org.eclipse.ui.internal.Workbench$23.run(Workbench.java:1082)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1080)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1052)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:719)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:698)
+	at org.eclipse.ui.internal.WorkbenchWindow$3.run(WorkbenchWindow.java:814)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:812)
+	at org.eclipse.jface.window.Window.handleShellCloseEvent(Window.java:741)
+	at org.eclipse.jface.window.Window$3.shellClosed(Window.java:687)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:92)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1012)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:307)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1643)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3789)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2366)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:477)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3877)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2366)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:477)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3877)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:337)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1576)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1937)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4528)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2371)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3420)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2382)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2346)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
 
-!ENTRY org.eclipse.hyades.trace.ui 4 0 2013-01-12 03:11:00.958
+!ENTRY org.eclipse.hyades.trace.ui 4 0 2013-01-12 15:01:27.622
 !MESSAGE 
 !STACK 0
 org.osgi.framework.BundleException: Exception in org.eclipse.hyades.trace.ui.UIPlugin.stop() of bundle org.eclipse.hyades.trace.ui.

@@ -1,16 +1,36 @@
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JComponent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JSeparator;
+import javax.swing.SpringLayout;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.EtchedBorder;
+import org.jdesktop.layout.GroupLayout;
+import org.jdesktop.layout.LayoutStyle;
+import com.jgoodies.forms.factories.FormFactory;
+import com.jgoodies.forms.layout.CellConstraints;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.RowSpec;
 
 public class mainWindow extends JFrame {
 
@@ -24,6 +44,10 @@ public class mainWindow extends JFrame {
 	private static mainWindow mainWindowPointer;
 	
 	private final JMenuItem FileDisconnectFromDb = new JMenuItem();
+	private final JPanel mainWindowStatusPanel = new JPanel();
+	private final JPanel panel = new JPanel();
+	private final JLabel mainWindowStatusPanelLoggedUserLabel = new JLabel();
+	private final JButton mainWindowStatusPanelLoggedUserSettings = new JButton();
 	/**
 	 * Launch the application
 	 * @param args
@@ -57,8 +81,8 @@ public class mainWindow extends JFrame {
 		//		
 	}
 	private void jbInit() throws Exception {
-		getContentPane().setLayout(null);
 		addWindowListener(new ThisWindowListener());
+		getContentPane().setLayout(new BorderLayout());
 		setTitle("eShop 1.00 (C) 2013 Желян Гуглев & Пламен Генчев");
 		setName("mainWindow");
 		
@@ -91,6 +115,39 @@ public class mainWindow extends JFrame {
 		
 		Help.add(HelpAbout);
 		HelpAbout.setText("Относно");
+		
+		getContentPane().add(mainWindowStatusPanel, BorderLayout.SOUTH);
+		mainWindowStatusPanel.setLayout(new FormLayout(
+			new ColumnSpec[] {
+				ColumnSpec.decode("149dlu"),
+				ColumnSpec.decode("72px"),
+				FormFactory.DEFAULT_COLSPEC},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("16px")}));
+		mainWindowStatusPanel.setSize(666, 25);
+		mainWindowStatusPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
+		mainWindowStatusPanel.setMinimumSize(new Dimension(666, 20));
+		
+		mainWindowStatusPanelLoggedUserLabel.setText("Потребител:");
+		mainWindowStatusPanel.add(mainWindowStatusPanelLoggedUserLabel, new CellConstraints("1, 1, 1, 2, fill, fill"));
+		
+		mainWindowStatusPanel.add(mainWindowStatusPanelLoggedUserSettings, new CellConstraints(2, 1, 1, 2));
+		mainWindowStatusPanelLoggedUserSettings.addActionListener(new MainWindowStatusPanelLoggedUserSettingsActionListener());
+		mainWindowStatusPanelLoggedUserSettings.setText("Вход");
+		mainWindowStatusPanelSetEnabled(false);
+	}
+	
+	protected void mainWindowStatusPanelSetEnabled(boolean enable) {
+		
+		Component[] comps = mainWindowStatusPanel.getComponents();
+		
+		for (int i = 0; i < comps.length; i++) {
+		
+			comps[i].setEnabled(enable);	
+		}
+		
+		mainWindowStatusPanel.setEnabled(enable);
 	}
 	
 	private class ThisWindowListener extends WindowAdapter {
@@ -111,6 +168,11 @@ public class mainWindow extends JFrame {
 	private class FileDisconnectFromDbActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			fileDisconnectFromDb_actionPerformed(e);
+		}
+	}
+	private class MainWindowStatusPanelLoggedUserSettingsActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			mainWindowStatusPanelLoggedUserSettings_actionPerformed(e);
 		}
 	}
 
@@ -135,6 +197,8 @@ public class mainWindow extends JFrame {
 		this.getToolkit().getSystemEventQueue().postEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));		
 	}
 	
+	////////////////////////////////////////////////////////////////////////
+	
 	protected void fileConnectToDb_actionPerformed(ActionEvent e) {
 		
 		//databaseConnectWindow.main(null);
@@ -152,25 +216,55 @@ public class mainWindow extends JFrame {
     			
     			if (databaseConnectWindow.dbPortal.isConnected()) {
     				
-    				mainWindowPointer.Operations.setEnabled(true);
+    				mainWindowPointer.mainWindowStatusPanelSetEnabled(true);
     				mainWindowPointer.FileConnectToDb.setEnabled(false);
     				mainWindowPointer.FileDisconnectFromDb.setEnabled(true);
     			}
     			else {
-    				mainWindowPointer.Operations.setEnabled(false);
+    				
+    				mainWindowPointer.mainWindowStatusPanelSetEnabled(false);
     			}
     		}            
         }
     };
+    
+    ////////////////////////////////////////////////////////////////////////
+    
 	protected void fileDisconnectFromDb_actionPerformed(ActionEvent e) {
 		
 		if (databaseConnectWindow.dbPortal != null) {
 			
 			databaseConnectWindow.dbPortal.finallize();
-			this.Operations.setEnabled(false);
-			this.FileDisconnectFromDb.setEnabled(false);
+			
 			this.FileConnectToDb.setEnabled(true);
+			this.FileDisconnectFromDb.setEnabled(false);			
+			this.Operations.setEnabled(false);
+			this.mainWindowStatusPanelSetEnabled(false);			
 		}
 	}
+	
+	////////////////////////////////////////////////////////////////////////
+	
+	protected void mainWindowStatusPanelLoggedUserSettings_actionPerformed(ActionEvent e) {
+		
+		operatorUserLoginWindow oul = new operatorUserLoginWindow();
+		oul.setVisible(true);
+		oul.addWindowListener(operatorUserLoginWindowClosing);
+	}
+	private static WindowListener operatorUserLoginWindowClosing = new WindowAdapter() {
+
+		public void windowClosing(WindowEvent e) {
+			if (operatorUserLoginWindow.loggedUserId != -1) {
+				
+				mainWindowPointer.Operations.setEnabled(true);
+			}
+			else {
+				
+				mainWindowPointer.Operations.setEnabled(false);
+			}
+		}
+	};
+	
+	////////////////////////////////////////////////////////////////////////
 	
 }
