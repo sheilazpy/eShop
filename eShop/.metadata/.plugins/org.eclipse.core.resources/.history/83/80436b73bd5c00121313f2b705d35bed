@@ -3,13 +3,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 
+import javax.swing.JButton;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.JButton;
 import javax.swing.WindowConstants;
 import javax.swing.border.TitledBorder;
 
@@ -22,6 +23,9 @@ public class operatorUserLoginWindow extends JFrame {
 
 	private final JPanel groupLoginPanel = new JPanel();
 	private final JPanel groupCreateNewUserPanel = new JPanel();
+	
+	public static int loggedUserId = -1;
+	
 	private final JLabel loginUsernameLabel = new JLabel();
 	private final JLabel loginPasswordLabel = new JLabel();
 	private final JButton loginButton = new JButton();
@@ -36,10 +40,6 @@ public class operatorUserLoginWindow extends JFrame {
 	private final JTextField newFirstNameTextField = new JTextField();
 	private final JPasswordField newPasswordPasswordField = new JPasswordField();
 	private final JTextField newLastNameTextField = new JTextField();
-	
-	public static int loggedUserId = -1;
-	public static String loggedUserNames = "";
-	
 	/**
 	 * Launch the application
 	 * @param args
@@ -151,13 +151,7 @@ public class operatorUserLoginWindow extends JFrame {
 			
 			if (databaseConnectWindow.dbPortal.isConnected()) {
 				
-				String password = "";
-				
-				char [] pass = loginPasswordPasswordField.getPassword();
-				for (int i = 0; i < pass.length; i++) {
-					
-					password += pass[i];
-				}
+				String password = loginPasswordPasswordField.getPassword().toString();
 				
 				//FIXME prone to sql injection
 				
@@ -165,9 +159,9 @@ public class operatorUserLoginWindow extends JFrame {
 				
 				try {				
 					
-					rs = databaseConnectWindow.dbPortal.executeQuery("SELECT operator_id, operator_first_name, operator_last_name FROM operators WHERE" + 
-						" operator_username='" + loginUsernameTextField.getText() + "' AND operator_password='" +
-						Md5hashcalc.calculateMD5hash(password) + "'");
+					rs = databaseConnectWindow.dbPortal.executeQuery("SELECT operator_id FROM operators WHERE" + 
+						" operator_username='" + loginUsernameTextField + "' AND operator_password='" +
+						Md5hashcalc.calculateMD5hash(password) + "')");
 				}
 				catch (Exception ex) {
 					System.exit(-1);
@@ -178,7 +172,6 @@ public class operatorUserLoginWindow extends JFrame {
 					try {
 						
 						loggedUserId = rs.getInt(1);
-						loggedUserNames = rs.getString(2) + " " + rs.getString(3);
 					}
 					catch (Exception ex) {
 						
@@ -190,8 +183,7 @@ public class operatorUserLoginWindow extends JFrame {
 					this.getToolkit().getSystemEventQueue().postEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 				}
 				else {
-					JOptionPane.showMessageDialog(this, "Грешен потребител или парола!", "Провал при вход", 
-							JOptionPane.ERROR_MESSAGE);
+					return;
 				}
 			}
 			else {

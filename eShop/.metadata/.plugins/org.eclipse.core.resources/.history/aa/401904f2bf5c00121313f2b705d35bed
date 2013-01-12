@@ -166,7 +166,7 @@ public class operatorUserLoginWindow extends JFrame {
 				try {				
 					
 					rs = databaseConnectWindow.dbPortal.executeQuery("SELECT operator_id, operator_first_name, operator_last_name FROM operators WHERE" + 
-						" operator_username='" + loginUsernameTextField.getText() + "' AND operator_password='" +
+						" operator_username='" + loginUsernameTextField + "' AND operator_password='" +
 						Md5hashcalc.calculateMD5hash(password) + "'");
 				}
 				catch (Exception ex) {

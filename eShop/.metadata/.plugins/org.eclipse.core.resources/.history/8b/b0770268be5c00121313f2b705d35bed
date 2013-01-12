@@ -239,9 +239,7 @@ public class mainWindow extends JFrame {
 			this.FileConnectToDb.setEnabled(true);
 			this.FileDisconnectFromDb.setEnabled(false);			
 			this.Operations.setEnabled(false);
-			this.mainWindowStatusPanelSetEnabled(false);	
-			this.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
-			operatorUserLoginWindow.loggedUserId = -1;
+			this.mainWindowStatusPanelSetEnabled(false);			
 		}
 	}
 	
@@ -259,12 +257,10 @@ public class mainWindow extends JFrame {
 			if (operatorUserLoginWindow.loggedUserId != -1) {
 				
 				mainWindowPointer.Operations.setEnabled(true);
-				mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: " + operatorUserLoginWindow.loggedUserNames);
 			}
 			else {
 				
 				mainWindowPointer.Operations.setEnabled(false);
-				mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
 			}
 		}
 	};

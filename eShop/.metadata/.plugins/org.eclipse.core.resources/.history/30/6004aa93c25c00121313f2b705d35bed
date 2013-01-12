@@ -1,7 +1,7 @@
 /*
  * MySQL java database manager wrapper
  * ver. - 1.00
- * (C) 09.01.2013 - 12.01.2013 zhgzhg
+ * (C) 09.01.2013 - 10.01.2013 zhgzhg
  */
 
 package database_management;

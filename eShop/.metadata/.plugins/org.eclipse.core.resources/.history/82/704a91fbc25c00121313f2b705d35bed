@@ -239,9 +239,7 @@ public class mainWindow extends JFrame {
 			this.FileConnectToDb.setEnabled(true);
 			this.FileDisconnectFromDb.setEnabled(false);			
 			this.Operations.setEnabled(false);
-			this.mainWindowStatusPanelSetEnabled(false);	
-			this.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
-			operatorUserLoginWindow.loggedUserId = -1;
+			this.mainWindowStatusPanelSetEnabled(false);			
 		}
 	}
 	
