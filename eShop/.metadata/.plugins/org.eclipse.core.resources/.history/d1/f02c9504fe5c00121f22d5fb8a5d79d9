@@ -1,0 +1,35 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+
+
+public class operatorUserSettingsWindow extends JFrame {
+
+	/**
+	 * Launch the application
+	 * @param args
+	 */
+	public static void main(String args[]) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					operatorUserSettingsWindow frame = new operatorUserSettingsWindow();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame
+	 */
+	public operatorUserSettingsWindow() {
+		super();
+		setBounds(100, 100, 500, 375);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//
+	}
+
+}

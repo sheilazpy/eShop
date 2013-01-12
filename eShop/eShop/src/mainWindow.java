@@ -54,6 +54,7 @@ public class mainWindow extends JFrame {
 	private final JLabel mainWindowStatusPanelSeparatorLabel = new JLabel();
 	private final JLabel mainWindowStatusPanelSeparatorLabel2 = new JLabel();
 	private final JButton mainWindowStatusPanelLoggedUserLogout = new JButton();
+	
 	/**
 	 * Launch the application
 	 * @param args
@@ -229,14 +230,13 @@ public class mainWindow extends JFrame {
 	
 	protected void fileExit_actionPerformed(ActionEvent e) {
 
-		this.getToolkit().getSystemEventQueue().postEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));		
+		this.getToolkit().getSystemEventQueue().postEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 	}
 	
 	////////////////////////////////////////////////////////////////////////
 	
 	protected void fileConnectToDb_actionPerformed(ActionEvent e) {
 		
-		//databaseConnectWindow.main(null);
 		databaseConnectWindow dcw = new databaseConnectWindow();
 		dcw.setVisible(true);
 		dcw.addWindowListener(databaseConnectWindowClosing);
@@ -307,8 +307,32 @@ public class mainWindow extends JFrame {
 	////////////////////////////////////////////////////////////////////////
 	
 	protected void mainWindowStatusPanelLoggedUserSettings_actionPerformed(ActionEvent e) {
-		//TODO...
+		
+		if (operatorUserLoginWindow.loggedUserId == -1) {
+			return;
+		}
+		
+		operatorUserSettingsWindow ousw = new operatorUserSettingsWindow();
+		ousw.setVisible(true);
+		ousw.addWindowListener(operatorUserSettingsWindowClosing);
 	}
+	
+	private static WindowListener operatorUserSettingsWindowClosing = new WindowAdapter() {
+		
+		public void windowClosing(WindowEvent e) {
+			if (operatorUserLoginWindow.loggedUserId != -1) {
+				
+				mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: " + operatorUserSettingsWindow.operatorFirstNameLastNameCombination);
+			}
+			else { //if operator was deleted
+				
+				mainWindowPointer.Operations.setEnabled(false);
+				mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
+			}
+		}
+	};
+	
+	////////////////////////////////////////////////////////////////////////
 	
 	protected void mainWindowStatusPanelLoggedUserLogout_actionPerformed(ActionEvent e) {
 		

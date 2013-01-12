@@ -1,0 +1,95 @@
+import java.awt.EventQueue;
+import javax.swing.JButton;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+
+public class operatorUserSettingsWindow extends JFrame {
+
+	private final JLabel usernameLabel = new JLabel();
+	private final JLabel passwordLabel = new JLabel();
+	private final JLabel passwordAgainLabel = new JLabel();
+	private final JLabel nameLabel = new JLabel();
+	private final JLabel lastNameLabel = new JLabel();
+	private final JButton updateButton = new JButton();
+	private final JTextField textField = new JTextField();
+	private final JTextField textField_1 = new JTextField();
+	private final JPasswordField passwordField = new JPasswordField();
+	private final JPasswordField passwordField_1 = new JPasswordField();
+	/**
+	 * Launch the application
+	 * @param args
+	 */
+	public static void main(String args[]) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					operatorUserSettingsWindow frame = new operatorUserSettingsWindow();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame
+	 */
+	public operatorUserSettingsWindow() {
+		super();
+		setBounds(100, 100, 314, 214);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		try {
+			jbInit();
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		//
+	}
+	private void jbInit() throws Exception {
+		getContentPane().setLayout(null);
+		setTitle("Настройки на потребител");
+		setName("operatorUserSettings");
+		
+		getContentPane().add(usernameLabel);
+		usernameLabel.setText("Потребител:");
+		usernameLabel.setBounds(10, 0, 97, 16);
+		
+		getContentPane().add(passwordLabel);
+		passwordLabel.setText("Парола:");
+		passwordLabel.setBounds(10, 76, 97, 16);
+		
+		getContentPane().add(passwordAgainLabel);
+		passwordAgainLabel.setText("Парола отново:");
+		passwordAgainLabel.setBounds(10, 95, 97, 16);
+		
+		getContentPane().add(nameLabel);
+		nameLabel.setText("Име:");
+		nameLabel.setBounds(10, 32, 97, 16);
+		
+		getContentPane().add(lastNameLabel);
+		lastNameLabel.setText("Фамилия:");
+		lastNameLabel.setBounds(10, 54, 97, 16);
+		
+		getContentPane().add(updateButton);
+		updateButton.setText("Обнови");
+		updateButton.setBounds(93, 140, 106, 26);
+		
+		getContentPane().add(textField);
+		textField.setBounds(113, 30, 175, 20);
+		
+		getContentPane().add(textField_1);
+		textField_1.setBounds(113, 52, 175, 20);
+		
+		getContentPane().add(passwordField);
+		passwordField.setBounds(113, 74, 175, 20);
+		
+		getContentPane().add(passwordField_1);
+		passwordField_1.setBounds(113, 97, 175, 20);
+	}
+
+}
