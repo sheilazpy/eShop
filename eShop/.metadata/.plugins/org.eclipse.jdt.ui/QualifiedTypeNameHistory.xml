@@ -21,4 +21,5 @@
 <fullyQualifiedTypeName name="operatorUserLoginWindow"/>
 <fullyQualifiedTypeName name="databaseConnectWindow"/>
 <fullyQualifiedTypeName name="database_management.MySQLdbManager"/>
+<fullyQualifiedTypeName name="java.lang.Boolean"/>
 </qualifiedTypeNameHistroy>

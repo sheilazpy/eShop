@@ -7,7 +7,6 @@
 package md5_calculator;
 
 import java.security.MessageDigest;
-import javax.crypto.*;
 
 public class Md5hashcalc {
 	

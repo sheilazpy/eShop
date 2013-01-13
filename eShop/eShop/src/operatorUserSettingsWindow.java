@@ -12,10 +12,10 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import java.sql.ResultSet;
-import database_management.MySQLdbManager;
 import md5_calculator.Md5hashcalc;
 
 public class operatorUserSettingsWindow extends JFrame {
+	private static final long serialVersionUID = 3004L;
 
 	private final JLabel usernameLabel = new JLabel();
 	private final JLabel passwordLabel = new JLabel();
@@ -23,15 +23,15 @@ public class operatorUserSettingsWindow extends JFrame {
 	private final JLabel nameLabel = new JLabel();
 	private final JLabel lastNameLabel = new JLabel();
 	private final JButton updateButton = new JButton();
+	private final JButton deleteOperator = new JButton();
 	private final JTextField firstNameTextField = new JTextField();
 	private final JTextField lastNameTextField = new JTextField();
 	private final JPasswordField passwordPasswordField = new JPasswordField();
-	private final JPasswordField passwordAgainPasswordField = new JPasswordField();
+	private final JPasswordField passwordAgainPasswordField = new JPasswordField();	
 	
 	private String currentOperatorPassword = "";
-	public static String operatorFirstNameLastNameCombination = "";
+	public static String operatorFirstNameLastNameCombination = "";	
 	
-	private final JButton deleteOperator = new JButton();
 	/**
 	 * Launch the application
 	 * @param args
@@ -207,13 +207,10 @@ public class operatorUserSettingsWindow extends JFrame {
 			return;
 		}
 		
-		//FIXME prone to sql injection
-		if (databaseConnectWindow.dbPortal.executeNonQuery("UPDATE operators SET operator_password='" + currentOperatorPassword +
-				"', operator_first_name='" + firstNameTextField.getText() + "', operator_last_name='" + 
-				lastNameTextField.getText() + "' WHERE operator_id=" + operatorUserLoginWindow.loggedUserId) != 1) {
+		if (databaseConnectWindow.dbPortal.executeParameterizedNonQuery("UPDATE operators SET operator_password=?, " +
+				"operator_first_name=?, operator_last_name=? WHERE operator_id=?", currentOperatorPassword, 
+				firstNameTextField.getText(), lastNameTextField.getText(), new Integer(operatorUserLoginWindow.loggedUserId)) != 1) {
 		
-		//if (databaseConnectWindow.dbPortal.getLastError() != null) {
-			
 			JOptionPane.showMessageDialog(this, "Грешка при обновяване на данните!", "Грешка при обновяването", JOptionPane.ERROR_MESSAGE);
 			return;
 		}

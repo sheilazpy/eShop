@@ -2,15 +2,11 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -21,21 +17,16 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JSeparator;
-import javax.swing.SpringLayout;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
-import org.jdesktop.layout.GroupLayout;
-import org.jdesktop.layout.LayoutStyle;
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
-import database_management.MySQLdbManager;
 
 public class mainWindow extends JFrame {
+	private static final long serialVersionUID = 3001L;
 
 	private final JMenuBar mainWindowMenu = new JMenuBar();
 	private final JMenu File = new JMenu();
@@ -48,7 +39,6 @@ public class mainWindow extends JFrame {
 	
 	private final JMenuItem FileDisconnectFromDb = new JMenuItem();
 	private final JPanel mainWindowStatusPanel = new JPanel();
-	private final JPanel panel = new JPanel();
 	private final JLabel mainWindowStatusPanelLoggedUserLabel = new JLabel();
 	private final JButton mainWindowStatusPanelLoggedUserLogin = new JButton();
 	private final JButton mainWindowStatusPanelLoggedUserSettings = new JButton();
@@ -60,6 +50,7 @@ public class mainWindow extends JFrame {
 	private final JMenuItem operationsProductsManagement = new JMenuItem();
 	private final JMenuItem operationsOrdersManagement = new JMenuItem();
 	private final JMenuItem operationsNewOrder = new JMenuItem();
+	
 	/**
 	 * Launch the application
 	 * @param args

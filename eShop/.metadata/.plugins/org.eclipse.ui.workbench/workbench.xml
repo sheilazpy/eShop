@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="45" version="2.0">
+<workbench progressCount="22" version="2.0">
 <workbenchAdvisor/>
 <window height="738" maximized="true" width="1024" x="125" y="0">
 <fastViewData fastViewLocation="1024"/>
@@ -15,7 +15,7 @@
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="129" y="22"/>
 <coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="99" y="22"/>
 <coolItem id="org.eclipse.mylyn.java.actionSet.browsing" itemType="typeToolBarContribution" x="38" y="22"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="84" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="107" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="130" y="22"/>
 <coolItem id="org.jboss.tools.jst.web.ui.server.actionSet" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -23,8 +23,8 @@
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="com.swtdesigner.editors.MultiPageEditor" itemType="typePlaceholder" x="61" y="22"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="com.swtdesigner.editors.MultiPageEditor" itemType="typeToolBarContribution" x="61" y="22"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -39,17 +39,15 @@
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MySQLdbManager.java" partName="MySQLdbManager.java" path="D:/Drugi/Docs/PU/3 kurs/2 trimestur/Kursov Proekt 2/eShop/eShop/src/database_management/MySQLdbManager.java" title="MySQLdbManager.java" tooltip="eShop/src/database_management/MySQLdbManager.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/eShop/src/database_management/MySQLdbManager.java"/>
-<editorState selectionLength="0" selectionOffset="11076"/>
+<editor activePart="true" focus="true" id="com.swtdesigner.editors.MultiPageEditor" name="mainWindow.java" partName="mainWindow.java" path="D:/Drugi/Docs/PU/3 kurs/2 trimestur/Kursov Proekt 2/eShop/eShop/src/mainWindow.java" title="mainWindow.java" tooltip="eShop/src/mainWindow.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/eShop/src/mainWindow.java"/>
+<editorState selectionLength="0" selectionOffset="13570"/>
 </editor>
 </editors>
 <views>
 <view id="org.vssplugin.ui.logview" partName="VSS Refresh Log">
 <viewState/>
 </view>
-<view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
-<view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
 <view id="org.eclipse.jdt.ui.MembersView" partName="Members">
 <viewState hidefields="false" hidelocaltypes="false" hidenonpublic="false" hidestatic="false" org.eclipse.jdt.ui.browsing.memberstoeditor="1">
 <customFilters userDefinedPatternsEnabled="false">&#x0A;<xmlDefinedFilters>&#x0A;<child filterId="com.tssap.selena.dom.HideDesignRoot" isEnabled="true"/>
@@ -61,6 +59,8 @@
 </customFilters>
 </viewState>
 </view>
+<view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
 <view id="org.eclipse.debug.ui.VariableView" partName="Variables">
 <viewState/>
 </view>
@@ -120,7 +120,6 @@
 </org.eclipse.mylyn.tasklist.ui.views.tasklist.sortIndex>
 </viewState>
 </view>
-<view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
 <view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
 <viewState group_libraries="1" isWindowWorkingSet="false" layout="2" linkWithEditor="0" rootMode="1" workingSetName="">
 <customFilters userDefinedPatternsEnabled="false">
@@ -153,6 +152,7 @@
 </customFilters>
 </viewState>
 </view>
+<view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
 <view id="org.eclipse.jdt.ui.ProjectsView" partName="Projects">
 <viewState isWindowWorkingSet="false" org.eclipse.jdt.ui.browsing.projectstoeditor="1" workingSetName="">
 <customFilters userDefinedPatternsEnabled="false">&#x0A;<xmlDefinedFilters>&#x0A;<child filterId="org.eclipse.jdt.ui.ProjectsView.ContainedLibraryFilter" isEnabled="false"/>
@@ -174,11 +174,7 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Warnings"/>
-<category IMemento.internal.id="Errors"/>
-</expanded>
-<columnWidths org.eclipse.ui.ide.locationField="64" org.eclipse.ui.ide.markerType="94" org.eclipse.ui.ide.pathField="124" org.eclipse.ui.ide.resourceField="94" org.eclipse.ui.ide.severityAndDescriptionField="447"/>
+<columnWidths org.eclipse.ui.ide.locationField="64" org.eclipse.ui.ide.markerType="94" org.eclipse.ui.ide.pathField="124" org.eclipse.ui.ide.resourceField="94" org.eclipse.ui.ide.severityAndDescriptionField="644"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
@@ -187,7 +183,7 @@
 </viewState>
 </view>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="com.swtdesigner.editors.MultiPageEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
 <alwaysOnActionSet id="com.borland.dsib.client.actions.DSIBActions.actionset"/>
@@ -289,6 +285,10 @@
 <perspective_action id="org.jboss.tools.jst.web.ui.WebDevelopmentPerspective"/>
 <view id="org.eclipse.jdt.ui.PackageExplorer"/>
 <view id="org.eclipse.jdt.ui.TypeHierarchy"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.jdt.ui.JavadocView"/>
+<view id="org.eclipse.jdt.ui.SourceView"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
 <fastViewBars>
 <fastViewBar fastViewLocation="16384" id="org.eclipse.ui.internal.ViewStack@1ed627d" orientation="512" selectedTabId="com.codegear.jbuilder.view.TagsView" style="0">
 <fastViews>
@@ -308,14 +308,6 @@
 <fastViewBar fastViewLocation="131072" id="right" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="0">
 <fastViews>
 <view id="org.eclipse.ui.views.ContentOutline" ratio="0.3"/>
-</fastViews>
-</fastViewBar>
-<fastViewBar fastViewLocation="1024" id="bottom" orientation="256" selectedTabId="org.eclipse.ui.views.ProblemView" style="0">
-<fastViews>
-<view id="org.eclipse.ui.views.ProblemView" ratio="0.3"/>
-<view id="org.eclipse.jdt.ui.JavadocView" ratio="0.3"/>
-<view id="org.eclipse.jdt.ui.SourceView" ratio="0.3"/>
-<view id="org.eclipse.ui.console.ConsoleView" ratio="0.2985782"/>
 </fastViews>
 </fastViewBar>
 <fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@1065904" orientation="256" selectedTabId="org.vssplugin.ui.logview" style="0">
@@ -354,20 +346,25 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.11299001" ratioLeft="147" ratioRight="1154" relationship="2" relative="left"/>
+<info part="org.eclipse.ui.editorss" ratio="0.21521907" ratioLeft="280" ratioRight="1021" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.7487844" ratioLeft="462" ratioRight="155" relationship="4" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="0">
-<page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
-<page content="org.eclipse.jdt.ui.JavadocView" label="LabelNotFound"/>
-<page content="org.eclipse.jdt.ui.SourceView" label="LabelNotFound"/>
-<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
+<folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
+<page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
 <page content="com.codegear.sanctuary.client.ui.lm.views.SanctLicenseManagerView" label="LabelNotFound"/>
 <page content="com.togethersoft.selena.sapient.MetricView" label="LabelNotFound"/>
 <page content="com.togethersoft.selena.sapient.AuditView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+</presentation>
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@d52ea" ratio="0.5" ratioLeft="375" ratioRight="375" relationship="2" relative="bottom">
@@ -665,165 +662,104 @@
 <workingSets/>
 <navigationHistory>
 <editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/eShop/src/database_management/MySQLdbManager.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" path="/eShop/src/mainWindow.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/eShop/src/operatorUserLoginWindow.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" path="/eShop/src/operatorUserLoginWindow.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/eShop/src/database_management/MySQLdbManager.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/eShop/src/database_management/MySQLdbManager.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" path="/eShop/src/operatorUserLoginWindow.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" path="/eShop/src/databaseConnectWindow.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/eShop/src/database_management/MySQLdbManager.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" path="/eShop/src/databaseConnectWindow.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" path="/eShop/src/operatorUserLoginWindow.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" path="/eShop/src/operatorUserSettingsWindow.java"/>
 </editors>
-<item historyLabel="operatorUserLoginWindow.java" index="1">
-<position info="not_deleted" x="9165" y="0"/>
+<item historyLabel="MySQLdbManager.java" index="0">
+<position info="not_deleted" x="12869" y="0"/>
 </item>
-<item historyLabel="operatorUserLoginWindow.java" index="1">
-<position info="not_deleted" x="9361" y="0"/>
-</item>
-<item historyLabel="operatorUserLoginWindow.java" index="1">
-<position info="not_deleted" x="9291" y="0"/>
-</item>
-<item historyLabel="operatorUserLoginWindow.java" index="1">
-<position info="not_deleted" x="9165" y="0"/>
-</item>
-<item historyLabel="operatorUserLoginWindow.java" index="1">
-<position info="not_deleted" x="9345" y="0"/>
-</item>
-<item historyLabel="operatorUserLoginWindow.java" index="1">
-<position info="not_deleted" x="9414" y="0"/>
-</item>
-<item historyLabel="operatorUserLoginWindow.java" index="1">
-<position info="not_deleted" x="9391" y="0"/>
-</item>
-<item historyLabel="operatorUserLoginWindow.java" index="1">
-<position info="not_deleted" x="9488" y="0"/>
-</item>
-<item historyLabel="operatorUserLoginWindow.java" index="1">
-<position info="not_deleted" x="9431" y="0"/>
-</item>
-<item historyLabel="operatorUserLoginWindow.java" index="1">
-<position info="not_deleted" x="9685" y="0"/>
-</item>
-<item historyLabel="operatorUserLoginWindow.java" index="1">
-<position info="not_deleted" x="9808" y="0"/>
-</item>
-<item historyLabel="operatorUserLoginWindow.java" index="1">
-<position info="not_deleted" x="9913" y="0"/>
-</item>
-<item historyLabel="operatorUserLoginWindow.java" index="1">
-<position info="not_deleted" x="9685" y="0"/>
-</item>
-<item historyLabel="operatorUserLoginWindow.java" index="1">
-<position info="not_deleted" x="9913" y="0"/>
-</item>
-<item historyLabel="operatorUserLoginWindow.java" index="1">
-<position info="not_deleted" x="9685" y="0"/>
-</item>
-<item historyLabel="operatorUserLoginWindow.java" index="1">
-<position info="not_deleted" x="10236" y="0"/>
-</item>
-<item historyLabel="operatorUserLoginWindow.java" index="1">
-<position info="not_deleted" x="10308" y="0"/>
-</item>
-<item historyLabel="operatorUserLoginWindow.java" index="1">
-<position info="not_deleted" x="10362" y="0"/>
-</item>
-<item historyLabel="mainWindow.java" index="0">
-<position info="not_deleted" x="11511" y="0"/>
-</item>
-<item historyLabel="operatorUserLoginWindow.java" index="2">
-<position info="not_deleted" x="7808" y="0"/>
-</item>
-<item historyLabel="mainWindow.java" index="0">
-<position info="not_deleted" x="11511" y="0"/>
-</item>
-<item historyLabel="MySQLdbManager.java" index="3">
-<position info="not_deleted" x="82" y="0"/>
-</item>
-<item historyLabel="mainWindow.java" index="0">
-<position info="not_deleted" x="11511" y="0"/>
-</item>
-<item historyLabel="MySQLdbManager.java" index="4">
-<position info="not_deleted" x="4" y="0"/>
-</item>
-<item historyLabel="mainWindow.java" index="0">
+<item historyLabel="mainWindow.java" index="1">
 <position/>
 </item>
-<item historyLabel="operatorUserLoginWindow.java" index="5">
+<item historyLabel="databaseConnectWindow.java" index="2">
 <position/>
 </item>
-<item historyLabel="mainWindow.java" index="0">
+<item historyLabel="mainWindow.java" index="1">
 <position/>
 </item>
-<item historyLabel="databaseConnectWindow.java" index="6">
+<item historyLabel="databaseConnectWindow.java" index="2">
 <position/>
 </item>
-<item historyLabel="mainWindow.java" index="0">
-<position info="not_deleted" x="12368" y="7"/>
+<item historyLabel="MySQLdbManager.java" index="0">
+<position info="not_deleted" x="12869" y="0"/>
 </item>
-<item historyLabel="mainWindow.java" index="0">
-<position info="not_deleted" x="3971" y="0"/>
-</item>
-<item historyLabel="MySQLdbManager.java" index="7">
-<position info="not_deleted" x="38" y="0"/>
-</item>
-<item historyLabel="mainWindow.java" index="0">
-<position info="not_deleted" x="13978" y="0"/>
-</item>
-<item historyLabel="MySQLdbManager.java" index="7">
-<position info="not_deleted" x="680" y="0"/>
-</item>
-<item historyLabel="mainWindow.java" index="0">
+<item historyLabel="databaseConnectWindow.java" index="2">
 <position/>
 </item>
-<item historyLabel="MySQLdbManager.java" index="7">
-<position info="not_deleted" x="11408" y="0"/>
+<item historyLabel="mainWindow.java" index="1">
+<position/>
 </item>
-<item historyLabel="mainWindow.java" index="0">
-<position info="not_deleted" x="13824" y="0"/>
+<item historyLabel="operatorUserLoginWindow.java" index="3">
+<position/>
 </item>
-<item historyLabel="databaseConnectWindow.java" index="8">
-<position info="not_deleted" x="4577" y="8"/>
+<item historyLabel="operatorUserLoginWindow.java" index="3">
+<position/>
 </item>
-<item historyLabel="databaseConnectWindow.java" index="8">
-<position info="not_deleted" x="5302" y="8"/>
+<item historyLabel="mainWindow.java" index="1">
+<position/>
 </item>
-<item historyLabel="databaseConnectWindow.java" index="8">
-<position info="not_deleted" x="4581" y="0"/>
+<item historyLabel="operatorUserLoginWindow.java" index="3">
+<position/>
 </item>
-<item historyLabel="databaseConnectWindow.java" index="8">
-<position info="not_deleted" x="5881" y="0"/>
+<item historyLabel="mainWindow.java" index="1">
+<position/>
 </item>
-<item historyLabel="databaseConnectWindow.java" index="8">
-<position info="not_deleted" x="6148" y="8"/>
+<item historyLabel="operatorUserSettingsWindow.java" index="4">
+<position/>
 </item>
-<item historyLabel="databaseConnectWindow.java" index="8">
-<position info="not_deleted" x="6986" y="0"/>
+<item historyLabel="operatorUserLoginWindow.java" index="3">
+<position/>
 </item>
-<item historyLabel="mainWindow.java" index="0">
-<position info="not_deleted" x="9698" y="0"/>
+<item historyLabel="operatorUserSettingsWindow.java" index="4">
+<position/>
 </item>
-<item historyLabel="mainWindow.java" index="0">
-<position info="not_deleted" x="11493" y="0"/>
+<item historyLabel="mainWindow.java" index="1">
+<position/>
 </item>
-<item historyLabel="databaseConnectWindow.java" index="8">
-<position info="not_deleted" x="4577" y="8"/>
+<item historyLabel="databaseConnectWindow.java" index="2">
+<position/>
 </item>
-<item historyLabel="MySQLdbManager.java" index="7">
-<position info="not_deleted" x="11076" y="0"/>
+<item historyLabel="mainWindow.java" index="1">
+<position info="not_deleted" x="13540" y="0"/>
 </item>
-<item historyLabel="databaseConnectWindow.java" index="8">
-<position info="not_deleted" x="4081" y="0"/>
+<item historyLabel="operatorUserSettingsWindow.java" index="4">
+<position/>
 </item>
-<item historyLabel="mainWindow.java" index="0">
-<position info="not_deleted" x="11493" y="0"/>
+<item historyLabel="mainWindow.java" index="1">
+<position info="not_deleted" x="13540" y="0"/>
 </item>
-<item historyLabel="databaseConnectWindow.java" index="8">
-<position info="not_deleted" x="4081" y="0"/>
+<item historyLabel="operatorUserSettingsWindow.java" index="4">
+<position info="not_deleted" x="6750" y="0"/>
 </item>
-<item active="true" historyLabel="MySQLdbManager.java" index="7">
-<position info="not_deleted" x="11076" y="0"/>
+<item historyLabel="mainWindow.java" index="1">
+<position info="not_deleted" x="13797" y="0"/>
+</item>
+<item historyLabel="operatorUserSettingsWindow.java" index="4">
+<position info="not_deleted" x="6633" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="1">
+<position info="not_deleted" x="13797" y="0"/>
+</item>
+<item historyLabel="operatorUserSettingsWindow.java" index="4">
+<position info="not_deleted" x="6633" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="1">
+<position info="not_deleted" x="13797" y="0"/>
+</item>
+<item historyLabel="databaseConnectWindow.java" index="2">
+<position info="not_deleted" x="5983" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="1">
+<position info="not_deleted" x="13797" y="0"/>
+</item>
+<item historyLabel="databaseConnectWindow.java" index="2">
+<position info="not_deleted" x="5983" y="0"/>
+</item>
+<item active="true" historyLabel="mainWindow.java" index="1">
+<position info="not_deleted" x="13797" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -833,13 +769,11 @@
 <trimLayout>
 <trimArea IMemento.internal.id="16384">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@1ed627d"/>
-<trimItem IMemento.internal.id="left"/>
 </trimArea>
 <trimArea IMemento.internal.id="131072">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@1d09ed4"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@18f1ef8"/>
 <trimItem IMemento.internal.id="right"/>
-<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
 </trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
@@ -852,34 +786,33 @@
 <trimItem IMemento.internal.id="com.codegear.capability.ui.contributions.trim"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@1065904"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@d52ea"/>
-<trimItem IMemento.internal.id="bottom"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" name="operatorUserSettingsWindow.java" tooltip="eShop/src/operatorUserSettingsWindow.java">
+<persistable path="/eShop/src/operatorUserSettingsWindow.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" name="databaseConnectWindow.java" tooltip="eShop/src/databaseConnectWindow.java">
 <persistable path="/eShop/src/databaseConnectWindow.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MySQLdbManager.java" tooltip="eShop/src/database_management/MySQLdbManager.java">
-<persistable path="/eShop/src/database_management/MySQLdbManager.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" name="operatorUserLoginWindow.java" tooltip="eShop/src/operatorUserLoginWindow.java">
 <persistable path="/eShop/src/operatorUserLoginWindow.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" name="operatorUserSettingsWindow.java" tooltip="eShop/src/operatorUserSettingsWindow.java">
-<persistable path="/eShop/src/operatorUserSettingsWindow.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" name="mainWindow.java" tooltip="eShop/src/mainWindow.java">
+<persistable path="/eShop/src/mainWindow.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MySQLdbManager.java" tooltip="eShop/src/database_management/MySQLdbManager.java">
+<persistable path="/eShop/src/database_management/MySQLdbManager.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Md5hashcalc.java" tooltip="eShop/src/md5_calculator/Md5hashcalc.java">
+<persistable path="/eShop/src/md5_calculator/Md5hashcalc.java"/>
 </file>
 <file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="StringBuilder.class" tooltip="java.lang.StringBuilder">
 <persistable org.eclipse.jdt.ui.ClassFileIdentifier="=eShop/C:\/JBuilder2008R2\/jre\/jre\/lib\/rt.jar&lt;java.lang(StringBuilder.class"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" name="mainWindow.java" tooltip="eShop/src/mainWindow.java">
-<persistable path="/eShop/src/mainWindow.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" name="operatorUserLogin.java" tooltip="eShop/src/operatorUserLogin.java">
 <persistable path="/eShop/src/operatorUserLogin.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Md5hashcalc.java" tooltip="eShop/src/md5_calculator/Md5hashcalc.java">
-<persistable path="/eShop/src/md5_calculator/Md5hashcalc.java"/>
 </file>
 <file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Class.class" tooltip="java.lang.Class">
 <persistable org.eclipse.jdt.ui.ClassFileIdentifier="=eShop/C:\/JBuilder2008R2\/jre\/jre\/lib\/rt.jar&lt;java.lang(Class.class"/>

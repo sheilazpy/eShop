@@ -14,11 +14,10 @@ import javax.swing.WindowConstants;
 import javax.swing.border.TitledBorder;
 
 import java.sql.ResultSet;
-
-import database_management.MySQLdbManager;
 import md5_calculator.Md5hashcalc;
 
 public class operatorUserLoginWindow extends JFrame {
+	private static final long serialVersionUID = 3003L;
 
 	private final JPanel groupLoginPanel = new JPanel();
 	private final JPanel groupCreateNewUserPanel = new JPanel();
@@ -36,12 +35,12 @@ public class operatorUserLoginWindow extends JFrame {
 	private final JTextField newFirstNameTextField = new JTextField();
 	private final JPasswordField newPasswordPasswordField = new JPasswordField();
 	private final JTextField newLastNameTextField = new JTextField();
-	
-	public static int loggedUserId = -1;
-	public static String loggedUserNames = "";
-	
 	private final JLabel newPasswordAgainLabel = new JLabel();
 	private final JPasswordField newPasswordPasswordAgainField = new JPasswordField();
+	
+	public static int loggedUserId = -1;
+	public static String loggedUserNames = "";	
+	
 	/**
 	 * Launch the application
 	 * @param args
@@ -174,15 +173,13 @@ public class operatorUserLoginWindow extends JFrame {
 					password += pass[i];
 				}
 				
-				//FIXME prone to sql injection
-				
 				ResultSet rs = null;
 				
 				try {				
 					
-					rs = databaseConnectWindow.dbPortal.executeQuery("SELECT operator_id, operator_first_name, operator_last_name FROM operators WHERE" + 
-						" operator_username='" + loginUsernameTextField.getText() + "' AND operator_password='" +
-						Md5hashcalc.calculateMD5hash(password) + "'");
+					rs = databaseConnectWindow.dbPortal.executeParameterizedQuery("SELECT operator_id, operator_first_name, " + "" +
+							"operator_last_name FROM operators WHERE operator_username = ? AND operator_password = ?", 
+							loginUsernameTextField.getText(), Md5hashcalc.calculateMD5hash(password));							
 				}
 				catch (Exception ex) {
 					System.exit(-1);
@@ -268,9 +265,8 @@ public class operatorUserLoginWindow extends JFrame {
 						System.exit(-1);
 					}
 					
-					//FIXME prone to sql injection
-					ResultSet rs = databaseConnectWindow.dbPortal.executeQuery("SELECT COUNT(*) FROM operators WHERE operator_username='" +
-							newUsernameTextField.getText() + "'");
+					ResultSet rs = databaseConnectWindow.dbPortal.executeParameterizedQuery(
+							"SELECT COUNT(*) FROM operators WHERE operator_username=?",	newUsernameTextField.getText());
 					
 					int usersCount = 0;
 					try {
@@ -283,10 +279,10 @@ public class operatorUserLoginWindow extends JFrame {
 					if ((databaseConnectWindow.dbPortal.getLastError() == null) && (usersCount == 0)) {						
 						
 						//no such existing username so now we create it
-						//FIXME prone to sql injection
-						if (databaseConnectWindow.dbPortal.executeNonQuery("INSERT INTO operators(operator_username, operator_password, " +
-								"operator_first_name, operator_last_name) VALUES('" + newUsernameTextField.getText() + "', '" +
-								encryptedPassword + "', '" + newFirstNameTextField.getText() + "', '" + newLastNameTextField.getText() + "')") != 1) {
+						if (databaseConnectWindow.dbPortal.executeParameterizedNonQuery(
+								"INSERT INTO operators(operator_username, operator_password, operator_first_name, " + 
+								"operator_last_name) VALUES(?, ?, ?, ?)", newUsernameTextField.getText(), encryptedPassword,
+								newFirstNameTextField.getText(), newLastNameTextField.getText()) != 1) {
 							
 							JOptionPane.showMessageDialog(this, "Грешка при създаване на нов потребител!", "Грешка", JOptionPane.ERROR_MESSAGE);
 						}

@@ -125,7 +125,7 @@ public class MySQLdbManager {
 	
 	/**
 	 * Sets MySQL server address. After done you need to call disconnect() and connect() again.
-	 * @param mySqlServerAddress String MySQL server IP address ot HOSTNAME
+	 * @param mySqlServerAddress String MySQL server IP address or HOSTNAME
 	 */
 	
 	public void setMySqlServerAddress(String mySqlServerAddress) {
@@ -388,6 +388,47 @@ public class MySQLdbManager {
 	}
 	
 	/**
+	 * Executes parameterized query and returns the number of affected things. For INSERT, UPDATE, DELETE ...
+	 * @param query String
+	 * @param parameters Object (for class variable wrappers like String, Integer, etc. only from java.lang !!!!)
+	 * @return int the number of affected things
+	 */
+	
+	public int executeParameterizedNonQuery(String query, Object... parameters) {
+		
+		PreparedStatement sqlStatement;
+		int affectedCount = 0;
+		
+		if (!isConnected()) {
+			
+			lastError = "No connection!";
+			return affectedCount;			
+		}
+		else {			
+			lastError = null;
+		}
+		
+		try {
+			
+			sqlStatement = dbConnection.prepareStatement(query);
+			
+			for (int i = 0; i < parameters.length; i++) {
+				
+				sqlStatement.setObject(i + 1, parameters[i]);
+			}
+			
+			sqlStatement.execute();
+			affectedCount = sqlStatement.getUpdateCount();
+		}
+		catch (SQLException ex) {
+			
+			lastError = ex.getMessage();			
+		}
+		
+		return affectedCount;
+	}
+	
+	/**
 	 * Executes query and returns ResultSet with data. For SELECT...
 	 * Warning! Prone to SQL injection!!!
 	 * @param query String
@@ -412,6 +453,55 @@ public class MySQLdbManager {
 			
 			sqlStatement = dbConnection.createStatement();
 			result = sqlStatement.executeQuery(query);
+			try {
+				
+				result.first();
+			}
+			catch (Exception ex) {
+				
+			}
+		}
+		catch (SQLException ex) {
+			
+			lastError = ex.getMessage();
+			return null;
+		}
+		
+		return result;		
+	}
+	
+	/**
+	 * Executes parameterized query and returns ResultSet with data. For SELECT...
+	 * @param query String
+	 * @param parameters Object (for class variable wrappers like String, Integer, etc. only from java.lang !!!!)
+	 * @return ResultSet
+	 */
+	
+	public ResultSet executeParameterizedQuery(String query, Object... parameters) { //executes query and returns ResultSet 
+		
+		PreparedStatement sqlStatement;
+		ResultSet result;
+		
+		if (!isConnected()) {
+			
+			lastError = "No connection!";
+			return null;
+		}
+		else {
+			lastError = null;
+		}
+		
+		try {
+			
+			sqlStatement = dbConnection.prepareStatement(query);
+			
+			for (int i = 0; i < parameters.length; i++) {
+				
+				sqlStatement.setObject(i + 1, parameters[i]);
+			}
+			
+			result = sqlStatement.executeQuery();
+			
 			try {
 				
 				result.first();
