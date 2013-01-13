@@ -260,7 +260,8 @@ public class mainWindow extends JFrame {
 			
 			if (databaseConnectWindow.dbPortal.isConnected()) {
 				
-				databaseConnectWindow.dbPortal.finalize();
+				databaseConnectWindow.dbPortal.disconnect();
+				databaseConnectWindow.dbPortal.finallize();
 			}
 		}
 		this.dispose();
@@ -308,7 +309,7 @@ public class mainWindow extends JFrame {
 		
 		if (databaseConnectWindow.dbPortal != null) {
 			
-			databaseConnectWindow.dbPortal.finalize();
+			databaseConnectWindow.dbPortal.finallize();
 			
 			this.FileConnectToDb.setEnabled(true);
 			this.FileDisconnectFromDb.setEnabled(false);			

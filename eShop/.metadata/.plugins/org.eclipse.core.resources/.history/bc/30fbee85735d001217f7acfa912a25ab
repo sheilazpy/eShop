@@ -429,21 +429,12 @@ public class MySQLdbManager {
 		return result;		
 	}
 	
-	/**
-	 * Returns the text message exception error of the last called method. Returns null if no error.
-	 * @return String
-	 */
-	
 	public String getLastError() {
 		
 		return lastError;
 	}
 	
-	/**
-	 * Finalization method if you don't want to use specific MySQLdbManager instance object anymore.
-	 */
-	
-	public void finalize() {
+	public void finallize() {
 		
 		disconnect();
 		mySqlServerAddress = null;	

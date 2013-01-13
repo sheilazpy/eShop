@@ -329,7 +329,7 @@ public class MySQLdbManager {
 	}
 	
 	/**
-	 * Close the active database connection if presented.
+	 * Close the active database connection if any.
 	 */
 	
 	public void disconnect() {
@@ -352,14 +352,7 @@ public class MySQLdbManager {
 		}		
 	}
 	
-	/**
-	 * Executes query and returns the number of affected things. For INSERT, UPDATE, DELETE ...
-	 * Warning! Prone to SQL injection!!!
-	 * @param query String
-	 * @return int the number of affected things
-	 */
-	
-	public int executeNonQuery(String query) {
+	public int executeNonQuery(String query) { //executes query and returns the number of affected things
 		
 		Statement sqlStatement;
 		int affectedCount = 0;
@@ -386,13 +379,6 @@ public class MySQLdbManager {
 		
 		return affectedCount;
 	}
-	
-	/**
-	 * Executes query and returns ResultSet with data. For SELECT...
-	 * Warning! Prone to SQL injection!!!
-	 * @param query String
-	 * @return ResultSet
-	 */
 	
 	public ResultSet executeQuery(String query) { //executes query and returns ResultSet 
 		
@@ -429,21 +415,12 @@ public class MySQLdbManager {
 		return result;		
 	}
 	
-	/**
-	 * Returns the text message exception error of the last called method. Returns null if no error.
-	 * @return String
-	 */
-	
 	public String getLastError() {
 		
 		return lastError;
 	}
 	
-	/**
-	 * Finalization method if you don't want to use specific MySQLdbManager instance object anymore.
-	 */
-	
-	public void finalize() {
+	public void finallize() {
 		
 		disconnect();
 		mySqlServerAddress = null;	

@@ -53832,3 +53832,2720 @@
 	<delta>closed</delta>
 	<interestContribution>1.0</interestContribution>
 </interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:22:03.422 EET</date>
+	<endDate>2013-01-13 12:22:03.422 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:22:05.122 EET</date>
+	<endDate>2013-01-13 12:22:05.122 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:22:28.511 EET</date>
+	<endDate>2013-01-13 12:22:28.511 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 12:22:46.419 EET</date>
+	<endDate>2013-01-13 12:22:46.419 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: actionSetShow</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 12:22:57.933 EET</date>
+	<endDate>2013-01-13 12:22:57.933 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: actionSetShow</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 12:22:57.961 EET</date>
+	<endDate>2013-01-13 12:22:57.961 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: actionSetShow</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 12:22:58.60 EET</date>
+	<endDate>2013-01-13 12:22:58.60 EET</endDate>
+	<originId>org.eclipse.jdt.ui.CompilationUnitEditor</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: editorOpen</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 12:22:58.61 EET</date>
+	<endDate>2013-01-13 12:22:58.61 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: editorOpen</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:26:28.454 EET</date>
+	<endDate>2013-01-13 12:26:28.454 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:26:43.287 EET</date>
+	<endDate>2013-01-13 12:26:43.287 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:26:47.219 EET</date>
+	<endDate>2013-01-13 12:26:47.219 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:26:53.886 EET</date>
+	<endDate>2013-01-13 12:26:53.886 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:26:58.805 EET</date>
+	<endDate>2013-01-13 12:26:58.805 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:27:01.728 EET</date>
+	<endDate>2013-01-13 12:27:01.728 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:27:11.939 EET</date>
+	<endDate>2013-01-13 12:27:11.939 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:27:20.385 EET</date>
+	<endDate>2013-01-13 12:27:20.385 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:27:20.555 EET</date>
+	<endDate>2013-01-13 12:27:20.555 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:27:20.812 EET</date>
+	<endDate>2013-01-13 12:27:20.812 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:27:20.974 EET</date>
+	<endDate>2013-01-13 12:27:20.974 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:27:21.158 EET</date>
+	<endDate>2013-01-13 12:27:21.158 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:27:21.328 EET</date>
+	<endDate>2013-01-13 12:27:21.328 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:27:21.630 EET</date>
+	<endDate>2013-01-13 12:27:21.630 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:27:25.57 EET</date>
+	<endDate>2013-01-13 12:27:25.57 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:27:49.198 EET</date>
+	<endDate>2013-01-13 12:27:49.198 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:27:53.666 EET</date>
+	<endDate>2013-01-13 12:27:53.666 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:27:56.495 EET</date>
+	<endDate>2013-01-13 12:27:56.495 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:27:57.768 EET</date>
+	<endDate>2013-01-13 12:27:57.768 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineStart</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:28:17.515 EET</date>
+	<endDate>2013-01-13 12:28:17.515 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 12:28:20.371 EET</date>
+	<endDate>2013-01-13 12:28:20.371 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: actionSetShow</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:28:34.845 EET</date>
+	<endDate>2013-01-13 12:28:34.845 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.contentAssist.proposals</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:29:03.136 EET</date>
+	<endDate>2013-01-13 12:29:03.136 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.contentAssist.proposals</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:29:08.663 EET</date>
+	<endDate>2013-01-13 12:29:08.663 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.contentAssist.proposals</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:29:12.138 EET</date>
+	<endDate>2013-01-13 12:29:12.138 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:29:17.31 EET</date>
+	<endDate>2013-01-13 12:29:17.31 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineStart</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:29:19.300 EET</date>
+	<endDate>2013-01-13 12:29:19.300 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 12:29:21.101 EET</date>
+	<endDate>2013-01-13 12:29:21.101 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: actionSetShow</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:30:12.504 EET</date>
+	<endDate>2013-01-13 12:30:12.504 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:30:26.806 EET</date>
+	<endDate>2013-01-13 12:30:26.806 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:30:44.809 EET</date>
+	<endDate>2013-01-13 12:30:44.809 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:30:48.529 EET</date>
+	<endDate>2013-01-13 12:30:48.529 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:30:52.216 EET</date>
+	<endDate>2013-01-13 12:30:52.216 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:30:55.337 EET</date>
+	<endDate>2013-01-13 12:30:55.337 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:30:57.424 EET</date>
+	<endDate>2013-01-13 12:30:57.424 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:31:03.65 EET</date>
+	<endDate>2013-01-13 12:31:03.65 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 12:31:06.201 EET</date>
+	<endDate>2013-01-13 12:31:06.201 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: actionSetShow</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:31:14.216 EET</date>
+	<endDate>2013-01-13 12:31:14.216 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.contentAssist.proposals</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:31:22.221 EET</date>
+	<endDate>2013-01-13 12:31:22.221 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.contentAssist.proposals</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:31:37.164 EET</date>
+	<endDate>2013-01-13 12:31:37.164 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 12:31:39.423 EET</date>
+	<endDate>2013-01-13 12:31:39.423 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: actionSetShow</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:31:43.636 EET</date>
+	<endDate>2013-01-13 12:31:43.636 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:31:57.990 EET</date>
+	<endDate>2013-01-13 12:31:57.990 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:32:02.531 EET</date>
+	<endDate>2013-01-13 12:32:02.531 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:32:10.438 EET</date>
+	<endDate>2013-01-13 12:32:10.438 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:32:27.792 EET</date>
+	<endDate>2013-01-13 12:32:27.792 EET</endDate>
+	<originId>org.eclipse.ui.edit.undo</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:32:28.745 EET</date>
+	<endDate>2013-01-13 12:32:28.745 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:32:44.52 EET</date>
+	<endDate>2013-01-13 12:32:44.52 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:33:09.708 EET</date>
+	<endDate>2013-01-13 12:33:09.708 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:33:10.355 EET</date>
+	<endDate>2013-01-13 12:33:10.355 EET</endDate>
+	<originId>org.eclipse.ui.edit.copy</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:33:12.174 EET</date>
+	<endDate>2013-01-13 12:33:12.174 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:33:37.278 EET</date>
+	<endDate>2013-01-13 12:33:37.278 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:33:48.732 EET</date>
+	<endDate>2013-01-13 12:33:48.732 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:35:36.796 EET</date>
+	<endDate>2013-01-13 12:35:36.796 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:35:50.47 EET</date>
+	<endDate>2013-01-13 12:35:50.47 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:35:50.663 EET</date>
+	<endDate>2013-01-13 12:35:50.663 EET</endDate>
+	<originId>org.eclipse.ui.edit.copy</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:35:52.739 EET</date>
+	<endDate>2013-01-13 12:35:52.739 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:35:55.321 EET</date>
+	<endDate>2013-01-13 12:35:55.321 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:35:56.106 EET</date>
+	<endDate>2013-01-13 12:35:56.106 EET</endDate>
+	<originId>org.eclipse.ui.edit.copy</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:35:58.138 EET</date>
+	<endDate>2013-01-13 12:35:58.138 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:36:00.563 EET</date>
+	<endDate>2013-01-13 12:36:00.563 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:36:01.184 EET</date>
+	<endDate>2013-01-13 12:36:01.184 EET</endDate>
+	<originId>org.eclipse.ui.edit.copy</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:36:03.121 EET</date>
+	<endDate>2013-01-13 12:36:03.121 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:36:42.309 EET</date>
+	<endDate>2013-01-13 12:36:42.309 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:36:46.635 EET</date>
+	<endDate>2013-01-13 12:36:46.635 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:36:47.271 EET</date>
+	<endDate>2013-01-13 12:36:47.271 EET</endDate>
+	<originId>org.eclipse.ui.edit.copy</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:36:49.445 EET</date>
+	<endDate>2013-01-13 12:36:49.445 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:36:55.270 EET</date>
+	<endDate>2013-01-13 12:36:55.270 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:37:17.156 EET</date>
+	<endDate>2013-01-13 12:37:17.156 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:37:17.736 EET</date>
+	<endDate>2013-01-13 12:37:17.736 EET</endDate>
+	<originId>org.eclipse.ui.edit.copy</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:37:19.631 EET</date>
+	<endDate>2013-01-13 12:37:19.631 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:37:21.517 EET</date>
+	<endDate>2013-01-13 12:37:21.517 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:37:22.97 EET</date>
+	<endDate>2013-01-13 12:37:22.97 EET</endDate>
+	<originId>org.eclipse.ui.edit.copy</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:37:24.791 EET</date>
+	<endDate>2013-01-13 12:37:24.791 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:37:42.564 EET</date>
+	<endDate>2013-01-13 12:37:42.564 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:37:43.207 EET</date>
+	<endDate>2013-01-13 12:37:43.207 EET</endDate>
+	<originId>org.eclipse.ui.edit.copy</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:37:45.454 EET</date>
+	<endDate>2013-01-13 12:37:45.454 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:37:48.336 EET</date>
+	<endDate>2013-01-13 12:37:48.336 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:37:48.919 EET</date>
+	<endDate>2013-01-13 12:37:48.919 EET</endDate>
+	<originId>org.eclipse.ui.edit.copy</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:37:50.871 EET</date>
+	<endDate>2013-01-13 12:37:50.871 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:37:53.848 EET</date>
+	<endDate>2013-01-13 12:37:53.848 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:37:54.602 EET</date>
+	<endDate>2013-01-13 12:37:54.602 EET</endDate>
+	<originId>org.eclipse.ui.edit.copy</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:37:56.702 EET</date>
+	<endDate>2013-01-13 12:37:56.702 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:38:13.817 EET</date>
+	<endDate>2013-01-13 12:38:13.817 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:38:14.540 EET</date>
+	<endDate>2013-01-13 12:38:14.540 EET</endDate>
+	<originId>org.eclipse.ui.edit.copy</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:38:17.602 EET</date>
+	<endDate>2013-01-13 12:38:17.602 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:38:20.259 EET</date>
+	<endDate>2013-01-13 12:38:20.259 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:38:20.810 EET</date>
+	<endDate>2013-01-13 12:38:20.810 EET</endDate>
+	<originId>org.eclipse.ui.edit.copy</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:38:22.826 EET</date>
+	<endDate>2013-01-13 12:38:22.826 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:38:27.460 EET</date>
+	<endDate>2013-01-13 12:38:27.460 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:38:28.28 EET</date>
+	<endDate>2013-01-13 12:38:28.28 EET</endDate>
+	<originId>org.eclipse.ui.edit.copy</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:38:30.414 EET</date>
+	<endDate>2013-01-13 12:38:30.414 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:38:36.761 EET</date>
+	<endDate>2013-01-13 12:38:36.761 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:38:37.581 EET</date>
+	<endDate>2013-01-13 12:38:37.581 EET</endDate>
+	<originId>org.eclipse.ui.edit.copy</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:38:41.382 EET</date>
+	<endDate>2013-01-13 12:38:41.382 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:39:42.254 EET</date>
+	<endDate>2013-01-13 12:39:42.254 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:39:42.831 EET</date>
+	<endDate>2013-01-13 12:39:42.831 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:40:01.126 EET</date>
+	<endDate>2013-01-13 12:40:01.126 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 12:58:43.476 EET</date>
+	<endDate>2013-01-13 12:58:43.476 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:02:32.556 EET</date>
+	<endDate>2013-01-13 13:02:32.556 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:03:05.14 EET</date>
+	<endDate>2013-01-13 13:03:05.14 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:03:36.934 EET</date>
+	<endDate>2013-01-13 13:03:36.934 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:04:58.405 EET</date>
+	<endDate>2013-01-13 13:04:58.405 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:05:20.442 EET</date>
+	<endDate>2013-01-13 13:05:20.442 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:06:00.382 EET</date>
+	<endDate>2013-01-13 13:06:00.382 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:07:33.548 EET</date>
+	<endDate>2013-01-13 13:07:33.548 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:07:54.602 EET</date>
+	<endDate>2013-01-13 13:07:54.602 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:07:55.426 EET</date>
+	<endDate>2013-01-13 13:07:55.426 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:08:52.900 EET</date>
+	<endDate>2013-01-13 13:08:52.900 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:08:59.678 EET</date>
+	<endDate>2013-01-13 13:08:59.678 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:09:36.608 EET</date>
+	<endDate>2013-01-13 13:09:36.608 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:11:05.111 EET</date>
+	<endDate>2013-01-13 13:11:05.111 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:11:44.31 EET</date>
+	<endDate>2013-01-13 13:11:44.31 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:11:47.555 EET</date>
+	<endDate>2013-01-13 13:11:47.555 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:11:48.41 EET</date>
+	<endDate>2013-01-13 13:11:48.41 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:12:08.148 EET</date>
+	<endDate>2013-01-13 13:12:08.148 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:12:16.995 EET</date>
+	<endDate>2013-01-13 13:12:16.995 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:12:17.319 EET</date>
+	<endDate>2013-01-13 13:12:17.319 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:12:17.690 EET</date>
+	<endDate>2013-01-13 13:12:17.690 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:12:26.712 EET</date>
+	<endDate>2013-01-13 13:12:26.712 EET</endDate>
+	<originId>org.eclipse.ui.edit.copy</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:12:32.430 EET</date>
+	<endDate>2013-01-13 13:12:32.430 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:12:37.634 EET</date>
+	<endDate>2013-01-13 13:12:37.634 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:12:40.850 EET</date>
+	<endDate>2013-01-13 13:12:40.850 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:12:50.347 EET</date>
+	<endDate>2013-01-13 13:12:50.347 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:12:53.322 EET</date>
+	<endDate>2013-01-13 13:12:53.322 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:13:08.250 EET</date>
+	<endDate>2013-01-13 13:13:08.250 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:13:11.428 EET</date>
+	<endDate>2013-01-13 13:13:11.428 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:13:12.404 EET</date>
+	<endDate>2013-01-13 13:13:12.404 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:13:32.244 EET</date>
+	<endDate>2013-01-13 13:13:32.244 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:13:34.368 EET</date>
+	<endDate>2013-01-13 13:13:34.368 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:14:00.39 EET</date>
+	<endDate>2013-01-13 13:14:00.39 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:14:00.529 EET</date>
+	<endDate>2013-01-13 13:14:00.529 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:14:01.329 EET</date>
+	<endDate>2013-01-13 13:14:01.329 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:14:20.241 EET</date>
+	<endDate>2013-01-13 13:14:20.241 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:14:21.248 EET</date>
+	<endDate>2013-01-13 13:14:21.248 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:15:30.250 EET</date>
+	<endDate>2013-01-13 13:15:30.250 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:15:52.8 EET</date>
+	<endDate>2013-01-13 13:15:52.8 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:16:14.285 EET</date>
+	<endDate>2013-01-13 13:16:14.285 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:16:17.210 EET</date>
+	<endDate>2013-01-13 13:16:17.210 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:16:19.346 EET</date>
+	<endDate>2013-01-13 13:16:19.346 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineStart</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:16:20.269 EET</date>
+	<endDate>2013-01-13 13:16:20.269 EET</endDate>
+	<originId>org.eclipse.ui.edit.copy</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:17:10.671 EET</date>
+	<endDate>2013-01-13 13:17:10.671 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:18:38.42 EET</date>
+	<endDate>2013-01-13 13:18:38.42 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.smartEnter</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:18:52.74 EET</date>
+	<endDate>2013-01-13 13:18:52.74 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:18:54.609 EET</date>
+	<endDate>2013-01-13 13:18:54.609 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:18:57.31 EET</date>
+	<endDate>2013-01-13 13:18:57.31 EET</endDate>
+	<originId>org.eclipse.ui.edit.copy</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:19:02.996 EET</date>
+	<endDate>2013-01-13 13:19:02.996 EET</endDate>
+	<originId>org.eclipse.ui.edit.paste</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:19:13.504 EET</date>
+	<endDate>2013-01-13 13:19:13.504 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:19:31.477 EET</date>
+	<endDate>2013-01-13 13:19:31.477 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:19:48.568 EET</date>
+	<endDate>2013-01-13 13:19:48.568 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:19:57.632 EET</date>
+	<endDate>2013-01-13 13:19:57.632 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:20:34.150 EET</date>
+	<endDate>2013-01-13 13:20:34.150 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:22:14.828 EET</date>
+	<endDate>2013-01-13 13:22:14.828 EET</endDate>
+	<originId>org.eclipse.ui.edit.copy</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:22:27.897 EET</date>
+	<endDate>2013-01-13 13:22:27.897 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:22:30.782 EET</date>
+	<endDate>2013-01-13 13:22:30.782 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:22:32.406 EET</date>
+	<endDate>2013-01-13 13:22:32.406 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:23:16.740 EET</date>
+	<endDate>2013-01-13 13:23:16.740 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:23:18.830 EET</date>
+	<endDate>2013-01-13 13:23:18.830 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:23:22.565 EET</date>
+	<endDate>2013-01-13 13:23:22.565 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: actionSetShow</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:23:23.860 EET</date>
+	<endDate>2013-01-13 13:23:23.860 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:23:36.10 EET</date>
+	<endDate>2013-01-13 13:23:36.10 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineStart</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:23:37.121 EET</date>
+	<endDate>2013-01-13 13:23:37.121 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:23:38.132 EET</date>
+	<endDate>2013-01-13 13:23:38.132 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:23:38.632 EET</date>
+	<endDate>2013-01-13 13:23:38.632 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:23:38.948 EET</date>
+	<endDate>2013-01-13 13:23:38.948 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:23:41.13 EET</date>
+	<endDate>2013-01-13 13:23:41.13 EET</endDate>
+	<originId>org.eclipse.debug.internal.ui.actions.RunDropDownAction</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>toolbar</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:23:42.814 EET</date>
+	<endDate>2013-01-13 13:23:42.814 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:23:49.720 EET</date>
+	<endDate>2013-01-13 13:23:49.720 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:24:35.595 EET</date>
+	<endDate>2013-01-13 13:24:35.595 EET</endDate>
+	<originId>org.eclipse.ui.internal.ViewStackTrimToolBar$1</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>toolbar</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:24:35.695 EET</date>
+	<endDate>2013-01-13 13:24:35.695 EET</endDate>
+	<originId>org.eclipse.ui.views.ProblemView</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewRemove</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:24:35.695 EET</date>
+	<endDate>2013-01-13 13:24:35.695 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewRemove</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:24:35.708 EET</date>
+	<endDate>2013-01-13 13:24:35.708 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavadocView</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewRemove</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:24:35.709 EET</date>
+	<endDate>2013-01-13 13:24:35.709 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewRemove</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:24:35.716 EET</date>
+	<endDate>2013-01-13 13:24:35.716 EET</endDate>
+	<originId>org.eclipse.jdt.ui.SourceView</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewRemove</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:24:35.717 EET</date>
+	<endDate>2013-01-13 13:24:35.717 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewRemove</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:24:35.724 EET</date>
+	<endDate>2013-01-13 13:24:35.724 EET</endDate>
+	<originId>org.eclipse.ui.console.ConsoleView</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewRemove</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:24:35.724 EET</date>
+	<endDate>2013-01-13 13:24:35.724 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewRemove</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:24:50.686 EET</date>
+	<endDate>2013-01-13 13:24:50.686 EET</endDate>
+	<originId>com.swtdesigner.editors.MultiPageEditor</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: editorOpen</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:24:50.687 EET</date>
+	<endDate>2013-01-13 13:24:50.687 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: editorOpen</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:24:57.175 EET</date>
+	<endDate>2013-01-13 13:24:57.175 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:03.850 EET</date>
+	<endDate>2013-01-13 13:25:03.850 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:08.542 EET</date>
+	<endDate>2013-01-13 13:25:08.542 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:14.720 EET</date>
+	<endDate>2013-01-13 13:25:14.720 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:16.104 EET</date>
+	<endDate>2013-01-13 13:25:16.104 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:16.416 EET</date>
+	<endDate>2013-01-13 13:25:16.416 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineStart</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:17.116 EET</date>
+	<endDate>2013-01-13 13:25:17.116 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:17.340 EET</date>
+	<endDate>2013-01-13 13:25:17.340 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:17.520 EET</date>
+	<endDate>2013-01-13 13:25:17.520 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:17.727 EET</date>
+	<endDate>2013-01-13 13:25:17.727 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:18.77 EET</date>
+	<endDate>2013-01-13 13:25:18.77 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:25:20.866 EET</date>
+	<endDate>2013-01-13 13:25:20.866 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: actionSetShow</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:25:20.927 EET</date>
+	<endDate>2013-01-13 13:25:20.927 EET</endDate>
+	<originId>org.eclipse.jdt.ui.PackageExplorer</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewAdd</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:25:20.928 EET</date>
+	<endDate>2013-01-13 13:25:20.928 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewAdd</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:25:20.938 EET</date>
+	<endDate>2013-01-13 13:25:20.938 EET</endDate>
+	<originId>org.eclipse.jdt.ui.TypeHierarchy</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewAdd</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:25:20.938 EET</date>
+	<endDate>2013-01-13 13:25:20.938 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewAdd</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:25:24.55 EET</date>
+	<endDate>2013-01-13 13:25:24.55 EET</endDate>
+	<originId>org.eclipse.jdt.ui.PackageExplorer</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewRemove</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:25:24.55 EET</date>
+	<endDate>2013-01-13 13:25:24.55 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewRemove</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:25:24.59 EET</date>
+	<endDate>2013-01-13 13:25:24.59 EET</endDate>
+	<originId>org.eclipse.jdt.ui.TypeHierarchy</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewRemove</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:25:24.59 EET</date>
+	<endDate>2013-01-13 13:25:24.59 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewRemove</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:25:25.841 EET</date>
+	<endDate>2013-01-13 13:25:25.841 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: actionSetShow</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:41.782 EET</date>
+	<endDate>2013-01-13 13:25:41.782 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:42.107 EET</date>
+	<endDate>2013-01-13 13:25:42.107 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.select.lineStart</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:42.784 EET</date>
+	<endDate>2013-01-13 13:25:42.784 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:42.989 EET</date>
+	<endDate>2013-01-13 13:25:42.989 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:43.234 EET</date>
+	<endDate>2013-01-13 13:25:43.234 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:43.426 EET</date>
+	<endDate>2013-01-13 13:25:43.426 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:43.610 EET</date>
+	<endDate>2013-01-13 13:25:43.610 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:43.782 EET</date>
+	<endDate>2013-01-13 13:25:43.782 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:44.57 EET</date>
+	<endDate>2013-01-13 13:25:44.57 EET</endDate>
+	<originId>org.eclipse.ui.edit.delete</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:45.466 EET</date>
+	<endDate>2013-01-13 13:25:45.466 EET</endDate>
+	<originId>org.eclipse.ui.edit.text.goto.lineEnd</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:25:58.206 EET</date>
+	<endDate>2013-01-13 13:25:58.206 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:26:10.445 EET</date>
+	<endDate>2013-01-13 13:26:10.445 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: actionSetShow</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:26:17.474 EET</date>
+	<endDate>2013-01-13 13:26:17.474 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: actionSetShow</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:26:18.541 EET</date>
+	<endDate>2013-01-13 13:26:18.541 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:26:21.577 EET</date>
+	<endDate>2013-01-13 13:26:21.577 EET</endDate>
+	<originId>org.eclipse.debug.internal.ui.actions.RunDropDownAction</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>toolbar</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:27:45.152 EET</date>
+	<endDate>2013-01-13 13:27:45.152 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:27:48.424 EET</date>
+	<endDate>2013-01-13 13:27:48.424 EET</endDate>
+	<originId>org.eclipse.ui.file.save</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>keybinding</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:27:52.589 EET</date>
+	<endDate>2013-01-13 13:27:52.589 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:27:59.562 EET</date>
+	<endDate>2013-01-13 13:27:59.562 EET</endDate>
+	<originId>org.eclipse.ui.views.ProblemView</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewAdd</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:27:59.562 EET</date>
+	<endDate>2013-01-13 13:27:59.562 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewAdd</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:27:59.564 EET</date>
+	<endDate>2013-01-13 13:27:59.564 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavadocView</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewAdd</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:27:59.565 EET</date>
+	<endDate>2013-01-13 13:27:59.565 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewAdd</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:27:59.567 EET</date>
+	<endDate>2013-01-13 13:27:59.567 EET</endDate>
+	<originId>org.eclipse.jdt.ui.SourceView</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewAdd</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:27:59.567 EET</date>
+	<endDate>2013-01-13 13:27:59.567 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewAdd</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:27:59.588 EET</date>
+	<endDate>2013-01-13 13:27:59.588 EET</endDate>
+	<originId>org.eclipse.ui.console.ConsoleView</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewAdd</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:27:59.588 EET</date>
+	<endDate>2013-01-13 13:27:59.588 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: fastViewAdd</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:28:05.9 EET</date>
+	<endDate>2013-01-13 13:28:05.9 EET</endDate>
+	<originId>com.swtdesigner.editors.MultiPageEditor</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: editorClose</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:28:06.160 EET</date>
+	<endDate>2013-01-13 13:28:06.160 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: editorClose</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:28:11.176 EET</date>
+	<endDate>2013-01-13 13:28:11.176 EET</endDate>
+	<originId>com.swtdesigner.editors.MultiPageEditor</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: editorClose</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:28:11.269 EET</date>
+	<endDate>2013-01-13 13:28:11.269 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: actionSetShow</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:28:12.239 EET</date>
+	<endDate>2013-01-13 13:28:12.239 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: editorClose</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:28:16.542 EET</date>
+	<endDate>2013-01-13 13:28:16.542 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>LTrAZqc28aWWajKqfyrRXemCx40=</structureHandle>
+	<navigation>null</navigation>
+	<delta>activated</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:28:16.827 EET</date>
+	<endDate>2013-01-13 13:28:16.827 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: actionSetShow</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:28:16.961 EET</date>
+	<endDate>2013-01-13 13:28:16.961 EET</endDate>
+	<originId>org.eclipse.jdt.ui.CompilationUnitEditor</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: editorClose</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:28:17.17 EET</date>
+	<endDate>2013-01-13 13:28:17.17 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective changed: editorClose</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:28:17.18 EET</date>
+	<endDate>2013-01-13 13:28:17.18 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective closed</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:28:17.50 EET</date>
+	<endDate>2013-01-13 13:28:17.50 EET</endDate>
+	<originId>org.eclipse.debug.ui.DebugPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective closed</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>preference</kind>
+	<date>2013-01-13 13:28:17.55 EET</date>
+	<endDate>2013-01-13 13:28:17.55 EET</endDate>
+	<originId>org.eclipse.jdt.ui.JavaBrowsingPerspective</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>perspective closed</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>
+<interactionEvent>
+	<kind>command</kind>
+	<date>2013-01-13 13:28:17.62 EET</date>
+	<endDate>2013-01-13 13:28:17.62 EET</endDate>
+	<originId>org.eclipse.ui.internal.WorkbenchWindow</originId>
+	<structureKind>null</structureKind>
+	<structureHandle>gZmLkbazE00TxC8oVszpqUbRzow=/K+iMpCQsduglOsYkdIUQZQMtaDM=</structureHandle>
+	<navigation>null</navigation>
+	<delta>closed</delta>
+	<interestContribution>1.0</interestContribution>
+</interactionEvent>

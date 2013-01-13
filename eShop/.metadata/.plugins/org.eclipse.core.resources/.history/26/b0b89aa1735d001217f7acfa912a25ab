@@ -443,7 +443,7 @@ public class MySQLdbManager {
 	 * Finalization method if you don't want to use specific MySQLdbManager instance object anymore.
 	 */
 	
-	public void finalize() {
+	public void finallize() {
 		
 		disconnect();
 		mySqlServerAddress = null;	
