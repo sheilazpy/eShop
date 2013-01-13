@@ -155,6 +155,16 @@ public class databaseConnectWindow extends JFrame {
 						
 						return;
 					}
+					else {
+						dbPortal.disconnect();
+						dbPortal.setMySqlActiveDatabase(mysqlDatabaseNameTextField.getText());
+						if (!dbPortal.connect()) {
+							
+							JOptionPane.showMessageDialog(this, "Проблем при свързването с новосъздадената база данни!\nПробвайте да рестартирате връзката.", 
+									"Проблем с връзката", JOptionPane.ERROR_MESSAGE);
+							dbPortal.finallize();
+						}
+					}
 				}
 				else {
 				

@@ -54,7 +54,7 @@ public class operatorUserSettingsWindow extends JFrame {
 	 */
 	public operatorUserSettingsWindow() {
 		super();
-		setBounds(100, 100, 314, 255);
+		setBounds(100, 100, 314, 214);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		try {
 			jbInit();
@@ -93,7 +93,7 @@ public class operatorUserSettingsWindow extends JFrame {
 		getContentPane().add(updateButton);
 		updateButton.addActionListener(new UpdateButtonActionListener());
 		updateButton.setText("Обнови");
-		updateButton.setBounds(90, 130, 137, 26);
+		updateButton.setBounds(179, 137, 106, 26);
 		
 		getContentPane().add(firstNameTextField);
 		firstNameTextField.setBounds(113, 30, 175, 20);
@@ -112,7 +112,7 @@ public class operatorUserSettingsWindow extends JFrame {
 		getContentPane().add(deleteOperator);
 		deleteOperator.addActionListener(new DeleteOperatorActionListener());
 		deleteOperator.setText("Изтрий оператор");
-		deleteOperator.setBounds(90, 189, 137, 26);
+		deleteOperator.setBounds(10, 137, 137, 26);
 	}
 	
 	private void getCurrentUserData() {
@@ -219,7 +219,6 @@ public class operatorUserSettingsWindow extends JFrame {
 		}
 		
 		operatorFirstNameLastNameCombination = firstNameTextField.getText() + " " + lastNameTextField.getText();
-		operatorUserLoginWindow.loggedUserNames = operatorFirstNameLastNameCombination; //in case
 		
 		this.getToolkit().getSystemEventQueue().postEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));		
 	}

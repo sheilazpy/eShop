@@ -219,7 +219,6 @@ public class operatorUserSettingsWindow extends JFrame {
 		}
 		
 		operatorFirstNameLastNameCombination = firstNameTextField.getText() + " " + lastNameTextField.getText();
-		operatorUserLoginWindow.loggedUserNames = operatorFirstNameLastNameCombination; //in case
 		
 		this.getToolkit().getSystemEventQueue().postEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));		
 	}

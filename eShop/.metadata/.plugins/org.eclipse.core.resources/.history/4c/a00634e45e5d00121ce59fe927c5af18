@@ -154,7 +154,7 @@ public class databaseConnectWindow extends JFrame {
 					if (createNewDatabaseAndTables() == false) { //in case of fail do not close this window
 						
 						return;
-					}
+					}					
 				}
 				else {
 				

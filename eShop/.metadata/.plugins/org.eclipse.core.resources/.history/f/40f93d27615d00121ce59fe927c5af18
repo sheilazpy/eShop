@@ -1,7 +1,7 @@
 /*
  * MySQL java database manager wrapper
  * ver. - 1.00
- * (C) 09.01.2013 - 13.01.2013 zhgzhg
+ * (C) 09.01.2013 - 12.01.2013 zhgzhg
  */
 
 package database_management;
@@ -86,8 +86,8 @@ public class MySQLdbManager {
 	
 	public void setMySqlServerPort(int mySqlServerPort) { //needs to disconnect and connect to db again after that
 		
-		if (mySqlServerPort <= 0 || mySqlServerPort > 65535)
-		{ lastError = "Invalid mysql server port range! Must be between [1 and 65535]."; return; }
+		if (mySqlServerPort < 0 || mySqlServerPort > 65535)
+		{ lastError = "Invalid port!"; return; }
 		
 		this.mySqlServerPort = mySqlServerPort;
 	}
@@ -131,8 +131,6 @@ public class MySQLdbManager {
 		
 		boolean result = true;
 		
-		lastError = null;
-		
 		if (dbConnection != null) {
 			
 			try {
@@ -144,11 +142,7 @@ public class MySQLdbManager {
 				lastError = ex.getMessage(); 
 				result = false;
 			}
-		}
-		else {			
-			lastError = "Uninitialized database connection!";
-			result = false;
-		}
+		}		
 		
 		return result;
 	}
@@ -157,11 +151,8 @@ public class MySQLdbManager {
 		
 		boolean result = true;
 		
-		if (mySqlServerAddress == null || mySqlDatabaseName == null || mySqlUsername == null) { 
-			lastError = "Uninitialized server address, database name or database username!"; return false; }
-		else {
-			lastError = null; //new connect always clears the last error
-		}			
+		if (mySqlServerAddress == null || mySqlDatabaseName == null || mySqlUsername == null)
+		{ lastError = "Uninitialized server address, database name or database username!"; return false; }	
 		
 		if (dbConnection != null) {
 			
@@ -185,7 +176,7 @@ public class MySQLdbManager {
 		}
 		catch (Exception ex) {
 			
-			if (lastError == null) { 
+			if (lastError == "null") { 
 				lastError = ex.getMessage(); 
 			}
 			else { 
@@ -224,12 +215,7 @@ public class MySQLdbManager {
 		int affectedCount = 0;
 		
 		if (!isConnected()) {
-			
-			lastError = "No connection!";
-			return affectedCount;			
-		}
-		else {			
-			lastError = null;
+			return affectedCount;
 		}
 		
 		try {
@@ -252,12 +238,7 @@ public class MySQLdbManager {
 		ResultSet result;
 		
 		if (!isConnected()) {
-			
-			lastError = "No connection!";
 			return null;
-		}
-		else {
-			lastError = null;
 		}
 		
 		try {

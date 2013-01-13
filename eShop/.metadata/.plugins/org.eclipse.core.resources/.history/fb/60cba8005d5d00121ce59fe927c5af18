@@ -154,7 +154,7 @@ public class databaseConnectWindow extends JFrame {
 					if (createNewDatabaseAndTables() == false) { //in case of fail do not close this window
 						
 						return;
-					}
+					}					
 				}
 				else {
 				
@@ -225,7 +225,6 @@ public class databaseConnectWindow extends JFrame {
 				"CONSTRAINT FK_ORDERS FOREIGN KEY (order_detail_order_id) REFERENCES orders(order_id) ON DELETE CASCADE ON UPDATE CASCADE," +
 				"CONSTRAINT FK_PRODUCTS FOREIGN KEY (order_detail_product_id) REFERENCES products(product_id) ON DELETE CASCADE ON UPDATE CASCADE)");
 		
-		/* for testing only; not needed anymore
 		try {
 			if (dbPortal.executeNonQuery("INSERT INTO operators (operator_username, operator_password, operator_first_name, operator_last_name)" + 
 					" VALUES ('operator1', '" + Md5hashcalc.calculateMD5hash("operator1")  + "', 'Оператор1', 'служебен акаунт')") != 1) {
@@ -243,7 +242,7 @@ public class databaseConnectWindow extends JFrame {
 			JOptionPane.showMessageDialog(this, "Не може да се зареди криптиращ алгоритъм MD5!", "Фатална Грешка", 
 					JOptionPane.ERROR_MESSAGE);
 			System.exit(-1);
-		}*/
+		}
 		
 		return true;
 	}	
