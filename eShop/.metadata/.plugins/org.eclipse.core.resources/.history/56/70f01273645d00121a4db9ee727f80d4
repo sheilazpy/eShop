@@ -225,7 +225,7 @@ public class databaseConnectWindow extends JFrame {
 				"CONSTRAINT FK_ORDERS FOREIGN KEY (order_detail_order_id) REFERENCES orders(order_id) ON DELETE CASCADE ON UPDATE CASCADE," +
 				"CONSTRAINT FK_PRODUCTS FOREIGN KEY (order_detail_product_id) REFERENCES products(product_id) ON DELETE CASCADE ON UPDATE CASCADE)");
 		
-		/* for testing only; not needed any more
+		/* for testing only; not needed anymore
 		try {
 			if (dbPortal.executeNonQuery("INSERT INTO operators (operator_username, operator_password, operator_first_name, operator_last_name)" + 
 					" VALUES ('operator1', '" + Md5hashcalc.calculateMD5hash("operator1")  + "', 'Оператор1', 'служебен акаунт')") != 1) {

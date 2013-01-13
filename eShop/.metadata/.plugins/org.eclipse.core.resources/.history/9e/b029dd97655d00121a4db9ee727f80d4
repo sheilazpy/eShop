@@ -55,9 +55,6 @@ public class mainWindow extends JFrame {
 	private final JLabel mainWindowStatusPanelSeparatorLabel2 = new JLabel();
 	private final JButton mainWindowStatusPanelLoggedUserLogout = new JButton();
 	
-	private final JMenuItem operationsProductsManagement = new JMenuItem();
-	private final JMenuItem operationsOrdersManagement = new JMenuItem();
-	private final JMenuItem operationsNewOrder = new JMenuItem();
 	/**
 	 * Launch the application
 	 * @param args
@@ -119,20 +116,6 @@ public class mainWindow extends JFrame {
 		mainWindowMenu.add(Operations);
 		Operations.setText("Операции");
 		Operations.setEnabled(false);
-		
-		Operations.add(operationsNewOrder);
-		operationsNewOrder.addActionListener(new OperationsNewOrderActionListener());
-		operationsNewOrder.setText("Нова поръчка");
-
-		Operations.addSeparator();
-		
-		Operations.add(operationsProductsManagement);
-		operationsProductsManagement.addActionListener(new OperationsProductsManagementActionListener());
-		operationsProductsManagement.setText("Управление на продукти");
-		
-		Operations.add(operationsOrdersManagement);
-		operationsOrdersManagement.addActionListener(new OperationsOrdersManagementActionListener());
-		operationsOrdersManagement.setText("Управление на поръчки");
 		
 		mainWindowMenu.add(Help);
 		Help.setText("Помощ");
@@ -232,21 +215,6 @@ public class mainWindow extends JFrame {
 	private class HelpAboutActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			helpAbout_actionPerformed(e);
-		}
-	}
-	private class OperationsProductsManagementActionListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			operationsProductsManagement_actionPerformed(e);
-		}
-	}
-	private class OperationsNewOrderActionListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			operationsNewOrder_actionPerformed(e);
-		}
-	}
-	private class OperationsOrdersManagementActionListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			operationsOrdersManagement_actionPerformed(e);
 		}
 	}
 
@@ -383,18 +351,5 @@ public class mainWindow extends JFrame {
 		
 		JOptionPane.showMessageDialog(this, "eShop ver.-1.00\n(C) 2013 Желян Гуглев & Пламен Генчев", "Относно", JOptionPane.INFORMATION_MESSAGE);
 	}
-	
-	protected void operationsProductsManagement_actionPerformed(ActionEvent e) {
-		//TODO...
-	}
-	protected void operationsNewOrder_actionPerformed(ActionEvent e) {
-		//TODO...
-	}
-	protected void operationsOrdersManagement_actionPerformed(ActionEvent e) {
-		//TODO...
-	}
-	
-	
-	
 	
 }
