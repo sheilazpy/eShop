@@ -8,6 +8,8 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import java.sql.ResultSet;
 
@@ -22,10 +24,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.AbstractTableModel;
+
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.ColumnSpec;
@@ -42,10 +46,11 @@ public class mainWindow extends JFrame {
 	private final JSpinner productsManagementToolsPanelProductPriceSpinner = new JSpinner();
 	private final JSpinner productsManagementToolsPanelProductQuantitySpinner = new JSpinner();
 	private final JButton productsManagementToolsPanelProductAddButton = new JButton();
-	private final JButton productsManagementToolsPanelProductEditButton = new JButton();
-	
+	private final JButton productsManagementToolsPanelProductEditButton = new JButton();	
 	private final JButton productsManagementToolsPanelProductRemoveButton = new JButton();
+	
 	class ProductsTableTableModel extends AbstractTableModel {
+		
 		private static final long serialVersionUID = 3005L;
 		
 		private final String[] COLUMNS = new String[] {
@@ -74,8 +79,7 @@ public class mainWindow extends JFrame {
 		}
 		
 		public void populateTableWithDatabaseData() {
-			//TODO...
-			
+						
 			int rowsCount = 0;
 			
 			ResultSet rs = databaseConnectWindow.dbPortal.executeQuery("SELECT * FROM products");
@@ -97,13 +101,157 @@ public class mainWindow extends JFrame {
 						CELLS[rs.getRow() - 1][1] =	new String("" + rs.getInt(3)); // product_quantity
 						CELLS[rs.getRow() - 1][2] =	rs.getBigDecimal(4).toString();// product_price
 						CELLS[rs.getRow() - 1][3] =	new String("" + rs.getInt(1)); // product_id
+						
+						if (rs.isLast()) {
+							break;
+						}
+						
+						rs.next();
 					}
 					
 				}
 				catch (Exception ex) {
 					
 				}				
+			}		
+		}
+		
+		public void insertNewRow(Object name, Object quantity, Object price) {
+			
+			if (databaseConnectWindow.dbPortal.executeParameterizedNonQuery("INSERT INTO products (product_name, product_quantity, product_price) VALUES(?,?,?)", 
+					name, quantity, price) != 1) {
+				
+				String errorMessage = "Грешка при добавянето на продукт:\n" + databaseConnectWindow.dbPortal.getLastError();
+				
+				JOptionPane.showMessageDialog(null, errorMessage, "Грешка", JOptionPane.ERROR_MESSAGE);
+				return;
 			}
+			
+			// populate the table with the new row
+			
+			int lastProductId = -1;
+			
+			ResultSet rs = databaseConnectWindow.dbPortal.executeParameterizedQuery("SELECT product_id FROM products WHERE product_name=? AND " +
+					"product_quantity=? AND product_price=? ORDER BY product_id DESC", name, quantity, price);
+			
+			if (rs != null) {
+				
+				try {
+					lastProductId = rs.getInt(1);
+				}
+				catch (Exception ex) {
+					lastProductId = -1;
+				}
+			}
+			
+			if (lastProductId == -1) {
+				JOptionPane.showMessageDialog(null, "Грешка при опресняването на таблицата с продукти!", "Грешка", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			
+			String[][] newCells = new String[CELLS.length + 1][4];
+			for (int i = 0; i < CELLS.length; i++) {
+				newCells[i][0] = CELLS[i][0];
+				newCells[i][1] = CELLS[i][1];
+				newCells[i][2] = CELLS[i][2];
+				newCells[i][3] = CELLS[i][3];
+			}
+			
+			rs = null;
+			rs = databaseConnectWindow.dbPortal.executeQuery("SELECT * FROM products WHERE product_id=" + lastProductId);
+			
+			if (rs != null) {
+				
+				try {
+					
+					newCells[CELLS.length][0] =	rs.getString(2);			   // product_name
+					newCells[CELLS.length][1] =	new String("" + rs.getInt(3)); // product_quantity
+					newCells[CELLS.length][2] =	rs.getBigDecimal(4).toString();// product_price
+					newCells[CELLS.length][3] =	new String("" + rs.getInt(1)); // product_id
+				}
+				catch (Exception ex) {
+					
+					JOptionPane.showMessageDialog(null, "Грешка при опресняването на таблицата с продукти!\nВъзможно е добавянето на нов продукт да не е " + 
+							"било успешно.", "Грешка", JOptionPane.ERROR_MESSAGE);
+				}
+				
+				CELLS = newCells;
+				
+				fireTableCellUpdated(CELLS.length, 0); //visual optimized refresh
+				fireTableCellUpdated(CELLS.length, 1);
+				fireTableCellUpdated(CELLS.length, 2);
+			}
+			else {
+				
+				JOptionPane.showMessageDialog(null, "Грешка при опресняването на таблицата с продукти!\nВъзможно е добавянето на нов продукт да не е " + 
+						"било успешно.", "Грешка", JOptionPane.ERROR_MESSAGE);
+				return;
+			}		
+		}
+		
+		public void removeSelectedRow(int rowNumber) {
+			
+			if (databaseConnectWindow.dbPortal.executeNonQuery("DELETE FROM products WHERE product_id=" + CELLS[rowNumber][3]) != 1) {
+				
+				String errorMessage = "Грешка при изтриването на продукт:\n" + databaseConnectWindow.dbPortal.getLastError();
+				
+				JOptionPane.showMessageDialog(null, errorMessage, "Грешка", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			
+			// remove the deleted row from the table
+			
+			String[][] newCells = new String[CELLS.length - 1][4];
+			
+			for (int i = 0, j = 0; i < CELLS.length; i++) {
+				
+				if (i != rowNumber) {
+				
+					newCells[j][0] = CELLS[i][0];
+					newCells[j][1] = CELLS[i][1];
+					newCells[j][2] = CELLS[i][2];
+					newCells[j][3] = CELLS[i][3];
+					j++;
+				}
+			}
+			
+			CELLS = newCells;
+			
+			//no optimized visual refresh here
+		}
+		
+		public void updateSelectedRow(int rowNumber, Object name, Object quantity, Object price) {
+			
+			Integer productId = Integer.parseInt(CELLS[rowNumber][3]);
+			
+			if (databaseConnectWindow.dbPortal.executeParameterizedNonQuery("UPDATE products SET product_name=?, product_quantity=?, product_price=? WHERE " + 
+					"product_id=?", name, quantity, price, productId) != 1) {
+				
+				String errorMessage = "Грешка при редактирането на продукт:\n" + databaseConnectWindow.dbPortal.getLastError();
+				
+				JOptionPane.showMessageDialog(null, errorMessage, "Грешка", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			
+			ResultSet rs = null;
+			rs = databaseConnectWindow.dbPortal.executeQuery("SELECT product_name, product_quantity, product_price FROM products WHERE product_id=" + productId);
+			
+			if (rs != null) {
+				
+				try {
+					
+					CELLS[rowNumber][0] = rs.getString(1); 	   			  // product_name
+					CELLS[rowNumber][1] = new String("" + rs.getInt(2));  // product_quantity
+					CELLS[rowNumber][2] = rs.getBigDecimal(3).toString(); // product_price
+				}
+				catch (Exception ex) {
+					
+				}
+			}
+			
+			fireTableCellUpdated(rowNumber, 0); //visual optimized refresh
+			fireTableCellUpdated(rowNumber, 1);
+			fireTableCellUpdated(rowNumber, 2);
 		}
 	}
 
@@ -268,6 +416,8 @@ public class mainWindow extends JFrame {
 		productsManagementPanel.setVisible(false);
 		
 		scrollPane.setViewportView(productsTable);
+		productsTable.addMouseListener(new ProductsTableMouseListener());
+		productsTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		productsTable.setShowGrid(true);
 		productsTable.setModel(new ProductsTableTableModel());
 		
@@ -314,12 +464,15 @@ public class mainWindow extends JFrame {
 		productsManagementToolsPanelProductQuantitySpinner.setModel(productsManagementToolsPanelProductQuantitySpinnerNumberModel);
 		
 		productsManagementToolsPanel.add(productsManagementToolsPanelProductAddButton, new CellConstraints(2, 6, 3, 1, CellConstraints.FILL, CellConstraints.FILL));
+		productsManagementToolsPanelProductAddButton.addActionListener(new ProductsManagementToolsPanelProductAddButtonActionListener());
 		productsManagementToolsPanelProductAddButton.setText("Добави нов продукт");
 		
 		productsManagementToolsPanel.add(productsManagementToolsPanelProductEditButton, new CellConstraints(6, 6, 2, 1, CellConstraints.FILL, CellConstraints.FILL));
+		productsManagementToolsPanelProductEditButton.addActionListener(new ProductsManagementToolsPanelProductEditButtonActionListener());
 		productsManagementToolsPanelProductEditButton.setText("Редактирай");
 		
 		productsManagementToolsPanel.add(productsManagementToolsPanelProductRemoveButton, new CellConstraints(4, 8, 3, 1));
+		productsManagementToolsPanelProductRemoveButton.addActionListener(new ProductsManagementToolsPanelProductRemoveButtonActionListener());
 		productsManagementToolsPanelProductRemoveButton.setText("Изтрий продукт");
 	}
 	
@@ -388,6 +541,26 @@ public class mainWindow extends JFrame {
 	private class OperationsOrdersManagementActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			operationsOrdersManagement_actionPerformed(e);
+		}
+	}
+	private class ProductsTableMouseListener extends MouseAdapter {
+		public void mouseClicked(MouseEvent e) {
+			productsTable_mouseClicked(e);
+		}
+	}
+	private class ProductsManagementToolsPanelProductAddButtonActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			productsManagementToolsPanelProductAddButton_actionPerformed(e);
+		}
+	}
+	private class ProductsManagementToolsPanelProductEditButtonActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			productsManagementToolsPanelProductEditButton_actionPerformed(e);
+		}
+	}
+	private class ProductsManagementToolsPanelProductRemoveButtonActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			productsManagementToolsPanelProductRemoveButton_actionPerformed(e);
 		}
 	}
 
@@ -542,7 +715,77 @@ public class mainWindow extends JFrame {
 		productsManagementPanel.setVisible(false);
 	}
 	
+	protected void productsTable_mouseClicked(MouseEvent e) {
+		
+		productsManagementToolsPanelProductNameTextField.setText(productsTable.getValueAt(productsTable.getSelectedRow(), 0).toString());
+		productsManagementToolsPanelProductQuantitySpinner.setValue(
+				Integer.parseInt(productsTable.getValueAt(productsTable.getSelectedRow(), 1).toString())
+				);
+		productsManagementToolsPanelProductPriceSpinner.setValue(
+				Double.parseDouble(productsTable.getValueAt(productsTable.getSelectedRow(), 2).toString())
+				);		
+	}
 	
+	////////////////////////////////////////////////////////////////////////
+	
+	protected void productsManagementToolsPanelProductAddButton_actionPerformed(ActionEvent e) {
+		
+		if (productsManagementToolsPanelProductNameTextField.getText().length() > 0) {
+			
+			((ProductsTableTableModel)productsTable.getModel()).insertNewRow(productsManagementToolsPanelProductNameTextField.getText(),
+					Integer.parseInt(productsManagementToolsPanelProductQuantitySpinner.getValue().toString()),
+					Double.parseDouble(productsManagementToolsPanelProductPriceSpinner.getValue().toString())
+					);
+			
+			((ProductsTableTableModel)productsTable.getModel()).fireTableDataChanged();
+		}
+		else {
+			JOptionPane.showMessageDialog(this, "Новият продукт задължително трябва да притежава име!", "Грешка", JOptionPane.ERROR_MESSAGE);
+		}		
+	}
+	
+	protected void productsManagementToolsPanelProductEditButton_actionPerformed(ActionEvent e) {
+		
+		if (productsManagementToolsPanelProductNameTextField.getText().length() > 0) {
+			
+			int selectedTableRow = productsTable.getSelectedRow();
+			
+			if (selectedTableRow == -1) {
+				
+				JOptionPane.showMessageDialog(this, "Изберете продукт!", "Редактиране", JOptionPane.WARNING_MESSAGE);
+				return;
+			}
+			
+			((ProductsTableTableModel)productsTable.getModel()).updateSelectedRow(selectedTableRow,
+					productsManagementToolsPanelProductNameTextField.getText(),
+					Integer.parseInt(productsManagementToolsPanelProductQuantitySpinner.getValue().toString()),
+					Double.parseDouble(productsManagementToolsPanelProductPriceSpinner.getValue().toString())
+					);
+			((ProductsTableTableModel)productsTable.getModel()).fireTableDataChanged();
+			
+			productsTable.changeSelection(selectedTableRow, 0, true, false);
+		}
+		else {
+			JOptionPane.showMessageDialog(this, "Редактираният продукт задължително трябва да притежава име!", "Грешка", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	protected void productsManagementToolsPanelProductRemoveButton_actionPerformed(ActionEvent e) {
+		
+		if (productsTable.getSelectedRow() == -1) {
+			
+			JOptionPane.showMessageDialog(this, "Изберете продукт!", "Изтриване", JOptionPane.WARNING_MESSAGE);
+			return;
+		}
+		
+		if (JOptionPane.showConfirmDialog(this, "Сигурни ли сте?", "Изтриване на продукт", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+			
+			((ProductsTableTableModel)productsTable.getModel()).removeSelectedRow(productsTable.getSelectedRow());
+			((ProductsTableTableModel)productsTable.getModel()).fireTableDataChanged();
+		}
+	}
+	
+	////////////////////////////////////////////////////////////////////////	
 	
 	
 }

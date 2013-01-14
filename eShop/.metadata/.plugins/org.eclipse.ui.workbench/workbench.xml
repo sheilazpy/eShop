@@ -41,7 +41,7 @@
 </editorArea>
 <editor activePart="true" focus="true" id="com.swtdesigner.editors.MultiPageEditor" name="mainWindow.java" partName="mainWindow.java" path="D:/Drugi/Docs/PU/3 kurs/2 trimestur/Kursov Proekt 2/eShop/eShop/src/mainWindow.java" title="mainWindow.java" tooltip="eShop/src/mainWindow.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/eShop/src/mainWindow.java"/>
-<editorState selectionLength="0" selectionOffset="10426"/>
+<editorState selectionLength="0" selectionOffset="19288"/>
 </editor>
 </editors>
 <views>
@@ -123,9 +123,7 @@
 <view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
 <view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
 <viewState group_libraries="1" isWindowWorkingSet="false" layout="2" linkWithEditor="0" rootMode="1" workingSetName="">
-<customFilters userDefinedPatternsEnabled="false">
-<xmlDefinedFilters>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer.FieldsFilter" isEnabled="false"/>
+<customFilters userDefinedPatternsEnabled="false">&#x0A;<xmlDefinedFilters>&#x0A;<child filterId="org.eclipse.jdt.ui.PackageExplorer.FieldsFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer_patternFilterId_.*" isEnabled="true"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.LocalTypesFilter" isEnabled="false"/>
 <child filterId="com.tssap.selena.dom.HideDesignRoot" isEnabled="true"/>
@@ -175,9 +173,11 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Errors (2 items)"/>
+<category IMemento.internal.id="Warnings"/>
+<category IMemento.internal.id="Errors (6 items)"/>
+<category IMemento.internal.id="Errors"/>
 </expanded>
-<columnWidths org.eclipse.ui.ide.locationField="64" org.eclipse.ui.ide.markerType="94" org.eclipse.ui.ide.pathField="124" org.eclipse.ui.ide.resourceField="94" org.eclipse.ui.ide.severityAndDescriptionField="644"/>
+<columnWidths org.eclipse.ui.ide.locationField="64" org.eclipse.ui.ide.markerType="94" org.eclipse.ui.ide.pathField="124" org.eclipse.ui.ide.resourceField="94" org.eclipse.ui.ide.severityAndDescriptionField="722"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
@@ -287,14 +287,9 @@
 <perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
 <perspective_action id="org.jboss.tools.jst.web.ui.WebDevelopmentPerspective"/>
 <fastViewBars>
-<fastViewBar fastViewLocation="131072" id="right" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="0">
+<fastViewBar fastViewLocation="16384" id="org.eclipse.ui.internal.ViewStack@1ed627d" orientation="512" selectedTabId="com.codegear.jbuilder.view.TagsView" style="0">
 <fastViews>
-<view id="org.eclipse.ui.views.ContentOutline" ratio="0.3"/>
-</fastViews>
-</fastViewBar>
-<fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@1d09ed4" orientation="512" selectedTabId="com.codegear.jbuilder.view.FeatureNavigatorView" style="0">
-<fastViews>
-<view id="com.codegear.jbuilder.view.FeatureNavigatorView" ratio="0.3"/>
+<view id="com.codegear.jbuilder.view.TagsView" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
 <fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@d52ea" orientation="256" selectedTabId="org.vssplugin.ui.checkout" style="0">
@@ -302,9 +297,14 @@
 <view id="org.vssplugin.ui.checkout" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
-<fastViewBar fastViewLocation="16384" id="org.eclipse.ui.internal.ViewStack@1ed627d" orientation="512" selectedTabId="com.codegear.jbuilder.view.TagsView" style="0">
+<fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@1d09ed4" orientation="512" selectedTabId="com.codegear.jbuilder.view.FeatureNavigatorView" style="0">
 <fastViews>
-<view id="com.codegear.jbuilder.view.TagsView" ratio="0.3"/>
+<view id="com.codegear.jbuilder.view.FeatureNavigatorView" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+<fastViewBar fastViewLocation="131072" id="right" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="0">
+<fastViews>
+<view id="org.eclipse.ui.views.ContentOutline" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
 <fastViewBar fastViewLocation="16384" id="left" orientation="512" selectedTabId="org.eclipse.jdt.ui.PackageExplorer" style="0">
@@ -313,7 +313,7 @@
 <view id="org.eclipse.jdt.ui.TypeHierarchy" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
-<fastViewBar fastViewLocation="1024" id="bottom" orientation="256" selectedTabId="org.eclipse.ui.views.ProblemView" style="0">
+<fastViewBar fastViewLocation="1024" id="bottom" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="0">
 <fastViews>
 <view id="org.eclipse.ui.views.ProblemView" ratio="0.3"/>
 <view id="org.eclipse.jdt.ui.JavadocView" ratio="0.3"/>
@@ -321,21 +321,21 @@
 <view id="org.eclipse.ui.console.ConsoleView" ratio="0.2985782"/>
 </fastViews>
 </fastViewBar>
-<fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@18f1ef8" orientation="512" selectedTabId="org.eclipse.mylyn.tasks.ui.views.tasks" style="0">
-<fastViews>
-<view id="org.eclipse.mylyn.tasks.ui.views.tasks" ratio="0.3"/>
-</fastViews>
-</fastViewBar>
 <fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@1065904" orientation="256" selectedTabId="org.vssplugin.ui.logview" style="0">
 <fastViews>
 <view id="org.vssplugin.ui.logview" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+<fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@18f1ef8" orientation="512" selectedTabId="org.eclipse.mylyn.tasks.ui.views.tasks" style="0">
+<fastViews>
+<view id="org.eclipse.mylyn.tasks.ui.views.tasks" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
 </fastViewBars>
 <layout>
 <mainWindow>
 <info folder="true" part="left">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
@@ -665,157 +665,157 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/eShop/src/database_management/MySQLdbManager.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" path="/eShop/src/mainWindow.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" path="/eShop/src/databaseConnectWindow.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" path="/eShop/src/operatorUserLoginWindow.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" path="/eShop/src/operatorUserSettingsWindow.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" path="/eShop/src/operatorUserLoginWindow.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" path="/eShop/src/operatorUserLoginWindow.java"/>
 </editors>
-<item historyLabel="MySQLdbManager.java" index="0">
-<position info="not_deleted" x="12869" y="0"/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
+<item historyLabel="mainWindow.java" index="0">
 <position/>
 </item>
-<item historyLabel="databaseConnectWindow.java" index="2">
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="23041" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
 <position/>
 </item>
-<item historyLabel="mainWindow.java" index="1">
+<item historyLabel="mainWindow.java" index="0">
 <position/>
 </item>
-<item historyLabel="databaseConnectWindow.java" index="2">
+<item historyLabel="mainWindow.java" index="0">
 <position/>
 </item>
-<item historyLabel="MySQLdbManager.java" index="0">
-<position info="not_deleted" x="12869" y="0"/>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="24590" y="0"/>
 </item>
-<item historyLabel="databaseConnectWindow.java" index="2">
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="30543" y="1"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="6501" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="4120" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="4198" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="4336" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="4338" y="11"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="4312" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="28573" y="12"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="28846" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="4853" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="4785" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="4937" y="1"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="4997" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="5040" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="6501" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="5295" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="6060" y="6"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="5804" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="6136" y="1"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="6254" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="6662" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="6681" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="7000" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="7002" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="7047" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="7305" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="7551" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="8684" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="8679" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="29575" y="17"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="29870" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="29077" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="29429" y="1"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="29463" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="29462" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="29465" y="1"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="29507" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="0">
 <position/>
 </item>
-<item historyLabel="mainWindow.java" index="1">
-<position/>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="30015" y="0"/>
 </item>
-<item historyLabel="operatorUserLoginWindow.java" index="3">
-<position/>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="30020" y="1"/>
 </item>
-<item historyLabel="operatorUserLoginWindow.java" index="3">
-<position/>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="8184" y="0"/>
 </item>
-<item historyLabel="mainWindow.java" index="1">
-<position/>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="8532" y="0"/>
 </item>
-<item historyLabel="operatorUserLoginWindow.java" index="3">
-<position/>
+<item historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="8526" y="0"/>
 </item>
-<item historyLabel="mainWindow.java" index="1">
-<position/>
-</item>
-<item historyLabel="operatorUserSettingsWindow.java" index="4">
-<position/>
-</item>
-<item historyLabel="operatorUserLoginWindow.java" index="3">
-<position/>
-</item>
-<item historyLabel="operatorUserSettingsWindow.java" index="4">
-<position/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position/>
-</item>
-<item historyLabel="databaseConnectWindow.java" index="2">
-<position/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position info="not_deleted" x="13540" y="0"/>
-</item>
-<item historyLabel="operatorUserSettingsWindow.java" index="4">
-<position/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position info="not_deleted" x="13540" y="0"/>
-</item>
-<item historyLabel="operatorUserSettingsWindow.java" index="4">
-<position info="not_deleted" x="6750" y="0"/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position info="not_deleted" x="13797" y="0"/>
-</item>
-<item historyLabel="operatorUserSettingsWindow.java" index="4">
-<position info="not_deleted" x="6633" y="0"/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position info="not_deleted" x="13797" y="0"/>
-</item>
-<item historyLabel="operatorUserSettingsWindow.java" index="4">
-<position info="not_deleted" x="6633" y="0"/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position info="not_deleted" x="13797" y="0"/>
-</item>
-<item historyLabel="databaseConnectWindow.java" index="2">
-<position info="not_deleted" x="5983" y="0"/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position info="not_deleted" x="13797" y="0"/>
-</item>
-<item historyLabel="databaseConnectWindow.java" index="2">
-<position info="not_deleted" x="5983" y="0"/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position info="not_deleted" x="13797" y="0"/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position info="not_deleted" x="8356" y="0"/>
-</item>
-<item historyLabel="operatorUserLoginWindow.java" index="5">
-<position/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position info="not_deleted" x="11867" y="0"/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position info="not_deleted" x="12202" y="0"/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position/>
-</item>
-<item historyLabel="mainWindow.java" index="1">
-<position info="not_deleted" x="10426" y="0"/>
-</item>
-<item historyLabel="operatorUserLoginWindow.java" index="6">
-<position/>
-</item>
-<item active="true" historyLabel="mainWindow.java" index="1">
-<position info="not_deleted" x="10426" y="0"/>
+<item active="true" historyLabel="mainWindow.java" index="0">
+<position info="not_deleted" x="8380" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
