@@ -2,6 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 import java.awt.Insets;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -49,6 +50,13 @@ public class mainWindow extends JFrame {
 	private final JButton productsManagementToolsPanelProductEditButton = new JButton();	
 	private final JButton productsManagementToolsPanelProductRemoveButton = new JButton();
 	
+	private final JMenuItem operationsInquiries = new JMenuItem();
+	private final JPanel ordersManagementPanel = new JPanel();
+	private final JPanel ordersManagementPanelOrdersPanel = new JPanel();
+	private final JScrollPane scrollPane_1 = new JScrollPane();
+	private final JTable ordersInfoTable = new JTable();
+	private final JScrollPane scrollPane_2 = new JScrollPane();
+	private final JTable orderDetailsTable = new JTable();
 	class ProductsTableTableModel extends AbstractTableModel {
 		
 		private static final long serialVersionUID = 3005L;
@@ -64,6 +72,8 @@ public class mainWindow extends JFrame {
 			{"3 - 0", "3 - 1", "3 - 2"},
 			{"4 - 0", "4 - 1", "4 - 2"},*/
 		};
+		
+		private boolean noDataInTheCells = true;
 		
 		public int getRowCount() {
 			return CELLS.length;
@@ -109,6 +119,7 @@ public class mainWindow extends JFrame {
 						rs.next();
 					}
 					
+					noDataInTheCells = false;					
 				}
 				catch (Exception ex) {
 					
@@ -149,12 +160,20 @@ public class mainWindow extends JFrame {
 				return;
 			}
 			
-			String[][] newCells = new String[CELLS.length + 1][4];
-			for (int i = 0; i < CELLS.length; i++) {
-				newCells[i][0] = CELLS[i][0];
-				newCells[i][1] = CELLS[i][1];
-				newCells[i][2] = CELLS[i][2];
-				newCells[i][3] = CELLS[i][3];
+			String[][] newCells = null;
+			
+			if (noDataInTheCells == false) {
+			
+				newCells = new String[CELLS.length + 1][4];
+				for (int i = 0; i < CELLS.length; i++) {
+					newCells[i][0] = CELLS[i][0];
+					newCells[i][1] = CELLS[i][1];
+					newCells[i][2] = CELLS[i][2];
+					newCells[i][3] = CELLS[i][3];
+				}
+			}
+			else {				
+				newCells = new String[1][4];				
 			}
 			
 			rs = null;
@@ -164,10 +183,10 @@ public class mainWindow extends JFrame {
 				
 				try {
 					
-					newCells[CELLS.length][0] =	rs.getString(2);			   // product_name
-					newCells[CELLS.length][1] =	new String("" + rs.getInt(3)); // product_quantity
-					newCells[CELLS.length][2] =	rs.getBigDecimal(4).toString();// product_price
-					newCells[CELLS.length][3] =	new String("" + rs.getInt(1)); // product_id
+					newCells[(noDataInTheCells == false ? CELLS.length : 0)][0] = rs.getString(2);			   // product_name
+					newCells[(noDataInTheCells == false ? CELLS.length : 0)][1] = new String("" + rs.getInt(3)); // product_quantity
+					newCells[(noDataInTheCells == false ? CELLS.length : 0)][2] = rs.getBigDecimal(4).toString();// product_price
+					newCells[(noDataInTheCells == false ? CELLS.length : 0)][3] = new String("" + rs.getInt(1)); // product_id
 				}
 				catch (Exception ex) {
 					
@@ -180,6 +199,8 @@ public class mainWindow extends JFrame {
 				fireTableCellUpdated(CELLS.length, 0); //visual optimized refresh
 				fireTableCellUpdated(CELLS.length, 1);
 				fireTableCellUpdated(CELLS.length, 2);
+				
+				noDataInTheCells = false;
 			}
 			else {
 				
@@ -191,6 +212,10 @@ public class mainWindow extends JFrame {
 		
 		public void removeSelectedRow(int rowNumber) {
 			
+			if (noDataInTheCells == true) {
+				return;
+			}
+			
 			if (databaseConnectWindow.dbPortal.executeNonQuery("DELETE FROM products WHERE product_id=" + CELLS[rowNumber][3]) != 1) {
 				
 				String errorMessage = "Грешка при изтриването на продукт:\n" + databaseConnectWindow.dbPortal.getLastError();
@@ -201,18 +226,31 @@ public class mainWindow extends JFrame {
 			
 			// remove the deleted row from the table
 			
-			String[][] newCells = new String[CELLS.length - 1][4];
+			String[][] newCells = null;
 			
-			for (int i = 0, j = 0; i < CELLS.length; i++) {
+			if (CELLS.length > 1) {
+			
+				newCells = new String[CELLS.length - 1][4];
 				
-				if (i != rowNumber) {
-				
-					newCells[j][0] = CELLS[i][0];
-					newCells[j][1] = CELLS[i][1];
-					newCells[j][2] = CELLS[i][2];
-					newCells[j][3] = CELLS[i][3];
-					j++;
+				for (int i = 0, j = 0; i < CELLS.length; i++) {
+					
+					if (i != rowNumber) {
+					
+						newCells[j][0] = CELLS[i][0];
+						newCells[j][1] = CELLS[i][1];
+						newCells[j][2] = CELLS[i][2];
+						newCells[j][3] = CELLS[i][3];
+						j++;
+					}
 				}
+			}
+			else {
+				newCells = new String[1][4];
+				newCells[0][0]= "добави";
+				newCells[0][1] = "нов";
+				newCells[0][2] = "продукт";
+				newCells[0][3] = "-1";
+				noDataInTheCells = true;
 			}
 			
 			CELLS = newCells;
@@ -221,6 +259,10 @@ public class mainWindow extends JFrame {
 		}
 		
 		public void updateSelectedRow(int rowNumber, Object name, Object quantity, Object price) {
+			
+			if (noDataInTheCells == true) {
+				return;
+			}
 			
 			Integer productId = Integer.parseInt(CELLS[rowNumber][3]);
 			
@@ -278,7 +320,6 @@ public class mainWindow extends JFrame {
 	
 	private final JMenuItem operationsProductsManagement = new JMenuItem();
 	private final JMenuItem operationsOrdersManagement = new JMenuItem();
-	private final JMenuItem operationsNewOrder = new JMenuItem();
 	
 	private final JPanel productsManagementPanel = new JPanel();
 	private final JScrollPane scrollPane = new JScrollPane();
@@ -347,9 +388,9 @@ public class mainWindow extends JFrame {
 		Operations.setText("Операции");
 		Operations.setEnabled(false);
 		
-		Operations.add(operationsNewOrder);
-		operationsNewOrder.addActionListener(new OperationsNewOrderActionListener());
-		operationsNewOrder.setText("Нова поръчка");
+		Operations.add(operationsInquiries);
+		operationsInquiries.addActionListener(new OperationsInquiriesActionListener());
+		operationsInquiries.setText("Справки");
 
 		Operations.addSeparator();
 		
@@ -474,6 +515,23 @@ public class mainWindow extends JFrame {
 		productsManagementToolsPanel.add(productsManagementToolsPanelProductRemoveButton, new CellConstraints(4, 8, 3, 1));
 		productsManagementToolsPanelProductRemoveButton.addActionListener(new ProductsManagementToolsPanelProductRemoveButtonActionListener());
 		productsManagementToolsPanelProductRemoveButton.setText("Изтрий продукт");
+		
+		getContentPane().add(ordersManagementPanel);
+		ordersManagementPanel.setBorder(new TitledBorder(new TitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null), "Управление на поръчки:", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+		ordersManagementPanel.setLayout(new BorderLayout());
+		ordersManagementPanel.setVisible(false);
+		
+		ordersManagementPanel.add(ordersManagementPanelOrdersPanel, BorderLayout.WEST);
+		ordersManagementPanelOrdersPanel.setLayout(new BorderLayout());
+		ordersManagementPanelOrdersPanel.setBorder(new TitledBorder(new TitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null), "Направени продажби:", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+		
+		ordersManagementPanelOrdersPanel.add(scrollPane_1, BorderLayout.WEST);
+		
+		scrollPane_1.setViewportView(ordersInfoTable);
+		
+		ordersManagementPanelOrdersPanel.add(scrollPane_2, BorderLayout.EAST);
+		
+		scrollPane_2.setViewportView(orderDetailsTable);
 	}
 	
 	protected void mainWindowStatusPanelSetEnabled(boolean enable) {
@@ -533,11 +591,6 @@ public class mainWindow extends JFrame {
 			operationsProductsManagement_actionPerformed(e);
 		}
 	}
-	private class OperationsNewOrderActionListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			operationsNewOrder_actionPerformed(e);
-		}
-	}
 	private class OperationsOrdersManagementActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			operationsOrdersManagement_actionPerformed(e);
@@ -561,6 +614,11 @@ public class mainWindow extends JFrame {
 	private class ProductsManagementToolsPanelProductRemoveButtonActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			productsManagementToolsPanelProductRemoveButton_actionPerformed(e);
+		}
+	}
+	private class OperationsInquiriesActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			operationsInquiries_actionPerformed(e);
 		}
 	}
 
@@ -627,6 +685,7 @@ public class mainWindow extends JFrame {
 			this.Operations.setEnabled(false);
 			this.mainWindowStatusPanelSetEnabled(false);
 			this.productsManagementPanel.setVisible(false);
+			this.ordersManagementPanel.setVisible(false);
 			this.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
 			operatorUserLoginWindow.loggedUserId = -1;
 		}
@@ -652,6 +711,7 @@ public class mainWindow extends JFrame {
 				//TODO...
 				mainWindowPointer.Operations.setEnabled(false);
 				mainWindowPointer.productsManagementPanel.setVisible(false);
+				mainWindowPointer.ordersManagementPanel.setVisible(false);
 				mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
 			}
 		}
@@ -681,6 +741,7 @@ public class mainWindow extends JFrame {
 				//TODO...
 				mainWindowPointer.Operations.setEnabled(false);
 				mainWindowPointer.productsManagementPanel.setVisible(false);
+				mainWindowPointer.ordersManagementPanel.setVisible(false);
 				mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
 			}
 		}
@@ -692,6 +753,7 @@ public class mainWindow extends JFrame {
 		//TODO...
 		this.Operations.setEnabled(false);
 		this.productsManagementPanel.setVisible(false);
+		this.ordersManagementPanel.setVisible(false);
 		this.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
 		operatorUserLoginWindow.loggedUserId = -1;
 	}
@@ -703,17 +765,26 @@ public class mainWindow extends JFrame {
 	
 	protected void operationsProductsManagement_actionPerformed(ActionEvent e) {
 		//TODO...
-	    ((ProductsTableTableModel)productsTable.getModel()).populateTableWithDatabaseData();
+		ordersManagementPanel.setVisible(false);
+		
+		((ProductsTableTableModel)productsTable.getModel()).populateTableWithDatabaseData();
 		productsManagementPanel.setVisible(true);
-	}
-	protected void operationsNewOrder_actionPerformed(ActionEvent e) {
-		//TODO...
-		productsManagementPanel.setVisible(false);
+		getContentPane().add(productsManagementPanel); // we are using BorderLayout so we need to add this panel again in order to get visible
+		
 	}
 	protected void operationsOrdersManagement_actionPerformed(ActionEvent e) {
 		//TODO...
 		productsManagementPanel.setVisible(false);
+		ordersManagementPanel.setVisible(true);
+		getContentPane().add(ordersManagementPanel); // we are using BorderLayout so we need to add this panel again in order to get visible
 	}
+	protected void operationsInquiries_actionPerformed(ActionEvent e) {
+		//TODO...
+		productsManagementPanel.setVisible(false);
+		ordersManagementPanel.setVisible(false);
+	}
+	
+	////////////////////////////////////////////////////////////////////////
 	
 	protected void productsTable_mouseClicked(MouseEvent e) {
 		
@@ -724,9 +795,7 @@ public class mainWindow extends JFrame {
 		productsManagementToolsPanelProductPriceSpinner.setValue(
 				Double.parseDouble(productsTable.getValueAt(productsTable.getSelectedRow(), 2).toString())
 				);		
-	}
-	
-	////////////////////////////////////////////////////////////////////////
+	}	
 	
 	protected void productsManagementToolsPanelProductAddButton_actionPerformed(ActionEvent e) {
 		
