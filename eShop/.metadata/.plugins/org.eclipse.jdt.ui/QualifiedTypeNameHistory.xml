@@ -14,7 +14,6 @@
 <fullyQualifiedTypeName name="java.security.MessageDigest"/>
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="operatorUserLogin"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="md5_calculator.Md5hashcalc"/>
 <fullyQualifiedTypeName name="operatorUserSettingsWindow"/>
@@ -22,4 +21,11 @@
 <fullyQualifiedTypeName name="databaseConnectWindow"/>
 <fullyQualifiedTypeName name="database_management.MySQLdbManager"/>
 <fullyQualifiedTypeName name="java.lang.Boolean"/>
+<fullyQualifiedTypeName name="javax.swing.SpinnerNumberModel"/>
+<fullyQualifiedTypeName name="java.text.DecimalFormat"/>
+<fullyQualifiedTypeName name="javax.swing.JSpinner.NumberEditor"/>
+<fullyQualifiedTypeName name="java.util.Locale"/>
+<fullyQualifiedTypeName name="java.text.DecimalFormatSymbols"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="mainWindow.ProductsTableTableModel"/>
 </qualifiedTypeNameHistroy>

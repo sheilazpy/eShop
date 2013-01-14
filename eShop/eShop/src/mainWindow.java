@@ -9,6 +9,7 @@ import java.awt.event.WindowListener;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.ResultSet;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,7 +18,14 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.table.AbstractTableModel;
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.ColumnSpec;
@@ -26,6 +34,79 @@ import com.jgoodies.forms.layout.RowSpec;
 
 
 public class mainWindow extends JFrame {
+	private final JPanel productsManagementToolsPanel = new JPanel();
+	private final JLabel productsManagementToolsPanelProductNameLabel = new JLabel();
+	private final JLabel productsManagementToolsPanelProductQuantityLabel = new JLabel();
+	private final JLabel productsManagementToolsPanelProductPriceLabel = new JLabel();
+	private final JTextField productsManagementToolsPanelProductNameTextField = new JTextField();
+	private final JSpinner productsManagementToolsPanelProductPriceSpinner = new JSpinner();
+	private final JSpinner productsManagementToolsPanelProductQuantitySpinner = new JSpinner();
+	private final JButton productsManagementToolsPanelProductAddButton = new JButton();
+	private final JButton productsManagementToolsPanelProductEditButton = new JButton();
+	
+	private final JButton productsManagementToolsPanelProductRemoveButton = new JButton();
+	class ProductsTableTableModel extends AbstractTableModel {
+		private static final long serialVersionUID = 3005L;
+		
+		private final String[] COLUMNS = new String[] {
+			"Име на продукт", "Количество", "Цена в лева"
+		};
+		
+		private String[][] CELLS = new String[][] {
+			{"добави", "нов", "продукт","id"},
+			/*{"1 - 0", "1 - 1", "1 - 2"},
+			{"2 - 0", "2 - 1", "2 - 2"},
+			{"3 - 0", "3 - 1", "3 - 2"},
+			{"4 - 0", "4 - 1", "4 - 2"},*/
+		};
+		
+		public int getRowCount() {
+			return CELLS.length;
+		}
+		public int getColumnCount() {
+			return COLUMNS.length;
+		}
+		public String getColumnName(int column) {
+			return COLUMNS[column];
+		}
+		public Object getValueAt(int row, int column) {
+			return CELLS[row].length > column ? CELLS[row][column] : (column + " - " + row);
+		}
+		
+		public void populateTableWithDatabaseData() {
+			//TODO...
+			
+			int rowsCount = 0;
+			
+			ResultSet rs = databaseConnectWindow.dbPortal.executeQuery("SELECT * FROM products");
+			if (rs != null) {
+				try {
+				
+					rs.last();
+					rowsCount = rs.getRow();
+					if (rowsCount <= 0) {					
+						return;
+					}
+					rs.first();
+					
+					CELLS = new String[rowsCount][4];
+					
+					while (true) {
+						
+						CELLS[rs.getRow() - 1][0] =	rs.getString(2);			   // product_name
+						CELLS[rs.getRow() - 1][1] =	new String("" + rs.getInt(3)); // product_quantity
+						CELLS[rs.getRow() - 1][2] =	rs.getBigDecimal(4).toString();// product_price
+						CELLS[rs.getRow() - 1][3] =	new String("" + rs.getInt(1)); // product_id
+					}
+					
+				}
+				catch (Exception ex) {
+					
+				}				
+			}
+		}
+	}
+
 	private static final long serialVersionUID = 3001L;
 
 	private final JMenuBar mainWindowMenu = new JMenuBar();
@@ -51,6 +132,11 @@ public class mainWindow extends JFrame {
 	private final JMenuItem operationsOrdersManagement = new JMenuItem();
 	private final JMenuItem operationsNewOrder = new JMenuItem();
 	
+	private final JPanel productsManagementPanel = new JPanel();
+	private final JScrollPane scrollPane = new JScrollPane();
+	private final JTable productsTable = new JTable();
+	
+	
 	/**
 	 * Launch the application
 	 * @param args
@@ -73,7 +159,7 @@ public class mainWindow extends JFrame {
 	 */
 	public mainWindow() {
 		super();
-		setBounds(100, 100, 682, 438);
+		setBounds(100, 100, 742, 438);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainWindowPointer = this;
 		try {
@@ -173,6 +259,68 @@ public class mainWindow extends JFrame {
 		mainWindowStatusPanelLoggedUserLogout.addActionListener(new MainWindowStatusPanelLoggedUserLogoutActionListener());
 		mainWindowStatusPanelLoggedUserLogout.setText("Изход");
 		mainWindowStatusPanelSetEnabled(false);
+		
+		getContentPane().add(productsManagementPanel, BorderLayout.CENTER);
+		productsManagementPanel.setLayout(new BorderLayout());		
+		productsManagementPanel.add(scrollPane, BorderLayout.CENTER);
+		scrollPane.setPreferredSize(new Dimension(0, 0));
+		scrollPane.setBorder(new TitledBorder(new TitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null), "Продукти в базата данни:", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+		productsManagementPanel.setVisible(false);
+		
+		scrollPane.setViewportView(productsTable);
+		productsTable.setShowGrid(true);
+		productsTable.setModel(new ProductsTableTableModel());
+		
+		productsManagementPanel.add(productsManagementToolsPanel, BorderLayout.EAST);
+		productsManagementToolsPanel.setLayout(new FormLayout(
+			new ColumnSpec[] {
+				FormFactory.UNRELATED_GAP_COLSPEC,
+				ColumnSpec.decode("92px"),
+				FormFactory.LABEL_COMPONENT_GAP_COLSPEC,
+				ColumnSpec.decode("92px"),
+				FormFactory.LABEL_COMPONENT_GAP_COLSPEC,
+				ColumnSpec.decode("52px"),
+				ColumnSpec.decode("92px")},
+			new RowSpec[] {
+				RowSpec.decode("12dlu"),
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				RowSpec.decode("15px"),
+				FormFactory.DEFAULT_ROWSPEC,
+				RowSpec.decode("15px"),
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC}));
+		productsManagementToolsPanel.setBorder(new TitledBorder(new TitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null), "Добавяне/редактиране на продукт:", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+		
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductNameLabel, new CellConstraints("2, 2, center, fill"));
+		productsManagementToolsPanelProductNameLabel.setText("Име на продукт:");
+		
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductPriceLabel, new CellConstraints("2, 3, fill, fill"));
+		productsManagementToolsPanelProductPriceLabel.setText("Цена лв.");
+		
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductQuantityLabel, new CellConstraints("2, 4, 1, 1, fill, fill"));
+		productsManagementToolsPanelProductQuantityLabel.setText("Количество:");
+		
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductNameTextField, new CellConstraints(4, 2, 4, 1, CellConstraints.FILL, CellConstraints.FILL));
+		
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductPriceSpinner, new CellConstraints(4, 3, 3, 1, CellConstraints.FILL, CellConstraints.FILL));
+		 
+		SpinnerNumberModel productsManagementToolsPanelProductPriceSpinnerNumberModel = new SpinnerNumberModel(0.00, 0.00, 1000000.00, 0.01);
+		productsManagementToolsPanelProductPriceSpinner.setModel(productsManagementToolsPanelProductPriceSpinnerNumberModel);		
+		
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductQuantitySpinner, new CellConstraints(4, 4, 3, 1));
+		SpinnerNumberModel productsManagementToolsPanelProductQuantitySpinnerNumberModel = new SpinnerNumberModel(0, 0, 1000000, 1);
+		productsManagementToolsPanelProductQuantitySpinner.setModel(productsManagementToolsPanelProductQuantitySpinnerNumberModel);
+		
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductAddButton, new CellConstraints(2, 6, 3, 1, CellConstraints.FILL, CellConstraints.FILL));
+		productsManagementToolsPanelProductAddButton.setText("Добави нов продукт");
+		
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductEditButton, new CellConstraints(6, 6, 2, 1, CellConstraints.FILL, CellConstraints.FILL));
+		productsManagementToolsPanelProductEditButton.setText("Редактирай");
+		
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductRemoveButton, new CellConstraints(4, 8, 3, 1));
+		productsManagementToolsPanelProductRemoveButton.setText("Изтрий продукт");
 	}
 	
 	protected void mainWindowStatusPanelSetEnabled(boolean enable) {
@@ -271,6 +419,7 @@ public class mainWindow extends JFrame {
 		dcw.setVisible(true);
 		dcw.addWindowListener(databaseConnectWindowClosing);
 	}
+	
 	private static WindowListener databaseConnectWindowClosing = new WindowAdapter() {
 		
         public void windowClosing(WindowEvent e) {
@@ -285,8 +434,7 @@ public class mainWindow extends JFrame {
     				mainWindowPointer.FileConnectToDb.setEnabled(false);
     				mainWindowPointer.FileDisconnectFromDb.setEnabled(true);
     			}
-    			else {
-    				
+    			else {    				
     				mainWindowPointer.mainWindowStatusPanelSetEnabled(false);
     			}
     		}            
@@ -298,13 +446,14 @@ public class mainWindow extends JFrame {
 	protected void fileDisconnectFromDb_actionPerformed(ActionEvent e) {
 		
 		if (databaseConnectWindow.dbPortal != null) {
-			
+			//TODO...
 			databaseConnectWindow.dbPortal.finalize();
 			
 			this.FileConnectToDb.setEnabled(true);
 			this.FileDisconnectFromDb.setEnabled(false);			
 			this.Operations.setEnabled(false);
-			this.mainWindowStatusPanelSetEnabled(false);	
+			this.mainWindowStatusPanelSetEnabled(false);
+			this.productsManagementPanel.setVisible(false);
 			this.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
 			operatorUserLoginWindow.loggedUserId = -1;
 		}
@@ -327,8 +476,9 @@ public class mainWindow extends JFrame {
 				mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: " + operatorUserLoginWindow.loggedUserNames);
 			}
 			else {
-				
+				//TODO...
 				mainWindowPointer.Operations.setEnabled(false);
+				mainWindowPointer.productsManagementPanel.setVisible(false);
 				mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
 			}
 		}
@@ -355,8 +505,9 @@ public class mainWindow extends JFrame {
 				mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: " + operatorUserSettingsWindow.operatorFirstNameLastNameCombination);
 			}
 			else { //if operator was deleted
-				
+				//TODO...
 				mainWindowPointer.Operations.setEnabled(false);
+				mainWindowPointer.productsManagementPanel.setVisible(false);
 				mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
 			}
 		}
@@ -365,8 +516,9 @@ public class mainWindow extends JFrame {
 	////////////////////////////////////////////////////////////////////////
 	
 	protected void mainWindowStatusPanelLoggedUserLogout_actionPerformed(ActionEvent e) {
-		
+		//TODO...
 		this.Operations.setEnabled(false);
+		this.productsManagementPanel.setVisible(false);
 		this.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
 		operatorUserLoginWindow.loggedUserId = -1;
 	}
@@ -377,13 +529,17 @@ public class mainWindow extends JFrame {
 	}
 	
 	protected void operationsProductsManagement_actionPerformed(ActionEvent e) {
-		//TODO...		
+		//TODO...
+	    ((ProductsTableTableModel)productsTable.getModel()).populateTableWithDatabaseData();
+		productsManagementPanel.setVisible(true);
 	}
 	protected void operationsNewOrder_actionPerformed(ActionEvent e) {
 		//TODO...
+		productsManagementPanel.setVisible(false);
 	}
 	protected void operationsOrdersManagement_actionPerformed(ActionEvent e) {
 		//TODO...
+		productsManagementPanel.setVisible(false);
 	}
 	
 	

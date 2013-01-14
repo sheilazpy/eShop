@@ -98,9 +98,11 @@ public class operatorUserLoginWindow extends JFrame {
 		loginButton.setBounds(127, 93, 106, 26);
 		
 		groupLoginPanel.add(loginUsernameTextField);
+		loginUsernameTextField.setText("opop");
 		loginUsernameTextField.setBounds(96, 29, 137, 20);
 		
 		groupLoginPanel.add(loginPasswordPasswordField);
+		loginPasswordPasswordField.setText("opop");
 		loginPasswordPasswordField.setBounds(96, 51, 137, 20);
 		
 		getContentPane().add(groupCreateNewUserPanel);

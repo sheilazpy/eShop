@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="22" version="2.0">
+<workbench progressCount="33" version="2.0">
 <workbenchAdvisor/>
 <window height="738" maximized="true" width="1024" x="125" y="0">
 <fastViewData fastViewLocation="1024"/>
@@ -41,13 +41,15 @@
 </editorArea>
 <editor activePart="true" focus="true" id="com.swtdesigner.editors.MultiPageEditor" name="mainWindow.java" partName="mainWindow.java" path="D:/Drugi/Docs/PU/3 kurs/2 trimestur/Kursov Proekt 2/eShop/eShop/src/mainWindow.java" title="mainWindow.java" tooltip="eShop/src/mainWindow.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/eShop/src/mainWindow.java"/>
-<editorState selectionLength="0" selectionOffset="13570"/>
+<editorState selectionLength="0" selectionOffset="10426"/>
 </editor>
 </editors>
 <views>
 <view id="org.vssplugin.ui.logview" partName="VSS Refresh Log">
 <viewState/>
 </view>
+<view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
 <view id="org.eclipse.jdt.ui.MembersView" partName="Members">
 <viewState hidefields="false" hidelocaltypes="false" hidenonpublic="false" hidestatic="false" org.eclipse.jdt.ui.browsing.memberstoeditor="1">
 <customFilters userDefinedPatternsEnabled="false">&#x0A;<xmlDefinedFilters>&#x0A;<child filterId="com.tssap.selena.dom.HideDesignRoot" isEnabled="true"/>
@@ -59,8 +61,6 @@
 </customFilters>
 </viewState>
 </view>
-<view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
-<view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
 <view id="org.eclipse.debug.ui.VariableView" partName="Variables">
 <viewState/>
 </view>
@@ -96,9 +96,6 @@
 <view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
 <viewState/>
 </view>
-<view id="com.codegear.jbuilder.view.TagsView" partName="Tags">
-<viewState/>
-</view>
 <view id="org.eclipse.jdt.ui.PackagesView" partName="Packages">
 <viewState isWindowWorkingSet="false" org.eclipse.jdt.ui.PackagesView.viewState="0" org.eclipse.jdt.ui.browsing.packagestoeditor="1" workingSetName="">
 <customFilters userDefinedPatternsEnabled="false">&#x0A;<xmlDefinedFilters>&#x0A;<child filterId="org.eclipse.jdt.internal.ui.PackagesView.EmptyPackageFilter" isEnabled="false"/>
@@ -113,6 +110,9 @@
 </selectedElements>
 </viewState>
 </view>
+<view id="com.codegear.jbuilder.view.TagsView" partName="Tags">
+<viewState/>
+</view>
 <view id="org.eclipse.mylyn.tasks.ui.views.tasks" partName="Task List">
 <viewState linkWithEditor="true" presentation="org.eclipse.mylyn.tasks.ui.categorized">
 <org.eclipse.mylyn.tasklist.ui.views.tasklist.sortIndex>&#x0A;<sorter sortDirection="1" sortIndex="0"/>
@@ -120,6 +120,7 @@
 </org.eclipse.mylyn.tasklist.ui.views.tasklist.sortIndex>
 </viewState>
 </view>
+<view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
 <view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
 <viewState group_libraries="1" isWindowWorkingSet="false" layout="2" linkWithEditor="0" rootMode="1" workingSetName="">
 <customFilters userDefinedPatternsEnabled="false">
@@ -152,7 +153,6 @@
 </customFilters>
 </viewState>
 </view>
-<view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
 <view id="org.eclipse.jdt.ui.ProjectsView" partName="Projects">
 <viewState isWindowWorkingSet="false" org.eclipse.jdt.ui.browsing.projectstoeditor="1" workingSetName="">
 <customFilters userDefinedPatternsEnabled="false">&#x0A;<xmlDefinedFilters>&#x0A;<child filterId="org.eclipse.jdt.ui.ProjectsView.ContainedLibraryFilter" isEnabled="false"/>
@@ -174,6 +174,9 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Errors (2 items)"/>
+</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="64" org.eclipse.ui.ide.markerType="94" org.eclipse.ui.ide.pathField="124" org.eclipse.ui.ide.resourceField="94" org.eclipse.ui.ide.severityAndDescriptionField="644"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -283,21 +286,10 @@
 <perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
 <perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
 <perspective_action id="org.jboss.tools.jst.web.ui.WebDevelopmentPerspective"/>
-<view id="org.eclipse.jdt.ui.PackageExplorer"/>
-<view id="org.eclipse.jdt.ui.TypeHierarchy"/>
-<view id="org.eclipse.ui.views.ProblemView"/>
-<view id="org.eclipse.jdt.ui.JavadocView"/>
-<view id="org.eclipse.jdt.ui.SourceView"/>
-<view id="org.eclipse.ui.console.ConsoleView"/>
 <fastViewBars>
-<fastViewBar fastViewLocation="16384" id="org.eclipse.ui.internal.ViewStack@1ed627d" orientation="512" selectedTabId="com.codegear.jbuilder.view.TagsView" style="0">
+<fastViewBar fastViewLocation="131072" id="right" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="0">
 <fastViews>
-<view id="com.codegear.jbuilder.view.TagsView" ratio="0.3"/>
-</fastViews>
-</fastViewBar>
-<fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@d52ea" orientation="256" selectedTabId="org.vssplugin.ui.checkout" style="0">
-<fastViews>
-<view id="org.vssplugin.ui.checkout" ratio="0.3"/>
+<view id="org.eclipse.ui.views.ContentOutline" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
 <fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@1d09ed4" orientation="512" selectedTabId="com.codegear.jbuilder.view.FeatureNavigatorView" style="0">
@@ -305,14 +297,28 @@
 <view id="com.codegear.jbuilder.view.FeatureNavigatorView" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
-<fastViewBar fastViewLocation="131072" id="right" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="0">
+<fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@d52ea" orientation="256" selectedTabId="org.vssplugin.ui.checkout" style="0">
 <fastViews>
-<view id="org.eclipse.ui.views.ContentOutline" ratio="0.3"/>
+<view id="org.vssplugin.ui.checkout" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
-<fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@1065904" orientation="256" selectedTabId="org.vssplugin.ui.logview" style="0">
+<fastViewBar fastViewLocation="16384" id="org.eclipse.ui.internal.ViewStack@1ed627d" orientation="512" selectedTabId="com.codegear.jbuilder.view.TagsView" style="0">
 <fastViews>
-<view id="org.vssplugin.ui.logview" ratio="0.3"/>
+<view id="com.codegear.jbuilder.view.TagsView" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+<fastViewBar fastViewLocation="16384" id="left" orientation="512" selectedTabId="org.eclipse.jdt.ui.PackageExplorer" style="0">
+<fastViews>
+<view id="org.eclipse.jdt.ui.PackageExplorer" ratio="0.3"/>
+<view id="org.eclipse.jdt.ui.TypeHierarchy" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+<fastViewBar fastViewLocation="1024" id="bottom" orientation="256" selectedTabId="org.eclipse.ui.views.ProblemView" style="0">
+<fastViews>
+<view id="org.eclipse.ui.views.ProblemView" ratio="0.3"/>
+<view id="org.eclipse.jdt.ui.JavadocView" ratio="0.3"/>
+<view id="org.eclipse.jdt.ui.SourceView" ratio="0.3"/>
+<view id="org.eclipse.ui.console.ConsoleView" ratio="0.2985782"/>
 </fastViews>
 </fastViewBar>
 <fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@18f1ef8" orientation="512" selectedTabId="org.eclipse.mylyn.tasks.ui.views.tasks" style="0">
@@ -320,22 +326,24 @@
 <view id="org.eclipse.mylyn.tasks.ui.views.tasks" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
+<fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@1065904" orientation="256" selectedTabId="org.vssplugin.ui.logview" style="0">
+<fastViews>
+<view id="org.vssplugin.ui.logview" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
 </fastViewBars>
 <layout>
 <mainWindow>
 <info folder="true" part="left">
-<folder activePageID="org.eclipse.jdt.ui.PackageExplorer" appearance="2" expanded="2">
-<page content="org.eclipse.jdt.ui.PackageExplorer" label="Package Explorer"/>
-<page content="org.eclipse.jdt.ui.TypeHierarchy" label="Hierarchy"/>
+<folder appearance="2" expanded="0">
+<page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <page content="org.eclipse.ui.navigator.ProjectExplorer" label="LabelNotFound"/>
 <page content="com.swtdesigner.views.palette" label="LabelNotFound"/>
 <page content="com.swtdesigner.views.property" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.junit.ResultView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-<part id="1"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@84b1e0" ratio="0.75" ratioLeft="750" ratioRight="250" relationship="2" relative="left">
@@ -346,25 +354,20 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.21521907" ratioLeft="280" ratioRight="1021" relationship="2" relative="left"/>
-<info folder="true" part="bottom" ratio="0.7487844" ratioLeft="462" ratioRight="155" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
-<page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
-<page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
-<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<info part="org.eclipse.ui.editorss" ratio="0.15680246" ratioLeft="204" ratioRight="1097" relationship="2" relative="left"/>
+<info folder="true" part="bottom" ratio="0.77619046" ratioLeft="489" ratioRight="141" relationship="4" relative="org.eclipse.ui.editorss">
+<folder appearance="2" expanded="0">
+<page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.JavadocView" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.SourceView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
 <page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
 <page content="com.codegear.sanctuary.client.ui.lm.views.SanctLicenseManagerView" label="LabelNotFound"/>
 <page content="com.togethersoft.selena.sapient.MetricView" label="LabelNotFound"/>
 <page content="com.togethersoft.selena.sapient.AuditView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-<part id="1"/>
-<part id="2"/>
-<part id="3"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@d52ea" ratio="0.5" ratioLeft="375" ratioRight="375" relationship="2" relative="bottom">
@@ -667,6 +670,8 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" path="/eShop/src/databaseConnectWindow.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" path="/eShop/src/operatorUserLoginWindow.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" path="/eShop/src/operatorUserSettingsWindow.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" path="/eShop/src/operatorUserLoginWindow.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" path="/eShop/src/operatorUserLoginWindow.java"/>
 </editors>
 <item historyLabel="MySQLdbManager.java" index="0">
 <position info="not_deleted" x="12869" y="0"/>
@@ -758,8 +763,59 @@
 <item historyLabel="databaseConnectWindow.java" index="2">
 <position info="not_deleted" x="5983" y="0"/>
 </item>
-<item active="true" historyLabel="mainWindow.java" index="1">
+<item historyLabel="mainWindow.java" index="1">
 <position info="not_deleted" x="13797" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="1">
+<position info="not_deleted" x="8356" y="0"/>
+</item>
+<item historyLabel="operatorUserLoginWindow.java" index="5">
+<position/>
+</item>
+<item historyLabel="mainWindow.java" index="1">
+<position/>
+</item>
+<item historyLabel="mainWindow.java" index="1">
+<position info="not_deleted" x="11867" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="1">
+<position/>
+</item>
+<item historyLabel="mainWindow.java" index="1">
+<position info="not_deleted" x="12202" y="0"/>
+</item>
+<item historyLabel="mainWindow.java" index="1">
+<position/>
+</item>
+<item historyLabel="mainWindow.java" index="1">
+<position/>
+</item>
+<item historyLabel="mainWindow.java" index="1">
+<position/>
+</item>
+<item historyLabel="mainWindow.java" index="1">
+<position/>
+</item>
+<item historyLabel="mainWindow.java" index="1">
+<position/>
+</item>
+<item historyLabel="mainWindow.java" index="1">
+<position/>
+</item>
+<item historyLabel="mainWindow.java" index="1">
+<position/>
+</item>
+<item historyLabel="mainWindow.java" index="1">
+<position/>
+</item>
+<item historyLabel="mainWindow.java" index="1">
+<position info="not_deleted" x="10426" y="0"/>
+</item>
+<item historyLabel="operatorUserLoginWindow.java" index="6">
+<position/>
+</item>
+<item active="true" historyLabel="mainWindow.java" index="1">
+<position info="not_deleted" x="10426" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -769,6 +825,7 @@
 <trimLayout>
 <trimArea IMemento.internal.id="16384">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@1ed627d"/>
+<trimItem IMemento.internal.id="left"/>
 </trimArea>
 <trimArea IMemento.internal.id="131072">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@1d09ed4"/>
@@ -786,18 +843,19 @@
 <trimItem IMemento.internal.id="com.codegear.capability.ui.contributions.trim"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@1065904"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@d52ea"/>
+<trimItem IMemento.internal.id="bottom"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" name="operatorUserLoginWindow.java" tooltip="eShop/src/operatorUserLoginWindow.java">
+<persistable path="/eShop/src/operatorUserLoginWindow.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" name="operatorUserSettingsWindow.java" tooltip="eShop/src/operatorUserSettingsWindow.java">
 <persistable path="/eShop/src/operatorUserSettingsWindow.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" name="databaseConnectWindow.java" tooltip="eShop/src/databaseConnectWindow.java">
 <persistable path="/eShop/src/databaseConnectWindow.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" name="operatorUserLoginWindow.java" tooltip="eShop/src/operatorUserLoginWindow.java">
-<persistable path="/eShop/src/operatorUserLoginWindow.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.swtdesigner.editors.MultiPageEditor" name="mainWindow.java" tooltip="eShop/src/mainWindow.java">
 <persistable path="/eShop/src/mainWindow.java"/>
