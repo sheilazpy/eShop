@@ -2,12 +2,10 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.FlowLayout;
 import java.awt.Insets;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -21,6 +19,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
@@ -37,8 +36,35 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
+import tables_management.Tables_db_manager;
+
 
 public class mainWindow extends JFrame {
+	class OrdersInfoTableTableModel extends AbstractTableModel {
+	
+		private static final long serialVersionUID = 3006L;
+		private boolean noDataInTheCells = true;
+		
+		private final String[] COLUMNS = new String[] {
+			"Поръчка №", "Дата и време"
+		};
+		private final String[][] CELLS = new String[][] {
+			{"добави", "поръчка"},			
+		};
+		public int getRowCount() {
+			return CELLS.length;
+		}
+		public int getColumnCount() {
+			return COLUMNS.length;
+		}
+		public String getColumnName(int column) {
+			return COLUMNS[column];
+		}
+		public Object getValueAt(int row, int column) {
+			return CELLS[row].length > column ? CELLS[row][column] : (column + " - " + row);
+		}		
+	}
+
 	private final JPanel productsManagementToolsPanel = new JPanel();
 	private final JLabel productsManagementToolsPanelProductNameLabel = new JLabel();
 	private final JLabel productsManagementToolsPanelProductQuantityLabel = new JLabel();
@@ -75,6 +101,22 @@ public class mainWindow extends JFrame {
 		
 		private boolean noDataInTheCells = true;
 		
+		private Tables_db_manager tdm = null;
+		
+		public void Init() {
+		
+			tdm = new Tables_db_manager(this, getRowCount(), getColumnCount() + 1, databaseConnectWindow.dbPortal, CELLS);
+			
+			String[] noDataWords = new String[4];
+			noDataWords[0] = "добави";
+			noDataWords[1] = "нов";
+			noDataWords[2] = "продукт";
+			noDataWords[3] = "id";
+			
+			tdm.setNoDataInTheCellsMessage(noDataWords);
+			tdm.setPopulateQuery("SELECT product_name, product_quantity, product_price, product_id FROM products");			
+		}
+		
 		public int getRowCount() {
 			return CELLS.length;
 		}
@@ -89,211 +131,58 @@ public class mainWindow extends JFrame {
 		}
 		
 		public void populateTableWithDatabaseData() {
-						
-			int rowsCount = 0;
 			
-			ResultSet rs = databaseConnectWindow.dbPortal.executeQuery("SELECT * FROM products");
-			if (rs != null) {
-				try {
-				
-					rs.last();
-					rowsCount = rs.getRow();
-					if (rowsCount <= 0) {					
-						return;
-					}
-					rs.first();
-					
-					CELLS = new String[rowsCount][4];
-					
-					while (true) {
-						
-						CELLS[rs.getRow() - 1][0] =	rs.getString(2);			   // product_name
-						CELLS[rs.getRow() - 1][1] =	new String("" + rs.getInt(3)); // product_quantity
-						CELLS[rs.getRow() - 1][2] =	rs.getBigDecimal(4).toString();// product_price
-						CELLS[rs.getRow() - 1][3] =	new String("" + rs.getInt(1)); // product_id
-						
-						if (rs.isLast()) {
-							break;
-						}
-						
-						rs.next();
-					}
-					
-					noDataInTheCells = false;					
-				}
-				catch (Exception ex) {
-					
-				}				
-			}		
+			if (tdm == null) {
+				Init();
+			}
+			
+			CELLS = tdm.performPopulate();				
 		}
 		
 		public void insertNewRow(Object name, Object quantity, Object price) {
 			
-			if (databaseConnectWindow.dbPortal.executeParameterizedNonQuery("INSERT INTO products (product_name, product_quantity, product_price) VALUES(?,?,?)", 
-					name, quantity, price) != 1) {
-				
-				String errorMessage = "Грешка при добавянето на продукт:\n" + databaseConnectWindow.dbPortal.getLastError();
-				
-				JOptionPane.showMessageDialog(null, errorMessage, "Грешка", JOptionPane.ERROR_MESSAGE);
-				return;
+			if (tdm == null) {
+				Init();
 			}
+			tdm.setInsertQuery("INSERT INTO products (product_name, product_quantity, product_price) VALUES(?,?,?)", name, quantity, price);
+			tdm.setPopulateQuery("SELECT product_name, product_quantity, product_price, product_id FROM products WHERE product_id=");
 			
-			// populate the table with the new row
+			CELLS = tdm.performRowInsert();
 			
-			int lastProductId = -1;
-			
-			ResultSet rs = databaseConnectWindow.dbPortal.executeParameterizedQuery("SELECT product_id FROM products WHERE product_name=? AND " +
-					"product_quantity=? AND product_price=? ORDER BY product_id DESC", name, quantity, price);
-			
-			if (rs != null) {
-				
-				try {
-					lastProductId = rs.getInt(1);
-				}
-				catch (Exception ex) {
-					lastProductId = -1;
-				}
-			}
-			
-			if (lastProductId == -1) {
-				JOptionPane.showMessageDialog(null, "Грешка при опресняването на таблицата с продукти!", "Грешка", JOptionPane.ERROR_MESSAGE);
-				return;
-			}
-			
-			String[][] newCells = null;
-			
-			if (noDataInTheCells == false) {
-			
-				newCells = new String[CELLS.length + 1][4];
-				for (int i = 0; i < CELLS.length; i++) {
-					newCells[i][0] = CELLS[i][0];
-					newCells[i][1] = CELLS[i][1];
-					newCells[i][2] = CELLS[i][2];
-					newCells[i][3] = CELLS[i][3];
-				}
-			}
-			else {				
-				newCells = new String[1][4];				
-			}
-			
-			rs = null;
-			rs = databaseConnectWindow.dbPortal.executeQuery("SELECT * FROM products WHERE product_id=" + lastProductId);
-			
-			if (rs != null) {
-				
-				try {
-					
-					newCells[(noDataInTheCells == false ? CELLS.length : 0)][0] = rs.getString(2);			   // product_name
-					newCells[(noDataInTheCells == false ? CELLS.length : 0)][1] = new String("" + rs.getInt(3)); // product_quantity
-					newCells[(noDataInTheCells == false ? CELLS.length : 0)][2] = rs.getBigDecimal(4).toString();// product_price
-					newCells[(noDataInTheCells == false ? CELLS.length : 0)][3] = new String("" + rs.getInt(1)); // product_id
-				}
-				catch (Exception ex) {
-					
-					JOptionPane.showMessageDialog(null, "Грешка при опресняването на таблицата с продукти!\nВъзможно е добавянето на нов продукт да не е " + 
-							"било успешно.", "Грешка", JOptionPane.ERROR_MESSAGE);
-				}
-				
-				CELLS = newCells;
-				
-				fireTableCellUpdated(CELLS.length, 0); //visual optimized refresh
-				fireTableCellUpdated(CELLS.length, 1);
-				fireTableCellUpdated(CELLS.length, 2);
-				
-				noDataInTheCells = false;
-			}
-			else {
-				
-				JOptionPane.showMessageDialog(null, "Грешка при опресняването на таблицата с продукти!\nВъзможно е добавянето на нов продукт да не е " + 
-						"било успешно.", "Грешка", JOptionPane.ERROR_MESSAGE);
-				return;
+			if (tdm.getLastError() != null) {
+				JOptionPane.showMessageDialog(null, tdm.getLastError(), "Грешка", JOptionPane.ERROR_MESSAGE);
 			}		
+			
 		}
 		
 		public void removeSelectedRow(int rowNumber) {
 			
-			if (noDataInTheCells == true) {
-				return;
+			if (tdm == null) {
+				Init();
 			}
+			tdm.setDeleteQuery("DELETE FROM products WHERE product_id=" + CELLS[rowNumber][3]);
+			CELLS = tdm.performRowDelete(rowNumber);
 			
-			if (databaseConnectWindow.dbPortal.executeNonQuery("DELETE FROM products WHERE product_id=" + CELLS[rowNumber][3]) != 1) {
-				
-				String errorMessage = "Грешка при изтриването на продукт:\n" + databaseConnectWindow.dbPortal.getLastError();
-				
-				JOptionPane.showMessageDialog(null, errorMessage, "Грешка", JOptionPane.ERROR_MESSAGE);
-				return;
-			}
-			
-			// remove the deleted row from the table
-			
-			String[][] newCells = null;
-			
-			if (CELLS.length > 1) {
-			
-				newCells = new String[CELLS.length - 1][4];
-				
-				for (int i = 0, j = 0; i < CELLS.length; i++) {
-					
-					if (i != rowNumber) {
-					
-						newCells[j][0] = CELLS[i][0];
-						newCells[j][1] = CELLS[i][1];
-						newCells[j][2] = CELLS[i][2];
-						newCells[j][3] = CELLS[i][3];
-						j++;
-					}
-				}
-			}
-			else {
-				newCells = new String[1][4];
-				newCells[0][0]= "добави";
-				newCells[0][1] = "нов";
-				newCells[0][2] = "продукт";
-				newCells[0][3] = "-1";
-				noDataInTheCells = true;
-			}
-			
-			CELLS = newCells;
-			
-			//no optimized visual refresh here
+			if (tdm.getLastError() != null) {
+				JOptionPane.showMessageDialog(null, tdm.getLastError(), "Грешка", JOptionPane.ERROR_MESSAGE);
+			}			
 		}
 		
 		public void updateSelectedRow(int rowNumber, Object name, Object quantity, Object price) {
 			
-			if (noDataInTheCells == true) {
-				return;
+			if (tdm == null) {
+				Init();
 			}
+			tdm.setUpdateQuery("UPDATE products SET product_name=?, product_quantity=?, product_price=? WHERE product_id=?",
+					name, quantity, price, Integer.parseInt(CELLS[rowNumber][3]));
+			tdm.setPopulateQuery("SELECT product_name, product_quantity, product_price, product_id FROM products WHERE product_id=" + 
+					CELLS[rowNumber][3]);
 			
-			Integer productId = Integer.parseInt(CELLS[rowNumber][3]);
+			CELLS = tdm.performRowUpdate(rowNumber);
 			
-			if (databaseConnectWindow.dbPortal.executeParameterizedNonQuery("UPDATE products SET product_name=?, product_quantity=?, product_price=? WHERE " + 
-					"product_id=?", name, quantity, price, productId) != 1) {
-				
-				String errorMessage = "Грешка при редактирането на продукт:\n" + databaseConnectWindow.dbPortal.getLastError();
-				
-				JOptionPane.showMessageDialog(null, errorMessage, "Грешка", JOptionPane.ERROR_MESSAGE);
-				return;
-			}
-			
-			ResultSet rs = null;
-			rs = databaseConnectWindow.dbPortal.executeQuery("SELECT product_name, product_quantity, product_price FROM products WHERE product_id=" + productId);
-			
-			if (rs != null) {
-				
-				try {
-					
-					CELLS[rowNumber][0] = rs.getString(1); 	   			  // product_name
-					CELLS[rowNumber][1] = new String("" + rs.getInt(2));  // product_quantity
-					CELLS[rowNumber][2] = rs.getBigDecimal(3).toString(); // product_price
-				}
-				catch (Exception ex) {
-					
-				}
-			}
-			
-			fireTableCellUpdated(rowNumber, 0); //visual optimized refresh
-			fireTableCellUpdated(rowNumber, 1);
-			fireTableCellUpdated(rowNumber, 2);
+			if (tdm.getLastError() != null) {
+				JOptionPane.showMessageDialog(null, tdm.getLastError(), "Грешка", JOptionPane.ERROR_MESSAGE);
+			}			
 		}
 	}
 
@@ -523,11 +412,12 @@ public class mainWindow extends JFrame {
 		
 		ordersManagementPanel.add(ordersManagementPanelOrdersPanel, BorderLayout.WEST);
 		ordersManagementPanelOrdersPanel.setLayout(new BorderLayout());
-		ordersManagementPanelOrdersPanel.setBorder(new TitledBorder(new TitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null), "Направени продажби:", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+		ordersManagementPanelOrdersPanel.setBorder(new TitledBorder(new TitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null), "Направени продажби от аутентифицирания оператор:", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
 		
 		ordersManagementPanelOrdersPanel.add(scrollPane_1, BorderLayout.WEST);
 		
 		scrollPane_1.setViewportView(ordersInfoTable);
+		ordersInfoTable.setModel(new OrdersInfoTableTableModel());
 		
 		ordersManagementPanelOrdersPanel.add(scrollPane_2, BorderLayout.EAST);
 		

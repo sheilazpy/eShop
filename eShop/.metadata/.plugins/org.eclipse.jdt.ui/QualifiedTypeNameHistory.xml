@@ -17,7 +17,6 @@
 <fullyQualifiedTypeName name="md5_calculator.Md5hashcalc"/>
 <fullyQualifiedTypeName name="operatorUserSettingsWindow"/>
 <fullyQualifiedTypeName name="operatorUserLoginWindow"/>
-<fullyQualifiedTypeName name="database_management.MySQLdbManager"/>
 <fullyQualifiedTypeName name="java.lang.Boolean"/>
 <fullyQualifiedTypeName name="javax.swing.SpinnerNumberModel"/>
 <fullyQualifiedTypeName name="java.text.DecimalFormat"/>
@@ -27,7 +26,9 @@
 <fullyQualifiedTypeName name="mainWindow.ProductsTableTableModel"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="javax.swing.table.DefaultTableModel"/>
-<fullyQualifiedTypeName name="databaseConnectWindow"/>
 <fullyQualifiedTypeName name="java.math.BigDecimal"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="database_management.MySQLdbManager"/>
+<fullyQualifiedTypeName name="tables_management.Tables_db_manager"/>
+<fullyQualifiedTypeName name="databaseConnectWindow"/>
 </qualifiedTypeNameHistroy>
