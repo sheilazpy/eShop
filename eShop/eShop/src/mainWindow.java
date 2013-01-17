@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
-import java.sql.ResultSet;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -40,15 +39,38 @@ import tables_management.Tables_db_manager;
 
 
 public class mainWindow extends JFrame {
+	class OrderDetailsTableTableModel extends AbstractTableModel {
+		private static final long serialVersionUID = 3007L;
+		
+		private final String[] COLUMNS = new String[] {
+			"Продукт", "Количество"
+		};
+		private String[][] CELLS = new String[][] {
+			{"добави", "продукт", "order_detail_id", "order_detail_order_id", "order_detail_product_id" },
+		};
+		public int getRowCount() {
+			return CELLS.length;
+		}
+		public int getColumnCount() {
+			return COLUMNS.length;
+		}
+		public String getColumnName(int column) {
+			return COLUMNS[column];
+		}
+		public Object getValueAt(int row, int column) {
+			return CELLS[row].length > column ? CELLS[row][column] : (column + " - " + row);
+		}
+	}
+
 	class OrdersInfoTableTableModel extends AbstractTableModel {
 	
 		private static final long serialVersionUID = 3006L;
-		private boolean noDataInTheCells = true;
-		
+		private Tables_db_manager tdm = null;
+				
 		private final String[] COLUMNS = new String[] {
 			"Поръчка №", "Дата и време"
 		};
-		private final String[][] CELLS = new String[][] {
+		private String[][] CELLS = new String[][] {
 			{"добави", "поръчка"},			
 		};
 		public int getRowCount() {
@@ -62,7 +84,75 @@ public class mainWindow extends JFrame {
 		}
 		public Object getValueAt(int row, int column) {
 			return CELLS[row].length > column ? CELLS[row][column] : (column + " - " + row);
-		}		
+		}
+		
+		public void Init() {
+			
+			tdm = new Tables_db_manager(this, getRowCount(), getColumnCount(), databaseConnectWindow.dbPortal, CELLS);
+			
+			String[] noDataWords = new String[2];
+			noDataWords[0] = "добави";
+			noDataWords[1] = "поръчка";
+			
+			tdm.setNoDataInTheCellsMessage(noDataWords);
+			tdm.setPopulateQuery("SELECT order_id, order_time FROM orders WHERE order_operator_id=" + operatorUserLoginWindow.loggedUserId);			
+		}
+		
+		public void populateTableWithDatabaseData() {
+			
+			if (tdm == null) {
+				Init();
+			}
+			
+			CELLS = tdm.performPopulate();				
+		}
+		
+		public void insertNewRow() {
+			
+			if (tdm == null) {
+				Init();
+			}
+			
+			tdm.setInsertQuery("INSERT INTO orders (order_time) VALUES(?)", new java.sql.Timestamp(new java.util.Date().getTime()));
+			tdm.setPopulateQuery("SELECT order_id, order_date FROM orders WHERE order_id=");
+			
+			CELLS = tdm.performRowInsert();
+			
+			if (tdm.getLastError() != null) {
+				JOptionPane.showMessageDialog(null, tdm.getLastError(), "Грешка", JOptionPane.ERROR_MESSAGE);
+			}		
+			
+		}
+		
+		public void removeSelectedRow(int rowNumber) {
+			
+			if (tdm == null) {
+				Init();
+			}
+			tdm.setDeleteQuery("DELETE FROM orders WHERE order_id=" + CELLS[rowNumber][0]);
+			CELLS = tdm.performRowDelete(rowNumber);
+			
+			if (tdm.getLastError() != null) {
+				JOptionPane.showMessageDialog(null, tdm.getLastError(), "Грешка", JOptionPane.ERROR_MESSAGE);
+			}			
+		}
+		
+		public void updateSelectedRow(int rowNumber) {
+			
+			if (tdm == null) {
+				Init();
+			}
+			tdm.setUpdateQuery("UPDATE orders SET order_time=? WHERE order_id=?", new java.sql.Timestamp(new java.util.Date().getTime()),
+			Integer.parseInt(CELLS[rowNumber][0]));
+			
+			tdm.setPopulateQuery("SELECT order_id, order_time FROM orders WHERE order_id=" + CELLS[rowNumber][0]);
+			
+			CELLS = tdm.performRowUpdate(rowNumber);
+			
+			if (tdm.getLastError() != null) {
+				JOptionPane.showMessageDialog(null, tdm.getLastError(), "Грешка", JOptionPane.ERROR_MESSAGE);
+			}			
+		}
 	}
 
 	private final JPanel productsManagementToolsPanel = new JPanel();
@@ -92,30 +182,10 @@ public class mainWindow extends JFrame {
 		};
 		
 		private String[][] CELLS = new String[][] {
-			{"добави", "нов", "продукт","id"},
-			/*{"1 - 0", "1 - 1", "1 - 2"},
-			{"2 - 0", "2 - 1", "2 - 2"},
-			{"3 - 0", "3 - 1", "3 - 2"},
-			{"4 - 0", "4 - 1", "4 - 2"},*/
+			{"добави", "нов", "продукт","id"},			
 		};
 		
-		private boolean noDataInTheCells = true;
-		
 		private Tables_db_manager tdm = null;
-		
-		public void Init() {
-		
-			tdm = new Tables_db_manager(this, getRowCount(), getColumnCount() + 1, databaseConnectWindow.dbPortal, CELLS);
-			
-			String[] noDataWords = new String[4];
-			noDataWords[0] = "добави";
-			noDataWords[1] = "нов";
-			noDataWords[2] = "продукт";
-			noDataWords[3] = "id";
-			
-			tdm.setNoDataInTheCellsMessage(noDataWords);
-			tdm.setPopulateQuery("SELECT product_name, product_quantity, product_price, product_id FROM products");			
-		}
 		
 		public int getRowCount() {
 			return CELLS.length;
@@ -128,6 +198,20 @@ public class mainWindow extends JFrame {
 		}
 		public Object getValueAt(int row, int column) {
 			return CELLS[row].length > column ? CELLS[row][column] : (column + " - " + row);
+		}
+		
+		public void Init() {
+			
+			tdm = new Tables_db_manager(this, getRowCount(), getColumnCount() + 1, databaseConnectWindow.dbPortal, CELLS);
+			
+			String[] noDataWords = new String[4];
+			noDataWords[0] = "добави";
+			noDataWords[1] = "нов";
+			noDataWords[2] = "продукт";
+			noDataWords[3] = "id";
+			
+			tdm.setNoDataInTheCellsMessage(noDataWords);
+			tdm.setPopulateQuery("SELECT product_name, product_quantity, product_price, product_id FROM products");			
 		}
 		
 		public void populateTableWithDatabaseData() {
@@ -422,6 +506,7 @@ public class mainWindow extends JFrame {
 		ordersManagementPanelOrdersPanel.add(scrollPane_2, BorderLayout.EAST);
 		
 		scrollPane_2.setViewportView(orderDetailsTable);
+		orderDetailsTable.setModel(new OrderDetailsTableTableModel());
 	}
 	
 	protected void mainWindowStatusPanelSetEnabled(boolean enable) {
@@ -665,6 +750,8 @@ public class mainWindow extends JFrame {
 	protected void operationsOrdersManagement_actionPerformed(ActionEvent e) {
 		//TODO...
 		productsManagementPanel.setVisible(false);
+		
+		((OrdersInfoTableTableModel)ordersInfoTable.getModel()).populateTableWithDatabaseData();
 		ordersManagementPanel.setVisible(true);
 		getContentPane().add(ordersManagementPanel); // we are using BorderLayout so we need to add this panel again in order to get visible
 	}
