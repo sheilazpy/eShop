@@ -26,11 +26,15 @@
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="javax.swing.table.DefaultTableModel"/>
 <fullyQualifiedTypeName name="java.math.BigDecimal"/>
-<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="database_management.MySQLdbManager"/>
 <fullyQualifiedTypeName name="databaseConnectWindow"/>
-<fullyQualifiedTypeName name="tables_management.Tables_db_manager"/>
-<fullyQualifiedTypeName name="operatorUserLoginWindow"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="javax.swing.table.TableColumn"/>
+<fullyQualifiedTypeName name="javax.swing.table.TableColumnModel"/>
+<fullyQualifiedTypeName name="tables_management.Tables_db_manager"/>
+<fullyQualifiedTypeName name="mainWindow.OrderDetailsTableTableModel"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="operatorUserLoginWindow"/>
 <fullyQualifiedTypeName name="mainWindow.OrdersInfoTableTableModel"/>
 </qualifiedTypeNameHistroy>

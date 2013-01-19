@@ -1,0 +1,1091 @@
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.Insets;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.ActionEvent;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
+
+import com.jgoodies.forms.factories.FormFactory;
+import com.jgoodies.forms.layout.CellConstraints;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.RowSpec;
+
+import tables_management.Tables_db_manager;
+
+
+public class mainWindow extends JFrame {
+	private final JPanel ordersManagementOperationsPanel = new JPanel();
+	private final JLabel ordersManagementOperationsPanelProductLabel = new JLabel();
+	private final JLabel ordersManagementOperationsPanelProductQuantityLabel = new JLabel();
+	private final JComboBox ordersManagementOperationsPanelProductsComboBox = new JComboBox();
+	private final JSpinner ordersManagementOperationsPanelProuctQuantitySpinner = new JSpinner();
+	private final JButton ordersManagementOperationsPanelProuctAddButton = new JButton();
+	private final JButton ordersManagementOperationsPanelProuctEditButton = new JButton();
+	private final JButton ordersManagementOperationsPanelProuctDeleteButton = new JButton();
+	private final JLabel ordersManagementOperationsPanelProductOrderTotalPrice = new JLabel();
+	private final JButton ordersManagementOperationsPanelNewOrderButton = new JButton();
+	private final JButton ordersManagementOperationsPanelDeleteOrderButton = new JButton();
+	class OrderDetailsTableTableModel extends AbstractTableModel {
+		
+		private static final long serialVersionUID = 3007L;
+		private Tables_db_manager tdm = null;
+		
+		private final String[] COLUMNS = new String[] {
+			"Продукт", "Количество", "Ед. цена"
+		};
+		private String[][] CELLS = new String[][] {
+			{"добави", "нов", "продукт", "order_detail_id", "order_detail_order_id", "order_detail_product_id" },
+		};
+		public int getRowCount() {
+			return CELLS.length;
+		}
+		public int getColumnCount() {
+			return COLUMNS.length;
+		}
+		public String getColumnName(int column) {
+			return COLUMNS[column];
+		}
+		public Object getValueAt(int row, int column) {
+			return CELLS[row].length > column ? CELLS[row][column] : (column + " - " + row);
+		}
+		
+		public void Init() {
+			
+			tdm = new Tables_db_manager(this, getRowCount(), getColumnCount() + 3, databaseConnectWindow.dbPortal, CELLS);
+			
+			String[] noDataWords = new String[6];
+			noDataWords[0] = "добави";
+			noDataWords[1] = "нов";
+			noDataWords[2] = "продукт";
+			noDataWords[3] = "order_detail_id";
+			noDataWords[4] = "order_detail_order_id";
+			noDataWords[5] = "order_detail_product_id";
+			
+			tdm.setNoDataInTheCellsMessage(noDataWords);			
+		}
+		
+		public void populateTableWithDatabaseData(Integer orderId) {
+			
+			if (tdm == null) {
+				Init();
+			}
+			
+			tdm.setPopulateQuery("SELECT product_name, order_detail_product_quantity, product_price, order_detail_id, order_detail_order_id, order_detail_product_id " + 
+			"FROM order_details JOIN products ON order_detail_product_id=product_id WHERE order_detail_order_id=" + orderId.intValue());
+			
+			CELLS = tdm.performPopulate();				
+		}
+		
+		public void insertNewRow(Integer orderId, Integer productId,Integer productQuantity) { //FIXME
+			
+			if (tdm == null) {
+				Init();
+			}
+			
+			//tdm.setInsertQuery("INSERT INTO orders (order_time) VALUES(?)", new java.sql.Timestamp(new java.util.Date().getTime()));
+			//tdm.setPopulateQuery("SELECT order_id, order_date FROM orders WHERE order_id=");
+			tdm.setInsertQuery("INSERT INTO order_details (order_detail_order_id, order_detail_product_id, order_detail_product_quantity) VALUES(?,?,?,?)",
+					orderId, productId, productQuantity);
+			tdm.setPopulateQuery("SELECT product_name, order_detail_product_quantity, product_price, order_detail_id, order_detail_order_id, order_detail_product_id " + 
+					"FROM order_details JOIN products ON order_detail_product_id=product_id WHERE order_detail_order_id=" + orderId.intValue() + 
+					" AND order_detail_id=");			
+			
+			CELLS = tdm.performRowInsert();
+			
+			if (tdm.getLastError() != null) {
+				JOptionPane.showMessageDialog(null, tdm.getLastError(), "Грешка", JOptionPane.ERROR_MESSAGE);
+			}
+			else {
+				//TODO... promeni chasa na poslednata redakciq na suotvetnata zaqvka
+				//TODO... namali broq na suotvetnata stoka v lista
+			}
+		}
+		
+		public void removeSelectedRow(int rowNumber) { //FIXME...
+			
+			if (tdm == null) {
+				Init();
+			}
+			tdm.setDeleteQuery("DELETE FROM order_details WHERE order_detail_id=" + CELLS[rowNumber][3]);
+			CELLS = tdm.performRowDelete(rowNumber);
+			
+			if (tdm.getLastError() != null) {
+				JOptionPane.showMessageDialog(null, tdm.getLastError(), "Грешка", JOptionPane.ERROR_MESSAGE);
+			}
+			else {
+				//TODO... promeni chasa na poslednata redakciq na suotvetnata zaqvka
+				//TODO... uvelichi broq na suotvetnata stoka v lista
+			}
+		}
+		
+		public void updateSelectedRow(int rowNumber, Integer productId, Integer productQuantity) { //TODO...
+			
+			if (tdm == null) {
+				Init();
+			}
+			//tdm.setUpdateQuery("UPDATE orders SET order_time=? WHERE order_id=?", new java.sql.Timestamp(new java.util.Date().getTime()),
+			//Integer.parseInt(CELLS[rowNumber][0]));			
+			//tdm.setPopulateQuery("SELECT order_id, order_time FROM orders WHERE order_id=" + CELLS[rowNumber][0]);
+			
+			tdm.setUpdateQuery("UPDATE order_details SET order_detail_product_id=?, order_detail_product_quantity=? WHERE order_detail_id=?",
+					productId, productQuantity, Integer.parseInt(CELLS[rowNumber][3]));
+			
+			tdm.setPopulateQuery("SELECT product_name, order_detail_product_quantity, product_price, order_detail_id, order_detail_order_id, order_detail_product_id " + 
+					"FROM order_details JOIN products ON order_detail_product_id=product_id WHERE order_detail_order_id=" + CELLS[rowNumber][4] + 
+					" AND order_detail_id=" + CELLS[rowNumber][3]);
+			
+			CELLS = tdm.performRowUpdate(rowNumber);
+			
+			if (tdm.getLastError() != null) {
+				JOptionPane.showMessageDialog(null, tdm.getLastError(), "Грешка", JOptionPane.ERROR_MESSAGE);
+			}
+			else {
+				//TODO... promeni chasa na poslednata redakciq na suotvetnata zaqvka
+				//TODO... promeni broq na suotvetnata stoka v lista
+			}
+		}
+	}
+
+	class OrdersInfoTableTableModel extends AbstractTableModel {
+	
+		private static final long serialVersionUID = 3006L;
+		private Tables_db_manager tdm = null;
+				
+		private final String[] COLUMNS = new String[] {
+			"Поръчка №", "Дата и време"
+		};
+		private String[][] CELLS = new String[][] {
+			{"добави", "поръчка"},			
+		};
+		public int getRowCount() {
+			return CELLS.length;
+		}
+		public int getColumnCount() {
+			return COLUMNS.length;
+		}
+		public String getColumnName(int column) {
+			return COLUMNS[column];
+		}
+		public Object getValueAt(int row, int column) {
+			return CELLS[row].length > column ? CELLS[row][column] : (column + " - " + row);
+		}
+		
+		public void Init() {
+			
+			tdm = new Tables_db_manager(this, getRowCount(), getColumnCount(), databaseConnectWindow.dbPortal, CELLS);
+			
+			String[] noDataWords = new String[2];
+			noDataWords[0] = "добави";
+			noDataWords[1] = "поръчка";
+			
+			tdm.setNoDataInTheCellsMessage(noDataWords);
+			tdm.setPopulateQuery("SELECT order_id, order_time FROM orders WHERE order_operator_id=" + operatorUserLoginWindow.loggedUserId);			
+		}
+		
+		public void populateTableWithDatabaseData() {
+			
+			if (tdm == null) {
+				Init();
+			}
+			
+			CELLS = tdm.performPopulate();				
+		}
+		
+		public void insertNewRow() {
+			
+			if (tdm == null) {
+				Init();
+			}
+			
+			tdm.setInsertQuery("INSERT INTO orders (order_time, order_operator_id) VALUES(?,?)", new java.sql.Timestamp(new java.util.Date().getTime()),
+					new Integer(operatorUserLoginWindow.loggedUserId)
+			);
+			tdm.setPopulateQuery("SELECT order_id, order_time FROM orders WHERE order_id=");
+			
+			CELLS = tdm.performRowInsert();
+			
+			if (tdm.getLastError() != null) {
+				JOptionPane.showMessageDialog(null, tdm.getLastError(), "Грешка", JOptionPane.ERROR_MESSAGE);
+			}		
+		}
+		
+		public void removeSelectedRow(int rowNumber) {
+			
+			if (tdm == null) {
+				Init();
+			}
+			tdm.setDeleteQuery("DELETE FROM orders WHERE order_id=" + CELLS[rowNumber][0]);
+			CELLS = tdm.performRowDelete(rowNumber);
+			
+			if (tdm.getLastError() != null) {
+				JOptionPane.showMessageDialog(null, tdm.getLastError(), "Грешка", JOptionPane.ERROR_MESSAGE);
+			}			
+		}
+		
+		public void updateSelectedRow(int rowNumber) {
+			
+			if (tdm == null) {
+				Init();
+			}
+			tdm.setUpdateQuery("UPDATE orders SET order_time=? WHERE order_id=?", new java.sql.Timestamp(new java.util.Date().getTime()),
+			Integer.parseInt(CELLS[rowNumber][0]));
+			
+			tdm.setPopulateQuery("SELECT order_id, order_time FROM orders WHERE order_id=" + CELLS[rowNumber][0]);
+			
+			CELLS = tdm.performRowUpdate(rowNumber);
+			
+			if (tdm.getLastError() != null) {
+				JOptionPane.showMessageDialog(null, tdm.getLastError(), "Грешка", JOptionPane.ERROR_MESSAGE);
+			}			
+		}
+	}
+
+	private final JPanel productsManagementToolsPanel = new JPanel();
+	private final JLabel productsManagementToolsPanelProductNameLabel = new JLabel();
+	private final JLabel productsManagementToolsPanelProductQuantityLabel = new JLabel();
+	private final JLabel productsManagementToolsPanelProductPriceLabel = new JLabel();
+	private final JTextField productsManagementToolsPanelProductNameTextField = new JTextField();
+	private final JSpinner productsManagementToolsPanelProductPriceSpinner = new JSpinner();
+	private final JSpinner productsManagementToolsPanelProductQuantitySpinner = new JSpinner();
+	private final JButton productsManagementToolsPanelProductAddButton = new JButton();
+	private final JButton productsManagementToolsPanelProductEditButton = new JButton();	
+	private final JButton productsManagementToolsPanelProductRemoveButton = new JButton();
+	
+	private final JMenuItem operationsInquiries = new JMenuItem();
+	private final JPanel ordersManagementPanel = new JPanel();
+	private final JPanel ordersManagementPanelOrdersPanel = new JPanel();
+	private final JScrollPane scrollPane_1 = new JScrollPane();
+	private final JTable ordersInfoTable = new JTable();
+	private final JScrollPane scrollPane_2 = new JScrollPane();
+	private final JTable orderDetailsTable = new JTable();
+	class ProductsTableTableModel extends AbstractTableModel {
+		
+		private static final long serialVersionUID = 3005L;
+		
+		private final String[] COLUMNS = new String[] {
+			"Име на продукт", "Налично количество", "Цена в лева"
+		};
+		
+		private String[][] CELLS = new String[][] {
+			{"добави", "нов", "продукт","id"},			
+		};
+		
+		private Tables_db_manager tdm = null;
+		
+		public int getRowCount() {
+			return CELLS.length;
+		}
+		public int getColumnCount() {
+			return COLUMNS.length;
+		}
+		public String getColumnName(int column) {
+			return COLUMNS[column];
+		}
+		public Object getValueAt(int row, int column) {
+			return CELLS[row].length > column ? CELLS[row][column] : (column + " - " + row);
+		}
+		
+		public void Init() {
+			
+			tdm = new Tables_db_manager(this, getRowCount(), getColumnCount() + 1, databaseConnectWindow.dbPortal, CELLS);
+			
+			String[] noDataWords = new String[4];
+			noDataWords[0] = "добави";
+			noDataWords[1] = "нов";
+			noDataWords[2] = "продукт";
+			noDataWords[3] = "id";
+			
+			tdm.setNoDataInTheCellsMessage(noDataWords);
+			tdm.setPopulateQuery("SELECT product_name, product_quantity, product_price, product_id FROM products");			
+		}
+		
+		public void populateTableWithDatabaseData() {
+			
+			if (tdm == null) {
+				Init();
+			}
+			
+			CELLS = tdm.performPopulate();				
+		}
+		
+		public void insertNewRow(Object name, Object quantity, Object price) {
+			
+			if (tdm == null) {
+				Init();
+			}
+			tdm.setInsertQuery("INSERT INTO products (product_name, product_quantity, product_price) VALUES(?,?,?)", name, quantity, price);
+			tdm.setPopulateQuery("SELECT product_name, product_quantity, product_price, product_id FROM products WHERE product_id=");
+			
+			CELLS = tdm.performRowInsert();
+			
+			if (tdm.getLastError() != null) {
+				JOptionPane.showMessageDialog(null, tdm.getLastError(), "Грешка", JOptionPane.ERROR_MESSAGE);
+			}		
+			
+		}
+		
+		public void removeSelectedRow(int rowNumber) {
+			
+			if (tdm == null) {
+				Init();
+			}
+			tdm.setDeleteQuery("DELETE FROM products WHERE product_id=" + CELLS[rowNumber][3]);
+			CELLS = tdm.performRowDelete(rowNumber);
+			
+			if (tdm.getLastError() != null) {
+				JOptionPane.showMessageDialog(null, tdm.getLastError(), "Грешка", JOptionPane.ERROR_MESSAGE);
+			}			
+		}
+		
+		public void updateSelectedRow(int rowNumber, Object name, Object quantity, Object price) {
+			
+			if (tdm == null) {
+				Init();
+			}
+			tdm.setUpdateQuery("UPDATE products SET product_name=?, product_quantity=?, product_price=? WHERE product_id=?",
+					name, quantity, price, Integer.parseInt(CELLS[rowNumber][3]));
+			tdm.setPopulateQuery("SELECT product_name, product_quantity, product_price, product_id FROM products WHERE product_id=" + 
+					CELLS[rowNumber][3]);
+			
+			CELLS = tdm.performRowUpdate(rowNumber);
+			
+			if (tdm.getLastError() != null) {
+				JOptionPane.showMessageDialog(null, tdm.getLastError(), "Грешка", JOptionPane.ERROR_MESSAGE);
+			}			
+		}
+	}
+
+	private static final long serialVersionUID = 3001L;
+
+	private final JMenuBar mainWindowMenu = new JMenuBar();
+	private final JMenu File = new JMenu();
+	private final JMenuItem FileConnectToDb = new JMenuItem();
+	private final JMenu Operations = new JMenu();
+	private final JMenu Help = new JMenu();
+	private final JMenuItem HelpAbout = new JMenuItem();
+	private final JMenuItem FileExit = new JMenuItem();
+	private static mainWindow mainWindowPointer;
+	
+	private final JMenuItem FileDisconnectFromDb = new JMenuItem();
+	private final JPanel mainWindowStatusPanel = new JPanel();
+	private final JLabel mainWindowStatusPanelLoggedUserLabel = new JLabel();
+	private final JButton mainWindowStatusPanelLoggedUserLogin = new JButton();
+	private final JButton mainWindowStatusPanelLoggedUserSettings = new JButton();
+
+	private final JLabel mainWindowStatusPanelSeparatorLabel = new JLabel();
+	private final JLabel mainWindowStatusPanelSeparatorLabel2 = new JLabel();
+	private final JButton mainWindowStatusPanelLoggedUserLogout = new JButton();
+	
+	private final JMenuItem operationsProductsManagement = new JMenuItem();
+	private final JMenuItem operationsOrdersManagement = new JMenuItem();
+	
+	private final JPanel productsManagementPanel = new JPanel();
+	private final JScrollPane scrollPane = new JScrollPane();
+	private final JTable productsTable = new JTable();
+	
+	
+	/**
+	 * Launch the application
+	 * @param args
+	 */
+	public static void main(String args[]) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					mainWindow frame = new mainWindow();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame
+	 */
+	public mainWindow() {
+		super();
+		setBounds(100, 100, 752, 438);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainWindowPointer = this;
+		try {
+			jbInit();
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		//		
+	}
+	private void jbInit() throws Exception {
+		addWindowListener(new ThisWindowListener());
+		getContentPane().setLayout(new BorderLayout());
+		setTitle("eShop 1.00 (C) 2013 Желян Гуглев & Пламен Генчев");
+		setName("mainWindow");
+		
+		setJMenuBar(mainWindowMenu);
+		
+		mainWindowMenu.add(File);
+		File.setText("Файл");
+		
+		File.add(FileConnectToDb);
+		FileConnectToDb.addActionListener(new FileConnectToDbActionListener());
+		FileConnectToDb.setText("Свържи се с БД");
+		
+		File.add(FileDisconnectFromDb);
+		FileDisconnectFromDb.addActionListener(new FileDisconnectFromDbActionListener());
+		FileDisconnectFromDb.setText("Затвори връзката с БД");
+		FileDisconnectFromDb.setEnabled(false);
+
+		File.addSeparator();
+		
+		File.add(FileExit);
+		FileExit.addActionListener(new FileExitActionListener());
+		FileExit.setText("Изход");
+		
+		mainWindowMenu.add(Operations);
+		Operations.setText("Операции");
+		Operations.setEnabled(false);
+		
+		Operations.add(operationsInquiries);
+		operationsInquiries.addActionListener(new OperationsInquiriesActionListener());
+		operationsInquiries.setText("Справки");
+
+		Operations.addSeparator();
+		
+		Operations.add(operationsProductsManagement);
+		operationsProductsManagement.addActionListener(new OperationsProductsManagementActionListener());
+		operationsProductsManagement.setText("Управление на продукти");
+		
+		Operations.add(operationsOrdersManagement);
+		operationsOrdersManagement.addActionListener(new OperationsOrdersManagementActionListener());
+		operationsOrdersManagement.setText("Управление на поръчки");
+		
+		mainWindowMenu.add(Help);
+		Help.setText("Помощ");
+		
+		Help.add(HelpAbout);
+		HelpAbout.addActionListener(new HelpAboutActionListener());
+		HelpAbout.setText("Относно");
+		
+		getContentPane().add(mainWindowStatusPanel, BorderLayout.SOUTH);
+		mainWindowStatusPanel.setLayout(new FormLayout(
+			new ColumnSpec[] {
+				ColumnSpec.decode("149dlu"),
+				ColumnSpec.decode("72px"),
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("16px")}));
+		mainWindowStatusPanel.setSize(666, 25);
+		mainWindowStatusPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
+		mainWindowStatusPanel.setMinimumSize(new Dimension(666, 20));
+		
+		mainWindowStatusPanelLoggedUserLabel.setText("Потребител:");
+		mainWindowStatusPanel.add(mainWindowStatusPanelLoggedUserLabel, new CellConstraints("1, 1, 1, 2, fill, fill"));
+		
+		mainWindowStatusPanel.add(mainWindowStatusPanelLoggedUserLogin, new CellConstraints(2, 1, 1, 2));
+		mainWindowStatusPanelLoggedUserLogin.addActionListener(new MainWindowStatusPanelLoggedUserLoginActionListener());
+		mainWindowStatusPanelLoggedUserLogin.setText("Вход");
+		
+		mainWindowStatusPanel.add(mainWindowStatusPanelLoggedUserSettings, new CellConstraints(4, 1, 1, 2, CellConstraints.CENTER, CellConstraints.DEFAULT));
+		mainWindowStatusPanelLoggedUserSettings.addActionListener(new MainWindowStatusPanelLoggedUserSettingsActionListener());
+		mainWindowStatusPanelLoggedUserSettings.setMargin(new Insets(2, 14, 2, 14));
+		mainWindowStatusPanelLoggedUserSettings.setText("Настройки");
+		
+		mainWindowStatusPanel.add(mainWindowStatusPanelSeparatorLabel, new CellConstraints(3, 1, 1, 2));
+		mainWindowStatusPanelSeparatorLabel.setText("   ");
+		
+		mainWindowStatusPanel.add(mainWindowStatusPanelSeparatorLabel2, new CellConstraints(5, 1, 1, 2));
+		mainWindowStatusPanelSeparatorLabel2.setText("   ");
+		
+		mainWindowStatusPanel.add(mainWindowStatusPanelLoggedUserLogout, new CellConstraints(6, 1, 1, 2));
+		mainWindowStatusPanelLoggedUserLogout.addActionListener(new MainWindowStatusPanelLoggedUserLogoutActionListener());
+		mainWindowStatusPanelLoggedUserLogout.setText("Изход");
+		mainWindowStatusPanelSetEnabled(false);
+		
+		getContentPane().add(productsManagementPanel, BorderLayout.CENTER);
+		productsManagementPanel.setLayout(new BorderLayout());		
+		productsManagementPanel.add(scrollPane, BorderLayout.CENTER);
+		scrollPane.setPreferredSize(new Dimension(0, 0));
+		scrollPane.setBorder(new TitledBorder(new TitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null), "Продукти в базата данни:", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+		productsManagementPanel.setVisible(false);
+		
+		scrollPane.setViewportView(productsTable);
+		productsTable.addMouseListener(new ProductsTableMouseListener());
+		productsTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		productsTable.setShowGrid(true);
+		productsTable.setModel(new ProductsTableTableModel());
+		
+		productsManagementPanel.add(productsManagementToolsPanel, BorderLayout.EAST);
+		productsManagementToolsPanel.setLayout(new FormLayout(
+			new ColumnSpec[] {
+				FormFactory.UNRELATED_GAP_COLSPEC,
+				ColumnSpec.decode("92px"),
+				FormFactory.LABEL_COMPONENT_GAP_COLSPEC,
+				ColumnSpec.decode("92px"),
+				FormFactory.LABEL_COMPONENT_GAP_COLSPEC,
+				ColumnSpec.decode("52px"),
+				ColumnSpec.decode("92px")},
+			new RowSpec[] {
+				RowSpec.decode("12dlu"),
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				RowSpec.decode("115px"), //15
+				FormFactory.DEFAULT_ROWSPEC,
+				RowSpec.decode("15px"),
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC}));
+		productsManagementToolsPanel.setBorder(new TitledBorder(new TitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null), "Добавяне/редактиране на продукт:", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+		
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductNameLabel, new CellConstraints("2, 2, center, fill"));
+		productsManagementToolsPanelProductNameLabel.setText("Име на продукт:");
+		
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductPriceLabel, new CellConstraints("2, 3, fill, fill"));
+		productsManagementToolsPanelProductPriceLabel.setText("Цена лв.");
+		
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductQuantityLabel, new CellConstraints("2, 4, 1, 1, fill, fill"));
+		productsManagementToolsPanelProductQuantityLabel.setText("Налично количество:");
+		
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductNameTextField, new CellConstraints(4, 2, 4, 1, CellConstraints.FILL, CellConstraints.FILL));
+		
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductPriceSpinner, new CellConstraints(4, 3, 3, 1, CellConstraints.FILL, CellConstraints.FILL));
+		 
+		SpinnerNumberModel productsManagementToolsPanelProductPriceSpinnerNumberModel = new SpinnerNumberModel(0.00, 0.00, 1000000.00, 0.01);
+		productsManagementToolsPanelProductPriceSpinner.setModel(productsManagementToolsPanelProductPriceSpinnerNumberModel);		
+		
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductQuantitySpinner, new CellConstraints(4, 4, 3, 1));
+		SpinnerNumberModel productsManagementToolsPanelProductQuantitySpinnerNumberModel = new SpinnerNumberModel(0, 0, 1000000, 1);
+		productsManagementToolsPanelProductQuantitySpinner.setModel(productsManagementToolsPanelProductQuantitySpinnerNumberModel);
+		
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductAddButton, new CellConstraints(2, 6, 3, 1, CellConstraints.FILL, CellConstraints.FILL));
+		productsManagementToolsPanelProductAddButton.addActionListener(new ProductsManagementToolsPanelProductAddButtonActionListener());
+		productsManagementToolsPanelProductAddButton.setText("Добави нов продукт");
+		
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductEditButton, new CellConstraints(6, 6, 2, 1, CellConstraints.FILL, CellConstraints.FILL));
+		productsManagementToolsPanelProductEditButton.addActionListener(new ProductsManagementToolsPanelProductEditButtonActionListener());
+		productsManagementToolsPanelProductEditButton.setText("Редактирай");
+		
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductRemoveButton, new CellConstraints(4, 8, 3, 1));
+		productsManagementToolsPanelProductRemoveButton.addActionListener(new ProductsManagementToolsPanelProductRemoveButtonActionListener());
+		productsManagementToolsPanelProductRemoveButton.setText("Изтрий продукт");
+		
+		getContentPane().add(ordersManagementPanel);
+		ordersManagementPanel.setBorder(new TitledBorder(new TitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null), "Управление на поръчки:", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+		ordersManagementPanel.setLayout(new BorderLayout());
+		ordersManagementPanel.setVisible(false);
+		
+		ordersManagementPanel.add(ordersManagementPanelOrdersPanel, BorderLayout.CENTER);
+		ordersManagementPanelOrdersPanel.setLayout(new BorderLayout());
+		ordersManagementPanelOrdersPanel.setBorder(new TitledBorder(new TitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null), "Направени продажби от аутентифицирания оператор:", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+		
+		ordersManagementPanelOrdersPanel.add(scrollPane_1, BorderLayout.WEST);
+		scrollPane_1.setPreferredSize(new Dimension(200, 0));
+		
+		scrollPane_1.setViewportView(ordersInfoTable);
+		ordersInfoTable.addMouseListener(new OrdersInfoTableMouseListener());
+		ordersInfoTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+		ordersInfoTable.setShowGrid(true);
+		ordersInfoTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		ordersInfoTable.setModel(new OrdersInfoTableTableModel());
+		
+		ordersManagementPanelOrdersPanel.add(scrollPane_2, BorderLayout.CENTER);
+		scrollPane_2.setPreferredSize(new Dimension(300, 0));
+		
+		scrollPane_2.setViewportView(orderDetailsTable);
+		orderDetailsTable.addMouseListener(new OrderDetailsTableMouseListener());
+		orderDetailsTable.setShowGrid(true);
+		orderDetailsTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		orderDetailsTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+		orderDetailsTable.setModel(new OrderDetailsTableTableModel());
+		
+		ordersManagementPanel.add(ordersManagementOperationsPanel, BorderLayout.EAST);
+		ordersManagementOperationsPanel.setBorder(new TitledBorder(null, "Налични операции:", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+		ordersManagementOperationsPanel.setLayout(new FormLayout(
+			new ColumnSpec[] {
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC},
+			new RowSpec[] {
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("20px"),
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC}));
+		
+		ordersManagementOperationsPanel.add(ordersManagementOperationsPanelProductLabel, new CellConstraints());
+		ordersManagementOperationsPanelProductLabel.setText("Продукт:");
+		
+		ordersManagementOperationsPanel.add(ordersManagementOperationsPanelProductQuantityLabel, new CellConstraints(1, 3));
+		ordersManagementOperationsPanelProductQuantityLabel.setText("Количество:");
+		
+		ordersManagementOperationsPanel.add(ordersManagementOperationsPanelProductsComboBox, new CellConstraints(3, 1));
+		
+		ordersManagementOperationsPanel.add(ordersManagementOperationsPanelProuctQuantitySpinner, new CellConstraints(3, 3));
+		
+		ordersManagementOperationsPanel.add(ordersManagementOperationsPanelProuctAddButton, new CellConstraints(3, 5));
+		ordersManagementOperationsPanelProuctAddButton.setText("Добави");
+		
+		ordersManagementOperationsPanel.add(ordersManagementOperationsPanelProuctEditButton, new CellConstraints(3, 7));
+		ordersManagementOperationsPanelProuctEditButton.setText("Редактирай");
+		
+		ordersManagementOperationsPanel.add(ordersManagementOperationsPanelProuctDeleteButton, new CellConstraints(3, 9));
+		ordersManagementOperationsPanelProuctDeleteButton.setText("Изтрий");
+		
+		ordersManagementOperationsPanel.add(ordersManagementOperationsPanelProductOrderTotalPrice, new CellConstraints(1, 13));
+		ordersManagementOperationsPanelProductOrderTotalPrice.setText("Обща цена:");
+		
+		ordersManagementOperationsPanel.add(ordersManagementOperationsPanelNewOrderButton, new CellConstraints(1, 17, 3, 1));
+		ordersManagementOperationsPanelNewOrderButton.addActionListener(new OrdersManagementOperationsPanelNewOrderButtonActionListener());
+		ordersManagementOperationsPanelNewOrderButton.setText("Нова поръчка");
+		
+		ordersManagementOperationsPanel.add(ordersManagementOperationsPanelDeleteOrderButton, new CellConstraints(1, 19, 3, 1));
+		ordersManagementOperationsPanelDeleteOrderButton.addActionListener(new OrdersManagementOperationsPanelDeleteOrderButtonActionListener());
+		ordersManagementOperationsPanelDeleteOrderButton.setText("Изтрий поръчка");
+	}
+	
+	protected void mainWindowStatusPanelSetEnabled(boolean enable) {
+		
+		Component[] comps = mainWindowStatusPanel.getComponents();
+		
+		for (int i = 0; i < comps.length; i++) {
+		
+			comps[i].setEnabled(enable);	
+		}
+		
+		mainWindowStatusPanel.setEnabled(enable);
+	}
+	
+	private class ThisWindowListener extends WindowAdapter {
+		public void windowClosing(WindowEvent e) {
+			this_windowClosing(e);
+		}
+	}
+	private class FileExitActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			fileExit_actionPerformed(e);
+		}
+	}
+	private class FileConnectToDbActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			fileConnectToDb_actionPerformed(e);
+		}
+	}
+	private class FileDisconnectFromDbActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			fileDisconnectFromDb_actionPerformed(e);
+		}
+	}
+	private class MainWindowStatusPanelLoggedUserLoginActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			mainWindowStatusPanelLoggedUserLogin_actionPerformed(e);
+		}
+	}
+	private class MainWindowStatusPanelLoggedUserSettingsActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			mainWindowStatusPanelLoggedUserSettings_actionPerformed(e);
+		}
+	}
+	private class MainWindowStatusPanelLoggedUserLogoutActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			mainWindowStatusPanelLoggedUserLogout_actionPerformed(e);
+		}
+	}
+	private class HelpAboutActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			helpAbout_actionPerformed(e);
+		}
+	}
+	private class OperationsProductsManagementActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			operationsProductsManagement_actionPerformed(e);
+		}
+	}
+	private class OperationsOrdersManagementActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			operationsOrdersManagement_actionPerformed(e);
+		}
+	}
+	private class ProductsTableMouseListener extends MouseAdapter {
+		public void mouseClicked(MouseEvent e) {
+			productsTable_mouseClicked(e);
+		}
+	}
+	private class ProductsManagementToolsPanelProductAddButtonActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			productsManagementToolsPanelProductAddButton_actionPerformed(e);
+		}
+	}
+	private class ProductsManagementToolsPanelProductEditButtonActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			productsManagementToolsPanelProductEditButton_actionPerformed(e);
+		}
+	}
+	private class ProductsManagementToolsPanelProductRemoveButtonActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			productsManagementToolsPanelProductRemoveButton_actionPerformed(e);
+		}
+	}
+	private class OperationsInquiriesActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			operationsInquiries_actionPerformed(e);
+		}
+	}
+	private class OrdersInfoTableMouseListener extends MouseAdapter {
+		public void mouseClicked(MouseEvent e) {
+			ordersInfoTable_mouseClicked(e);
+		}
+	}
+	private class OrderDetailsTableMouseListener extends MouseAdapter {
+		public void mouseClicked(MouseEvent e) {
+			orderDetailsTable_mouseClicked(e);
+		}
+	}
+	private class OrdersManagementOperationsPanelNewOrderButtonActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			ordersManagementOperationsPanelNewOrderButton_actionPerformed(e);
+		}
+	}
+	private class OrdersManagementOperationsPanelDeleteOrderButtonActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			ordersManagementOperationsPanelDeleteOrderButton_actionPerformed(e);
+		}
+	}
+
+	protected void this_windowClosing(WindowEvent e) {
+		
+		//JOptionPane.showMessageDialog(null, "aa", "aa", JOptionPane.INFORMATION_MESSAGE);
+		
+		if (databaseConnectWindow.dbPortal != null) {
+			
+			if (databaseConnectWindow.dbPortal.isConnected()) {
+				
+				databaseConnectWindow.dbPortal.finalize();
+			}
+		}
+		this.dispose();
+		//System.exit(0);
+	}
+	
+	protected void fileExit_actionPerformed(ActionEvent e) {
+
+		this.getToolkit().getSystemEventQueue().postEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+	}
+	
+	////////////////////////////////////////////////////////////////////////
+	
+	protected void fileConnectToDb_actionPerformed(ActionEvent e) {
+		
+		databaseConnectWindow dcw = new databaseConnectWindow();
+		dcw.setVisible(true);
+		dcw.addWindowListener(databaseConnectWindowClosing);
+	}
+	
+	private static WindowListener databaseConnectWindowClosing = new WindowAdapter() {
+		
+        public void windowClosing(WindowEvent e) {
+            
+        	e.getWindow().dispose(); 
+        	
+        	if (databaseConnectWindow.dbPortal != null) {
+    			
+    			if (databaseConnectWindow.dbPortal.isConnected()) {
+    				
+    				mainWindowPointer.mainWindowStatusPanelSetEnabled(true);
+    				mainWindowPointer.FileConnectToDb.setEnabled(false);
+    				mainWindowPointer.FileDisconnectFromDb.setEnabled(true);
+    			}
+    			else {    				
+    				mainWindowPointer.mainWindowStatusPanelSetEnabled(false);
+    			}
+    		}            
+        }
+    };
+    
+    ////////////////////////////////////////////////////////////////////////
+    
+	protected void fileDisconnectFromDb_actionPerformed(ActionEvent e) {
+		
+		if (databaseConnectWindow.dbPortal != null) {
+			//TODO...
+			databaseConnectWindow.dbPortal.finalize();
+			
+			this.FileConnectToDb.setEnabled(true);
+			this.FileDisconnectFromDb.setEnabled(false);			
+			this.Operations.setEnabled(false);
+			this.mainWindowStatusPanelSetEnabled(false);
+			this.productsManagementPanel.setVisible(false);
+			this.ordersManagementPanel.setVisible(false);
+			this.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
+			operatorUserLoginWindow.loggedUserId = -1;
+		}
+	}
+	
+	////////////////////////////////////////////////////////////////////////
+	
+	protected void mainWindowStatusPanelLoggedUserLogin_actionPerformed(ActionEvent e) {
+		
+		operatorUserLoginWindow oul = new operatorUserLoginWindow();
+		oul.setVisible(true);
+		oul.addWindowListener(operatorUserLoginWindowClosing);
+	}
+	private static WindowListener operatorUserLoginWindowClosing = new WindowAdapter() {
+
+		public void windowClosing(WindowEvent e) {
+			if (operatorUserLoginWindow.loggedUserId != -1) {
+				
+				mainWindowPointer.Operations.setEnabled(true);
+				mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: " + operatorUserLoginWindow.loggedUserNames);
+			}
+			else {
+				//TODO...
+				mainWindowPointer.Operations.setEnabled(false);
+				mainWindowPointer.productsManagementPanel.setVisible(false);
+				mainWindowPointer.ordersManagementPanel.setVisible(false);
+				mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
+			}
+		}
+	};
+		
+	////////////////////////////////////////////////////////////////////////
+	
+	protected void mainWindowStatusPanelLoggedUserSettings_actionPerformed(ActionEvent e) {
+		
+		if (operatorUserLoginWindow.loggedUserId == -1) {
+			return;
+		}
+		
+		operatorUserSettingsWindow ousw = new operatorUserSettingsWindow();
+		ousw.setVisible(true);
+		ousw.addWindowListener(operatorUserSettingsWindowClosing);
+	}
+	
+	private static WindowListener operatorUserSettingsWindowClosing = new WindowAdapter() {
+		
+		public void windowClosing(WindowEvent e) {
+			if (operatorUserLoginWindow.loggedUserId != -1) {
+				
+				mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: " + operatorUserSettingsWindow.operatorFirstNameLastNameCombination);
+			}
+			else { //if operator was deleted
+				//TODO...
+				mainWindowPointer.Operations.setEnabled(false);
+				mainWindowPointer.productsManagementPanel.setVisible(false);
+				mainWindowPointer.ordersManagementPanel.setVisible(false);
+				mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
+			}
+		}
+	};
+	
+	////////////////////////////////////////////////////////////////////////
+	
+	protected void mainWindowStatusPanelLoggedUserLogout_actionPerformed(ActionEvent e) {
+		//TODO...
+		this.Operations.setEnabled(false);
+		this.productsManagementPanel.setVisible(false);
+		this.ordersManagementPanel.setVisible(false);
+		this.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
+		operatorUserLoginWindow.loggedUserId = -1;
+	}
+	
+	protected void helpAbout_actionPerformed(ActionEvent e) {
+		
+		JOptionPane.showMessageDialog(this, "eShop ver.-1.00\n(C) 2013 Желян Гуглев & Пламен Генчев", "Относно", JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	protected void operationsProductsManagement_actionPerformed(ActionEvent e) {
+		//TODO...
+		ordersManagementPanel.setVisible(false);
+				
+		((ProductsTableTableModel)productsTable.getModel()).populateTableWithDatabaseData();
+		productsManagementPanel.setVisible(true);
+		getContentPane().add(productsManagementPanel); // we are using BorderLayout so we need to add this panel again in order to get visible
+		
+	}
+	protected void operationsOrdersManagement_actionPerformed(ActionEvent e) {
+		//TODO...
+		productsManagementPanel.setVisible(false);
+		
+		ordersInfoTable.getColumnModel().getColumn(0).setPreferredWidth(66); //resize column Поръчка №
+		ordersInfoTable.getColumnModel().getColumn(1).setPreferredWidth(129); //resize column Дата и време
+		
+		orderDetailsTable.getColumnModel().getColumn(0).setPreferredWidth(177); //resize column Продукт
+		orderDetailsTable.getColumnModel().getColumn(1).setPreferredWidth(70); //resize column Количество
+		orderDetailsTable.getColumnModel().getColumn(2).setPreferredWidth(55); //resize column Ед. цена
+		
+		((OrdersInfoTableTableModel)ordersInfoTable.getModel()).populateTableWithDatabaseData();
+		ordersManagementPanel.setVisible(true);
+		getContentPane().add(ordersManagementPanel); // we are using BorderLayout so we need to add this panel again in order to get visible
+	}
+	protected void operationsInquiries_actionPerformed(ActionEvent e) {
+		//TODO...
+		productsManagementPanel.setVisible(false);
+		ordersManagementPanel.setVisible(false);
+	}
+	
+	////////////////////////////////////////////////////////////////////////
+	
+	protected void productsTable_mouseClicked(MouseEvent e) {
+		
+		productsManagementToolsPanelProductNameTextField.setText(productsTable.getValueAt(productsTable.getSelectedRow(), 0).toString());
+		productsManagementToolsPanelProductQuantitySpinner.setValue(
+				Integer.parseInt(productsTable.getValueAt(productsTable.getSelectedRow(), 1).toString())
+				);
+		productsManagementToolsPanelProductPriceSpinner.setValue(
+				Double.parseDouble(productsTable.getValueAt(productsTable.getSelectedRow(), 2).toString())
+				);		
+	}	
+	
+	protected void productsManagementToolsPanelProductAddButton_actionPerformed(ActionEvent e) {
+		
+		if (productsManagementToolsPanelProductNameTextField.getText().length() > 0) {
+			
+			((ProductsTableTableModel)productsTable.getModel()).insertNewRow(productsManagementToolsPanelProductNameTextField.getText(),
+					Integer.parseInt(productsManagementToolsPanelProductQuantitySpinner.getValue().toString()),
+					Double.parseDouble(productsManagementToolsPanelProductPriceSpinner.getValue().toString())
+					);
+			
+			((ProductsTableTableModel)productsTable.getModel()).fireTableDataChanged();
+		}
+		else {
+			JOptionPane.showMessageDialog(this, "Новият продукт задължително трябва да притежава име!", "Грешка", JOptionPane.ERROR_MESSAGE);
+		}		
+	}
+	
+	protected void productsManagementToolsPanelProductEditButton_actionPerformed(ActionEvent e) {
+		
+		if (productsManagementToolsPanelProductNameTextField.getText().length() > 0) {
+			
+			int selectedTableRow = productsTable.getSelectedRow();
+			
+			if (selectedTableRow == -1) {
+				
+				JOptionPane.showMessageDialog(this, "Изберете продукт!", "Редактиране", JOptionPane.WARNING_MESSAGE);
+				return;
+			}
+			
+			((ProductsTableTableModel)productsTable.getModel()).updateSelectedRow(selectedTableRow,
+					productsManagementToolsPanelProductNameTextField.getText(),
+					Integer.parseInt(productsManagementToolsPanelProductQuantitySpinner.getValue().toString()),
+					Double.parseDouble(productsManagementToolsPanelProductPriceSpinner.getValue().toString())
+					);
+			((ProductsTableTableModel)productsTable.getModel()).fireTableDataChanged();
+			
+			productsTable.changeSelection(selectedTableRow, 0, true, false);
+		}
+		else {
+			JOptionPane.showMessageDialog(this, "Редактираният продукт задължително трябва да притежава име!", "Грешка", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	protected void productsManagementToolsPanelProductRemoveButton_actionPerformed(ActionEvent e) {
+		
+		if (productsTable.getSelectedRow() == -1) {
+			
+			JOptionPane.showMessageDialog(this, "Изберете продукт!", "Изтриване", JOptionPane.WARNING_MESSAGE);
+			return;
+		}
+		
+		if (JOptionPane.showConfirmDialog(this, "Сигурни ли сте?", "Изтриване на продукт", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+			
+			((ProductsTableTableModel)productsTable.getModel()).removeSelectedRow(productsTable.getSelectedRow());
+			((ProductsTableTableModel)productsTable.getModel()).fireTableDataChanged();
+		}
+	}	
+	
+	////////////////////////////////////////////////////////////////////////	
+	
+	protected void ordersInfoTable_mouseClicked(MouseEvent e) {
+		
+		((OrderDetailsTableTableModel)orderDetailsTable.getModel()).populateTableWithDatabaseData(
+				Integer.parseInt(ordersInfoTable.getValueAt(ordersInfoTable.getSelectedRow(),0).toString())) ;
+		((OrderDetailsTableTableModel)orderDetailsTable.getModel()).fireTableDataChanged();
+		
+		//TODO...
+		//FIXME
+		
+		/*productsManagementToolsPanelProductNameTextField.setText(productsTable.getValueAt(productsTable.getSelectedRow(), 0).toString());
+		productsManagementToolsPanelProductQuantitySpinner.setValue(
+				Integer.parseInt(productsTable.getValueAt(productsTable.getSelectedRow(), 1).toString())
+				);
+		productsManagementToolsPanelProductPriceSpinner.setValue(
+				Double.parseDouble(productsTable.getValueAt(productsTable.getSelectedRow(), 2).toString())
+				);	*/
+	}
+	
+	protected void orderDetailsTable_mouseClicked(MouseEvent e) {
+		//TODO...
+	}
+	
+	protected void ordersManagementOperationsPanelNewOrderButton_actionPerformed(ActionEvent e) {
+		
+		((OrdersInfoTableTableModel)ordersInfoTable.getModel()).insertNewRow();
+		((OrdersInfoTableTableModel)ordersInfoTable.getModel()).fireTableDataChanged();
+		
+		//new row inserted maybe. now select it:
+		ordersInfoTable.changeSelection((ordersInfoTable.getRowCount() - 1), 0, true, false);
+	}
+	
+	protected void ordersManagementOperationsPanelDeleteOrderButton_actionPerformed(ActionEvent e) {
+		
+		int selectedRow = ordersInfoTable.getSelectedRow();
+		if (selectedRow == -1) {
+			
+			JOptionPane.showMessageDialog(this, "За да изтриете поръчка първо трябва да я изберете!", "Грешка при изтриване на поръчка", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+		
+		((OrdersInfoTableTableModel)ordersInfoTable.getModel()).removeSelectedRow(selectedRow);
+		((OrdersInfoTableTableModel)ordersInfoTable.getModel()).fireTableDataChanged();		
+		
+		//TODO... update products list too??? maybe
+	}
+	
+	
+}
