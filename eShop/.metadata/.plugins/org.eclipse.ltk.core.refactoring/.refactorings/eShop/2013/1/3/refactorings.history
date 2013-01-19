@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename type &apos;tables_management.tables_db_manager&apos; to &apos;Tables_db_manager&apos;&#x0D;&#x0A;- Original project: &apos;eShop&apos;&#x0D;&#x0A;- Original element: &apos;tables_management.tables_db_manager&apos;&#x0D;&#x0A;- Renamed element: &apos;tables_management.Tables_db_manager&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Rename similarly named elements&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;tables_db_manager&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;tables_management{tables_db_manager.java[tables_db_manager" matchStrategy="1" name="Tables_db_manager" qualified="false" references="true" similarDeclarations="true" stamp="1358179938042" textual="false" version="1.0"/>
-</session>
