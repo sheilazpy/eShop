@@ -56,8 +56,7 @@ public class mainWindow extends JFrame {
 	private final JLabel ordersManagementOperationsPanelProductOrderTotalPrice = new JLabel();
 	private final JButton ordersManagementOperationsPanelNewOrderButton = new JButton();
 	private final JButton ordersManagementOperationsPanelDeleteOrderButton = new JButton();
-	private ComboBox_Products_db_manager cbpDbManager = null;
-	
+	private ComboBox_Products_db_manager cbpDbManager = null;	
 	
 	class OrderDetailsTableTableModel extends AbstractTableModel {
 		
@@ -100,8 +99,13 @@ public class mainWindow extends JFrame {
 			
 			for (int i = 0; i < CELLS.length; i++) {
 				
-				if (Integer.parseInt(CELLS[i][5].toString()) == productId) {
-					return true;
+				try {
+					if (Integer.parseInt(CELLS[i][5].toString()) == productId) {
+						return true;
+					}
+				}
+				catch (Exception ex) {
+					
 				}
 			}
 			
@@ -135,14 +139,12 @@ public class mainWindow extends JFrame {
 			CELLS = tdm.performPopulate();				
 		}
 		
-		public void insertNewRow(Integer orderId, Integer productId,Integer productQuantity) { //FIXME
+		public void insertNewRow(Integer orderId, Integer productId,Integer productQuantity) {
 			
 			if (tdm == null) {
 				Init();
 			}
 			
-			//tdm.setInsertQuery("INSERT INTO orders (order_time) VALUES(?)", new java.sql.Timestamp(new java.util.Date().getTime()));
-			//tdm.setPopulateQuery("SELECT order_id, order_date FROM orders WHERE order_id=");
 			tdm.setInsertQuery("INSERT INTO order_details (order_detail_order_id, order_detail_product_id, order_detail_product_quantity) VALUES(?,?,?)",
 					orderId, productId, productQuantity);
 			tdm.setPopulateQuery("SELECT product_name, order_detail_product_quantity, product_price, order_detail_id, order_detail_order_id, order_detail_product_id " + 
@@ -154,38 +156,28 @@ public class mainWindow extends JFrame {
 			if (tdm.getLastError() != null) {
 				JOptionPane.showMessageDialog(null, tdm.getLastError(), "Грешка", JOptionPane.ERROR_MESSAGE);
 			}
-			else {
-				//TODO... promeni chasa na poslednata redakciq na suotvetnata zaqvka
-				//TODO... namali broq na suotvetnata stoka v lista
-			}
 		}
 		
-		public void removeSelectedRow(int rowNumber) { //FIXME...
+		public void removeSelectedRow(int rowNumber) { 
 			
 			if (tdm == null) {
 				Init();
 			}
+			
 			tdm.setDeleteQuery("DELETE FROM order_details WHERE order_detail_id=" + CELLS[rowNumber][3]);
 			CELLS = tdm.performRowDelete(rowNumber);
 			
 			if (tdm.getLastError() != null) {
 				JOptionPane.showMessageDialog(null, tdm.getLastError(), "Грешка", JOptionPane.ERROR_MESSAGE);
-			}
-			else {
-				//TODO... promeni chasa na poslednata redakciq na suotvetnata zaqvka
-				//TODO... uvelichi broq na suotvetnata stoka v lista
-			}
+			}			
 		}
 		
-		public void updateSelectedRow(int rowNumber, Integer productId, Integer productQuantity) { //TODO...
+		public void updateSelectedRow(int rowNumber, Integer productId, Integer productQuantity) {
 			
 			if (tdm == null) {
 				Init();
 			}
-			//tdm.setUpdateQuery("UPDATE orders SET order_time=? WHERE order_id=?", new java.sql.Timestamp(new java.util.Date().getTime()),
-			//Integer.parseInt(CELLS[rowNumber][0]));			
-			//tdm.setPopulateQuery("SELECT order_id, order_time FROM orders WHERE order_id=" + CELLS[rowNumber][0]);
-			
+		
 			tdm.setUpdateQuery("UPDATE order_details SET order_detail_product_id=?, order_detail_product_quantity=? WHERE order_detail_id=?",
 					productId, productQuantity, Integer.parseInt(CELLS[rowNumber][3]));
 			
@@ -198,10 +190,13 @@ public class mainWindow extends JFrame {
 			if (tdm.getLastError() != null) {
 				JOptionPane.showMessageDialog(null, tdm.getLastError(), "Грешка", JOptionPane.ERROR_MESSAGE);
 			}
-			else {
-				//TODO... promeni chasa na poslednata redakciq na suotvetnata zaqvka
-				//TODO... promeni broq na suotvetnata stoka v lista
-			}
+		}
+	
+		public void removeAllRowsVisualEffect() {
+			
+			CELLS = new String[][] {
+					{"добави", "нов", "продукт", "order_detail_id", "order_detail_order_id", "order_detail_product_id" },
+				};			
 		}
 	}
 
@@ -326,6 +321,7 @@ public class mainWindow extends JFrame {
 	private final JTable ordersInfoTable = new JTable();
 	private final JScrollPane scrollPane_2 = new JScrollPane();
 	private final JTable orderDetailsTable = new JTable();
+	
 	class ProductsTableTableModel extends AbstractTableModel {
 		
 		private static final long serialVersionUID = 3005L;
@@ -723,9 +719,10 @@ public class mainWindow extends JFrame {
 		ordersManagementOperationsPanelProductEditButton.setText("Редактирай");
 		
 		ordersManagementOperationsPanel.add(ordersManagementOperationsPanelProductDeleteButton, new CellConstraints(3, 9));
+		ordersManagementOperationsPanelProductDeleteButton.addActionListener(new OrdersManagementOperationsPanelProductDeleteButtonActionListener());
 		ordersManagementOperationsPanelProductDeleteButton.setText("Изтрий");
 		
-		ordersManagementOperationsPanel.add(ordersManagementOperationsPanelProductOrderTotalPrice, new CellConstraints(1, 13));
+		ordersManagementOperationsPanel.add(ordersManagementOperationsPanelProductOrderTotalPrice, new CellConstraints(1, 13, 3, 1, CellConstraints.FILL, CellConstraints.DEFAULT));
 		ordersManagementOperationsPanelProductOrderTotalPrice.setText("Обща цена:");
 		
 		ordersManagementOperationsPanel.add(ordersManagementOperationsPanelNewOrderButton, new CellConstraints(1, 17, 3, 1));
@@ -857,6 +854,11 @@ public class mainWindow extends JFrame {
 	private class OrdersManagementOperationsPanelProductEditButtonActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			ordersManagementOperationsPanelProductEditButton_actionPerformed(e);
+		}
+	}
+	private class OrdersManagementOperationsPanelProductDeleteButtonActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			ordersManagementOperationsPanelProductDeleteButton_actionPerformed(e);
 		}
 	}
 
@@ -1041,6 +1043,7 @@ public class mainWindow extends JFrame {
 		ordersManagementPanel.setVisible(true);
 		getContentPane().add(ordersManagementPanel); // we are using BorderLayout so we need to add this panel again in order to get visible
 	}
+
 	protected void operationsInquiries_actionPerformed(ActionEvent e) {
 		//TODO...
 		productsManagementPanel.setVisible(false);
@@ -1069,7 +1072,7 @@ public class mainWindow extends JFrame {
 					Double.parseDouble(productsManagementToolsPanelProductPriceSpinner.getValue().toString())
 					);
 			
-			((ProductsTableTableModel)productsTable.getModel()).fireTableDataChanged();
+			((ProductsTableTableModel)productsTable.getModel()).fireTableDataChanged();			
 		}
 		else {
 			JOptionPane.showMessageDialog(this, "Новият продукт задължително трябва да притежава име!", "Грешка", JOptionPane.ERROR_MESSAGE);
@@ -1119,27 +1122,46 @@ public class mainWindow extends JFrame {
 	
 	////////////////////////////////////////////////////////////////////////	
 	
+	protected void calculateOrderTotalPrice() {
+		
+		double tp = 0.00, p = 0.00;
+		int j = 0;
+		
+		if (ordersInfoTable.getSelectedRow() != -1) {
+				
+			j = orderDetailsTable.getRowCount();
+		}
+		
+		if (j <= 0) {
+			ordersManagementOperationsPanelProductOrderTotalPrice.setText("Обща цена: 0.00");
+			return;
+		}
+		
+		for (int i = 0; i < j; i++) {
+			
+			try {
+				p = (Integer.parseInt(orderDetailsTable.getValueAt(i, 1).toString()) * Double.parseDouble(orderDetailsTable.getValueAt(i, 2).toString()));
+				tp += p;
+			}
+			catch (Exception ex) {
+				
+			}
+		}
+		
+		ordersManagementOperationsPanelProductOrderTotalPrice.setText("Обща цена: " + tp);
+	}
+	
 	protected void ordersInfoTable_mouseClicked(MouseEvent e) {
 		
 		((OrderDetailsTableTableModel)orderDetailsTable.getModel()).populateTableWithDatabaseData(
-				Integer.parseInt(ordersInfoTable.getValueAt(ordersInfoTable.getSelectedRow(),0).toString())) ;
+				Integer.parseInt(ordersInfoTable.getValueAt(ordersInfoTable.getSelectedRow(), 0).toString())) ;
 		((OrderDetailsTableTableModel)orderDetailsTable.getModel()).fireTableDataChanged();
 		
-		//TODO...
-		//FIXME
-		
-		/*productsManagementToolsPanelProductNameTextField.setText(productsTable.getValueAt(productsTable.getSelectedRow(), 0).toString());
-		productsManagementToolsPanelProductQuantitySpinner.setValue(
-				Integer.parseInt(productsTable.getValueAt(productsTable.getSelectedRow(), 1).toString())
-				);
-		productsManagementToolsPanelProductPriceSpinner.setValue(
-				Double.parseDouble(productsTable.getValueAt(productsTable.getSelectedRow(), 2).toString())
-				);	*/
+		calculateOrderTotalPrice();		
 	}
 	
 	protected void orderDetailsTable_mouseClicked(MouseEvent e) {
-		//TODO...
-		
+				
 		if (((OrderDetailsTableTableModel)orderDetailsTable.getModel()).isTableEmpty() == false) {			
 		
 			int id = cbpDbManager.getProductStringArrayIdByProductDbId(
@@ -1177,6 +1199,8 @@ public class mainWindow extends JFrame {
 		//new row inserted maybe. now select it:
 		ordersInfoTable.changeSelection((ordersInfoTable.getRowCount() - 1), 0, true, false);
 		ordersInfoTable_mouseClicked(null);
+		
+		//calculateOrderTotalPrice(); no need to call it because ordersInfoTable_mouseClicked calls it
 	}
 	
 	protected void ordersManagementOperationsPanelDeleteOrderButton_actionPerformed(ActionEvent e) {
@@ -1190,11 +1214,31 @@ public class mainWindow extends JFrame {
 		
 		if (JOptionPane.showConfirmDialog(this, "Сигурни ли сте?", "Изтриване на поръчка", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 		
+			//before proceed first increase the available product quantities
+			
+			for (int i = 0; i < orderDetailsTable.getRowCount(); i++) {
+				int psarid = cbpDbManager.getProductStringArrayIdByProductDbId( 
+						Integer.parseInt(((OrderDetailsTableTableModel)orderDetailsTable.getModel()).CELLS[i][5]));
+				cbpDbManager.increaseProductQuantityFromProductStringArrayId(psarid, 
+						Integer.parseInt(((OrderDetailsTableTableModel)orderDetailsTable.getModel()).CELLS[i][1]));
+				
+				//refresh maximum quantity spinner in this item was selected
+				
+				if (psarid == ordersManagementOperationsPanelProductsComboBox.getSelectedIndex()) {					
+					
+					ItemEvent ie = new ItemEvent(ordersManagementOperationsPanelProductsComboBox, 0, null, ItemEvent.SELECTED);
+					ordersManagementOperationsPanelProductsComboBox_itemStateChanged(ie);
+				}
+			}
+			
 			((OrdersInfoTableTableModel)ordersInfoTable.getModel()).removeSelectedRow(selectedRow);
-			((OrdersInfoTableTableModel)ordersInfoTable.getModel()).fireTableDataChanged();		
-		}
-		
-		//TODO... update products list  FIXME !!!!!!!
+			((OrdersInfoTableTableModel)ordersInfoTable.getModel()).fireTableDataChanged();
+			
+			((OrderDetailsTableTableModel)orderDetailsTable.getModel()).removeAllRowsVisualEffect();
+			((OrderDetailsTableTableModel)orderDetailsTable.getModel()).fireTableDataChanged();
+			
+			calculateOrderTotalPrice();
+		}		
 	}
 	
 	protected void ordersManagementOperationsPanelProductsComboBox_itemStateChanged(ItemEvent e) {
@@ -1234,7 +1278,6 @@ public class mainWindow extends JFrame {
 		
 		//////////
 			
-		
 		if (ordersInfoTable.getSelectedRow() == -1) {
 			JOptionPane.showMessageDialog(this, "Първо изберете поръчка, към която да добавите продукт!", 
 					"Грешка при добавяне на продукт", JOptionPane.ERROR_MESSAGE);
@@ -1248,6 +1291,7 @@ public class mainWindow extends JFrame {
 			return;
 		}
 		
+		//TODO... FIXME debug the problem when new order is added and after that 2 new products one after another bug!!!
 		int orderId = Integer.parseInt(ordersInfoTable.getValueAt(ordersInfoTable.getSelectedRow(), 0).toString());
 		
 		if (ordersManagementOperationsPanelProductsComboBox.getSelectedIndex() != -1) {
@@ -1282,6 +1326,11 @@ public class mainWindow extends JFrame {
 				}
 				
 				((OrderDetailsTableTableModel)orderDetailsTable.getModel()).fireTableDataChanged();
+				
+				//now update the date and time of the last changes of the current order in orders list table
+				((OrdersInfoTableTableModel)ordersInfoTable.getModel()).updateSelectedRow(ordersInfoTable.getSelectedRow());
+				
+				calculateOrderTotalPrice();
 			}
 			else {
 				JOptionPane.showMessageDialog(this, "Избраното от Вас количество не е валидно.", "Грешка при добавяне на продукт", JOptionPane.ERROR_MESSAGE);
@@ -1293,6 +1342,7 @@ public class mainWindow extends JFrame {
 		}
 		
 	}
+	
 	protected void ordersManagementOperationsPanelProductEditButton_actionPerformed(ActionEvent e) {
 		
 		if (ordersInfoTable.getSelectedRow() == -1) {
@@ -1324,8 +1374,7 @@ public class mainWindow extends JFrame {
 		int orderId = Integer.parseInt(ordersInfoTable.getValueAt(ordersInfoTable.getSelectedRow(), 0).toString());
 		int currentProductId = Integer.parseInt(((OrderDetailsTableTableModel)orderDetailsTable.getModel()).CELLS[orderDetailsTable.getSelectedRow()][5]);
 		int currentProductQuantity = Integer.parseInt(((OrderDetailsTableTableModel)orderDetailsTable.getModel()).CELLS[orderDetailsTable.getSelectedRow()][1]);
-		int currentOrderItemId = Integer.parseInt(((OrderDetailsTableTableModel)orderDetailsTable.getModel()).CELLS[orderDetailsTable.getSelectedRow()][3]);
-		
+				
 		if (ordersManagementOperationsPanelProductsComboBox.getSelectedIndex() != -1) {
 			
 			Integer npid = cbpDbManager.getProductIdByProductStringArrayId(ordersManagementOperationsPanelProductsComboBox.getSelectedIndex()).intValue();
@@ -1382,22 +1431,91 @@ public class mainWindow extends JFrame {
 			}
 			else { //modify the product and the quantity
 			
-				//TODO... debug
-				
 				//first remove the old product from the program table and database and increase it's available quantity in the database and the program
 				
-				cbpDbManager.increaseProductQuantityFromProductStringArrayId(orderDetailsTable.getSelectedRow(), currentProductQuantity);
+				int psaid = cbpDbManager.getProductStringArrayIdByProductDbId(currentProductId);
+				
+				cbpDbManager.increaseProductQuantityFromProductStringArrayId(psaid,	currentProductQuantity);
 				((OrderDetailsTableTableModel)orderDetailsTable.getModel()).removeSelectedRow(orderDetailsTable.getSelectedRow());
 				
+				//then insert the new product in the program table and database and decrease it's available quantity in the database and the program
+				((OrderDetailsTableTableModel)orderDetailsTable.getModel()).insertNewRow(orderId, newProductId, newProductQuantity);
+				cbpDbManager.decreaseProductQuantityFromProductStringArrayId(ordersManagementOperationsPanelProductsComboBox.getSelectedIndex(), 
+						newProductQuantity);
 			}
 			
 			((OrderDetailsTableTableModel)orderDetailsTable.getModel()).fireTableDataChanged();
+			
+			//simulate comboBox click on the current item (item change with the same item) in order to update the maximum quantity limit of the spinner
+			ItemEvent ie = new ItemEvent(ordersManagementOperationsPanelProductsComboBox, 0, null, ItemEvent.SELECTED);
+			ordersManagementOperationsPanelProductsComboBox_itemStateChanged(ie);
+			
+			//now update the date and time of the last changes of the current order in orders list table
+			((OrdersInfoTableTableModel)ordersInfoTable.getModel()).updateSelectedRow(ordersInfoTable.getSelectedRow());
+			
+			calculateOrderTotalPrice();
 		}
 		else {
 			
 			JOptionPane.showMessageDialog(this, "Първо изберете продукт за редактиране!", "Грешка при редактиране на продукт", JOptionPane.ERROR_MESSAGE);
 		}
 		
+	}
+	
+	protected void ordersManagementOperationsPanelProductDeleteButton_actionPerformed(ActionEvent e) {
+		
+		if (ordersInfoTable.getSelectedRow() == -1) {
+			JOptionPane.showMessageDialog(this, "Първо изберете поръчка, от която да премахвате продукти!", 
+					"Грешка при изтриване на продукт", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+		
+		if (((OrdersInfoTableTableModel)ordersInfoTable.getModel()).isTableEmpty() == true) {
+			
+			JOptionPane.showMessageDialog(this, "Първо направете нова поръчка, в която да има продукти!", "Грешка при изтриване на продукт", 
+					JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+		
+		if (orderDetailsTable.getSelectedRow() == -1) {
+			JOptionPane.showMessageDialog(this, "Първо изберете продукт, който да изтриете!", 
+					"Грешка при изтриване на продукт", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+		
+		if (JOptionPane.showConfirmDialog(this, "Сигурни ли сте?", "Изтриване на продукт от поръчката", JOptionPane.YES_NO_OPTION) != JOptionPane.YES_OPTION) {
+			return;
+		}
+		
+		int currentProductId = Integer.parseInt(((OrderDetailsTableTableModel)orderDetailsTable.getModel()).CELLS[orderDetailsTable.getSelectedRow()][5]);
+		int currentProductQuantity = Integer.parseInt(((OrderDetailsTableTableModel)orderDetailsTable.getModel()).CELLS[orderDetailsTable.getSelectedRow()][1]);
+		
+		//remove the product from the database information about the current order		
+		
+		((OrderDetailsTableTableModel)orderDetailsTable.getModel()).removeSelectedRow(orderDetailsTable.getSelectedRow());
+		
+		//increase the product available quantity in the database and program
+		int psaid = cbpDbManager.getProductStringArrayIdByProductDbId(currentProductId);
+		if (cbpDbManager.increaseProductQuantityFromProductStringArrayId(psaid, currentProductQuantity) == false) {
+			
+			JOptionPane.showMessageDialog(this, "Проблем при опресняване на наличните количества на изтрития продукт!\n" + 
+					"Опасност от неконсистентни данни!\nМоля, рестартирайте програмата!", "Неочакван проблем", JOptionPane.WARNING_MESSAGE);
+		}
+		
+		((OrderDetailsTableTableModel)orderDetailsTable.getModel()).fireTableDataChanged();
+		
+		//if the removed product was selected in the comboBox before that we need to update spinner maximum quantity limit value
+		if (psaid == ordersManagementOperationsPanelProductsComboBox.getSelectedIndex()) {
+			
+			//so we simulate click on in (item change with the same item)
+			ItemEvent ie = new ItemEvent(ordersManagementOperationsPanelProductsComboBox, 0, null, ItemEvent.SELECTED);
+			ordersManagementOperationsPanelProductsComboBox_itemStateChanged(ie);
+		}
+		
+		//now update the date and time of the last changes of the current order in orders list table
+		((OrdersInfoTableTableModel)ordersInfoTable.getModel()).updateSelectedRow(ordersInfoTable.getSelectedRow());
+		
+		calculateOrderTotalPrice();
 	}	
 	
 }
