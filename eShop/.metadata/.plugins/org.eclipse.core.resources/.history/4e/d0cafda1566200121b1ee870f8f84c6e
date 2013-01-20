@@ -1,0 +1,14 @@
+/*
+ * Easy ComboBox population with data from the database and data accuracy control.
+ */
+
+package combobox_database_management;
+
+public class ComboBox_Products_db_manager {	
+	
+	
+	public ComboBox_Products_db_manager() {
+		
+	}
+
+}

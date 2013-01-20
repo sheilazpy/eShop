@@ -1,0 +1,113 @@
+/*
+ * Easy ComboBox population with products data from the database and data accuracy control.
+ * (C) 19.01.2013 zhgzhg
+ */
+
+package combobox_products_database_management;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
+
+import database_management.MySQLdbManager;
+
+public class ComboBox_Products_db_manager {	
+	
+	Integer[] productsIds = null;
+	String[] productsNames = null;
+	Integer[] productsQuantities = null;
+	
+	MySQLdbManager dbPortal = null;	
+	
+	public ComboBox_Products_db_manager(MySQLdbManager dbPortalPointer) {
+		
+		dbPortal = dbPortalPointer;
+		productsIds = null;
+		productsNames = null;
+		productsQuantities = null;
+	}
+	
+	public void loadAllProducts() {
+		
+		if (dbPortal == null) {			
+			return;
+		}
+		
+		ResultSet rs = dbPortal.executeQuery("SELECT product_id, product_name, product_quantity FROM products");
+		
+		if (rs == null) {
+			
+			productsIds = null;
+			productsNames = null;
+			productsQuantities = null;
+			return;
+		}
+		
+		int productsQuantity = 0;
+		
+		try {
+			rs.last();		
+			productsQuantity = rs.getRow();
+			rs.first();
+		}
+		catch (SQLException ex) {
+			
+			productsIds = null;
+			productsNames = null;
+			productsQuantities = null;
+			
+			JOptionPane.showMessageDialog(null, "Грешка: " + ex.getMessage(), "Грешка", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+		
+		if (productsQuantity == 0) {
+			
+			productsIds = null;
+			productsNames = null;
+			productsQuantities = null;
+			return;
+		}
+		
+		productsIds = new Integer[productsQuantity];
+		productsNames = new String[productsQuantity];
+		productsQuantities = new Integer[productsQuantity];
+		
+		//TODO...
+	}
+	
+	public String[] getAllLoadedProductsNames() {
+		
+		if (dbPortal == null) {
+			return null;
+		}
+		
+		return productsNames;
+	}
+	
+	public Integer getProductIdByProductStringArrayId() {		
+
+		if (dbPortal == null) {
+			return null;
+		}
+		
+		//FIXME
+	}
+	
+	public Integer getProductQuantityByProductStringArrayId() {
+		
+		if (dbPortal == null) {
+			return null;
+		}
+		//FIXME
+	}
+	
+	public void finalize() {
+		
+		dbPortal = null;
+		productsIds = null;
+		productsNames = null;
+		productsQuantities = null;		
+	}
+
+}
