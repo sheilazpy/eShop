@@ -125,9 +125,13 @@ public class Tables_db_manager {
 		ResultSet rs = null;
 				
 		if (populateQueryParams == null) { 
+			
+			dbPortal.freeQueryNonQueryTemporaryResults();
 			rs = dbPortal.executeQuery(populateQuery); 
 		}
 		else {
+			
+			dbPortal.freeParameterizedQueryNonQueryTemporaryResults();
 			rs = dbPortal.executeParameterizedQuery(populateQuery, populateQueryParams);
 		}
 		
@@ -180,6 +184,8 @@ public class Tables_db_manager {
 		
 		if (insertQueryParams == null) {
 		
+			dbPortal.freeQueryNonQueryTemporaryResults();
+			
 			if (dbPortal.executeNonQuery(insertQuery) < 1) {
 				
 				errorMessage = "Грешка при добавянето:\n" + dbPortal.getLastError();				
@@ -187,6 +193,8 @@ public class Tables_db_manager {
 			}		
 		}
 		else {
+			
+			dbPortal.freeParameterizedQueryNonQueryTemporaryResults();
 			
 			if (dbPortal.executeParameterizedNonQuery(insertQuery, insertQueryParams) < 1) {
 				
@@ -199,6 +207,7 @@ public class Tables_db_manager {
 		
 		int lastProductId = -1;
 		
+		dbPortal.freeQueryNonQueryTemporaryResults();
 		rs = dbPortal.executeQuery("SELECT LAST_INSERT_ID()");
 		
 		if (rs != null) {
@@ -229,10 +238,12 @@ public class Tables_db_manager {
 			}			
 		}
 		else {				
-			newCells = new String[1][columnsCount];	
+			newCells = new String[1][columnsCount];
+			rowsCount++;
 		}
 		
 		rs = null;
+		dbPortal.freeQueryNonQueryTemporaryResults();
 		rs = dbPortal.executeQuery(populateQuery + lastProductId); //special query
 		
 		if (rs != null) {
@@ -283,6 +294,7 @@ public class Tables_db_manager {
 		
 		if (deleteQueryParams == null) {
 		
+			dbPortal.freeQueryNonQueryTemporaryResults();
 			if (dbPortal.executeNonQuery(deleteQuery) < 1) {
 				
 				errorMessage = "Грешка при изтриването:\n" + dbPortal.getLastError();				
@@ -291,6 +303,7 @@ public class Tables_db_manager {
 		}
 		else {
 			
+			dbPortal.freeParameterizedQueryNonQueryTemporaryResults();
 			if (dbPortal.executeParameterizedNonQuery(deleteQuery, deleteQueryParams) < 1) {
 				
 				errorMessage = "Грешка при изтриването:\n" + dbPortal.getLastError();				
@@ -353,6 +366,7 @@ public class Tables_db_manager {
 		
 		if (updateQueryParams == null) {		
 			
+			dbPortal.freeQueryNonQueryTemporaryResults();
 			if (dbPortal.executeNonQuery(updateQuery) < 1) {
 				
 				errorMessage = "Грешка при редактирането:\n" + dbPortal.getLastError();							
@@ -361,6 +375,7 @@ public class Tables_db_manager {
 		}
 		else {
 			
+			dbPortal.freeParameterizedQueryNonQueryTemporaryResults();
 			if (dbPortal.executeParameterizedNonQuery(updateQuery, updateQueryParams) < 1) {
 				
 				errorMessage = "Грешка при редактирането:\n" + dbPortal.getLastError();							
@@ -372,10 +387,12 @@ public class Tables_db_manager {
 		
 		if (populateQueryParams == null) {
 		
+			dbPortal.freeQueryNonQueryTemporaryResults();
 			rs = dbPortal.executeQuery(populateQuery);
 		}
 		else {
 			
+			dbPortal.freeParameterizedQueryNonQueryTemporaryResults();
 			rs = dbPortal.executeParameterizedQuery(populateQuery, populateQueryParams);
 		}
 			

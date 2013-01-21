@@ -572,7 +572,7 @@ public class mainWindow extends JFrame {
 		mainWindowStatusPanelLoggedUserLogout.setText("Изход");
 		mainWindowStatusPanelSetEnabled(false);
 		
-		getContentPane().add(productsManagementPanel, BorderLayout.CENTER);
+		getContentPane().add(productsManagementPanel);
 		productsManagementPanel.setLayout(new BorderLayout());		
 		productsManagementPanel.add(scrollPane, BorderLayout.CENTER);
 		scrollPane.setPreferredSize(new Dimension(0, 0));
@@ -611,20 +611,20 @@ public class mainWindow extends JFrame {
 		productsManagementToolsPanel.add(productsManagementToolsPanelProductNameLabel, new CellConstraints("2, 2, center, fill"));
 		productsManagementToolsPanelProductNameLabel.setText("Име на продукт:");
 		
-		productsManagementToolsPanel.add(productsManagementToolsPanelProductPriceLabel, new CellConstraints("2, 3, fill, fill"));
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductPriceLabel, new CellConstraints("2, 3, 3, 1, fill, fill"));
 		productsManagementToolsPanelProductPriceLabel.setText("Цена лв.");
 		
-		productsManagementToolsPanel.add(productsManagementToolsPanelProductQuantityLabel, new CellConstraints("2, 4, 1, 1, fill, fill"));
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductQuantityLabel, new CellConstraints("2, 4, 3, 1, fill, fill"));
 		productsManagementToolsPanelProductQuantityLabel.setText("Налично количество:");
 		
 		productsManagementToolsPanel.add(productsManagementToolsPanelProductNameTextField, new CellConstraints(4, 2, 4, 1, CellConstraints.FILL, CellConstraints.FILL));
 		
-		productsManagementToolsPanel.add(productsManagementToolsPanelProductPriceSpinner, new CellConstraints(4, 3, 3, 1, CellConstraints.FILL, CellConstraints.FILL));
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductPriceSpinner, new CellConstraints(6, 3, 2, 1, CellConstraints.FILL, CellConstraints.FILL));
 		 
 		SpinnerNumberModel productsManagementToolsPanelProductPriceSpinnerNumberModel = new SpinnerNumberModel(0.00, 0.00, 1000000.00, 0.01);
 		productsManagementToolsPanelProductPriceSpinner.setModel(productsManagementToolsPanelProductPriceSpinnerNumberModel);		
 		
-		productsManagementToolsPanel.add(productsManagementToolsPanelProductQuantitySpinner, new CellConstraints(4, 4, 3, 1));
+		productsManagementToolsPanel.add(productsManagementToolsPanelProductQuantitySpinner, new CellConstraints(6, 4, 2, 1));
 		SpinnerNumberModel productsManagementToolsPanelProductQuantitySpinnerNumberModel = new SpinnerNumberModel(0, 0, 1000000, 1);
 		productsManagementToolsPanelProductQuantitySpinner.setModel(productsManagementToolsPanelProductQuantitySpinnerNumberModel);
 		
@@ -1006,7 +1006,8 @@ public class mainWindow extends JFrame {
 	protected void operationsProductsManagement_actionPerformed(ActionEvent e) {
 		//TODO...
 		ordersManagementPanel.setVisible(false);
-				
+		
+		((ProductsTableTableModel)productsTable.getModel()).fireTableDataChanged();
 		((ProductsTableTableModel)productsTable.getModel()).populateTableWithDatabaseData();
 		productsTable.getColumnModel().getColumn(1).setPreferredWidth(productsTable.getColumnModel().getColumn(1).getPreferredWidth() + 7); //tune column Налично Количество little bit
 		productsManagementPanel.setVisible(true);
@@ -1038,6 +1039,9 @@ public class mainWindow extends JFrame {
 				ordersManagementOperationsPanelProductsComboBox.addItem(items[i]);
 			}			
 		}
+		
+		((OrdersInfoTableTableModel)ordersInfoTable.getModel()).fireTableDataChanged();
+		((OrderDetailsTableTableModel)orderDetailsTable.getModel()).fireTableDataChanged();
 		
 		((OrdersInfoTableTableModel)ordersInfoTable.getModel()).populateTableWithDatabaseData();
 		ordersManagementPanel.setVisible(true);
@@ -1216,18 +1220,21 @@ public class mainWindow extends JFrame {
 		
 			//before proceed first increase the available product quantities
 			
-			for (int i = 0; i < orderDetailsTable.getRowCount(); i++) {
-				int psarid = cbpDbManager.getProductStringArrayIdByProductDbId( 
-						Integer.parseInt(((OrderDetailsTableTableModel)orderDetailsTable.getModel()).CELLS[i][5]));
-				cbpDbManager.increaseProductQuantityFromProductStringArrayId(psarid, 
-						Integer.parseInt(((OrderDetailsTableTableModel)orderDetailsTable.getModel()).CELLS[i][1]));
-				
-				//refresh maximum quantity spinner in this item was selected
-				
-				if (psarid == ordersManagementOperationsPanelProductsComboBox.getSelectedIndex()) {					
+			if (((OrderDetailsTableTableModel)orderDetailsTable.getModel()).isTableEmpty() == false) {
+			
+				for (int i = 0; i < orderDetailsTable.getRowCount(); i++) {
+					int psarid = cbpDbManager.getProductStringArrayIdByProductDbId( 
+							Integer.parseInt(((OrderDetailsTableTableModel)orderDetailsTable.getModel()).CELLS[i][5]));
+					cbpDbManager.increaseProductQuantityFromProductStringArrayId(psarid, 
+							Integer.parseInt(((OrderDetailsTableTableModel)orderDetailsTable.getModel()).CELLS[i][1]));
 					
-					ItemEvent ie = new ItemEvent(ordersManagementOperationsPanelProductsComboBox, 0, null, ItemEvent.SELECTED);
-					ordersManagementOperationsPanelProductsComboBox_itemStateChanged(ie);
+					//refresh maximum quantity spinner in this item was selected
+					
+					if (psarid == ordersManagementOperationsPanelProductsComboBox.getSelectedIndex()) {					
+						
+						ItemEvent ie = new ItemEvent(ordersManagementOperationsPanelProductsComboBox, 0, null, ItemEvent.SELECTED);
+						ordersManagementOperationsPanelProductsComboBox_itemStateChanged(ie);
+					}
 				}
 			}
 			
@@ -1291,7 +1298,6 @@ public class mainWindow extends JFrame {
 			return;
 		}
 		
-		//TODO... FIXME debug the problem when new order is added and after that 2 new products one after another bug!!!
 		int orderId = Integer.parseInt(ordersInfoTable.getValueAt(ordersInfoTable.getSelectedRow(), 0).toString());
 		
 		if (ordersManagementOperationsPanelProductsComboBox.getSelectedIndex() != -1) {

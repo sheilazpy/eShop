@@ -179,6 +179,7 @@ public class operatorUserLoginWindow extends JFrame {
 				
 				try {				
 					
+					databaseConnectWindow.dbPortal.freeParameterizedQueryNonQueryTemporaryResults();
 					rs = databaseConnectWindow.dbPortal.executeParameterizedQuery("SELECT operator_id, operator_first_name, " + "" +
 							"operator_last_name FROM operators WHERE operator_username = ? AND operator_password = ?", 
 							loginUsernameTextField.getText(), Md5hashcalc.calculateMD5hash(password));							
@@ -267,6 +268,7 @@ public class operatorUserLoginWindow extends JFrame {
 						System.exit(-1);
 					}
 					
+					databaseConnectWindow.dbPortal.freeParameterizedQueryNonQueryTemporaryResults();
 					ResultSet rs = databaseConnectWindow.dbPortal.executeParameterizedQuery(
 							"SELECT COUNT(*) FROM operators WHERE operator_username=?",	newUsernameTextField.getText());
 					
@@ -281,6 +283,9 @@ public class operatorUserLoginWindow extends JFrame {
 					if ((databaseConnectWindow.dbPortal.getLastError() == null) && (usersCount == 0)) {						
 						
 						//no such existing username so now we create it
+						
+						databaseConnectWindow.dbPortal.freeParameterizedQueryNonQueryTemporaryResults();
+						
 						if (databaseConnectWindow.dbPortal.executeParameterizedNonQuery(
 								"INSERT INTO operators(operator_username, operator_password, operator_first_name, " + 
 								"operator_last_name) VALUES(?, ?, ?, ?)", newUsernameTextField.getText(), encryptedPassword,

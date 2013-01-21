@@ -34,6 +34,7 @@ public class ComboBox_Products_db_manager {
 			return;
 		}
 		
+		dbPortal.freeQueryNonQueryTemporaryResults();
 		ResultSet rs = dbPortal.executeQuery("SELECT product_id, product_name, product_quantity FROM products");
 		
 		if (rs == null) {
@@ -169,6 +170,8 @@ public class ComboBox_Products_db_manager {
 		
 		//now update this value in the database
 		
+		dbPortal.freeQueryNonQueryTemporaryResults();
+		
 		if (dbPortal.executeNonQuery("UPDATE products SET product_quantity=" + productsQuantities[inStringArrayId].toString() + 
 				" WHERE product_id=" + productsIds[inStringArrayId].intValue()) != 1) { //in case of fail we restore the previous quantity
 			
@@ -200,6 +203,8 @@ public class ComboBox_Products_db_manager {
 		productsQuantities[inStringArrayId] = new Integer(productsQuantities[inStringArrayId].intValue() + byHowMuch);
 		
 		//now update this value in the database
+		
+		dbPortal.freeQueryNonQueryTemporaryResults();
 		
 		if (dbPortal.executeNonQuery("UPDATE products SET product_quantity=" + productsQuantities[inStringArrayId].toString() + 
 				" WHERE product_id=" +	productsIds[inStringArrayId].intValue()) != 1) { //in case of fail we restore the previous quantity

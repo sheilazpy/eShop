@@ -2,7 +2,7 @@
  * <p> Title: MySQLdbManager </p>
  * <p> Description: MySQL java database manager wrapper </p>
  * @version 1.00
- * @author (C) 09.01.2013 - 13.01.2013 zhgzhg
+ * @author (C) 09.01.2013 - 21.01.2013 zhgzhg
  */
 
 package database_management;
@@ -19,6 +19,9 @@ public class MySQLdbManager {
 	private String mySqlPassword = null;
 	private boolean useUTF8Encoding = true;
 	private Connection dbConnection = null;
+	
+	private PreparedStatement pSqlStatement = null;
+	private Statement sqlStatement = null;
 		
 	private String lastError = null;
 	
@@ -338,6 +341,9 @@ public class MySQLdbManager {
 			
 				try {
 					
+					freeQueryNonQueryTemporaryResults();
+					freeParameterizedQueryNonQueryTemporaryResults();
+					
 					if (!dbConnection.isClosed()) {
 						
 						dbConnection.close();
@@ -361,7 +367,6 @@ public class MySQLdbManager {
 	
 	public int executeNonQuery(String query) {
 		
-		Statement sqlStatement;
 		int affectedCount = 0;
 		
 		if (!isConnected()) {
@@ -396,7 +401,6 @@ public class MySQLdbManager {
 	
 	public int executeParameterizedNonQuery(String query, Object... parameters) {
 		
-		PreparedStatement sqlStatement;
 		int affectedCount = 0;
 		
 		if (!isConnected()) {
@@ -410,15 +414,15 @@ public class MySQLdbManager {
 		
 		try {
 			
-			sqlStatement = dbConnection.prepareStatement(query);
+			pSqlStatement = dbConnection.prepareStatement(query);
 			
 			for (int i = 0; i < parameters.length; i++) {
 				
-				sqlStatement.setObject(i + 1, parameters[i]);
+				pSqlStatement.setObject(i + 1, parameters[i]);
 			}
 			
-			sqlStatement.execute();
-			affectedCount = sqlStatement.getUpdateCount();
+			pSqlStatement.execute();
+			affectedCount = pSqlStatement.getUpdateCount();
 		}
 		catch (SQLException ex) {
 			
@@ -437,7 +441,6 @@ public class MySQLdbManager {
 	
 	public ResultSet executeQuery(String query) { //executes query and returns ResultSet 
 		
-		Statement sqlStatement;
 		ResultSet result;
 		
 		if (!isConnected()) {
@@ -479,7 +482,6 @@ public class MySQLdbManager {
 	
 	public ResultSet executeParameterizedQuery(String query, Object... parameters) { //executes query and returns ResultSet 
 		
-		PreparedStatement sqlStatement;
 		ResultSet result;
 		
 		if (!isConnected()) {
@@ -493,14 +495,14 @@ public class MySQLdbManager {
 		
 		try {
 			
-			sqlStatement = dbConnection.prepareStatement(query);
+			pSqlStatement = dbConnection.prepareStatement(query);
 			
 			for (int i = 0; i < parameters.length; i++) {
 				
-				sqlStatement.setObject(i + 1, parameters[i]);
+				pSqlStatement.setObject(i + 1, parameters[i]);
 			}
 			
-			result = sqlStatement.executeQuery();
+			result = pSqlStatement.executeQuery();
 			
 			try {
 				
@@ -517,6 +519,48 @@ public class MySQLdbManager {
 		}
 		
 		return result;		
+	}
+	
+	/**
+	 * Frees memory resources allocated by executeQuery() and executeNonQuery().
+	 * Recommended to use before executeQuery() or executeNonQuery() call.
+	 */
+	
+	public void freeQueryNonQueryTemporaryResults() {
+		
+		lastError = null;
+		
+		if (sqlStatement != null) {
+			
+			try {
+				
+				sqlStatement.close();
+			}
+			catch (Exception ex) {
+				lastError = ex.getMessage();
+			}
+		}
+	}
+	
+	/**
+	 * Frees memory resources allocated by executeParameterizedQuery() and executeParameterizedNonQuery().
+	 * Recommended to use before executeParameterizedQuery() or executeParameterizedNonQuery() call.
+	 */
+	
+	public void freeParameterizedQueryNonQueryTemporaryResults() {
+		
+		lastError = null;
+		
+		if (sqlStatement != null) {
+			
+			try {
+				
+				pSqlStatement.close();
+			}
+			catch (Exception ex) {
+				lastError = ex.getMessage();
+			}
+		}
 	}
 	
 	/**

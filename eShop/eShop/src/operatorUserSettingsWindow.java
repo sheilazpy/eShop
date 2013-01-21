@@ -127,6 +127,7 @@ public class operatorUserSettingsWindow extends JFrame {
 			return;
 		}
 		
+		databaseConnectWindow.dbPortal.freeQueryNonQueryTemporaryResults();
 		ResultSet rs = databaseConnectWindow.dbPortal.executeQuery("SELECT operator_username, operator_password, " + 
 				"operator_first_name, operator_last_name FROM operators WHERE operator_id=" + operatorUserLoginWindow.loggedUserId);
 		
@@ -207,6 +208,7 @@ public class operatorUserSettingsWindow extends JFrame {
 			return;
 		}
 		
+		databaseConnectWindow.dbPortal.freeParameterizedQueryNonQueryTemporaryResults();
 		if (databaseConnectWindow.dbPortal.executeParameterizedNonQuery("UPDATE operators SET operator_password=?, " +
 				"operator_first_name=?, operator_last_name=? WHERE operator_id=?", currentOperatorPassword, 
 				firstNameTextField.getText(), lastNameTextField.getText(), new Integer(operatorUserLoginWindow.loggedUserId)) != 1) {
@@ -232,6 +234,7 @@ public class operatorUserSettingsWindow extends JFrame {
 				"и всички дейности, които той е извършил.\n\n\tИзтриване?", "Потвърдете изтриване на оператор", 
 				JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 			
+			databaseConnectWindow.dbPortal.freeQueryNonQueryTemporaryResults();
 			if (databaseConnectWindow.dbPortal.executeNonQuery("DELETE FROM operators WHERE operator_id=" + operatorUserLoginWindow.loggedUserId) != 1) {
 
 				JOptionPane.showMessageDialog(this, "Изтриването е неуспешно!", "Неуспешно изтриване на оператор", JOptionPane.ERROR_MESSAGE);

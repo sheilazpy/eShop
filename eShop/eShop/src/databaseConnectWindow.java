@@ -181,8 +181,11 @@ public class databaseConnectWindow extends JFrame {
 		
 		//FIXME prone??? to sql injection maybe??
 		
+		dbPortal.freeQueryNonQueryTemporaryResults();
+		
 		if (dbPortal.executeNonQuery("CREATE DATABASE " + mysqlDatabaseNameTextField.getText() + " COLLATE utf8_general_ci") != 1) {
 			
+			dbPortal.freeQueryNonQueryTemporaryResults();
 			dbPortal.executeNonQuery("DROP DATABASE " + mysqlDatabaseNameTextField.getText());
 			dbPortal.finalize();
 			JOptionPane.showMessageDialog(this, "Не може да се създаде база данни!\nПроверете имате ли права за това!", 
@@ -199,6 +202,7 @@ public class databaseConnectWindow extends JFrame {
 			dbPortal.disconnect();
 			
 			if (dbPortal.connect()) {
+				dbPortal.freeQueryNonQueryTemporaryResults();
 				dbPortal.executeNonQuery("DROP DATABASE " + mysqlDatabaseNameTextField.getText());
 				dbPortal.disconnect();
 			}			
@@ -209,17 +213,21 @@ public class databaseConnectWindow extends JFrame {
 			return false;
 		}
 		
+		dbPortal.freeQueryNonQueryTemporaryResults();
 		dbPortal.executeNonQuery("CREATE TABLE operators (operator_id int NOT NULL AUTO_INCREMENT primary key," + 
 				"operator_username nvarchar(20) NOT NULL, operator_password nvarchar(64) NOT NULL," + 
 				"operator_first_name nvarchar(20) NOT NULL, operator_last_name nvarchar(20) NOT NULL)");
 		
+		dbPortal.freeQueryNonQueryTemporaryResults();
 		dbPortal.executeNonQuery("CREATE TABLE orders (order_id int NOT NULL AUTO_INCREMENT primary key," + 
 				"order_time datetime NOT NULL, order_operator_id int NOT NULL," +
 				"CONSTRAINT FK_OPERATORS FOREIGN KEY (order_operator_id) REFERENCES operators(operator_id) ON DELETE CASCADE ON UPDATE CASCADE)");
 
+		dbPortal.freeQueryNonQueryTemporaryResults();
 		dbPortal.executeNonQuery("CREATE TABLE products (product_id int NOT NULL AUTO_INCREMENT primary key," + 
 				"product_name nvarchar(30) NOT NULL, product_quantity int NOT NULL,	product_price decimal(10,2) NOT NULL)");
 
+		dbPortal.freeQueryNonQueryTemporaryResults();
 		dbPortal.executeNonQuery("CREATE TABLE order_details (order_detail_id int NOT NULL AUTO_INCREMENT primary key," + 
 				"order_detail_order_id int NOT NULL, order_detail_product_id int NOT NULL, " +
 				"order_detail_product_quantity int NOT NULL," +
