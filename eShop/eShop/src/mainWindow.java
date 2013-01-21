@@ -25,8 +25,10 @@ import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import javax.swing.SpinnerDateModel;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
@@ -45,6 +47,53 @@ import com.jgoodies.forms.layout.RowSpec;
 
 public class mainWindow extends JFrame {
 	
+	private final JPanel inquiriesFiltersPanel = new JPanel();
+	private final JLabel inquiriesFiltersPanelOrderNumberLabel = new JLabel();
+	private final JLabel inquiriesFiltersPanelDateAndTimeLabel = new JLabel();
+	private final JLabel inquiriesFiltersPanelOperatorLabel = new JLabel();
+	private final JLabel inquiriesFiltersPanelOrderTotalPriceLabel = new JLabel();
+	private final JSpinner inquiriesFiltersPanelOrderNumberSpinner = new JSpinner();
+	private final JSpinner inquiriesFiltersPanelOrderTotalPriceSpinner = new JSpinner();
+	private final JComboBox inquiriesFiltersPanelOrderOperatorComboBox = new JComboBox();
+	private final JSpinner inquiriesFiltersPanelOrderDateSpinner = new JSpinner();
+	private final JButton inquiriesFiltersPanelOrderNumberAndButton = new JButton();
+	private final JButton inquiriesFiltersPanelOrderNumberOrButton = new JButton();
+	private final JButton inquiriesFiltersPanelDateAndTimeAndButton = new JButton();
+	private final JButton inquiriesFiltersPanelDateAndTimeOrButton = new JButton();
+	private final JButton inquiriesFiltersPanelOrderOperatorAndButton = new JButton();
+	private final JButton inquiriesFiltersPanelOrderOperatorOrButton = new JButton();
+	private final JButton inquiriesFiltersPanelOrderTotalPriceAndButton = new JButton();
+	private final JButton inquiriesFiltersPanelOrderTotalPriceOrButton = new JButton();
+	private final JButton inquiriesFiltersPanelOrderTotalPriceNotButton = new JButton();
+	private final JButton inquiriesFiltersPanelOrderOperatorNotButton = new JButton();
+	private final JButton inquiriesFiltersPanelDateAndTimeNotButton = new JButton();
+	private final JButton inquiriesFiltersPanelOrderNumberNotButton = new JButton();
+	private final JTextArea statementsTextArea = new JTextArea();
+	private final JButton inquiriesFiltersPanelOrderFilterButton = new JButton();
+	private final JButton inquiriesFiltersPanelOrderClearFilterStatementsButton = new JButton();
+	private final JScrollPane scrollPane_4 = new JScrollPane();
+	class InquiriesTableTableModel extends AbstractTableModel {
+		private final String[] COLUMNS = new String[] {
+			"Поръчка №", "Дата и време", "Съставил оператор", "Крайна цена"
+		};
+		private final String[][] CELLS = new String[][] {
+			{"няма", "създадени", "поръчки", "в момента"}
+			
+		};
+		public int getRowCount() {
+			return CELLS.length;
+		}
+		public int getColumnCount() {
+			return COLUMNS.length;
+		}
+		public String getColumnName(int column) {
+			return COLUMNS[column];
+		}
+		public Object getValueAt(int row, int column) {
+			return CELLS[row].length > column ? CELLS[row][column] : (column + " - " + row);
+		}
+	}
+
 	private final JPanel ordersManagementOperationsPanel = new JPanel();
 	private final JLabel ordersManagementOperationsPanelProductLabel = new JLabel();
 	private final JLabel ordersManagementOperationsPanelProductQuantityLabel = new JLabel();
@@ -58,6 +107,9 @@ public class mainWindow extends JFrame {
 	private final JButton ordersManagementOperationsPanelDeleteOrderButton = new JButton();
 	private ComboBox_Products_db_manager cbpDbManager = null;	
 	
+	private final JPanel inquiriesPanel = new JPanel();
+	private final JScrollPane scrollPane_3 = new JScrollPane();
+	private final JTable inquiriesTable = new JTable();
 	class OrderDetailsTableTableModel extends AbstractTableModel {
 		
 		private static final long serialVersionUID = 3007L;
@@ -471,7 +523,7 @@ public class mainWindow extends JFrame {
 	 */
 	public mainWindow() {
 		super();
-		setBounds(100, 100, 752, 438);
+		setBounds(100, 100, 798, 438);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainWindowPointer = this;
 		try {
@@ -732,6 +784,120 @@ public class mainWindow extends JFrame {
 		ordersManagementOperationsPanel.add(ordersManagementOperationsPanelDeleteOrderButton, new CellConstraints(1, 19, 3, 1));
 		ordersManagementOperationsPanelDeleteOrderButton.addActionListener(new OrdersManagementOperationsPanelDeleteOrderButtonActionListener());
 		ordersManagementOperationsPanelDeleteOrderButton.setText("Изтрий поръчка");
+		
+		getContentPane().add(inquiriesPanel);
+		inquiriesPanel.setBorder(new TitledBorder(new TitledBorder(null, "Справки:", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null), "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+		inquiriesPanel.setLayout(new BorderLayout());
+		inquiriesPanel.setVisible(false);
+		
+		inquiriesPanel.add(scrollPane_3);
+		
+		scrollPane_3.setViewportView(inquiriesTable);
+		inquiriesTable.setModel(new InquiriesTableTableModel());
+		
+		inquiriesPanel.add(inquiriesFiltersPanel, BorderLayout.EAST);
+		inquiriesFiltersPanel.setBorder(new TitledBorder(null, "Филтри:", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+		inquiriesFiltersPanel.setLayout(new FormLayout(
+			new ColumnSpec[] {
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				ColumnSpec.decode("4dlu"),
+				FormFactory.DEFAULT_COLSPEC},
+			new RowSpec[] {
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("90px"),
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC}));
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelOrderNumberLabel, new CellConstraints());
+		inquiriesFiltersPanelOrderNumberLabel.setText("Поръчка №:");
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelDateAndTimeLabel, new CellConstraints(1, 3));
+		inquiriesFiltersPanelDateAndTimeLabel.setText("Дата и време:");
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelOperatorLabel, new CellConstraints(1, 5));
+		inquiriesFiltersPanelOperatorLabel.setText("Съставил оператор:");
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelOrderTotalPriceLabel, new CellConstraints(1, 7));
+		inquiriesFiltersPanelOrderTotalPriceLabel.setText("Крайна цена:");
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelOrderNumberSpinner, new CellConstraints(3, 1));
+		final SpinnerNumberModel spinnerNumberModel = new SpinnerNumberModel();
+		spinnerNumberModel.setValue(new Integer(1));
+		spinnerNumberModel.setStepSize(new Integer(1));
+		spinnerNumberModel.setMinimum(new Integer(0));
+		inquiriesFiltersPanelOrderNumberSpinner.setModel(spinnerNumberModel);
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelOrderTotalPriceSpinner, new CellConstraints(3, 7));
+		SpinnerNumberModel inquiriesFiltersPanelOrderTotalPriceSpinnerNumberModel = new SpinnerNumberModel(0.00, 0.00, 1000000.00, 0.01);
+		inquiriesFiltersPanelOrderTotalPriceSpinner.setModel(inquiriesFiltersPanelOrderTotalPriceSpinnerNumberModel);		
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelOrderOperatorComboBox, new CellConstraints(3, 5));
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelOrderDateSpinner, new CellConstraints(3, 3));
+		inquiriesFiltersPanelOrderDateSpinner.setModel(new SpinnerDateModel());
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelOrderNumberAndButton, new CellConstraints(5, 1));
+		inquiriesFiltersPanelOrderNumberAndButton.setText("И");
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelOrderNumberOrButton, new CellConstraints(7, 1));
+		inquiriesFiltersPanelOrderNumberOrButton.setText("ИЛИ");
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelDateAndTimeAndButton, new CellConstraints(5, 3));
+		inquiriesFiltersPanelDateAndTimeAndButton.setText("И");
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelDateAndTimeOrButton, new CellConstraints(7, 3));
+		inquiriesFiltersPanelDateAndTimeOrButton.setText("ИЛИ");
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelOrderOperatorAndButton, new CellConstraints(5, 5));
+		inquiriesFiltersPanelOrderOperatorAndButton.setText("И");
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelOrderOperatorOrButton, new CellConstraints(7, 5));
+		inquiriesFiltersPanelOrderOperatorOrButton.setText("ИЛИ");
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelOrderTotalPriceAndButton, new CellConstraints(5, 7));
+		inquiriesFiltersPanelOrderTotalPriceAndButton.setText("И");
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelOrderTotalPriceOrButton, new CellConstraints(7, 7));
+		inquiriesFiltersPanelOrderTotalPriceOrButton.setText("ИЛИ");
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelOrderTotalPriceNotButton, new CellConstraints(9, 7));
+		inquiriesFiltersPanelOrderTotalPriceNotButton.setText("НЕ");
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelOrderOperatorNotButton, new CellConstraints(9, 5));
+		inquiriesFiltersPanelOrderOperatorNotButton.setText("НЕ");
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelDateAndTimeNotButton, new CellConstraints(9, 3));
+		inquiriesFiltersPanelDateAndTimeNotButton.setText("НЕ");
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelOrderNumberNotButton, new CellConstraints(9, 1));
+		inquiriesFiltersPanelOrderNumberNotButton.setText("НЕ");
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelOrderFilterButton, new CellConstraints(1, 11, 3, 1));
+		inquiriesFiltersPanelOrderFilterButton.setText("Филтрирай");
+		
+		inquiriesFiltersPanel.add(inquiriesFiltersPanelOrderClearFilterStatementsButton, new CellConstraints(5, 11, 5, 1));
+		inquiriesFiltersPanelOrderClearFilterStatementsButton.setText("Изчисти условията");
+		
+		inquiriesFiltersPanel.add(scrollPane_4, new CellConstraints(1, 9, 9, 1));
+		scrollPane_4.setAutoscrolls(true);
+		
+		scrollPane_4.setViewportView(statementsTextArea);
+		statementsTextArea.setEditable(false);
+		statementsTextArea.setRows(5);
+		statementsTextArea.setLineWrap(true);				
 	}
 	
 	protected void mainWindowStatusPanelSetEnabled(boolean enable) {
@@ -917,7 +1083,7 @@ public class mainWindow extends JFrame {
 	protected void fileDisconnectFromDb_actionPerformed(ActionEvent e) {
 		
 		if (databaseConnectWindow.dbPortal != null) {
-			//TODO...
+			
 			databaseConnectWindow.dbPortal.finalize();
 			
 			this.FileConnectToDb.setEnabled(true);
@@ -926,6 +1092,7 @@ public class mainWindow extends JFrame {
 			this.mainWindowStatusPanelSetEnabled(false);
 			this.productsManagementPanel.setVisible(false);
 			this.ordersManagementPanel.setVisible(false);
+			this.inquiriesPanel.setVisible(false);
 			this.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
 			operatorUserLoginWindow.loggedUserId = -1;
 		}
@@ -948,10 +1115,11 @@ public class mainWindow extends JFrame {
 				mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: " + operatorUserLoginWindow.loggedUserNames);
 			}
 			else {
-				//TODO...
+
 				mainWindowPointer.Operations.setEnabled(false);
 				mainWindowPointer.productsManagementPanel.setVisible(false);
 				mainWindowPointer.ordersManagementPanel.setVisible(false);
+				mainWindowPointer.inquiriesPanel.setVisible(false);
 				mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
 			}
 		}
@@ -978,10 +1146,11 @@ public class mainWindow extends JFrame {
 				mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: " + operatorUserSettingsWindow.operatorFirstNameLastNameCombination);
 			}
 			else { //if operator was deleted
-				//TODO...
+				
 				mainWindowPointer.Operations.setEnabled(false);
 				mainWindowPointer.productsManagementPanel.setVisible(false);
 				mainWindowPointer.ordersManagementPanel.setVisible(false);
+				mainWindowPointer.inquiriesPanel.setVisible(false);
 				mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
 			}
 		}
@@ -990,10 +1159,11 @@ public class mainWindow extends JFrame {
 	////////////////////////////////////////////////////////////////////////
 	
 	protected void mainWindowStatusPanelLoggedUserLogout_actionPerformed(ActionEvent e) {
-		//TODO...
+
 		this.Operations.setEnabled(false);
 		this.productsManagementPanel.setVisible(false);
 		this.ordersManagementPanel.setVisible(false);
+		this.inquiriesPanel.setVisible(false);
 		this.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
 		operatorUserLoginWindow.loggedUserId = -1;
 	}
@@ -1004,8 +1174,9 @@ public class mainWindow extends JFrame {
 	}
 	
 	protected void operationsProductsManagement_actionPerformed(ActionEvent e) {
-		//TODO...
+
 		ordersManagementPanel.setVisible(false);
+		inquiriesPanel.setVisible(false);
 		
 		((ProductsTableTableModel)productsTable.getModel()).fireTableDataChanged();
 		((ProductsTableTableModel)productsTable.getModel()).populateTableWithDatabaseData();
@@ -1015,8 +1186,9 @@ public class mainWindow extends JFrame {
 		
 	}
 	protected void operationsOrdersManagement_actionPerformed(ActionEvent e) {
-		//TODO...
+
 		productsManagementPanel.setVisible(false);
+		inquiriesPanel.setVisible(false);
 		
 		ordersInfoTable.getColumnModel().getColumn(0).setPreferredWidth(66); //resize column Поръчка №
 		ordersInfoTable.getColumnModel().getColumn(1).setPreferredWidth(129); //resize column Дата и време
@@ -1052,6 +1224,8 @@ public class mainWindow extends JFrame {
 		//TODO...
 		productsManagementPanel.setVisible(false);
 		ordersManagementPanel.setVisible(false);
+		inquiriesPanel.setVisible(true);
+		getContentPane().add(inquiriesPanel); // we are using BorderLayout so we need to add this panel again in order to get visible
 	}
 	
 	////////////////////////////////////////////////////////////////////////

@@ -17,7 +17,6 @@
 <fullyQualifiedTypeName name="md5_calculator.Md5hashcalc"/>
 <fullyQualifiedTypeName name="operatorUserSettingsWindow"/>
 <fullyQualifiedTypeName name="java.lang.Boolean"/>
-<fullyQualifiedTypeName name="javax.swing.SpinnerNumberModel"/>
 <fullyQualifiedTypeName name="java.text.DecimalFormat"/>
 <fullyQualifiedTypeName name="javax.swing.JSpinner.NumberEditor"/>
 <fullyQualifiedTypeName name="java.util.Locale"/>
@@ -41,4 +40,5 @@
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
 <fullyQualifiedTypeName name="mainWindow.OrdersInfoTableTableModel"/>
 <fullyQualifiedTypeName name="mainWindow.OrderDetailsTableTableModel"/>
+<fullyQualifiedTypeName name="javax.swing.SpinnerNumberModel"/>
 </qualifiedTypeNameHistroy>
