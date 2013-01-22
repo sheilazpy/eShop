@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<section name="com.swtdesigner.model.swing.jgoodies.layout.ui.FormRowDialog">
-		<item key="width" value="405"/>
-		<item key="height" value="360"/>
-		<item key="y" value="287"/>
-		<item key="x" value="455"/>
-	</section>
 	<section name="com.swtdesigner.model.swing.jgoodies.layout.ui.FormColumnDialog">
 		<item key="width" value="405"/>
 		<item key="height" value="360"/>
 		<item key="y" value="189"/>
 		<item key="x" value="480"/>
 	</section>
+	<section name="com.swtdesigner.model.swing.jgoodies.layout.ui.FormRowDialog">
+		<item key="width" value="405"/>
+		<item key="height" value="360"/>
+		<item key="y" value="287"/>
+		<item key="x" value="455"/>
+	</section>
+	<section name="com.swtdesigner.model.swing.jgoodies.layout.ui.FormColumnsDialog">
+		<item key="width" value="656"/>
+		<item key="height" value="427"/>
+		<item key="y" value="175"/>
+		<item key="x" value="64"/>
+	</section>
 	<section name="com.swtdesigner.model.swing.jgoodies.layout.ui.FormRowsDialog">
 		<item key="width" value="626"/>
 		<item key="height" value="427"/>
 		<item key="y" value="254"/>
 		<item key="x" value="123"/>
-	</section>
-	<section name="com.swtdesigner.model.swing.jgoodies.layout.ui.FormColumnsDialog">
-		<item key="width" value="656"/>
-		<item key="height" value="427"/>
-		<item key="y" value="165"/>
-		<item key="x" value="201"/>
 	</section>
 	<section name="com.swtdesigner.gef.tools.common.RenameBeansDialog">
 		<item key="width" value="525"/>

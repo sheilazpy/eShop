@@ -117,7 +117,7 @@ public class Tables_db_manager {
 	}
 	
 	/**
-	 * Requres setPopulateQuery() to be set!
+	 * Requires setPopulateQuery() to be set!
 	 */
 	
 	public String[][] performPopulate() {
@@ -150,9 +150,12 @@ public class Tables_db_manager {
 				
 				while (true) {
 					
+					Object o = null;
+					
 					for (int j = 0; j < columnsCount; j++) {						
 					
-						CELLS[rs.getRow() - 1][j] = rs.getObject(j + 1).toString();
+						o = rs.getObject(j + 1); 
+						CELLS[rs.getRow() - 1][j] = (o == null ? "" : o.toString());
 					}
 					
 					if (rs.isLast()) {
@@ -400,9 +403,12 @@ public class Tables_db_manager {
 			
 			try {
 				
+				Object o = null;
+				 
 				for (int i = 0; i < columnsCount; i++) {
 					
-					CELLS[tableRowNumber][i] = rs.getObject(i + 1).toString();
+					o = rs.getObject(i + 1);
+					CELLS[tableRowNumber][i] = (o == null ? "" : o.toString());
 				}
 				
 				//CELLS[rowNumber][0] = rs.getString(1); 	   			  // product_name

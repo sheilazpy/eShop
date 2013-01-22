@@ -11,18 +11,18 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="inquiriesFiltersPanelOrderDateSpinner"/>
+		<item key="selection" value="isTableEmpty"/>
 		<item key="wrap" value="false"/>
 		<item key="casesensitive" value="false"/>
 		<list key="findhistory">
+			<item value="isTableEmpty"/>
+			<item value="orderdatespinner"/>
+			<item value="cbpDbManager"/>
+			<item value="ComboBox_Products_db_manager"/>
 			<item value="inquiriesFiltersPanelOrderDateSpinner"/>
 			<item value="inquiriesFiltersPanelOrderTotalPriceSpinner"/>
 			<item value="execute"/>
 			<item value="executeNon"/>
-			<item value="Statement"/>
-			<item value="comboBoxChanged"/>
-			<item value="Spinner"/>
-			<item value="ordersManagementOperationsPanelProductsComboBox"/>
 		</list>
 		<list key="replacehistory">
 		</list>
