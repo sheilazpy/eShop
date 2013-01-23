@@ -1251,10 +1251,31 @@ public class mainWindow extends JFrame {
 	private static WindowListener operatorUserLoginWindowClosing = new WindowAdapter() {
 
 		public void windowClosing(WindowEvent e) {
+			
 			if (operatorUserLoginWindow.loggedUserId != -1) {
 				
 				mainWindowPointer.Operations.setEnabled(true);
 				mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: " + operatorUserLoginWindow.loggedUserNames);
+				
+				//tries to refresh panels data if some of them are visible:
+				//(useful when logged user is changed)
+				
+				if (mainWindowPointer.productsManagementPanel.isVisible() == true) {
+					
+					ActionEvent ae = new ActionEvent(mainWindowPointer, 0, "ProductsManagementPanelRefresh");
+					mainWindowPointer.operationsProductsManagement_actionPerformed(ae);
+				}			
+				else if (mainWindowPointer.ordersManagementPanel.isVisible() == true) {
+					
+					ActionEvent ae = new ActionEvent(mainWindowPointer, 0, "OrdersManagementPanelRefresh");
+					mainWindowPointer.operationsOrdersManagement_actionPerformed(ae);
+					
+				}
+				else if (mainWindowPointer.inquiriesPanel.isVisible() == true) {
+
+					ActionEvent ae = new ActionEvent(mainWindowPointer, 0, "InquiriesPanelRefresh");
+					mainWindowPointer.operationsInquiries_actionPerformed(ae);
+				}
 			}
 			else {
 
@@ -1315,10 +1336,16 @@ public class mainWindow extends JFrame {
 		JOptionPane.showMessageDialog(this, "eShop ver.-1.00\n(C) 2013 Желян Гуглев & Пламен Генчев", "Относно", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
-	protected void operationsProductsManagement_actionPerformed(ActionEvent e) {
+	public void operationsProductsManagement_actionPerformed(ActionEvent e) {
 
 		ordersManagementPanel.setVisible(false);
 		inquiriesPanel.setVisible(false);
+		
+		if ((productsManagementPanel.isVisible() == true) && (e.getActionCommand().compareTo("ProductsManagementPanelRefresh") != 0)) { //if opened on second click just close it
+			
+			productsManagementPanel.setVisible(false);
+			return;
+		}
 		
 		((ProductsTableTableModel)productsTable.getModel()).fireTableDataChanged();
 		((ProductsTableTableModel)productsTable.getModel()).populateTableWithDatabaseData();
@@ -1327,10 +1354,16 @@ public class mainWindow extends JFrame {
 		getContentPane().add(productsManagementPanel); // we are using BorderLayout so we need to add this panel again in order to get visible
 		
 	}
-	protected void operationsOrdersManagement_actionPerformed(ActionEvent e) {
+	public void operationsOrdersManagement_actionPerformed(ActionEvent e) {
 
 		productsManagementPanel.setVisible(false);
 		inquiriesPanel.setVisible(false);
+		
+		if ((ordersManagementPanel.isVisible() == true)  && (e.getActionCommand().compareTo("OrdersManagementPanelRefresh") != 0)) { //if opened on second click just close it
+			
+			ordersManagementPanel.setVisible(false);
+			return;
+		}
 		
 		ordersInfoTable.getColumnModel().getColumn(0).setPreferredWidth(66); //resize column Поръчка №
 		ordersInfoTable.getColumnModel().getColumn(1).setPreferredWidth(129); //resize column Дата и време
@@ -1361,11 +1394,16 @@ public class mainWindow extends JFrame {
 		ordersManagementPanel.setVisible(true);
 		getContentPane().add(ordersManagementPanel); // we are using BorderLayout so we need to add this panel again in order to get visible
 	}
-
-	protected void operationsInquiries_actionPerformed(ActionEvent e) {
+	public void operationsInquiries_actionPerformed(ActionEvent e) {
 		
 		productsManagementPanel.setVisible(false);
 		ordersManagementPanel.setVisible(false);
+		
+		if ((inquiriesPanel.isVisible() == true) && (e.getActionCommand().compareTo("InquiriesPanelRefresh") != 0)) { //if opened on second click just close it
+			
+			inquiriesPanel.setVisible(false);
+			return;
+		}	
 		
 		//in case - to prevent SQL injection
 		inquiriesFiltersPanelOrderNumberSpinner.validate();
