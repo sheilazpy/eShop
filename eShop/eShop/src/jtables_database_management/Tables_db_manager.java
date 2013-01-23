@@ -141,7 +141,9 @@ public class Tables_db_manager {
 			
 				rs.last();
 				rowsCount = rs.getRow();
-				if (rowsCount <= 0) {					
+				if (rowsCount <= 0) {
+					
+					noDataInTheCells = true;
 					return noDataInTheCellsMessage;
 				}
 				rs.first();
@@ -292,6 +294,8 @@ public class Tables_db_manager {
 		errorMessage = null;
 		
 		if (noDataInTheCells == true) {
+			
+			noDataInTheCells = true;
 			return noDataInTheCellsMessage;
 		}
 		
