@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename package &apos;combobox_products_database_management&apos; to &apos;combobox_database_management&apos;&#x0D;&#x0A;- Original project: &apos;eShop&apos;&#x0D;&#x0A;- Original element: &apos;eShop/src/combobox_products_database_management&apos;&#x0D;&#x0A;- Renamed element: &apos;eShop/src/combobox_database_management&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;combobox_products_database_management&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;combobox_products_database_management" name="combobox_database_management" qualified="false" references="true" stamp="1358785999612" textual="false" version="1.0"/>
-</session>
