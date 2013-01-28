@@ -348,7 +348,7 @@ public class operatorUserLoginWindow extends /*JFrame*/ JDialog {
 				}
 				else {
 					
-					JOptionPane.showMessageDialog(this, "Необходимо е да въведете по-подробни данни!", "Неподробни данни", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(this, "Необходимо е да въведете по-подробни данни (повече от 3 символа)!", "Неподробни данни", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 			else {

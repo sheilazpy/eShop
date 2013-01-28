@@ -644,7 +644,7 @@ public class mainWindow extends JFrame {
 		FileExit.setDisplayedMnemonicIndex(2);
 		
 		mainWindowMenu.add(Operations);
-		Operations.setMnemonic(KeyEvent.VK_O);
+		Operations.setMnemonic(KeyEvent.VK_F);
 		Operations.setText("Операции");
 		Operations.setDisplayedMnemonicIndex(0);
 		Operations.setEnabled(false);
@@ -712,6 +712,7 @@ public class mainWindow extends JFrame {
 		mainWindowStatusPanelLoggedUserSettings.setMargin(new Insets(2, 14, 2, 14));
 		mainWindowStatusPanelLoggedUserSettings.setText("Настройки");
 		mainWindowStatusPanelLoggedUserSettings.setDisplayedMnemonicIndex(0);
+		mainWindowStatusPanelLoggedUserSettings.setEnabled(false);
 		
 		mainWindowStatusPanel.add(mainWindowStatusPanelSeparatorLabel, new CellConstraints(3, 1, 1, 2));
 		mainWindowStatusPanelSeparatorLabel.setText("   ");
@@ -724,6 +725,7 @@ public class mainWindow extends JFrame {
 		mainWindowStatusPanelLoggedUserLogout.addActionListener(new MainWindowStatusPanelLoggedUserLogoutActionListener());
 		mainWindowStatusPanelLoggedUserLogout.setText("Изход");
 		mainWindowStatusPanelLoggedUserLogout.setDisplayedMnemonicIndex(0);
+		mainWindowStatusPanelLoggedUserLogout.setEnabled(false);
 		mainWindowStatusPanelSetEnabled(false);
 		
 		getContentPane().add(productsManagementPanel);
@@ -1236,6 +1238,8 @@ public class mainWindow extends JFrame {
 			if (databaseConnectWindow.dbPortal.isConnected()) {
 				
 				mainWindowPointer.mainWindowStatusPanelSetEnabled(true);
+				mainWindowPointer.mainWindowStatusPanelLoggedUserSettings.setEnabled(false);
+				mainWindowPointer.mainWindowStatusPanelLoggedUserLogout.setEnabled(false);
 				mainWindowPointer.FileConnectToDb.setEnabled(false);
 				mainWindowPointer.FileDisconnectFromDb.setEnabled(true);
 			}
@@ -1277,6 +1281,8 @@ public class mainWindow extends JFrame {
 			this.FileConnectToDb.setEnabled(true);
 			this.FileDisconnectFromDb.setEnabled(false);			
 			this.Operations.setEnabled(false);
+			this.mainWindowStatusPanelLoggedUserSettings.setEnabled(false);
+			this.mainWindowStatusPanelLoggedUserLogout.setEnabled(false);
 			this.mainWindowStatusPanelSetEnabled(false);
 			this.productsManagementPanel.setVisible(false);
 			this.ordersManagementPanel.setVisible(false);
@@ -1299,8 +1305,13 @@ public class mainWindow extends JFrame {
 		new operatorUserLoginWindow(this, true);
 		if (operatorUserLoginWindow.loggedUserId != -1) {
 			
+			mainWindowStatusPanelLoggedUserSettings.setEnabled(true);
+			mainWindowStatusPanelLoggedUserLogout.setEnabled(true);			
 			mainWindowPointer.Operations.setEnabled(true);
 			mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: " + operatorUserLoginWindow.loggedUserNames);
+			
+			mainWindowPointer.cboDbManager = null; //we clear inquiries operators combo box in order to force reloading if new operator was created/edited/removed
+			mainWindowPointer.ordersManagementPanel.setVisible(false); //we need to refresh this panel (in case another operator logged we don't want to orders the previous operator made inside the orders management panel)
 			
 			//tries to refresh panels data if some of them are visible:
 			//(useful when logged user is changed)
@@ -1324,12 +1335,14 @@ public class mainWindow extends JFrame {
 		}
 		else {
 
+			mainWindowStatusPanelLoggedUserSettings.setEnabled(false);
+			mainWindowStatusPanelLoggedUserLogout.setEnabled(false);
 			mainWindowPointer.Operations.setEnabled(false);
 			mainWindowPointer.productsManagementPanel.setVisible(false);
 			mainWindowPointer.ordersManagementPanel.setVisible(false);
 			mainWindowPointer.inquiriesPanel.setVisible(false);
 			mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
-		}			
+		}
 	}
 	
 	/*private static WindowListener operatorUserLoginWindowClosing = new WindowAdapter() {
@@ -1390,15 +1403,23 @@ public class mainWindow extends JFrame {
 		if (operatorUserLoginWindow.loggedUserId != -1) {
 			
 			mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: " + operatorUserSettingsWindow.operatorFirstNameLastNameCombination);
+			
+			mainWindowPointer.cboDbManager = null; //we clear inquiries operators combo box in order to force reloading if new operator was created/edited/removed
+			mainWindowPointer.inquiriesPanel.setVisible(false); // we must refresh those
+			mainWindowPointer.ordersManagementPanel.setVisible(false); // 2 panels
 		}
 		else { //if operator was deleted
 			
+			mainWindowPointer.mainWindowStatusPanelLoggedUserSettings.setEnabled(false);
+			mainWindowPointer.mainWindowStatusPanelLoggedUserLogout.setEnabled(false);
 			mainWindowPointer.Operations.setEnabled(false);
 			mainWindowPointer.productsManagementPanel.setVisible(false);
 			mainWindowPointer.ordersManagementPanel.setVisible(false);
 			mainWindowPointer.inquiriesPanel.setVisible(false);
 			mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
-		}		
+
+			mainWindowPointer.cboDbManager = null; //we clear inquiries operators combo box in order to force reloading if new operator was created/edited/removed
+		}					
 	}
 	
 	/*private static WindowListener operatorUserSettingsWindowClosing = new WindowAdapter() {
@@ -1423,6 +1444,8 @@ public class mainWindow extends JFrame {
 	
 	protected void mainWindowStatusPanelLoggedUserLogout_actionPerformed(ActionEvent e) {
 
+		this.mainWindowStatusPanelLoggedUserSettings.setEnabled(false);
+		this.mainWindowStatusPanelLoggedUserLogout.setEnabled(false);
 		this.Operations.setEnabled(false);
 		this.productsManagementPanel.setVisible(false);
 		this.ordersManagementPanel.setVisible(false);
@@ -1433,7 +1456,9 @@ public class mainWindow extends JFrame {
 	
 	protected void helpAbout_actionPerformed(ActionEvent e) {
 		
-		JOptionPane.showMessageDialog(this, "eShop ver.-1.00\n(C) 2013 Желян Гуглев & Пламен Генчев", "Относно", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "eShop ver.-1.00\n(C) 2013 Желян Гуглев & Пламен Генчев\n\nПловдивски унирерситет \"Паисий Хилендарски\"," +
+				" България\nUniversity of Plovdiv \"Paisii Hilendarski\", Bulgaria\n\nОригиналният код достъпен за изтегляне на адрес:\n\n                        http://github.com/zhgzhg/eshop\n\n" + 
+				"при съобразяване с лицензните условия посочени там!!!", "Относно", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 	public void operationsProductsManagement_actionPerformed(ActionEvent e) {
@@ -1519,6 +1544,11 @@ public class mainWindow extends JFrame {
 			cboDbManager = new ComboBox_Operators_db_manager(databaseConnectWindow.dbPortal);
 			cboDbManager.loadAllOperators();
 			
+			if (inquiriesFiltersPanelOrderOperatorComboBox.getItemCount() > 0) {
+				
+				inquiriesFiltersPanelOrderOperatorComboBox.removeAllItems();
+			}
+			
 			for (String operator:cboDbManager.getAllLoadedOperatorsNames()) {
 				
 				inquiriesFiltersPanelOrderOperatorComboBox.addItem(operator);
@@ -1566,7 +1596,9 @@ public class mainWindow extends JFrame {
 					Double.parseDouble(productsManagementToolsPanelProductPriceSpinner.getValue().toString())
 					);
 			
-			((ProductsTableTableModel)productsTable.getModel()).fireTableDataChanged();			
+			((ProductsTableTableModel)productsTable.getModel()).fireTableDataChanged();	
+			
+			cbpDbManager = null; //we clear the content in orders management products combobox in order to force it if called to reload
 		}
 		else {
 			JOptionPane.showMessageDialog(this, "Новият продукт задължително трябва да притежава име!", "Грешка", JOptionPane.ERROR_MESSAGE);
@@ -1593,6 +1625,8 @@ public class mainWindow extends JFrame {
 			((ProductsTableTableModel)productsTable.getModel()).fireTableDataChanged();
 			
 			productsTable.changeSelection(selectedTableRow, 0, true, false);
+			
+			cbpDbManager = null; //we clear the content in orders management products combobox in order to force it if called to reload
 		}
 		else {
 			JOptionPane.showMessageDialog(this, "Редактираният продукт задължително трябва да притежава име!", "Грешка", JOptionPane.ERROR_MESSAGE);
@@ -1607,10 +1641,11 @@ public class mainWindow extends JFrame {
 			return;
 		}
 		
-		if (JOptionPane.showConfirmDialog(this, "Сигурни ли сте?", "Изтриване на продукт", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+		if (JOptionPane.showConfirmDialog(this, "Изтриването на продукт ще афектира и всички направени поръчки в базата данни!\nСигурни ли сте?", "Изтриване на продукт", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 			
 			((ProductsTableTableModel)productsTable.getModel()).removeSelectedRow(productsTable.getSelectedRow());
 			((ProductsTableTableModel)productsTable.getModel()).fireTableDataChanged();
+			cbpDbManager = null; //we clear the content in orders management products combobox in order to force it if called to reload
 		}
 	}	
 	

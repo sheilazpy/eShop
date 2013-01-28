@@ -1,6 +1,6 @@
 /*
  * Easy JTable population and management with data from database.
- * (C) 14.01.2013 - 23.01.2013 zhgzhg
+ * (C) 14.01.2013 - 28.01.2013 zhgzhg
  */
 
 package jtables_database_management;
@@ -270,7 +270,7 @@ public class Tables_db_manager {
 				currentModel.fireTableCellUpdated((noDataInTheCells == false ? rowsCount : 0), l); //visual optimized refresh
 			}
 			
-			if (noDataInTheCells == false) {			
+			if (noDataInTheCells == false) {
 			
 				rowsCount++;
 			}
@@ -350,6 +350,8 @@ public class Tables_db_manager {
 			
 			newCells = noDataInTheCellsMessage;
 			noDataInTheCells = true;
+			
+			rowsCount--;
 		}
 		
 		CELLS = newCells;

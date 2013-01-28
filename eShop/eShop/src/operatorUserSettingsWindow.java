@@ -224,7 +224,7 @@ public class operatorUserSettingsWindow extends /*JFrame*/ JDialog {
 		
 		if ((firstNameTextField.getText().length() <= 3) || (lastNameTextField.getText().length() <= 3)) {
 			
-			JOptionPane.showMessageDialog(this, "Прекалено кратки име или фамилия!", "Грешка при обновяването", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Прекалено кратки име или фамилия (трябва да са повече от 3 символа)!", "Грешка при обновяването", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 		

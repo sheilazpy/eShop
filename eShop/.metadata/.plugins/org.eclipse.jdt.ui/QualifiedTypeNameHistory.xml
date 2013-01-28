@@ -28,7 +28,6 @@
 <fullyQualifiedTypeName name="javax.swing.table.TableColumn"/>
 <fullyQualifiedTypeName name="javax.swing.table.TableColumnModel"/>
 <fullyQualifiedTypeName name="tables_management.Tables_db_manager"/>
-<fullyQualifiedTypeName name="operatorUserLoginWindow"/>
 <fullyQualifiedTypeName name="database_management.MySQLdbManager"/>
 <fullyQualifiedTypeName name="combobox_products_database_management.ComboBox_Products_db_manager"/>
 <fullyQualifiedTypeName name="javax.print.attribute.standard.PDLOverrideSupported"/>
@@ -51,4 +50,5 @@
 <fullyQualifiedTypeName name="mainWindow"/>
 <fullyQualifiedTypeName name="java.awt.Frame"/>
 <fullyQualifiedTypeName name="javax.swing.JDialog"/>
+<fullyQualifiedTypeName name="operatorUserLoginWindow"/>
 </qualifiedTypeNameHistroy>
