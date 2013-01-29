@@ -46,9 +46,9 @@
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.text.DateFormat"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
-<fullyQualifiedTypeName name="mainWindow.InquiriesTableTableModel"/>
 <fullyQualifiedTypeName name="mainWindow"/>
 <fullyQualifiedTypeName name="java.awt.Frame"/>
 <fullyQualifiedTypeName name="javax.swing.JDialog"/>
 <fullyQualifiedTypeName name="operatorUserLoginWindow"/>
+<fullyQualifiedTypeName name="mainWindow.InquiriesTableTableModel"/>
 </qualifiedTypeNameHistroy>

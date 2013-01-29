@@ -1703,7 +1703,7 @@ public class mainWindow extends JFrame {
 			int id = cbpDbManager.getProductStringArrayIdByProductDbId(
 					Integer.parseInt(((OrderDetailsTableTableModel)orderDetailsTable.getModel()).CELLS[orderDetailsTable.getSelectedRow()][5]));
 	
-			if (id != -1) { //no need to change the maximum quantity spinner because itemStateChange event is raised	
+			if (id != -1) {
 				
 				//change current selected quantity spinner:
 				
@@ -1712,17 +1712,10 @@ public class mainWindow extends JFrame {
 				Integer orderedQuantity = new Integer(orderDetailsTable.getValueAt(orderDetailsTable.getSelectedRow(), 1).toString());
 				ordersManagementOperationsPanelProductQuantitySpinner.setValue(orderedQuantity);
 				
-				//BUT if the selected quantify is bigger than the available (current maximum) quantity  (after the Itemchanged event was raised)
-				//we make the selected quantity the spinner maximum, BECAUSE this method is called only when we click on specific item - sign than 
-				//we want to edit the item
-				//note: adding new item with bigger than allowed quantity is protected in the beginning of the specific method
-				
-				if (Integer.parseInt(ordersManagementOperationsPanelProductQuantitySpinner.getValue().toString()) > 
-				Integer.parseInt(((SpinnerNumberModel)ordersManagementOperationsPanelProductQuantitySpinner.getModel()).getMaximum().toString())) {
-					
-					((SpinnerNumberModel)ordersManagementOperationsPanelProductQuantitySpinner.getModel()).setMaximum(
-							Integer.parseInt(ordersManagementOperationsPanelProductQuantitySpinner.getValue().toString()));
-				}
+				//change the maximum editable quantity for the selected product:
+				 
+				Integer totalProductAvailableQuantity = orderedQuantity + cbpDbManager.getProductQuantityByProductStringArrayId(id); //ordered plus current maximum available quantity of the selected product 
+				((SpinnerNumberModel)ordersManagementOperationsPanelProductQuantitySpinner.getModel()).setMaximum(totalProductAvailableQuantity);
 			}		
 		}
 	}
@@ -1914,7 +1907,7 @@ public class mainWindow extends JFrame {
 		int currentProductQuantity = Integer.parseInt(((OrderDetailsTableTableModel)orderDetailsTable.getModel()).CELLS[orderDetailsTable.getSelectedRow()][1]);
 				
 		if (ordersManagementOperationsPanelProductsComboBox.getSelectedIndex() != -1) {
-			
+						
 			Integer npid = cbpDbManager.getProductIdByProductStringArrayId(ordersManagementOperationsPanelProductsComboBox.getSelectedIndex()).intValue();
 			int newProductId = -1;
 			
@@ -1926,6 +1919,26 @@ public class mainWindow extends JFrame {
 				JOptionPane.showMessageDialog(this, "Проблем (1) с редакцията на продукт.", "Неочакван проблем", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
+			
+			//now we check if the selected (edited) product is already in the ordered products table and if so inform the user
+			
+			if (currentProductId != newProductId) {
+			
+				String[][] lCELLS = ((OrderDetailsTableTableModel)orderDetailsTable.getModel()).CELLS;
+				String lnProductId = new String("" + newProductId);
+				
+				for (int i = 0; i < lCELLS.length; i++) {
+					
+					if (lCELLS[i][5].compareTo(lnProductId) == 0) {
+						
+						JOptionPane.showMessageDialog(this, "Този продукт вече съществува в поръчката!\n" + 
+								"Можете да редактирате неговите количества, чрез селектирането му и \n" + 
+								"използването на съответната опция.", "Грешка", JOptionPane.ERROR_MESSAGE);
+						return;
+					}
+				}
+			}
+				
 			
 			int newProductQuantity = -1;
 			newProductQuantity = Integer.parseInt(ordersManagementOperationsPanelProductQuantitySpinner.getValue().toString());
