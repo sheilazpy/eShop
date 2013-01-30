@@ -615,7 +615,7 @@ public class mainWindow extends JFrame {
 	private void jbInit() throws Exception {
 		addWindowListener(new ThisWindowListener());
 		getContentPane().setLayout(new BorderLayout());
-		setTitle("eShop 1.00 (C) 2013 Желян Гуглев & Пламен Генчев");
+		setTitle("eShop 1.00 (C) 2013 Желян Гуглев");
 		setName("mainWindow");
 		
 		setJMenuBar(mainWindowMenu);
@@ -1497,7 +1497,7 @@ public class mainWindow extends JFrame {
 	
 	protected void helpAbout_actionPerformed(ActionEvent e) {
 		
-		JOptionPane.showMessageDialog(this, "eShop ver.-1.00\n(C) 2013 Желян Гуглев & Пламен Генчев\n\nПловдивски унирерситет \"Паисий Хилендарски\"," +
+		JOptionPane.showMessageDialog(this, "eShop ver.-1.00\n(C) 2013 Желян Гуглев\n\nПловдивски унирерситет \"Паисий Хилендарски\"," +
 				" България\nUniversity of Plovdiv \"Paisii Hilendarski\", Bulgaria\n\nОригиналният код достъпен за изтегляне на адрес:\n\n                        http://github.com/zhgzhg/eshop\n\n" + 
 				"при съобразяване с лицензните условия посочени там!!!", "Относно", JOptionPane.INFORMATION_MESSAGE);
 	}
