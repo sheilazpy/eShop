@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -8,6 +9,7 @@ import java.awt.event.WindowEvent;
 //import java.awt.event.WindowListener;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
@@ -79,6 +81,8 @@ public class mainWindow extends JFrame {
 	private final JComboBox inquiriesFiltersPanelDateAndTimeStatementsComboBox = new JComboBox();
 	private final JComboBox inquiriesFiltersPanelOperatorLabelStatementsComboBox = new JComboBox();
 	private final JComboBox inquiriesFiltersPanelOrderTotalPriceStatementsComboBox = new JComboBox();
+	private final JLabel mainWindowStatusPanelConnectionInfoLabel = new JLabel();
+	private final JMenuItem FileInformationForDbconnection = new JMenuItem();
 	class InquiriesTableTableModel extends AbstractTableModel {
 		
 		private static final long serialVersionUID = 3008L;
@@ -506,6 +510,7 @@ public class mainWindow extends JFrame {
 			if (tdm == null) {
 				Init();
 			}
+			
 			tdm.setInsertQuery("INSERT INTO products (product_name, product_quantity, product_price) VALUES(?,?,?)", name, quantity, price);
 			tdm.setPopulateQuery("SELECT product_name, product_quantity, product_price, product_id FROM products WHERE product_id=");
 			
@@ -565,8 +570,6 @@ public class mainWindow extends JFrame {
 	private final JButton mainWindowStatusPanelLoggedUserLogin = new JButton();
 	private final JButton mainWindowStatusPanelLoggedUserSettings = new JButton();
 
-	private final JLabel mainWindowStatusPanelSeparatorLabel = new JLabel();
-	private final JLabel mainWindowStatusPanelSeparatorLabel2 = new JLabel();
 	private final JButton mainWindowStatusPanelLoggedUserLogout = new JButton();
 	
 	private final JMenuItem operationsProductsManagement = new JMenuItem();
@@ -634,6 +637,12 @@ public class mainWindow extends JFrame {
 		FileDisconnectFromDb.setText("Затвори връзката с БД");
 		FileDisconnectFromDb.setDisplayedMnemonicIndex(0);
 		FileDisconnectFromDb.setEnabled(false);
+		
+		File.add(FileInformationForDbconnection);
+		FileInformationForDbconnection.addActionListener(new FileInformationForDbconnectionActionListener());
+		FileInformationForDbconnection.setAccelerator(KeyStroke.getKeyStroke('ф'));
+		FileInformationForDbconnection.setText("Информация за връзката");
+		FileInformationForDbconnection.setDisplayedMnemonicIndex(2);
 
 		File.addSeparator();
 		
@@ -685,11 +694,12 @@ public class mainWindow extends JFrame {
 			new ColumnSpec[] {
 				ColumnSpec.decode("149dlu"),
 				ColumnSpec.decode("72px"),
+				ColumnSpec.decode("8px"),
 				FormFactory.DEFAULT_COLSPEC,
+				ColumnSpec.decode("8px"),
 				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC},
+				ColumnSpec.decode("16px"),
+				ColumnSpec.decode("125dlu")},
 			new RowSpec[] {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("16px")}));
@@ -714,18 +724,16 @@ public class mainWindow extends JFrame {
 		mainWindowStatusPanelLoggedUserSettings.setDisplayedMnemonicIndex(0);
 		mainWindowStatusPanelLoggedUserSettings.setEnabled(false);
 		
-		mainWindowStatusPanel.add(mainWindowStatusPanelSeparatorLabel, new CellConstraints(3, 1, 1, 2));
-		mainWindowStatusPanelSeparatorLabel.setText("   ");
-		
-		mainWindowStatusPanel.add(mainWindowStatusPanelSeparatorLabel2, new CellConstraints(5, 1, 1, 2));
-		mainWindowStatusPanelSeparatorLabel2.setText("   ");
-		
 		mainWindowStatusPanel.add(mainWindowStatusPanelLoggedUserLogout, new CellConstraints(6, 1, 1, 2));
 		mainWindowStatusPanelLoggedUserLogout.setMnemonic(KeyEvent.VK_R);
 		mainWindowStatusPanelLoggedUserLogout.addActionListener(new MainWindowStatusPanelLoggedUserLogoutActionListener());
 		mainWindowStatusPanelLoggedUserLogout.setText("Изход");
 		mainWindowStatusPanelLoggedUserLogout.setDisplayedMnemonicIndex(0);
 		mainWindowStatusPanelLoggedUserLogout.setEnabled(false);
+		
+		mainWindowStatusPanel.add(mainWindowStatusPanelConnectionInfoLabel, new CellConstraints(8, 1, 1, 2, CellConstraints.FILL, CellConstraints.FILL));
+		mainWindowStatusPanelConnectionInfoLabel.setForeground(Color.GRAY);
+		mainWindowStatusPanelConnectionInfoLabel.setText("Свързаност:");
 		mainWindowStatusPanelSetEnabled(false);
 		
 		getContentPane().add(productsManagementPanel);
@@ -1201,6 +1209,11 @@ public class mainWindow extends JFrame {
 			inquiriesTable_mouseClicked(e);
 		}
 	}
+	private class FileInformationForDbconnectionActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			fileInformationForDbconnection_actionPerformed(e);
+		}
+	}
 
 	protected void this_windowClosing(WindowEvent e) {
 		
@@ -1242,8 +1255,16 @@ public class mainWindow extends JFrame {
 				mainWindowPointer.mainWindowStatusPanelLoggedUserLogout.setEnabled(false);
 				mainWindowPointer.FileConnectToDb.setEnabled(false);
 				mainWindowPointer.FileDisconnectFromDb.setEnabled(true);
+				
+				mainWindowPointer.mainWindowStatusPanelConnectionInfoLabel.setText("Свързаност: " + 
+						databaseConnectWindow.dbPortal.getMySqlActiveDatabase() + "@" + 
+						databaseConnectWindow.dbPortal.getMySqlServerAddress());				
+				
+				JOptionPane.showMessageDialog(mainWindowPointer, "Успешно свързване с базата данни!\n" + 
+						"Можете да престъпите към вашата аутентификация.", "Успешно свързване", JOptionPane.INFORMATION_MESSAGE);
 			}
 			else {    				
+				mainWindowPointer.mainWindowStatusPanelConnectionInfoLabel.setText("Свързаност: ");
 				mainWindowPointer.mainWindowStatusPanelSetEnabled(false);
 			}
 		} 
@@ -1279,7 +1300,7 @@ public class mainWindow extends JFrame {
 			databaseConnectWindow.dbPortal.finalize();
 			
 			this.FileConnectToDb.setEnabled(true);
-			this.FileDisconnectFromDb.setEnabled(false);			
+			this.FileDisconnectFromDb.setEnabled(false);
 			this.Operations.setEnabled(false);
 			this.mainWindowStatusPanelLoggedUserSettings.setEnabled(false);
 			this.mainWindowStatusPanelLoggedUserLogout.setEnabled(false);
@@ -1288,8 +1309,28 @@ public class mainWindow extends JFrame {
 			this.ordersManagementPanel.setVisible(false);
 			this.inquiriesPanel.setVisible(false);
 			this.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: ");
+			this.mainWindowStatusPanelConnectionInfoLabel.setText("Свързаност: ");
 			operatorUserLoginWindow.loggedUserId = -1;
 		}
+	}
+	
+	////////////////////////////////////////////////////////////////////////
+	
+	protected void fileInformationForDbconnection_actionPerformed(ActionEvent e) {
+		
+		String info = "Няма връзка с базата данни.";
+		
+		if (databaseConnectWindow.dbPortal != null) {
+			
+			if (databaseConnectWindow.dbPortal.isConnected()) {
+				
+				info = "eShop е свързан с базата данни:\n" + "Сървър: " + databaseConnectWindow.dbPortal.getMySqlServerAddress() + ":" +
+				databaseConnectWindow.dbPortal.getMySqlServerPort() + "\nПотребител: " + databaseConnectWindow.dbPortal.getMySqlUsername() + "\n" +
+				"База данни: " + databaseConnectWindow.dbPortal.getMySqlActiveDatabase();
+			}
+		}
+		
+		JOptionPane.showMessageDialog(this, info, "Информация за връзката с БД", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 	////////////////////////////////////////////////////////////////////////
@@ -1310,11 +1351,11 @@ public class mainWindow extends JFrame {
 			mainWindowPointer.Operations.setEnabled(true);
 			mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: " + operatorUserLoginWindow.loggedUserNames);
 			
-			mainWindowPointer.cboDbManager = null; //we clear inquiries operators combo box in order to force reloading if new operator was created/edited/removed
-			mainWindowPointer.ordersManagementPanel.setVisible(false); //we need to refresh this panel (in case another operator logged we don't want to orders the previous operator made inside the orders management panel)
+			mainWindowPointer.cboDbManager = null; // we clear inquiries operators combo box in order to force reloading if new operator was created/edited/removed
+			mainWindowPointer.ordersManagementPanel.setVisible(false); // we need to refresh this panel (in case another operator logged we don't want to orders the previous operator made inside the orders management panel)
 			
-			//tries to refresh panels data if some of them are visible:
-			//(useful when logged user is changed)
+			// tries to refresh panels data if some of them are visible:
+			// (useful when logged user is changed)
 			
 			if (mainWindowPointer.productsManagementPanel.isVisible() == true) {
 				
@@ -1354,7 +1395,7 @@ public class mainWindow extends JFrame {
 				mainWindowPointer.Operations.setEnabled(true);
 				mainWindowPointer.mainWindowStatusPanelLoggedUserLabel.setText("Потребител: " + operatorUserLoginWindow.loggedUserNames);
 				
-				//tries to refresh panels data if some of them are visible:
+				// tries to refresh panels data if some of them are visible:
 				//(useful when logged user is changed)
 				
 				if (mainWindowPointer.productsManagementPanel.isVisible() == true) {
@@ -1466,7 +1507,7 @@ public class mainWindow extends JFrame {
 		ordersManagementPanel.setVisible(false);
 		inquiriesPanel.setVisible(false);
 		
-		if ((productsManagementPanel.isVisible() == true) && (e.getActionCommand().compareTo("ProductsManagementPanelRefresh") != 0)) { //if opened on second click just close it
+		if ((productsManagementPanel.isVisible() == true) && (e.getActionCommand().compareTo("ProductsManagementPanelRefresh") != 0)) { // if opened on second click just close it
 			
 			productsManagementPanel.setVisible(false);
 			return;
@@ -1474,7 +1515,7 @@ public class mainWindow extends JFrame {
 		
 		((ProductsTableTableModel)productsTable.getModel()).fireTableDataChanged();
 		((ProductsTableTableModel)productsTable.getModel()).populateTableWithDatabaseData();
-		productsTable.getColumnModel().getColumn(1).setPreferredWidth(productsTable.getColumnModel().getColumn(1).getPreferredWidth() + 7); //tune column Налично Количество little bit
+		productsTable.getColumnModel().getColumn(1).setPreferredWidth(productsTable.getColumnModel().getColumn(1).getPreferredWidth() + 7); // tune column Налично Количество little bit
 		productsManagementPanel.setVisible(true);
 		getContentPane().add(productsManagementPanel); // we are using BorderLayout so we need to add this panel again in order to get visible
 		
@@ -1497,7 +1538,7 @@ public class mainWindow extends JFrame {
 		orderDetailsTable.getColumnModel().getColumn(1).setPreferredWidth(70); //resize column Количество
 		orderDetailsTable.getColumnModel().getColumn(2).setPreferredWidth(55); //resize column Ед. цена
 		
-		if (cbpDbManager == null) { //populate products combobox control with products names
+		if (cbpDbManager == null) { // populate products combobox control with products names
 			
 			cbpDbManager = new ComboBox_Products_db_manager(databaseConnectWindow.dbPortal);
 			cbpDbManager.loadAllProducts();
@@ -1528,13 +1569,13 @@ public class mainWindow extends JFrame {
 		productsManagementPanel.setVisible(false);
 		ordersManagementPanel.setVisible(false);
 		
-		if ((inquiriesPanel.isVisible() == true) && (e.getActionCommand().compareTo("InquiriesPanelRefresh") != 0)) { //if opened on second click just close it
+		if ((inquiriesPanel.isVisible() == true) && (e.getActionCommand().compareTo("InquiriesPanelRefresh") != 0)) { // if opened on second click just close it
 			
 			inquiriesPanel.setVisible(false);
 			return;
 		}	
 		
-		//in case - to prevent SQL injection
+		// in case - to prevent SQL injection
 		inquiriesFiltersPanelOrderNumberSpinner.validate();
 		inquiriesFiltersPanelOrderDateSpinner.validate();
 		inquiriesFiltersPanelOrderTotalPriceSpinner.validate();
@@ -1598,7 +1639,7 @@ public class mainWindow extends JFrame {
 			
 			((ProductsTableTableModel)productsTable.getModel()).fireTableDataChanged();	
 			
-			cbpDbManager = null; //we clear the content in orders management products combobox in order to force it if called to reload
+			cbpDbManager = null; // we clear the content in orders management products combobox in order to force it if called to reload
 		}
 		else {
 			JOptionPane.showMessageDialog(this, "Новият продукт задължително трябва да притежава име!", "Грешка", JOptionPane.ERROR_MESSAGE);
@@ -1626,7 +1667,7 @@ public class mainWindow extends JFrame {
 			
 			productsTable.changeSelection(selectedTableRow, 0, true, false);
 			
-			cbpDbManager = null; //we clear the content in orders management products combobox in order to force it if called to reload
+			cbpDbManager = null; // we clear the content in orders management products combobox in order to force it if called to reload
 		}
 		else {
 			JOptionPane.showMessageDialog(this, "Редактираният продукт задължително трябва да притежава име!", "Грешка", JOptionPane.ERROR_MESSAGE);
@@ -1645,7 +1686,7 @@ public class mainWindow extends JFrame {
 			
 			((ProductsTableTableModel)productsTable.getModel()).removeSelectedRow(productsTable.getSelectedRow());
 			((ProductsTableTableModel)productsTable.getModel()).fireTableDataChanged();
-			cbpDbManager = null; //we clear the content in orders management products combobox in order to force it if called to reload
+			cbpDbManager = null; // we clear the content in orders management products combobox in order to force it if called to reload
 		}
 	}	
 	
@@ -1785,7 +1826,7 @@ public class mainWindow extends JFrame {
 					((SpinnerNumberModel)ordersManagementOperationsPanelProductQuantitySpinner.getModel()).setMaximum(quantity.intValue());
 										
 					if (Integer.parseInt(ordersManagementOperationsPanelProductQuantitySpinner.getValue().toString()) > 
-					quantity.intValue()) { //if current quantity is out of the new maximum now reduce it
+					quantity.intValue()) { // if current quantity is out of the new maximum now reduce it
 						
 						ordersManagementOperationsPanelProductQuantitySpinner.setValue(quantity);
 					}
@@ -1799,11 +1840,11 @@ public class mainWindow extends JFrame {
 	
 	protected void ordersManagementOperationsPanelProductAddButton_actionPerformed(ActionEvent e) {
 		
-		//raise again ordersManagementOperationsPanelProductsComboBox_itemStateChanged event
-		//if case that the user has clicked on the order detail table on specific product which is out of stock
-		//but the quantity spinner automatically changes it's value because it's more comfortable for editing purposes
-		//AND then the user has changed the current order with new one where the out of stock product is not in the
-		//orders details list so we MUST reduce the current selected quality to the maximum available
+		// raise again ordersManagementOperationsPanelProductsComboBox_itemStateChanged event
+		// if case that the user has clicked on the order detail table on specific product which is out of stock
+		// but the quantity spinner automatically changes it's value because it's more comfortable for editing purposes
+		// AND then the user has changed the current order with new one where the out of stock product is not in the
+		// orders details list so we MUST reduce the current selected quality to the maximum available
 		
 		ItemEvent ie = new ItemEvent(ordersManagementOperationsPanelProductsComboBox, 0, null, ItemEvent.SELECTED);
 		ordersManagementOperationsPanelProductsComboBox_itemStateChanged(ie);
@@ -1829,7 +1870,7 @@ public class mainWindow extends JFrame {
 			
 			if (Integer.parseInt(ordersManagementOperationsPanelProductQuantitySpinner.getValue().toString()) > 0) {
 		
-				//first check if selected product has been added before
+				// first check if selected product has been added before
 				
 				int productId = -1;
 				
@@ -1858,7 +1899,7 @@ public class mainWindow extends JFrame {
 				
 				((OrderDetailsTableTableModel)orderDetailsTable.getModel()).fireTableDataChanged();
 				
-				//now update the date and time of the last changes of the current order in orders list table
+				// now update the date and time of the last changes of the current order in orders list table
 				((OrdersInfoTableTableModel)ordersInfoTable.getModel()).updateSelectedRow(ordersInfoTable.getSelectedRow());
 				
 				calculateOrderTotalPrice();
@@ -1920,7 +1961,7 @@ public class mainWindow extends JFrame {
 				return;
 			}
 			
-			//now we check if the selected (edited) product is already in the ordered products table and if so inform the user
+			// now we check if the selected (edited) product is already in the ordered products table and if so inform the user
 			
 			if (currentProductId != newProductId) {
 			
@@ -1969,7 +2010,7 @@ public class mainWindow extends JFrame {
 					cbpDbManager.decreaseProductQuantityFromProductStringArrayId(ordersManagementOperationsPanelProductsComboBox.getSelectedIndex(), 
 							newDiffQuantity);
 				}
-				else { //increase the quantity in the database; decrease in the order
+				else { // increase the quantity in the database; decrease in the order
 					
 					int newDiffQuantity = currentProductQuantity - newProductQuantity;
 					
@@ -1980,16 +2021,16 @@ public class mainWindow extends JFrame {
 							newDiffQuantity);
 				}
 			}
-			else { //modify the product and the quantity
+			else { // modify the product and the quantity
 			
-				//first remove the old product from the program table and database and increase it's available quantity in the database and the program
+				// first remove the old product from the program table and database and increase it's available quantity in the database and the program
 				
 				int psaid = cbpDbManager.getProductStringArrayIdByProductDbId(currentProductId);
 				
 				cbpDbManager.increaseProductQuantityFromProductStringArrayId(psaid,	currentProductQuantity);
 				((OrderDetailsTableTableModel)orderDetailsTable.getModel()).removeSelectedRow(orderDetailsTable.getSelectedRow());
 				
-				//then insert the new product in the program table and database and decrease it's available quantity in the database and the program
+				// then insert the new product in the program table and database and decrease it's available quantity in the database and the program
 				((OrderDetailsTableTableModel)orderDetailsTable.getModel()).insertNewRow(orderId, newProductId, newProductQuantity);
 				cbpDbManager.decreaseProductQuantityFromProductStringArrayId(ordersManagementOperationsPanelProductsComboBox.getSelectedIndex(), 
 						newProductQuantity);
@@ -1997,11 +2038,11 @@ public class mainWindow extends JFrame {
 			
 			((OrderDetailsTableTableModel)orderDetailsTable.getModel()).fireTableDataChanged();
 			
-			//simulate comboBox click on the current item (item change with the same item) in order to update the maximum quantity limit of the spinner
+			// simulate comboBox click on the current item (item change with the same item) in order to update the maximum quantity limit of the spinner
 			ItemEvent ie = new ItemEvent(ordersManagementOperationsPanelProductsComboBox, 0, null, ItemEvent.SELECTED);
 			ordersManagementOperationsPanelProductsComboBox_itemStateChanged(ie);
 			
-			//now update the date and time of the last changes of the current order in orders list table
+			// now update the date and time of the last changes of the current order in orders list table
 			((OrdersInfoTableTableModel)ordersInfoTable.getModel()).updateSelectedRow(ordersInfoTable.getSelectedRow());
 			
 			calculateOrderTotalPrice();
@@ -2041,7 +2082,7 @@ public class mainWindow extends JFrame {
 		int currentProductId = Integer.parseInt(((OrderDetailsTableTableModel)orderDetailsTable.getModel()).CELLS[orderDetailsTable.getSelectedRow()][5]);
 		int currentProductQuantity = Integer.parseInt(((OrderDetailsTableTableModel)orderDetailsTable.getModel()).CELLS[orderDetailsTable.getSelectedRow()][1]);
 		
-		//remove the product from the database information about the current order		
+		// remove the product from the database information about the current order		
 		
 		((OrderDetailsTableTableModel)orderDetailsTable.getModel()).removeSelectedRow(orderDetailsTable.getSelectedRow());
 		
@@ -2055,15 +2096,15 @@ public class mainWindow extends JFrame {
 		
 		((OrderDetailsTableTableModel)orderDetailsTable.getModel()).fireTableDataChanged();
 		
-		//if the removed product was selected in the comboBox before that we need to update spinner maximum quantity limit value
+		// if the removed product was selected in the comboBox before that we need to update spinner maximum quantity limit value
 		if (psaid == ordersManagementOperationsPanelProductsComboBox.getSelectedIndex()) {
 			
-			//so we simulate click on in (item change with the same item)
+			// so we simulate click on in (item change with the same item)
 			ItemEvent ie = new ItemEvent(ordersManagementOperationsPanelProductsComboBox, 0, null, ItemEvent.SELECTED);
 			ordersManagementOperationsPanelProductsComboBox_itemStateChanged(ie);
 		}
 		
-		//now update the date and time of the last changes of the current order in orders list table
+		// now update the date and time of the last changes of the current order in orders list table
 		((OrdersInfoTableTableModel)ordersInfoTable.getModel()).updateSelectedRow(ordersInfoTable.getSelectedRow());
 		
 		calculateOrderTotalPrice();
@@ -2086,6 +2127,7 @@ public class mainWindow extends JFrame {
 		
 		statementsTextArea.setText(text);
 	}
+	
 	protected void inquiriesFiltersPanelOrderNumberOrButton_actionPerformed(ActionEvent e) {
 		
 		String sign = inquiriesFiltersPanelOrderNumberStatementsComboBox.getSelectedItem().toString();
@@ -2119,6 +2161,7 @@ public class mainWindow extends JFrame {
 		
 		statementsTextArea.setText(text);
 	}
+	
 	protected void inquiriesFiltersPanelDateAndTimeOrButton_actionPerformed(ActionEvent e) {
 		
 		String sign = inquiriesFiltersPanelDateAndTimeStatementsComboBox.getSelectedItem().toString();
@@ -2187,6 +2230,7 @@ public class mainWindow extends JFrame {
 		
 		statementsTextArea.setText(text);
 	}
+	
 	protected void inquiriesFiltersPanelOrderTotalPriceOrButton_actionPerformed(ActionEvent e) {
 		
 		String sign = inquiriesFiltersPanelOrderTotalPriceStatementsComboBox.getSelectedItem().toString();
@@ -2255,10 +2299,9 @@ public class mainWindow extends JFrame {
 			totalPrice = Double.parseDouble(inquiriesTable.getValueAt(selectedRow, 3).toString());
 		}
 		catch (Exception ex) {			
-		}
-		
+		}		
 		
 		inquiriesFiltersPanelOrderTotalPriceSpinner.setValue(totalPrice);
-	}	
+	}
 	
 }

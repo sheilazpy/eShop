@@ -1,6 +1,8 @@
 /*
  * Easy JTable population and management with data from database.
  * (C) 14.01.2013 - 28.01.2013 zhgzhg
+ * TODO in the future versions quantity or other kind of checks from the db before update, insert or remove 
+ * with transactions
  */
 
 package jtables_database_management;
@@ -249,7 +251,7 @@ public class Tables_db_manager {
 		
 		rs = null;
 		dbPortal.freeQueryNonQueryTemporaryResults();
-		rs = dbPortal.executeQuery(populateQuery + lastProductId); //special query
+		rs = dbPortal.executeQuery(populateQuery + lastProductId); // special query
 		
 		if (rs != null) {
 			

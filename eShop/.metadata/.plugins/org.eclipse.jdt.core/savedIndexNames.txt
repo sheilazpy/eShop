@@ -1,13 +1,13 @@
 INDEX VERSION 1.125+D:\Drugi\Docs\PU\3 kurs\2 trimestur\Kursov Proekt 2\eShop\.metadata\.plugins\org.eclipse.jdt.core
-4258022599.index
-2022660347.index
-1164253737.index
-295014608.index
-4112234698.index
-2189383343.index
-1574758937.index
-3057692050.index
-659401946.index
-492272455.index
-2880237455.index
 321982250.index
+2880237455.index
+492272455.index
+659401946.index
+295014608.index
+1574758937.index
+4112234698.index
+2022660347.index
+2189383343.index
+882809698.index
+1164253737.index
+4258022599.index

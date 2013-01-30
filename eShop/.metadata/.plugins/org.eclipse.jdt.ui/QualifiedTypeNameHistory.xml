@@ -21,7 +21,6 @@
 <fullyQualifiedTypeName name="java.util.Locale"/>
 <fullyQualifiedTypeName name="java.text.DecimalFormatSymbols"/>
 <fullyQualifiedTypeName name="mainWindow.ProductsTableTableModel"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="javax.swing.table.DefaultTableModel"/>
 <fullyQualifiedTypeName name="java.math.BigDecimal"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
@@ -34,12 +33,10 @@
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.awt.event.ItemEvent"/>
-<fullyQualifiedTypeName name="java.sql.SQLException"/>
 <fullyQualifiedTypeName name="mainWindow.OrdersInfoTableTableModel"/>
 <fullyQualifiedTypeName name="mainWindow.OrderDetailsTableTableModel"/>
 <fullyQualifiedTypeName name="javax.swing.SpinnerNumberModel"/>
 <fullyQualifiedTypeName name="combobox_database_management.ComboBox_Operators_db_manager"/>
-<fullyQualifiedTypeName name="databaseConnectWindow"/>
 <fullyQualifiedTypeName name="javax.swing.SpinnerDateModel"/>
 <fullyQualifiedTypeName name="javax.swing.JSpinner.DateEditor"/>
 <fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
@@ -51,4 +48,7 @@
 <fullyQualifiedTypeName name="javax.swing.JDialog"/>
 <fullyQualifiedTypeName name="operatorUserLoginWindow"/>
 <fullyQualifiedTypeName name="mainWindow.InquiriesTableTableModel"/>
+<fullyQualifiedTypeName name="databaseConnectWindow"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
 </qualifiedTypeNameHistroy>

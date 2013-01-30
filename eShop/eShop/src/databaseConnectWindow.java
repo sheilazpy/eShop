@@ -3,6 +3,8 @@ import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.JDialog;
 //import javax.swing.JFrame;
@@ -154,19 +156,19 @@ public class databaseConnectWindow extends JDialog/*JFrame*/ {
 				mysqlUsernameTextField.getText(), password);		
 		
 		
-		if (dbPortal.connect() == false) { //now check for database name that is not existing
+		if (dbPortal.connect() == false) { // now check for database name that is not existing
 			
 			dbPortal.setMySqlActiveDatabase("");
 			dbPortal.disconnect(); //just in case
 			
-			if (dbPortal.connect() == false) { //connection settings problem or not running MySQL server
+			if (dbPortal.connect() == false) { // connection settings problem or not running MySQL server
 				dbPortal.finalize();
 				JOptionPane.showMessageDialog(this, "Грешка при свързването! Проверете настройките и дали MySQL сървът е стартиран!", 
 						"Проблем с връзката!", JOptionPane.ERROR_MESSAGE);
 				
 				return;
 			}
-			else { //will have to create new database
+			else { // will have to create new database
 				
 				dbPortal.disconnect();
 				
@@ -187,6 +189,20 @@ public class databaseConnectWindow extends JDialog/*JFrame*/ {
 				this.getToolkit().getSystemEventQueue().postEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 			}			
 		}
+		else {
+			
+			// check for correct database (with all tables and columns needed)
+			
+			if (isConnectedDatabaseContainsAllNeededTablesAndColumns() == false) {
+				
+				dbPortal.finalize();
+				JOptionPane.showMessageDialog(this, "Задали сте име на база данни, чието съдържание\n" + 
+						"не е съвместимо с тази версия на eShop!!!", "Грешна база данни", JOptionPane.ERROR_MESSAGE);
+				
+				return;
+			}
+		}		
+		
 		
 		this.getToolkit().getSystemEventQueue().postEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));		
 	}
@@ -277,5 +293,109 @@ public class databaseConnectWindow extends JDialog/*JFrame*/ {
 		}*/
 		
 		return true;
-	}	
+	}
+	
+	private boolean isConnectedDatabaseContainsAllNeededTablesAndColumns() {
+		
+		ResultSet rs = null;
+				
+		//check for existing connection
+		
+		if (dbPortal == null) {			
+			return false;
+		}		
+		if (!dbPortal.isConnected()) {
+			return false;
+		}
+		
+		// check for existing tables 
+		
+		dbPortal.freeQueryNonQueryTemporaryResults();
+		rs = dbPortal.executeQuery("SELECT table_name FROM information_schema.tables WHERE " + 
+				"table_schema = '" + dbPortal.getMySqlActiveDatabase() + "' AND (table_name = 'operators' OR " +
+				"table_name = 'orders' OR table_name = 'products' OR table_name = 'order_details')");
+		
+		if (resultsetInformationCountCheckIsEqual(rs, 4) == false) { //there must be 4 tables
+			return false;
+		}
+		
+		// check for existing columns in operators table
+		
+		dbPortal.freeQueryNonQueryTemporaryResults();
+		rs = dbPortal.executeQuery("SELECT * FROM information_schema.columns WHERE " + 
+				"table_schema = '" + dbPortal.getMySqlActiveDatabase() + "' AND table_name = 'operators' AND (" +
+				"column_name = 'operator_id' OR column_name = 'operator_username' OR column_name = 'operator_password' OR " +
+				"column_name = 'operator_first_name' OR column_name = 'operator_last_name')");
+		
+		if (resultsetInformationCountCheckIsEqual(rs, 5) == false) { //there must be 5 columns
+			return false;
+		}
+		
+		// check for existing columns in operators table
+		
+		dbPortal.freeQueryNonQueryTemporaryResults();
+		rs = dbPortal.executeQuery("SELECT table_name FROM information_schema.columns WHERE " + 
+				"table_schema = '" + dbPortal.getMySqlActiveDatabase() + "' AND table_name = 'orders' AND (" +
+				"column_name = 'order_id' OR column_name = 'order_time' OR column_name = 'order_operator_id')");
+		
+		if (resultsetInformationCountCheckIsEqual(rs, 3) == false) { //there must be 3 columns
+			return false;
+		}
+		
+		// check for existing columns in products table
+		
+		dbPortal.freeQueryNonQueryTemporaryResults();
+		rs = dbPortal.executeQuery("SELECT * FROM information_schema.columns WHERE " + 
+				"table_schema = '" + dbPortal.getMySqlActiveDatabase() + "' AND table_name = 'products' AND (" +
+				"column_name = 'product_id' OR column_name = 'product_name' OR column_name = 'product_quantity' OR " +
+				"column_name = 'product_price')");
+		
+		if (resultsetInformationCountCheckIsEqual(rs, 4) == false) { //there must be 4 columns
+			return false;
+		}
+		
+		// check for existing columns in order_details table
+		
+		dbPortal.freeQueryNonQueryTemporaryResults();
+		rs = dbPortal.executeQuery("SELECT * FROM information_schema.columns WHERE " + 
+				"table_schema = '" + dbPortal.getMySqlActiveDatabase() + "' AND table_name = 'order_details' AND (" +
+				"column_name = 'order_detail_id' OR column_name = 'order_detail_order_id' OR " +
+				"column_name = 'order_detail_product_id' OR column_name = 'order_detail_product_quantity')");
+		
+		if (resultsetInformationCountCheckIsEqual(rs, 4) == false) { //there must be 4 columns
+			return false;
+		}		
+		
+		return true;
+	}
+	
+	private boolean resultsetInformationCountCheckIsEqual(ResultSet rs, int expectedCount) {
+		
+		if (rs == null) {
+			
+			return false;
+		}
+		else {
+			
+			try {
+			
+				if (rs.last()) {
+					
+					if (rs.getRow() != expectedCount) {
+						
+						return false;
+					}
+				}
+				else {
+					return false;
+				}			
+			}
+			catch (SQLException ex) {
+				
+				return false;
+			}			
+		}
+		
+		return true;
+	}
 }

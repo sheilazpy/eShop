@@ -3,6 +3,7 @@
  * <p> Description: MySQL java database manager wrapper </p>
  * @version 1.00
  * @author (C) 09.01.2013 - 21.01.2013 zhgzhg
+ * TODO in the next version - sql transactions methods 
  */
 
 package database_management;
