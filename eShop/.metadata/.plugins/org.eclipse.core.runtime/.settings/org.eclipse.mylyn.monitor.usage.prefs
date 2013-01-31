@@ -1,9 +1,9 @@
-#Wed Jan 30 22:55:22 EET 2013
+#Thu Jan 31 20:03:31 EET 2013
 org.eclipse.mylyn.monitor.ui.enabled=true
 org.eclipse.mylyn.monitor.enable.submission=true
 eclipse.preferences.version=1
 org.eclipse.mylyn.monitor.submission.initially.enabled=true
 org.eclipse.mylyn.monitor.monitoring.started=true
-org.eclipse.mylyn.monitor.ui.events.observed=21100
+org.eclipse.mylyn.monitor.ui.events.observed=24929
 org.eclipse.mylyn.monitor.initially.enabled=true
 org.eclipse.mylyn.monitor.ui.upload.previousTransmit=1357825317619

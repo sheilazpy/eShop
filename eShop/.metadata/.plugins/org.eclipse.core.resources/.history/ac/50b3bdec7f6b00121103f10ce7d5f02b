@@ -1,0 +1,19 @@
+/**
+ * <p> Title: SqlQueriesAndParametersMixer </p>
+ * <p> Description: Special queries and parameters class wrapper for MySQLdbManager class
+ * to pass arguments when needed to call parameterized non/query methods 
+ * </p>
+ * @version 1.00
+ * @author (C) 30.01.2013 -  zhgzhg
+ */
+
+package database_management;
+
+import java.sql.*;
+
+public class SqlQueriesAndParametersMixer {
+	
+	String query = null;
+	Object[] parameters = null;
+	
+}

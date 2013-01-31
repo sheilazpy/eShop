@@ -1,14 +1,16 @@
 /*
  * Easy JTable population and management with data from database.
- * (C) 14.01.2013 - 28.01.2013 zhgzhg
- * TODO in the future versions quantity or other kind of checks from the db before update, insert or remove 
- * with transactions
+ * (C) 31.01.2013 - zhgzhg
  */
 
 package jtables_database_management;
 
 import database_management.MySQLdbManager;
+import database_management.SqlResultSetAndIntegerMixer;
+import database_management.SqlQueryAndParametersMixer;
+
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.swing.table.AbstractTableModel;
 
@@ -185,15 +187,21 @@ public class Tables_db_manager {
 	
 	public String[][] performRowInsert() {
 		
-		errorMessage = null;
-		
-		ResultSet rs = null;
+		errorMessage = null;		
+		ResultSet rs = null;		
+		ArrayList<SqlResultSetAndIntegerMixer> res = null;
 		
 		if (insertQueryParams == null) {
 		
-			dbPortal.freeQueryNonQueryTemporaryResults();
+			String[] nonParameterizedQueriesToExecute = new String[] {
+					insertQuery, "SELECT LAST_INSERT_ID()"
+				};
 			
-			if (dbPortal.executeNonQuery(insertQuery) < 1) {
+			dbPortal.freeQueryNonQueryTransactionTemporaryResults();			
+			
+			res = dbPortal.executeMixedTransaction(nonParameterizedQueriesToExecute);
+			
+			if ((res == null) || (((Integer)res.get(0).getContent()).intValue() < 1) ) {
 				
 				errorMessage = "Грешка при добавянето:\n" + dbPortal.getLastError();				
 				return CELLS;
@@ -201,9 +209,15 @@ public class Tables_db_manager {
 		}
 		else {
 			
-			dbPortal.freeParameterizedQueryNonQueryTemporaryResults();
+			dbPortal.freeParameterizedQueryNonQueryTransactionTemporaryResults();
 			
-			if (dbPortal.executeParameterizedNonQuery(insertQuery, insertQueryParams) < 1) {
+			SqlQueryAndParametersMixer[] sqpm = new SqlQueryAndParametersMixer[2];
+			sqpm[0] = new SqlQueryAndParametersMixer(insertQuery, insertQueryParams);
+			sqpm[1] = new SqlQueryAndParametersMixer("SELECT LAST_INSERT_ID()", (Object[])null);
+			
+			res = dbPortal.executeMixedParameterizedTransaction(sqpm);
+			
+			if ((res == null) || (((Integer)res.get(0).getContent()).intValue() < 1) ) {	
 				
 				errorMessage = "Грешка при добавянето:\n" + dbPortal.getLastError();				
 				return CELLS;
@@ -214,8 +228,7 @@ public class Tables_db_manager {
 		
 		int lastProductId = -1;
 		
-		dbPortal.freeQueryNonQueryTemporaryResults();
-		rs = dbPortal.executeQuery("SELECT LAST_INSERT_ID()");
+		rs = (ResultSet)res.get(1).getContent();
 		
 		if (rs != null) {
 			
@@ -378,7 +391,7 @@ public class Tables_db_manager {
 		if (updateQueryParams == null) {		
 			
 			dbPortal.freeQueryNonQueryTemporaryResults();
-			if (dbPortal.executeNonQuery(updateQuery) < 1) {
+			if (dbPortal.executeNonQuery(updateQuery) < 1) {			
 				
 				errorMessage = "Грешка при редактирането:\n" + dbPortal.getLastError();							
 				return CELLS;
@@ -418,12 +431,9 @@ public class Tables_db_manager {
 					o = rs.getObject(i + 1);
 					CELLS[tableRowNumber][i] = (o == null ? "" : o.toString());
 				}
-				
-				//CELLS[rowNumber][0] = rs.getString(1); 	   			  // product_name
-				//CELLS[rowNumber][1] = new String("" + rs.getInt(2));  // product_quantity
-				//CELLS[rowNumber][2] = rs.getBigDecimal(3).toString(); // product_price
 			}
 			catch (Exception ex) {
+				
 				errorMessage = ex.getMessage();
 				return CELLS;
 			}

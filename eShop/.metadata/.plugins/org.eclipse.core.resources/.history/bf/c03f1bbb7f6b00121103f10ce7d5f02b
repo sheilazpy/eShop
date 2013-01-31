@@ -1,0 +1,5 @@
+package database_management;
+
+public class SqlQueriesAndParametersMixer {
+
+}

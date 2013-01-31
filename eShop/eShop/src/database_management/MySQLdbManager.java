@@ -1,16 +1,22 @@
 /**
  * <p> Title: MySQLdbManager </p>
  * <p> Description: MySQL java database manager wrapper </p>
- * @version 1.00
- * @author (C) 09.01.2013 - 21.01.2013 zhgzhg
- * TODO in the next version - sql transactions methods 
+ * <p> For multi-threaded applications different instances should be used </p>
+ * @version 1.01
+ * @author (C) 30.01.2013 - 31.01.2013 zhgzhg
  */
 
 package database_management;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class MySQLdbManager {
+	
+	public final static int TRANSACTION_READ_UNCOMMITTED = Connection.TRANSACTION_READ_UNCOMMITTED, 
+	TRANSACTION_READ_COMMITTED = Connection.TRANSACTION_READ_COMMITTED,
+	TRANSACTION_REPEATABLE_READ = Connection.TRANSACTION_REPEATABLE_READ,
+	TRANSACTION_SERIALIZABLE = Connection.TRANSACTION_SERIALIZABLE;
 	
 	private final String JDBCDRIVER = "com.mysql.jdbc.Driver";
 	private int mySqlServerPort = 3306;
@@ -23,6 +29,9 @@ public class MySQLdbManager {
 	
 	private PreparedStatement pSqlStatement = null;
 	private Statement sqlStatement = null;
+	
+	private PreparedStatement[] tpSqlStatement = null;
+	private Statement[] tsqlStatement = null;
 		
 	private String lastError = null;
 	
@@ -252,6 +261,68 @@ public class MySQLdbManager {
 	}
 	
 	/**
+	 * Attempts to change the transaction isolation level for the current instance. 
+	 * @param level int Possible values: MySQLdbManager.TRANSACTION_READ_UNCOMMITTED, MySQLdbManager.TRANSACTION_READ_COMMITTED, 
+	 * MySQLdbManager.TRANSACTION_REPEATABLE_READ or MySQLdbManager.TRANSACTION_SERIALIZABLE.
+	 */
+	
+	public void setMySQLTransactionIsolationLevel(int level) {
+		
+		lastError = null;
+		
+		if ((level != MySQLdbManager.TRANSACTION_READ_COMMITTED) && (level != TRANSACTION_READ_UNCOMMITTED) && 
+		(level != MySQLdbManager.TRANSACTION_REPEATABLE_READ) && (level != MySQLdbManager.TRANSACTION_SERIALIZABLE)) {
+			
+			lastError = "Invalid level value!";
+			return;
+		}
+		
+		if (dbConnection != null) {
+			
+			try {
+				
+				dbConnection.setTransactionIsolation(level);
+			}
+			catch (SQLException ex) {
+				
+				lastError = ex.getMessage();
+			}
+		}
+		else {
+			
+			lastError = "Uninitialized connection!";
+		} 
+	}
+	
+	/**
+	 * Returns the transaction isolation level for the current instance.
+	 * @return int
+	 */
+	
+	public int getMySQLTransactionIsolationLevel() {
+		
+		lastError = null;
+		
+		if (dbConnection != null) {
+		
+			try {
+			
+				return dbConnection.getTransactionIsolation();
+			}
+			catch (SQLException ex) {
+				
+				lastError = ex.getMessage();
+			}
+		}
+		else {
+			
+			lastError = "Uninitialized connection!";
+		}
+		
+		return -1;
+	}
+	
+	/**
 	 * Checks for active database connection and returns true if it is presented.
 	 * @return boolean
 	 */
@@ -381,6 +452,8 @@ public class MySQLdbManager {
 		
 		try {
 			
+			dbConnection.setAutoCommit(true); // now we are not working with transactions
+			
 			sqlStatement = dbConnection.createStatement();
 			sqlStatement.execute(query);
 			affectedCount = sqlStatement.getUpdateCount();
@@ -389,6 +462,74 @@ public class MySQLdbManager {
 			
 			lastError = ex.getMessage();			
 		}
+		
+		return affectedCount;
+	}
+	
+	/**
+	 * Executes transaction queries and returns the number of affected things. For INSERT, UPDATE, DELETE ...
+	 * Warning! Prone to SQL injection!!!
+	 * @param query String... contains each query
+	 * @return int[] the number of affected things for each query
+	 */
+	
+	public int[] executeNonQueryTransaction(String... query) {
+		
+		int[] affectedCount = null;
+		
+		if (query == null) {
+			
+			lastError = "Uninitialized query!";
+			return affectedCount;
+		}
+		
+		if (!isConnected()) {
+			
+			lastError = "No connection!";
+			return affectedCount;			
+		}
+		else {			
+			lastError = null;
+		}
+		
+		int i = 0;
+		tsqlStatement = new Statement [query.length];
+		
+		try {
+			
+			dbConnection.setAutoCommit(false); // now we are not working with transactions
+						 			
+			for (i = 0; i < query.length; i++) {
+			
+				tsqlStatement[i] = dbConnection.createStatement();
+				tsqlStatement[i].execute(query[i]);
+			}
+			
+			dbConnection.commit();
+			
+			affectedCount = new int [query.length];
+			
+			for (i = 0; i < query.length; i++) {
+				
+				affectedCount[i] = 0;
+			}
+			
+			for (i = 0; i < query.length; i++) {
+			
+				affectedCount[i] = tsqlStatement[i].getUpdateCount();
+			}
+		}
+		catch (SQLException ex) {
+			
+			lastError = ex.getMessage();
+			
+			try {
+				dbConnection.rollback();
+			}
+			catch (SQLException ex2) {
+				
+			}
+		}		
 		
 		return affectedCount;
 	}
@@ -415,6 +556,8 @@ public class MySQLdbManager {
 		
 		try {
 			
+			dbConnection.setAutoCommit(true); // now we are not working with transactions
+			
 			pSqlStatement = dbConnection.prepareStatement(query);
 			
 			for (int i = 0; i < parameters.length; i++) {
@@ -434,13 +577,89 @@ public class MySQLdbManager {
 	}
 	
 	/**
+	 * Executes parameterized query transaction and returns the number of affected things. For INSERT, UPDATE, DELETE ...
+	 * @param queriesAndParameters SqlQueryAndParametersMixer
+	 * @return int[] the number of affected things
+	 */
+	
+	public int[] executeParameterizedNonQueryTransaction(SqlQueryAndParametersMixer... queriesAndParameters) {
+		
+		int[] affectedCount = null;
+		
+		if (queriesAndParameters == null) {
+			
+			lastError = "Uninitialized queriesAndParameters!";
+			return affectedCount;
+		}
+		
+		if (!isConnected()) {
+			
+			lastError = "No connection!";
+			return affectedCount;			
+		}
+		else {			
+			lastError = null;
+		}
+		
+		int i = 0, j = 0;
+		tpSqlStatement = new PreparedStatement[queriesAndParameters.length];
+		
+		try {
+			
+			dbConnection.setAutoCommit(false); // now we are working with transactions
+			
+			for (i = 0; i < queriesAndParameters.length; i++) {
+
+				tpSqlStatement[i] = dbConnection.prepareStatement(queriesAndParameters[i].getQuery());
+				
+				if (queriesAndParameters[i].getParameters() != null) {
+				
+					for (j = 0; j < queriesAndParameters[i].getParameters().length; j++) {
+						
+						tpSqlStatement[i].setObject(j + 1, queriesAndParameters[i].getParameters()[j]);
+					}
+				}
+				
+				tpSqlStatement[i].execute();
+			}
+			
+			dbConnection.commit();	
+			
+			affectedCount = new int[queriesAndParameters.length];
+			
+			for (i = 0; i < queriesAndParameters.length; i++) {
+				
+				affectedCount[i] = 0;
+			}
+			
+			for (i = 0; i < queriesAndParameters.length; i++) {
+			
+				affectedCount[i] = tpSqlStatement[i].getUpdateCount();
+			}
+		}
+		catch (SQLException ex) {
+			
+			lastError = ex.getMessage();	
+			
+			try {
+				dbConnection.rollback();
+			}
+			catch (SQLException ex2) {
+				
+			}
+		}
+		
+		return affectedCount;
+	}
+	
+	/**
 	 * Executes query and returns ResultSet with data. For SELECT...
 	 * Warning! Prone to SQL injection!!!
 	 * @param query String
 	 * @return ResultSet
 	 */
 	
-	public ResultSet executeQuery(String query) { //executes query and returns ResultSet 
+	public ResultSet executeQuery(String query) { 
 		
 		ResultSet result;
 		
@@ -454,6 +673,8 @@ public class MySQLdbManager {
 		}
 		
 		try {
+			
+			dbConnection.setAutoCommit(true); // now we are not working with transactions
 			
 			sqlStatement = dbConnection.createStatement();
 			result = sqlStatement.executeQuery(query);
@@ -475,13 +696,123 @@ public class MySQLdbManager {
 	}
 	
 	/**
+	 * Executes query transaction and returns ResultSet with data. For SELECT...
+	 * Warning! Prone to SQL injection!!!
+	 * 
+	 * @param expectedQueriesWithoutResultSet int[] Index of the special query with null or without ResultSet.
+	 * Used not to rise exception for query which is not SELECT (may fail because of that) or SELECT which returns nothing. Can be null.
+	 * Attention!!! NO EXCEPTIONS AT ALL will be raised for the selected query.
+	 * 
+	 * @param query String...
+	 * @return ResultSet[]
+	 */
+	
+	public ResultSet[] executeQueryTransaction(int[] expectedQueriesWithoutResultSet, String... query) { 
+		
+		ResultSet[] result = null;
+		
+		if (query == null) {
+			
+			lastError = "Uninitialized query!";
+			return result;
+		}
+		
+		if (!isConnected()) {
+			
+			lastError = "No connection!";
+			return result;
+		}
+		else {
+			lastError = null;
+		}
+		
+		boolean notInTheList = true;
+		int i = 0, j = 0;		
+		tsqlStatement = new Statement[query.length];
+		result = new ResultSet[query.length];
+		
+		try {
+			
+			dbConnection.setAutoCommit(false); // now we are working with transactions
+			
+			for (i = 0; i < query.length; i++) {
+				
+				tsqlStatement[i] = dbConnection.createStatement();
+				
+				if (expectedQueriesWithoutResultSet == null) {
+					
+					result[i] = sqlStatement.executeQuery(query[i]);
+				}
+				else {
+					
+					//check if the query in in the expectedQueriesWithoutResultSet list
+					
+					for (j = 0, notInTheList = true; j < expectedQueriesWithoutResultSet.length; j++) {
+						
+						if (expectedQueriesWithoutResultSet[j] == i) {
+							
+							notInTheList = false;
+							
+							try {
+								
+								result[i] = sqlStatement.executeQuery(query[i]);
+							}
+							catch (Exception specialCase) {
+								
+							}
+							
+							break;
+						}
+					}
+					
+					if (notInTheList == true) {
+						
+						result[i] = sqlStatement.executeQuery(query[i]);
+					}
+				}
+					
+			}
+			
+			dbConnection.commit();
+			
+			for (i = 0; i < query.length; i++) {
+				
+				try {
+					
+					result[i].first();
+				}
+				catch (Exception ex) {
+					
+				}
+			}
+			
+		}
+		catch (SQLException ex) {
+			
+			lastError = ex.getMessage();
+			
+			try {
+			
+				dbConnection.rollback();
+			}
+			catch (SQLException ex2) {
+				
+			}
+			
+			return null;
+		}
+		
+		return result;		
+	}
+	
+	/**
 	 * Executes parameterized query and returns ResultSet with data. For SELECT...
 	 * @param query String
 	 * @param parameters Object (for class variable wrappers like String, Integer, etc. only from java.lang !!!!)
 	 * @return ResultSet
 	 */
 	
-	public ResultSet executeParameterizedQuery(String query, Object... parameters) { //executes query and returns ResultSet 
+	public ResultSet executeParameterizedQuery(String query, Object... parameters) { 
 		
 		ResultSet result;
 		
@@ -495,6 +826,8 @@ public class MySQLdbManager {
 		}
 		
 		try {
+			
+			dbConnection.setAutoCommit(true); // now we are not working with transactions
 			
 			pSqlStatement = dbConnection.prepareStatement(query);
 			
@@ -523,8 +856,323 @@ public class MySQLdbManager {
 	}
 	
 	/**
+	 * Executes parameterized query transaction and returns ResultSet with data. For SELECT...
+	 * 
+	 * @param expectedQueriesWithoutResultSet int[] Index of the special query with null or without ResultSet.
+	 * Used not to rise exception for query which is not SELECT or SELECT which returns nothing. Can be null.
+	 * Attention!!! NO EXCEPTIONS AT ALL will be raised for the selected query.
+	 * 
+	 * @param queriesAndParameters SqlQueryAndParametersMixer
+	 * 
+	 * @return ResultSet[]
+	 */
+	
+	public ResultSet[] executeParameterizedQueryTransaction(int[] expectedQueriesWithoutResultSet, SqlQueryAndParametersMixer... queriesAndParameters) {
+		
+		ResultSet[] result = null;
+		
+		if (queriesAndParameters == null) {
+			
+			lastError = "Uninitialized queriesAndParameters!";
+			return null;
+		}
+		
+		if (!isConnected()) {
+			
+			lastError = "No connection!";
+			return null;
+		}
+		else {
+			lastError = null;
+		}
+		
+		int i = 0, j = 0;
+		boolean notInTheList = true;
+		result = new ResultSet[queriesAndParameters.length];
+		tpSqlStatement = new PreparedStatement[queriesAndParameters.length];
+		
+		try {
+			
+			dbConnection.setAutoCommit(false); // now we are working with transactions
+			
+			for (i = 0; i < queriesAndParameters.length; i++) {
+
+				tpSqlStatement[i] = dbConnection.prepareStatement(queriesAndParameters[i].getQuery());
+				
+				if (queriesAndParameters[i].getParameters() != null) {
+					
+					for (j = 0; j < queriesAndParameters[i].getParameters().length; j++) {
+						
+						tpSqlStatement[i].setObject(j + 1, queriesAndParameters[i].getParameters()[j]);
+					}
+				}
+				
+				if (expectedQueriesWithoutResultSet == null) {
+					
+					result[i] = tpSqlStatement[i].executeQuery();
+				}
+				else {
+					
+					//check if the query in in the expectedQueriesWithoutResultSet list
+					
+					for (j = 0, notInTheList = true; j < expectedQueriesWithoutResultSet.length; j++) {
+						
+						if (expectedQueriesWithoutResultSet[j] == i) {
+							
+							notInTheList = false;
+							
+							try {
+								
+								result[i] = tpSqlStatement[i].executeQuery();
+							}
+							catch (Exception specialCase) {
+								
+							}
+							
+							break;
+						}
+					}
+					
+					if (notInTheList == true) {
+						
+						result[i] = tpSqlStatement[i].executeQuery();
+					}
+				}
+			}
+			
+			dbConnection.commit();
+			
+			for (i = 0; i < queriesAndParameters.length; i++) {
+	
+				try {
+					
+					result[i].first();
+				}
+				catch (Exception ex) {
+					
+				}
+			}
+		}
+		catch (SQLException ex) {
+			
+			lastError = ex.getMessage();			
+			try {
+				dbConnection.rollback();
+			}
+			catch (Exception ex2) {
+				
+			}
+			
+			return null;
+		}
+		
+		return result;		
+	}
+	
+	/**
+	 * Executes parameterized SQL transaction, returning mixed result of Integers and ResultSets. 
+	 * @param queries String All the queries to execute in one transaction.
+	 * @return ArrayList<SqlResultSetAndIntegerMixer> combination result of Integers (number of affected things) and ResultSets
+	 * In case of total fail (wrong SQL syntax, etc.) it returns null.
+	 */
+	
+	public ArrayList<SqlResultSetAndIntegerMixer> executeMixedTransaction(String... queries) {
+		
+		if (queries == null) {
+
+			lastError = "Uninitialized queriesAndParameters!";
+			return null;
+		}
+		
+		if (!isConnected()) {
+			
+			lastError = "No connection!";
+			return null;
+		}
+		else {
+			lastError = null;
+		}
+		
+		int i = 0;
+		ArrayList<SqlResultSetAndIntegerMixer> result = new ArrayList<SqlResultSetAndIntegerMixer>(queries.length);		
+		tsqlStatement = new Statement[queries.length];
+				
+		try {
+			
+			dbConnection.setAutoCommit(false); // now we are working with transactions
+			
+			for (i = 0; i < queries.length; i++) {
+				
+				tsqlStatement[i] = dbConnection.createStatement();
+				
+				if (tsqlStatement[i].execute(queries[i]) == true) {
+				
+					result.add(i, new SqlResultSetAndIntegerMixer(tsqlStatement[i].getResultSet()));
+				} 
+				else { // add the the number of affected things is get after the commit call
+					
+					result.add(i, new SqlResultSetAndIntegerMixer());
+				}					
+			}
+			
+			dbConnection.commit();
+			
+			for (i = 0; i < queries.length; i++) { // get affected things count where possible
+				
+				if (result.get(i).isInitialized == false) {
+					
+					result.get(i).Initialize(tsqlStatement[i].getUpdateCount());
+				}
+				else {
+					
+					try {
+						
+						if (result.get(i).isResultSetInside() == true) {
+							
+							((ResultSet)result.get(i).getContent()).first(); 
+						}
+					}
+					catch (SQLException se) {
+						
+					}
+				}
+			}
+		}
+		catch (SQLException ex) {
+			
+			lastError = ex.getMessage();
+			
+			try {
+				dbConnection.rollback();
+			}
+			catch (Exception ex2) {
+				
+			}
+			
+			return null;
+		}
+		
+		return result;		
+	}
+	
+	/**
+	 * Executes parameterized SQL transaction, returning mixed result of Integers and ResultSets. 
+	 * @param queriesAndParameters SqlQueryAndParametersMixer
+	 * @return ArrayList<SqlResultSetAndIntegerMixer> combination result of Integers (number of affected things) and ResultSets
+	 * In case of total fail (wrong SQL syntax, etc.) it returns null.
+	 */
+	
+	public ArrayList<SqlResultSetAndIntegerMixer> executeMixedParameterizedTransaction(SqlQueryAndParametersMixer... queriesAndParameters) {
+		
+		if (queriesAndParameters == null) {
+
+			lastError = "Uninitialized queriesAndParameters!";
+			return null;
+		}
+		
+		if (!isConnected()) {
+			
+			lastError = "No connection!";
+			return null;
+		}
+		else {
+			lastError = null;
+		}
+		
+		int i = 0, j = 0;
+		ArrayList<SqlResultSetAndIntegerMixer> result = new ArrayList<SqlResultSetAndIntegerMixer>(queriesAndParameters.length);		
+		tpSqlStatement = new PreparedStatement[queriesAndParameters.length];
+				
+		try {
+			
+			dbConnection.setAutoCommit(false); // now we are working with transactions
+			
+			for (i = 0, j = 0; i < queriesAndParameters.length; i++) {
+				
+				tpSqlStatement[i] = dbConnection.prepareStatement(queriesAndParameters[i].getQuery());
+				
+				if (queriesAndParameters[i].getParameters() != null) {
+				
+					for (j = 0; j < queriesAndParameters[i].getParameters().length; j++) {
+							
+						tpSqlStatement[i].setObject(j + 1, queriesAndParameters[i].getParameters()[j]);
+					}				
+				}
+				if (tpSqlStatement[i].execute() == true) {
+				
+					result.add(i, new SqlResultSetAndIntegerMixer(tpSqlStatement[i].getResultSet()));
+				} 
+				else { // add the the number of affected things is get after the commit call
+					
+					result.add(i, new SqlResultSetAndIntegerMixer());
+				}
+					
+			}
+			
+			dbConnection.commit();
+			
+			for (i = 0; i < queriesAndParameters.length; i++) { // get affected things count where possible
+				
+				if (result.get(i).isInitialized == false) {
+					
+					result.get(i).Initialize(tpSqlStatement[i].getUpdateCount());
+				}
+				else {
+					
+					try {
+						
+						if (result.get(i).isResultSetInside() == true) {
+							
+							((ResultSet)result.get(i).getContent()).first(); 
+						}
+					}
+					catch (SQLException se) {
+						
+					}
+				}
+			}
+		}
+		catch (SQLException ex) {
+			
+			lastError = ex.getMessage();
+			
+			try {
+				dbConnection.rollback();
+			}
+			catch (Exception ex2) {
+				
+			}
+			
+			return null;
+		}
+		
+		return result;		
+	}
+	
+	/**
+	 * Tries manually to roll back the last committed SQL transaction.
+	 */
+	
+	public void tryRollbackLastTransaction() {
+		
+		if (dbConnection != null) {
+		
+			try {
+				
+				if (dbConnection.getAutoCommit() == false) {
+					
+					dbConnection.rollback();					
+				}
+			}
+			catch (Exception ex) {
+				
+			}
+		}
+	}
+	
+	/**
 	 * Frees memory resources allocated by executeQuery() and executeNonQuery().
-	 * Recommended to use before executeQuery() or executeNonQuery() call.
+	 * Recommended to use before the upper functions.
 	 */
 	
 	public void freeQueryNonQueryTemporaryResults() {
@@ -544,15 +1192,39 @@ public class MySQLdbManager {
 	}
 	
 	/**
+	 * Frees memory resources allocated by executeQueryTransaction() and executeNonQueryTransaction().
+	 * Recommended to use before the upper functions.
+	 */
+	
+	public void freeQueryNonQueryTransactionTemporaryResults() {
+		
+		lastError = null;
+		
+		if (tsqlStatement != null) {
+			
+			for (int i = 0; i < tsqlStatement.length; i++) {
+			
+				try {
+					
+					tsqlStatement[i].close();
+				}
+				catch (Exception ex) {
+					lastError = ex.getMessage();
+				}
+			}
+		}
+	}
+	
+	/**
 	 * Frees memory resources allocated by executeParameterizedQuery() and executeParameterizedNonQuery().
-	 * Recommended to use before executeParameterizedQuery() or executeParameterizedNonQuery() call.
+	 * Recommended to use before the upper functions.
 	 */
 	
 	public void freeParameterizedQueryNonQueryTemporaryResults() {
 		
 		lastError = null;
 		
-		if (sqlStatement != null) {
+		if (pSqlStatement != null) {
 			
 			try {
 				
@@ -560,6 +1232,31 @@ public class MySQLdbManager {
 			}
 			catch (Exception ex) {
 				lastError = ex.getMessage();
+			}
+		}
+	}
+	
+	/**
+	 * Frees memory resources allocated by executeParameterizedQueryTransaction(), executeParameterizedNonQueryTransaction() and
+	 * executeMixedParameterizedTransaction().
+	 * Recommended to use before the upper functions.
+	 */
+	
+	public void freeParameterizedQueryNonQueryTransactionTemporaryResults() {
+		
+		lastError = null;
+		
+		if (tpSqlStatement != null) {
+			
+			for (int i = 0; i < tpSqlStatement.length; i++) {
+				
+				try {
+					
+					tpSqlStatement[i].close();
+				}
+				catch (Exception ex) {
+					lastError = ex.getMessage();
+				}
 			}
 		}
 	}

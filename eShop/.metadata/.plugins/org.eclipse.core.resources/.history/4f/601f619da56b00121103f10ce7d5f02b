@@ -1,0 +1,16 @@
+/**
+ * <p> Title: SqlResultSetAndIntegerMixer </p>
+ * <p> Description: Special Integer and ResultSet class wrapper mixer for MySQLdbManager class
+ * to return result from executed mixed sql transaction MySQLdbManager methods. 
+ * </p>
+ * @version 1.00
+ * @author (C) 30.01.2013 -  zhgzhg
+ */
+
+package database_management;
+
+import java.sql.*;
+
+public class SqlResultSetAndIntegerMixer {
+
+}

@@ -9,7 +9,6 @@ import java.awt.event.WindowEvent;
 //import java.awt.event.WindowListener;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
-import java.awt.event.InputEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
@@ -615,7 +614,7 @@ public class mainWindow extends JFrame {
 	private void jbInit() throws Exception {
 		addWindowListener(new ThisWindowListener());
 		getContentPane().setLayout(new BorderLayout());
-		setTitle("eShop 1.00 (C) 2013 Желян Гуглев");
+		setTitle("eShop 1.01 (C) 2013 Желян Гуглев");
 		setName("mainWindow");
 		
 		setJMenuBar(mainWindowMenu);
@@ -699,7 +698,7 @@ public class mainWindow extends JFrame {
 				ColumnSpec.decode("8px"),
 				FormFactory.DEFAULT_COLSPEC,
 				ColumnSpec.decode("16px"),
-				ColumnSpec.decode("125dlu")},
+				ColumnSpec.decode("right:123px:grow(1.0)")},
 			new RowSpec[] {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("16px")}));
@@ -731,7 +730,7 @@ public class mainWindow extends JFrame {
 		mainWindowStatusPanelLoggedUserLogout.setDisplayedMnemonicIndex(0);
 		mainWindowStatusPanelLoggedUserLogout.setEnabled(false);
 		
-		mainWindowStatusPanel.add(mainWindowStatusPanelConnectionInfoLabel, new CellConstraints(8, 1, 1, 2, CellConstraints.FILL, CellConstraints.FILL));
+		mainWindowStatusPanel.add(mainWindowStatusPanelConnectionInfoLabel, new CellConstraints(8, 1, 1, 2, CellConstraints.RIGHT, CellConstraints.FILL));
 		mainWindowStatusPanelConnectionInfoLabel.setForeground(Color.GRAY);
 		mainWindowStatusPanelConnectionInfoLabel.setText("Свързаност:");
 		mainWindowStatusPanelSetEnabled(false);
@@ -1330,7 +1329,7 @@ public class mainWindow extends JFrame {
 			}
 		}
 		
-		JOptionPane.showMessageDialog(this, info, "Информация за връзката с БД", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(this, info, "Информация за връзката с БД", JOptionPane.INFORMATION_MESSAGE);	
 	}
 	
 	////////////////////////////////////////////////////////////////////////
@@ -1497,7 +1496,7 @@ public class mainWindow extends JFrame {
 	
 	protected void helpAbout_actionPerformed(ActionEvent e) {
 		
-		JOptionPane.showMessageDialog(this, "eShop ver.-1.00\n(C) 2013 Желян Гуглев\n\nПловдивски унирерситет \"Паисий Хилендарски\"," +
+		JOptionPane.showMessageDialog(this, "eShop ver.-1.01\n(C) 2013 Желян Гуглев\n\nПловдивски унирерситет \"Паисий Хилендарски\"," +
 				" България\nUniversity of Plovdiv \"Paisii Hilendarski\", Bulgaria\n\nОригиналният код достъпен за изтегляне на адрес:\n\n                        http://github.com/zhgzhg/eshop\n\n" + 
 				"при съобразяване с лицензните условия посочени там!!!", "Относно", JOptionPane.INFORMATION_MESSAGE);
 	}

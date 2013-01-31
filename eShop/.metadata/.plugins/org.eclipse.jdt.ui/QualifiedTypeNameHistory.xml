@@ -27,7 +27,6 @@
 <fullyQualifiedTypeName name="javax.swing.table.TableColumn"/>
 <fullyQualifiedTypeName name="javax.swing.table.TableColumnModel"/>
 <fullyQualifiedTypeName name="tables_management.Tables_db_manager"/>
-<fullyQualifiedTypeName name="database_management.MySQLdbManager"/>
 <fullyQualifiedTypeName name="combobox_products_database_management.ComboBox_Products_db_manager"/>
 <fullyQualifiedTypeName name="javax.print.attribute.standard.PDLOverrideSupported"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
@@ -48,7 +47,15 @@
 <fullyQualifiedTypeName name="javax.swing.JDialog"/>
 <fullyQualifiedTypeName name="operatorUserLoginWindow"/>
 <fullyQualifiedTypeName name="mainWindow.InquiriesTableTableModel"/>
-<fullyQualifiedTypeName name="databaseConnectWindow"/>
+<fullyQualifiedTypeName name="java.sql.Statement"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="database_management.MySQLdbManager"/>
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="databaseConnectWindow"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="database_management.SqlResultSetAndIntegerMixer"/>
+<fullyQualifiedTypeName name="jtables_database_management.Tables_db_manager"/>
+<fullyQualifiedTypeName name="database_management.SqlQueryAndParametersMixer"/>
 </qualifiedTypeNameHistroy>
