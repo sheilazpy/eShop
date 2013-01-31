@@ -153,8 +153,9 @@ public class databaseConnectWindow extends JDialog/*JFrame*/ {
 		
 		dbPortal = new MySQLdbManager(mysqlServerAddressTextField.getText(),
 				mysqlDatabaseNameTextField.getText(), Integer.parseInt(mysqlPortTextField.getText()),
-				mysqlUsernameTextField.getText(), password);		
+				mysqlUsernameTextField.getText(), password);
 		
+		dbPortal.setMySQLTransactionIsolationLevel(MySQLdbManager.TRANSACTION_REPEATABLE_READ);		
 		
 		if (dbPortal.connect() == false) { // now check for database name that is not existing
 			
@@ -254,23 +255,23 @@ public class databaseConnectWindow extends JDialog/*JFrame*/ {
 		dbPortal.freeQueryNonQueryTemporaryResults();
 		dbPortal.executeNonQuery("CREATE TABLE operators (operator_id int NOT NULL AUTO_INCREMENT primary key," + 
 				"operator_username nvarchar(20) NOT NULL, operator_password nvarchar(64) NOT NULL," + 
-				"operator_first_name nvarchar(20) NOT NULL, operator_last_name nvarchar(20) NOT NULL)");
+				"operator_first_name nvarchar(20) NOT NULL, operator_last_name nvarchar(20) NOT NULL) ENGINE=InnoDB");
 		
 		dbPortal.freeQueryNonQueryTemporaryResults();
 		dbPortal.executeNonQuery("CREATE TABLE orders (order_id int NOT NULL AUTO_INCREMENT primary key," + 
 				"order_time datetime NOT NULL, order_operator_id int NOT NULL," +
-				"CONSTRAINT FK_OPERATORS FOREIGN KEY (order_operator_id) REFERENCES operators(operator_id) ON DELETE CASCADE ON UPDATE CASCADE)");
+				"CONSTRAINT FK_OPERATORS FOREIGN KEY (order_operator_id) REFERENCES operators(operator_id) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB");
 
 		dbPortal.freeQueryNonQueryTemporaryResults();
 		dbPortal.executeNonQuery("CREATE TABLE products (product_id int NOT NULL AUTO_INCREMENT primary key," + 
-				"product_name nvarchar(30) NOT NULL, product_quantity int NOT NULL,	product_price decimal(10,2) NOT NULL)");
+				"product_name nvarchar(30) NOT NULL, product_quantity int NOT NULL,	product_price decimal(10,2) NOT NULL) ENGINE=InnoDB");
 
 		dbPortal.freeQueryNonQueryTemporaryResults();
 		dbPortal.executeNonQuery("CREATE TABLE order_details (order_detail_id int NOT NULL AUTO_INCREMENT primary key," + 
 				"order_detail_order_id int NOT NULL, order_detail_product_id int NOT NULL, " +
 				"order_detail_product_quantity int NOT NULL," +
 				"CONSTRAINT FK_ORDERS FOREIGN KEY (order_detail_order_id) REFERENCES orders(order_id) ON DELETE CASCADE ON UPDATE CASCADE," +
-				"CONSTRAINT FK_PRODUCTS FOREIGN KEY (order_detail_product_id) REFERENCES products(product_id) ON DELETE CASCADE ON UPDATE CASCADE)");
+				"CONSTRAINT FK_PRODUCTS FOREIGN KEY (order_detail_product_id) REFERENCES products(product_id) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB");
 		
 		/* for testing only; not needed any more
 		try {

@@ -1,6 +1,6 @@
 /*
  * Easy ComboBox population with products/operators data from the database and data accuracy control.
- * (C) 19.01.2013 - 21.01.2013 zhgzhg
+ * (C) 31.01.2013 - zhgzhg
  */
 
 package combobox_database_management;
@@ -170,6 +170,8 @@ public class ComboBox_Products_db_manager {
 		
 		//now update this value in the database
 		
+		//FIXME transaction + checks
+		
 		dbPortal.freeQueryNonQueryTemporaryResults();
 		
 		if (dbPortal.executeNonQuery("UPDATE products SET product_quantity=" + productsQuantities[inStringArrayId].toString() + 
@@ -203,6 +205,8 @@ public class ComboBox_Products_db_manager {
 		productsQuantities[inStringArrayId] = new Integer(productsQuantities[inStringArrayId].intValue() + byHowMuch);
 		
 		//now update this value in the database
+		
+		//FIXME transaction + checks
 		
 		dbPortal.freeQueryNonQueryTemporaryResults();
 		

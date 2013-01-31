@@ -539,12 +539,31 @@ public class mainWindow extends JFrame {
 			if (tdm == null) {
 				Init();
 			}
-			tdm.setUpdateQuery("UPDATE products SET product_name=?, product_quantity=?, product_price=? WHERE product_id=?",
-					name, quantity, price, Integer.parseInt(CELLS[rowNumber][3]));
+			
+			// safe quantify modification:
+			
+			Integer quantityDifference = ((Integer)quantity).intValue() - (new Integer(CELLS[rowNumber][1]));
+			
+			tdm.setUpdateQuery("UPDATE products SET product_name=?, product_quantity=product_quantity+?, product_price=? WHERE product_id=?",
+					name, quantityDifference, price, Integer.parseInt(CELLS[rowNumber][3]));
 			tdm.setPopulateQuery("SELECT product_name, product_quantity, product_price, product_id FROM products WHERE product_id=" + 
 					CELLS[rowNumber][3]);
 			
 			CELLS = tdm.performRowUpdate(rowNumber);
+			
+			if (Integer.parseInt(CELLS[rowNumber][1]) < 0) { // someone has already reduced the maximum available quantity of that product
+				
+				tdm.setUpdateQuery("UPDATE products SET product_name=?, product_quantity=product_quantity+?, product_price=? WHERE product_id=?",
+						name, quantityDifference * (-1), price, Integer.parseInt(CELLS[rowNumber][3]));
+				tdm.setPopulateQuery("SELECT product_name, product_quantity, product_price, product_id FROM products WHERE product_id=" + 
+						CELLS[rowNumber][3]);
+				
+				CELLS = tdm.performRowUpdate(rowNumber);
+				
+				JOptionPane.showMessageDialog(null, "Някой точно преди вас е намалил текущото количество!\nОпитайте пак!", 
+						"Грешка при заделянето на количество", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
 			
 			if (tdm.getLastError() != null) {
 				JOptionPane.showMessageDialog(null, tdm.getLastError(), "Грешка", JOptionPane.ERROR_MESSAGE);

@@ -51,11 +51,12 @@
 <fullyQualifiedTypeName name="java.awt.List"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-<fullyQualifiedTypeName name="database_management.MySQLdbManager"/>
-<fullyQualifiedTypeName name="java.sql.SQLException"/>
-<fullyQualifiedTypeName name="databaseConnectWindow"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="database_management.SqlResultSetAndIntegerMixer"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
 <fullyQualifiedTypeName name="jtables_database_management.Tables_db_manager"/>
+<fullyQualifiedTypeName name="database_management.MySQLdbManager"/>
 <fullyQualifiedTypeName name="database_management.SqlQueryAndParametersMixer"/>
+<fullyQualifiedTypeName name="databaseConnectWindow"/>
 </qualifiedTypeNameHistroy>
