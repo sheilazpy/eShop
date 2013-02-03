@@ -621,6 +621,7 @@ public class mainWindow extends JFrame {
 	public mainWindow() {
 		super();
 		setBounds(100, 100, 840, 438);
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainWindowPointer = this;
 		try {

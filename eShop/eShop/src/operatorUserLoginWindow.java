@@ -53,6 +53,7 @@ public class operatorUserLoginWindow extends /*JFrame*/ JDialog {
 	public operatorUserLoginWindow(Frame owner, boolean modal) {
 		super(owner, modal);
 		setBounds(100, 100, 518, 242);
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		try {
 			jbInit();

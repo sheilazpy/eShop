@@ -41,6 +41,7 @@ public class databaseConnectWindow extends JDialog/*JFrame*/ {
 	public databaseConnectWindow(Frame owner, boolean modal) {
 		super(owner, modal);
 		setBounds(100, 100, 384, 203);
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		try {
 			jbInit();
