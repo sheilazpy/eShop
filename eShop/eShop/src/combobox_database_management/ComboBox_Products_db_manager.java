@@ -1,16 +1,18 @@
 /*
  * Easy ComboBox population with products/operators data from the database and data accuracy control.
- * (C) 31.01.2013 - zhgzhg
+ * (C) 31.01.2013 - 03.02.2013 zhgzhg
  */
 
 package combobox_database_management;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 import database_management.MySQLdbManager;
+import database_management.SqlResultSetAndIntegerMixer;
 
 public class ComboBox_Products_db_manager {	
 	
@@ -166,29 +168,73 @@ public class ComboBox_Products_db_manager {
 			return result;
 		}
 		
-		productsQuantities[inStringArrayId] = new Integer(productsQuantities[inStringArrayId].intValue() - byHowMuch);
+		dbPortal.freeQueryNonQueryTransactionTemporaryResults();
 		
-		//now update this value in the database
+		ArrayList<SqlResultSetAndIntegerMixer> rs =
+		dbPortal.executeMixedTransaction("UPDATE products SET product_quantity=product_quantity-" + byHowMuch + 
+				" WHERE product_id=" + productsIds[inStringArrayId].intValue(), "SELECT product_quantity FROM products WHERE product_id=" +
+				productsIds[inStringArrayId].intValue());
 		
-		//FIXME transaction + checks
-		
-		dbPortal.freeQueryNonQueryTemporaryResults();
-		
-		if (dbPortal.executeNonQuery("UPDATE products SET product_quantity=" + productsQuantities[inStringArrayId].toString() + 
-				" WHERE product_id=" + productsIds[inStringArrayId].intValue()) != 1) { //in case of fail we restore the previous quantity
+		if (((Integer)rs.get(0).getContent()).intValue() < 1) {
 			
-			productsQuantities[inStringArrayId] = new Integer(productsQuantities[inStringArrayId].intValue() + byHowMuch);
 			JOptionPane.showMessageDialog(null, "Грешка при обновяване на наличното количество на продукт в базата данни:\n" + 
 					dbPortal.getLastError(), "Грешка при редактиране на налично продуктово количество", JOptionPane.ERROR_MESSAGE);
+			
+			result = false;
 		}
-		else {
-			result = true;
-		}
+		else {			
 		
+			if (((ResultSet)rs.get(1).getContent()) == null) {
+				
+				JOptionPane.showMessageDialog(null, "Грешка при обновяване на наличното количество на продукт в базата данни:\n" + 
+						dbPortal.getLastError(), "Грешка при редактиране на налично продуктово количество", JOptionPane.ERROR_MESSAGE);
+				result = false;
+			}
+			else {
+				
+				try {
+					
+					int restQuantity = 0;
+					
+					if ((restQuantity = ((ResultSet)rs.get(1).getContent()).getInt(1)) < 0) { // someone has exhausted the quantity
+						
+						result = false;
+						
+						JOptionPane.showMessageDialog(null, "Зададеното от вас количество е било намалено от някой друг.\nПробвайте пак!",
+								"Грешка при обновяване на продукта", JOptionPane.ERROR_MESSAGE);
+						
+						if (dbPortal.executeNonQuery("UPDATE products SET product_quantity=product_quantity+" + byHowMuch + 
+								" WHERE product_id=" + productsIds[inStringArrayId].intValue()) != 1) {							
+							
+							JOptionPane.showMessageDialog(null, "Възникна проблем при обновяването на наличното количество на продукта!\n" + 
+									"Възможно възникване на неконсистентни данни! Моля, проверете проблема!", "Грешка при промяна на данните за продукт", 
+									JOptionPane.ERROR_MESSAGE);
+						}
+						else {
+							productsQuantities[inStringArrayId] = new Integer(restQuantity);
+						}
+					}
+					else {
+					
+						//update the quantity in the list
+						result = true;
+						
+						productsQuantities[inStringArrayId] = new Integer(productsQuantities[inStringArrayId].intValue() - byHowMuch);
+					}
+				}
+				catch (SQLException ex) {
+					
+					result = false;
+					
+					JOptionPane.showMessageDialog(null, "Възникна проблем при обновяването на наличното количество на продукта!\n" + 
+							"Възможно възникване на неконсистентни данни! Моля, проверете проблема!", "Грешка при промяна на данните за продукт", 
+							JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		}
 		
 		return result;
-	}
-	
+	}	
 	
 	public boolean increaseProductQuantityFromProductStringArrayId(int inStringArrayId, int byHowMuch) {
 		
@@ -198,32 +244,70 @@ public class ComboBox_Products_db_manager {
 			return result;
 		}
 		
-		/*if (byHowMuch ??? productsQuantities[inStringArrayId]) { //FIXME NO ERROR CHECK HERE NEEDED???
-			return result;
-		}*/
+		dbPortal.freeQueryNonQueryTransactionTemporaryResults();
 		
-		productsQuantities[inStringArrayId] = new Integer(productsQuantities[inStringArrayId].intValue() + byHowMuch);
+		ArrayList<SqlResultSetAndIntegerMixer> rs =
+		dbPortal.executeMixedTransaction("UPDATE products SET product_quantity=product_quantity+" + byHowMuch + 
+				" WHERE product_id=" + productsIds[inStringArrayId].intValue(), "SELECT product_quantity FROM products WHERE product_id=" +
+				productsIds[inStringArrayId].intValue());
 		
-		//now update this value in the database
-		
-		//FIXME transaction + checks
-		
-		dbPortal.freeQueryNonQueryTemporaryResults();
-		
-		if (dbPortal.executeNonQuery("UPDATE products SET product_quantity=" + productsQuantities[inStringArrayId].toString() + 
-				" WHERE product_id=" +	productsIds[inStringArrayId].intValue()) != 1) { //in case of fail we restore the previous quantity
+		if (((Integer)rs.get(0).getContent()).intValue() < 1) {
 			
-			productsQuantities[inStringArrayId] = new Integer(productsQuantities[inStringArrayId].intValue() - byHowMuch);
 			JOptionPane.showMessageDialog(null, "Грешка при обновяване на наличното количество на продукт в базата данни:\n" + 
 					dbPortal.getLastError(), "Грешка при редактиране на налично продуктово количество", JOptionPane.ERROR_MESSAGE);
+			
+			result = false;
 		}
-		else {
-			result = true;
+		else {			
+		
+			if (((ResultSet)rs.get(1).getContent()) == null) {
+				
+				JOptionPane.showMessageDialog(null, "Грешка при обновяване на наличното количество на продукт в базата данни:\n" + 
+						dbPortal.getLastError(), "Грешка при редактиране на налично продуктово количество", JOptionPane.ERROR_MESSAGE);
+				result = false;
+			}
+			else {
+				
+				try {
+					if (((ResultSet)rs.get(1).getContent()).getInt(1) < 0) { // someone has exhausted the quantity more than allowed
+						
+						result = false;
+						
+						JOptionPane.showMessageDialog(null, "Зададеното от вас количество е било намалено от някой друг.\nПробвайте пак!",
+								"Грешка при обновяване на продукта", JOptionPane.ERROR_MESSAGE);
+						
+						if (dbPortal.executeNonQuery("UPDATE products SET product_quantity=0 WHERE product_id=" + 
+								productsIds[inStringArrayId].intValue()) != 1) {							
+							
+							JOptionPane.showMessageDialog(null, "Възникна проблем при обновяването на наличното количество на продукта!\n" + 
+									"Възможно възникване на неконсистентни данни! Моля, проверете проблема!", "Грешка при промяна на данните за продукт", 
+									JOptionPane.ERROR_MESSAGE);
+						}
+						else {
+							productsQuantities[inStringArrayId] = new Integer(0);
+						}
+					}
+					else {
+					
+						//update the quantity in the list
+						result = true;
+						
+						productsQuantities[inStringArrayId] = new Integer(productsQuantities[inStringArrayId].intValue() + byHowMuch);
+					}
+				}
+				catch (SQLException ex) {
+					
+					result = false;
+					
+					JOptionPane.showMessageDialog(null, "Възникна проблем при обновяването на наличното количество на продукта!\n" + 
+							"Възможно възникване на неконсистентни данни! Моля, проверете проблема!", "Грешка при промяна на данните за продукт", 
+							JOptionPane.ERROR_MESSAGE);
+				}
+			}
 		}
 		
 		return result;
 	}
-	
 	
 	public void finalize() {
 		

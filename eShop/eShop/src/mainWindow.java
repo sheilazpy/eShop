@@ -270,7 +270,7 @@ public class mainWindow extends JFrame {
 			CELLS = tdm.performPopulate();				
 		}
 		
-		public void insertNewRow(Integer orderId, Integer productId,Integer productQuantity) {
+		public void insertNewRow(Integer orderId, Integer productId, Integer productQuantity) {
 			
 			if (tdm == null) {
 				Init();
@@ -1545,6 +1545,7 @@ public class mainWindow extends JFrame {
 		
 		if ((ordersManagementPanel.isVisible() == true)  && (e.getActionCommand().compareTo("OrdersManagementPanelRefresh") != 0)) { //if opened on second click just close it
 			
+			cbpDbManager = null;
 			ordersManagementPanel.setVisible(false);
 			return;
 		}
@@ -1582,6 +1583,7 @@ public class mainWindow extends JFrame {
 		ordersManagementPanel.setVisible(true);
 		getContentPane().add(ordersManagementPanel); // we are using BorderLayout so we need to add this panel again in order to get visible
 	}
+	
 	public void operationsInquiries_actionPerformed(ActionEvent e) {
 		
 		productsManagementPanel.setVisible(false);
@@ -1844,7 +1846,7 @@ public class mainWindow extends JFrame {
 					((SpinnerNumberModel)ordersManagementOperationsPanelProductQuantitySpinner.getModel()).setMaximum(quantity.intValue());
 										
 					if (Integer.parseInt(ordersManagementOperationsPanelProductQuantitySpinner.getValue().toString()) > 
-					quantity.intValue()) { // if current quantity is out of the new maximum now reduce it
+					quantity.intValue()) { // if the current quantity is out of the new maximum now reduce it
 						
 						ordersManagementOperationsPanelProductQuantitySpinner.setValue(quantity);
 					}
@@ -1910,9 +1912,7 @@ public class mainWindow extends JFrame {
 				if (cbpDbManager.decreaseProductQuantityFromProductStringArrayId(
 						ordersManagementOperationsPanelProductsComboBox.getSelectedIndex(),	quantity) == false) {
 					
-					JOptionPane.showMessageDialog(this, "Проблем при обновяване на новите актуални количества на\n" + 
-							"добавеният продукт! Моля, проверете (отстранете) проблема, защото туко що\n" + 
-							"възникна опасност от неконсистентни данни!!!!!", "Опасност!!!", JOptionPane.WARNING_MESSAGE);
+					((OrderDetailsTableTableModel)orderDetailsTable.getModel()).removeSelectedRow(orderDetailsTable.getRowCount() - 1);					
 				}
 				
 				((OrderDetailsTableTableModel)orderDetailsTable.getModel()).fireTableDataChanged();
@@ -2003,16 +2003,18 @@ public class mainWindow extends JFrame {
 			newProductQuantity = Integer.parseInt(ordersManagementOperationsPanelProductQuantitySpinner.getValue().toString());
 			
 			if (newProductQuantity == -1) {
+				
 				JOptionPane.showMessageDialog(this, "Проблем (2) с редакцията на продукт.", "Неочакван проблем", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
 			
 			if (newProductQuantity == 0) {
+				
 				JOptionPane.showMessageDialog(this, "Невалидно ново количество!", "Грешка при редактиране на продукт", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
 			
-			if (newProductId == currentProductId) { //only modify only the quantity
+			if (newProductId == currentProductId) { // modify only the quantity
 				
 				if (newProductQuantity == currentProductQuantity) {
 					return;
@@ -2025,8 +2027,12 @@ public class mainWindow extends JFrame {
 					((OrderDetailsTableTableModel)orderDetailsTable.getModel()).updateSelectedRow(orderDetailsTable.getSelectedRow(), 
 							currentProductId, newProductQuantity);
 					
-					cbpDbManager.decreaseProductQuantityFromProductStringArrayId(ordersManagementOperationsPanelProductsComboBox.getSelectedIndex(), 
-							newDiffQuantity);
+					if (cbpDbManager.decreaseProductQuantityFromProductStringArrayId(ordersManagementOperationsPanelProductsComboBox.getSelectedIndex(), 
+							newDiffQuantity) == false) {
+						
+						((OrderDetailsTableTableModel)orderDetailsTable.getModel()).removeSelectedRow(orderDetailsTable.getSelectedRow());
+						return;
+					}
 				}
 				else { // increase the quantity in the database; decrease in the order
 					
@@ -2034,24 +2040,38 @@ public class mainWindow extends JFrame {
 					
 					((OrderDetailsTableTableModel)orderDetailsTable.getModel()).updateSelectedRow(orderDetailsTable.getSelectedRow(), 
 							currentProductId, newProductQuantity);
-					
-					cbpDbManager.increaseProductQuantityFromProductStringArrayId(ordersManagementOperationsPanelProductsComboBox.getSelectedIndex(), 
-							newDiffQuantity);
+
+					if (cbpDbManager.increaseProductQuantityFromProductStringArrayId(ordersManagementOperationsPanelProductsComboBox.getSelectedIndex(), 
+							newDiffQuantity) == false) {
+						
+						((OrderDetailsTableTableModel)orderDetailsTable.getModel()).removeSelectedRow(orderDetailsTable.getSelectedRow());
+						return;
+					}
 				}
 			}
-			else { // modify the product and the quantity
+			else { // modify the product and the quantity too
 			
 				// first remove the old product from the program table and database and increase it's available quantity in the database and the program
 				
 				int psaid = cbpDbManager.getProductStringArrayIdByProductDbId(currentProductId);
 				
-				cbpDbManager.increaseProductQuantityFromProductStringArrayId(psaid,	currentProductQuantity);
-				((OrderDetailsTableTableModel)orderDetailsTable.getModel()).removeSelectedRow(orderDetailsTable.getSelectedRow());
+				if (cbpDbManager.increaseProductQuantityFromProductStringArrayId(psaid,	currentProductQuantity) == true) {
+				
+					((OrderDetailsTableTableModel)orderDetailsTable.getModel()).removeSelectedRow(orderDetailsTable.getSelectedRow());
+				}
+				else { 
+					return; 
+				}
 				
 				// then insert the new product in the program table and database and decrease it's available quantity in the database and the program
 				((OrderDetailsTableTableModel)orderDetailsTable.getModel()).insertNewRow(orderId, newProductId, newProductQuantity);
-				cbpDbManager.decreaseProductQuantityFromProductStringArrayId(ordersManagementOperationsPanelProductsComboBox.getSelectedIndex(), 
-						newProductQuantity);
+					
+				if (cbpDbManager.decreaseProductQuantityFromProductStringArrayId(ordersManagementOperationsPanelProductsComboBox.getSelectedIndex(), 
+					newProductQuantity) == false) {
+				
+				((OrderDetailsTableTableModel)orderDetailsTable.getModel()).removeSelectedRow(orderDetailsTable.getSelectedRow());
+				}
+				
 			}
 			
 			((OrderDetailsTableTableModel)orderDetailsTable.getModel()).fireTableDataChanged();
