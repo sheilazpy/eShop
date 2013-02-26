@@ -1,7 +1,7 @@
 Simple university Java course project "eShop" with MySQL database support.
 
 It works as an offline shop management local tool, with basic functionality
-for products, orders and operators (users) management and references. 
+for products, orders and operators (users) management and reports.
 The interface is in Bulgarian (cyrillic) language.
 
 If you are NOT my university colleague you CAN:
