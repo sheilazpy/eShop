@@ -978,7 +978,7 @@ public class mainWindow extends JFrame {
 		inquiriesFiltersPanelOrderTotalPriceSpinner.setModel(inquiriesFiltersPanelOrderTotalPriceSpinnerNumberModel);		
 		
 		inquiriesFiltersPanel.add(inquiriesFiltersPanelOrderOperatorComboBox, new CellConstraints(5, 5));
-		
+				
 		inquiriesFiltersPanel.add(inquiriesFiltersPanelOrderDateSpinner, new CellConstraints(5, 3));
 		SpinnerDateModel sdm = new SpinnerDateModel();
 		inquiriesFiltersPanelOrderDateSpinner.setModel(sdm);
@@ -2227,11 +2227,11 @@ public class mainWindow extends JFrame {
 		if (text.length() > 0) {
 			
 			text += " AND order_operator_id" + sign + cboDbManager.getOperatorIdByOperatorStringArrayId(
-					inquiriesFiltersPanelOperatorLabelStatementsComboBox.getSelectedIndex());
+					inquiriesFiltersPanelOrderOperatorComboBox.getSelectedIndex());
 		}
 		else {
 			text += "order_operator_id" + sign + cboDbManager.getOperatorIdByOperatorStringArrayId(
-					inquiriesFiltersPanelOperatorLabelStatementsComboBox.getSelectedIndex());
+					inquiriesFiltersPanelOrderOperatorComboBox.getSelectedIndex());
 		}	
 		
 		statementsTextArea.setText(text);
@@ -2244,11 +2244,11 @@ public class mainWindow extends JFrame {
 		if (text.length() > 0) {
 			
 			text += " OR order_operator_id" + sign + cboDbManager.getOperatorIdByOperatorStringArrayId(
-					inquiriesFiltersPanelOperatorLabelStatementsComboBox.getSelectedIndex());
+					inquiriesFiltersPanelOrderOperatorComboBox.getSelectedIndex());
 		}
 		else {
 			text += "order_operator_id" + sign + cboDbManager.getOperatorIdByOperatorStringArrayId(
-					inquiriesFiltersPanelOperatorLabelStatementsComboBox.getSelectedIndex());
+					inquiriesFiltersPanelOrderOperatorComboBox.getSelectedIndex());
 		}	
 		
 		statementsTextArea.setText(text);
@@ -2339,7 +2339,7 @@ public class mainWindow extends JFrame {
 		}
 		catch (Exception ex) {			
 		}		
-		
+
 		inquiriesFiltersPanelOrderTotalPriceSpinner.setValue(totalPrice);
 	}
 	
